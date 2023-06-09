@@ -7,7 +7,7 @@
 - ![yabrough](https://img.shields.io/badge/Capt%20Brian%20Yabrough-2E46C-blue)
 
 ## 📝 Course information
-- **Course Goal**: Dvelop skills to design, implement, test, and debug microcontroller-based systems by developing operational assembly and C language programs that incorporate the built-in microcontroller functions, and by successfully interfacing the microcontroller to the external world.
+- **Course Goal**: Develop skills to design, implement, test, and debug microcontroller-based systems by developing operational assembly and C language programs that incorporate the built-in microcontroller functions, and by successfully interfacing the microcontroller to the external world.
 
 - **Course Text**: [Embedded Systems: Introduction to Robotics](https://www.amazon.com/Embedded-Systems-Introduction-Jonathan-Valvano/dp/1074544307), Johnathan W. Valvano, First Edition, 2019. ISBN: 978-1074544300.
 - **Syllabus**: Posted [here](syllabus.md).
