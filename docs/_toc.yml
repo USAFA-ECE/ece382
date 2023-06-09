@@ -1,0 +1,38 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Course Info
+    chapters:
+    - file: syllabus.md
+    - file: schedule.md
+    - file: assembly.md
+    - file: c_programming.md
+    - file: faq.md
+    - file: resources.md
+    - file: NoPointer
+  - caption: Assignments
+    chapters:
+    - file: Assignments/homework1
+    - file: Assignments/homework2
+    - file: Assignments/lab2.md
+    - file: Assignments/homework3
+    - file: Assignments/lab3.md    
+    - file: Assignments/homework4
+    - file: Assignments/lab4.md 
+    - file: Assignments/lab5.md 
+    - file: Assignments/lab8.md   
+    - file: Assignments/lab10.md   
+    - file: Assignments/lab11.md   
+    - file: Assignments/lab12.md   
+    - file: Assignments/lab13.md       
+    - file: Assignments/lab14.md   
+    - file: Assignments/lab15.md
+    - file: Assignments/lab15_calibration.ipynb
+    - file: Assignments/lab16.md
+    - file: Assignments/lab17.md  
+    - file: Assignments/project.md  
+
+    
