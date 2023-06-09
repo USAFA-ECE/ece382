@@ -1,0 +1,1093 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>🚀 Final Project &#8212; Embedded Computer Systems I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="🔬 Lab 17 Control Systems" href="lab17.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ece382.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Embedded Computer Systems I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE382 Embedded Computer Systems I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   🚩 Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   📆 Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assembly.html">
+   🔧 Assembly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c_programming.html">
+   🌜 C Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq.html">
+   🙋 FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources.html">
+   💎 Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NoPointer.html">
+   🐍 No Pointer in Python?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1.html">
+   ✏️ HW 1 Setting up CCS and Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework2.html">
+   ✏️ HW 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab2.html">
+   🔬 Lab 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework3.html">
+   ✏️ HW 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab3.html">
+   🔬 Lab 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework4.html">
+   ✏️ HW 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab4.html">
+   🔬 Lab 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab5.html">
+   🔬 Lab 5 Software Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab8.html">
+   🔬 Lab 8 I/O Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab10.html">
+   🔬 Lab 10 Multithreading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab11.html">
+   🔬 Lab 11 Serial Ports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab12.html">
+   🔬 Lab 12 Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab13.html">
+   🔬 Lab 13 Timers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab14.html">
+   🔬 Lab 14 Real-Time Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab15.html">
+   🔬 Lab 15 ADC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab15_calibration.html">
+   📈 Lab15 Sensor Calibration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab16.html">
+   🔬 Lab 16 Tachometer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab17.html">
+   🔬 Lab 17 Control Systems
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   🚀 Final Project
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2FAssignments/project.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Assignments/project.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agenda">
+   📜 Agenda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-project-gamesmanship">
+   🎮 Final project gamesmanship
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requirements-for-all-levels">
+     Requirements for all levels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#level-1-demo-basic-line-following-there-and-back">
+     Level 1 Demo: Basic line following - there and back
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#level-2-demo-complex-line-following-search-for-treasure">
+     Level 2 Demo: Complex line following - search for treasure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#level-3-demo-maze-exploration">
+     Level 3 Demo: Maze exploration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#report">
+     Report
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#presentation">
+     Presentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#timeline">
+     Timeline
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1-100-26-bonus-points-demo-and-code">
+     Deliverable 1: [100 + 26 Bonus Points] Demo and Code.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2-100-points-presentation">
+     Deliverable 2: [100 Points] Presentation.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3-100-points-report">
+     Deliverable 3: [100 Points] Report
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-4-0-points-return-your-robot">
+     Deliverable 4: [0 Points] Return your robot
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-race">
+   🏇 Final Race
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>🚀 Final Project</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agenda">
+   📜 Agenda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-project-gamesmanship">
+   🎮 Final project gamesmanship
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requirements-for-all-levels">
+     Requirements for all levels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#level-1-demo-basic-line-following-there-and-back">
+     Level 1 Demo: Basic line following - there and back
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#level-2-demo-complex-line-following-search-for-treasure">
+     Level 2 Demo: Complex line following - search for treasure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#level-3-demo-maze-exploration">
+     Level 3 Demo: Maze exploration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#report">
+     Report
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#presentation">
+     Presentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#timeline">
+     Timeline
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1-100-26-bonus-points-demo-and-code">
+     Deliverable 1: [100 + 26 Bonus Points] Demo and Code.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2-100-points-presentation">
+     Deliverable 2: [100 Points] Presentation.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3-100-points-report">
+     Deliverable 3: [100 Points] Report
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-4-0-points-return-your-robot">
+     Deliverable 4: [0 Points] Return your robot
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-race">
+   🏇 Final Race
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="final-project">
+<h1>🚀 Final Project<a class="headerlink" href="#final-project" title="Permalink to this headline">#</a></h1>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<ul class="simple">
+<li><p>Read this page thoroughly before you start working on this final project.</p></li>
+</ul>
+</div>
+<section id="objectives">
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Students should be able to combine previous modules into a system that solves a complex task.</p></li>
+<li><p>Students should be able to build on and utilize almost all modules throughout the course.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>First, solve the problem. Then, write the code.</p>
+</div>
+</section>
+<section id="agenda">
+<h2>📜 Agenda<a class="headerlink" href="#agenda" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Culmination of embedded systems: A system that performs a specifically dedicated operation where the computer is embedded inside the machine.</p></li>
+<li><p>Allows you to perform duties typical of the engineering profession:</p>
+<ul>
+<li><p>Given a system that works (hopefully), how can you build on it?</p></li>
+<li><p>How can we combine multiple systems that work to build a more complex system?</p></li>
+</ul>
+</li>
+<li><p>Challenge Levels:</p>
+<ul>
+<li><p>Level 1: Basic line follow - there and back.</p></li>
+<li><p>Level 2: Complex line follow - search for treasure.</p></li>
+<li><p>Level 3: Maze exploration.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="final-project-gamesmanship">
+<h2>🎮 Final project gamesmanship<a class="headerlink" href="#final-project-gamesmanship" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Demo and coding</p>
+<ul>
+<li><p>Read the presentation and final report requirements before you start coding.</p></li>
+<li><p>Start early – earn early-bird bonus points. If you don’t start early, you may be unable to finish it on time.</p></li>
+<li><p>Use the code from Lab17.</p></li>
+<li><p>Extensively use LCD/UART to debug high-level behaviors.</p></li>
+<li><p>Change tuning parameters such as Kp during run-time, not compile-time.  Use the LCD, bump sensors, and switches.</p></li>
+<li><p><strong>Cease work for presentation and report</strong></p>
+<ul>
+<li><p>If your robot completes only the halfway point for Level 1 (one way) and can’t return to the start, you will probably lose about 5 points.</p></li>
+<li><p>Your analysis in the presentation/report is much more important than completing the maze.</p></li>
+<li><p>Do not spend too much time on the bonus points. You don’t want to lose 30 points on your report to earn 20 bonus points.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Presentation</p>
+<ul>
+<li><p>Use visual aids a lot! Figures, tables, and graphs are more helpful than words.</p></li>
+<li><p>Ensure you discuss everything in the Presentation section.</p></li>
+<li><p>Timing is important – 7 minutes –&gt; Practice!</p></li>
+</ul>
+</li>
+<li><p>Report</p>
+<ul>
+<li><p>Read the template carefully and do not miss anything there.</p></li>
+<li><p>Use figures and tables to support your analysis and results.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="procedure">
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<section id="requirements-for-all-levels">
+<h3>Requirements for all levels<a class="headerlink" href="#requirements-for-all-levels" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Do not use hard-coded numbers. Use <code class="docutils literal notranslate"><span class="pre">#define</span></code> and <code class="docutils literal notranslate"><span class="pre">const</span></code>.  For example, do not use</p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">TimerA1_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Controller</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>but use</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c1">// user TimerA1 to run the controller at 1000 Hz</span>
+<span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">period_2us</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span><span class="w">        </span><span class="c1">// T = 1ms</span>
+<span class="w">    </span><span class="n">TimerA1_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Controller</span><span class="p">,</span><span class="w"> </span><span class="n">period_2us</span><span class="p">);</span><span class="w">  </span><span class="c1">// f = 1000 Hz controller loop</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Add comments.  A lot of comments!</p></li>
+<li><p>Turns must be accomplished using the tachometers for Levels 1 &amp; 2, with no delays.</p></li>
+<li><p>You can demo in person, but you still need to submit video demos associated with the plots in your report.</p></li>
+<li><p>There must be no delays in your Interrupt Service Routines (ISRs). No loops, waits, sleeps, etc. 5 points per level will be taken off if delays or loops exist in ISR, for example</p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">Controller</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span><span class="w">  </span><span class="c1">// called every 1 ms</span>
+<span class="w">  </span><span class="n">Motor_TurnRight</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span><span class="w"> </span><span class="mi">3000</span><span class="p">);</span><span class="w">  </span><span class="c1">// for 180 deg turn</span>
+<span class="w">  </span><span class="n">Clock_Delay1ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w">  </span><span class="c1">// BAD</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">Controller</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span><span class="c1">// called every 1 ms</span>
+<span class="w">  </span><span class="n">Motor_TurnRight</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span><span class="w"> </span><span class="mi">3000</span><span class="p">);</span><span class="w">  </span><span class="c1">// for 180 deg turn</span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="n">LeftSteps_deg</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">180</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// BAD</span>
+<span class="w">      </span><span class="n">Tachometer_GetSteps</span><span class="p">(</span><span class="o">&amp;</span><span class="n">LeftSteps_deg</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">RightSteps_deg</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>All controller code must go in the ISR. 5 points per level will be taken off if the controller code is in main instead of an ISR.</p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w">   </span><span class="c1">// no time-critical operations such as </span>
+<span class="w">    </span><span class="n">LCDOut</span><span class="p">();</span><span class="w"> </span><span class="c1">// can be interrupted at any time</span>
+<span class="w">    </span><span class="c1">// No state transition</span>
+<span class="w">    </span><span class="c1">// No motor control or sensing</span>
+<span class="w">    </span><span class="c1">// If you remove everything inside this while-loop,</span>
+<span class="w">    </span><span class="c1">// your robot should still be able to complete the level.</span>
+<span class="w">    </span><span class="c1">// For example, Program17_x.c</span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<br>
+</section>
+<section id="level-1-demo-basic-line-following-there-and-back">
+<h3>Level 1 Demo: Basic line following - there and back<a class="headerlink" href="#level-1-demo-basic-line-following-there-and-back" title="Permalink to this headline">#</a></h3>
+<p>Your robot must utilize the line and bump sensors to follow a line through a maze.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Your robot must be able to follow the white line on the left of the maze shown in the figure below.</p></li>
+<li><p>When it gets to the end of the line, it will bump into a wall, move backward at least 5cm, and turn around.</p></li>
+<li><p>No IR distance sensors are allowed to use.</p></li>
+<li><p>It will then return to the start.</p></li>
+<li><p>When it hits the start, it will alternately flash the red and blue LEDs (forever).</p></li>
+<li><p>Your robot can run at any speed.</p></li>
+<li><p>When the robot moves backward and turns around, you must use the distance at least one of the wheels travels. Do not use the time elapsed.</p></li>
+<li><p>You <strong>must</strong> use a finite state machine to control the state transitions (following line &gt; moving backward &gt; turning around &gt; following line &gt; blinking).</p></li>
+<li><p><strong>[3 Bonus Points]</strong> Demo three round trips and flash the red and blue LEDs at the end of the third trip. You can still earn this bonus points on top of your early bird bonus points, but your early bird demo should be complete by the early bird due date.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Proj_Maze.jpg"><img alt="../_images/Proj_Maze.jpg" class="align-center" src="../_images/Proj_Maze.jpg" style="width: 660px;" /></a>
+<br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c8-lUruprA8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+Video Credit: C22 Catherine Grebe
+</center>
+<br>
+</section>
+<section id="level-2-demo-complex-line-following-search-for-treasure">
+<h3>Level 2 Demo: Complex line following - search for treasure<a class="headerlink" href="#level-2-demo-complex-line-following-search-for-treasure" title="Permalink to this headline">#</a></h3>
+<p>Your robot must utilize the line and bump sensors to follow a line through a maze.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Your robot must be able to follow the white line on the right of the maze.</p></li>
+<li><p>Your robot can use the reflectance sensors and bump switches to explore the maze. No IR distance sensors are allowed to use.</p></li>
+<li><p>When the robot gets to the goal, it must detect a tape pattern (e.g., 10101010) and stop before hitting the wall.</p></li>
+<li><p>When it reaches the goal, it will flash the red and blue LEDs alternately.</p></li>
+<li><p>Your robot can run at any speed.</p></li>
+<li><p>Your robot must explore all the white lines.</p></li>
+<li><p>Your robot does not know the maze ahead of time.</p></li>
+<li><p><strong>[3 Bonus Points]</strong> Return to the start without hitting the walls.</p></li>
+</ul>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hq8rBYZTQrg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+Video Credit: C22 Allison Burba
+</center>
+<br>
+</section>
+<section id="level-3-demo-maze-exploration">
+<h3>Level 3 Demo: Maze exploration<a class="headerlink" href="#level-3-demo-maze-exploration" title="Permalink to this headline">#</a></h3>
+<p>Your robot must utilize distance sensors to explore a maze.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Your robot must be able to explore the maze using distance sensors.</p></li>
+<li><p>Your robot must reach the goal and stop before hitting the wall. <em>You may use the reflectance sensors to detect the goal.</em></p></li>
+<li><p>No bump switches are allowed to use to explore the maze.</p></li>
+<li><p>You <strong>must</strong> use the Classifier.c file to determine the state of the robot.</p></li>
+<li><p><strong>You can assume your robot knows the maze ahead of time.</strong></p></li>
+<li><p><strong>[5 Bonus Points]</strong> Arrive at the goal within 11.0 seconds.</p></li>
+<li><p><strong>[5 Bonus Points]</strong> Return to the start and stop before hitting the wall.</p></li>
+</ul>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2m8tce8ZYoI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<br>
+</section>
+<section id="report">
+<h3>Report<a class="headerlink" href="#report" title="Permalink to this headline">#</a></h3>
+<p>Reference the example report, <code class="docutils literal notranslate"><span class="pre">ECE382_Project</span> <span class="pre">Report</span> <span class="pre">Template.docx</span></code> in Teams under Files &gt; Class Materials, for details on report content. Use <code class="docutils literal notranslate"><span class="pre">Component</span> <span class="pre">Block</span> <span class="pre">Diagram.pptx</span></code> to help you create your component diagrams for each of the three levels.</p>
+<ul class="simple">
+<li><p><strong>[10 Points]</strong> Introduction/Purpose</p>
+<ul>
+<li><p>Describe the problem.</p></li>
+<li><p>Discuss the requirements.</p></li>
+<li><p>What assumptions did you make going into the project?</p></li>
+</ul>
+</li>
+<li><p><strong>[20 Points]</strong> Design</p>
+<ul>
+<li><p>Discuss design choices for each level (e.g., values for PWM_AVERAGE, Kp, Ki).</p></li>
+<li><p>Include a component diagram that matches your code for each level. Points will be taken off if you don’t include a subsystem that is in your code or if you include a subsystem (like TimerA2) that is not in your code. <strong>Ensure your component diagrams are large enough to read.</strong></p></li>
+<li><p>What timers did you use, what did they do, and at what frequencies?</p></li>
+<li><p>Discuss the design of your controller.</p></li>
+<li><p>Discuss any issues and problems you encountered. How did you overcome these?</p></li>
+</ul>
+</li>
+<li><p><strong>[20 Points]</strong> Debugging and testing</p>
+<ul>
+<li><p>How did you debug your program during run-time?</p></li>
+<li><p>When your robot performed something unexpected in the maze, how did you find the problems?</p></li>
+<li><p>Do not discuss compile-time debugging, such as syntax errors.</p></li>
+<li><p>How did your methods help you debug and test your code?</p></li>
+<li><p>You must discuss the details of debugging and testing methods.</p></li>
+</ul>
+</li>
+<li><p><strong>[40 Points]</strong> Analysis and Results</p>
+<ul>
+<li><p>This is the most essential part of the final project.</p></li>
+<li><p>Discuss your results for each level. You must include measurements - plots.</p></li>
+<li><p>Discuss how long it takes for your robot to complete the task. Attach Table 1 in the template.</p></li>
+<li><p>Discuss the performance of the robot using step responses.</p></li>
+<li><p>If you had unresolved issues, discuss how you would fix them if you had more time.</p></li>
+<li><p>Discussed what unique things you did to make your robot better than others.</p></li>
+<li><p>What levels were you unable to accomplish and why?</p></li>
+</ul>
+</li>
+<li><p><strong>[10 Points]</strong> Conclusion</p>
+<ul>
+<li><p>Conclude your work</p></li>
+<li><p>Concisely summarize the results.</p></li>
+<li><p>Emphasize the overall result of the project.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Submit your report in Gradescope. <strong>Select questions and pages to indicate where your responses are located as shown below. You will lose points if you do not.</strong></p>
+</div>
+<a class="reference internal image-reference" href="../_images/Proj_GradescopeSubmission.gif"><img alt="../_images/Proj_GradescopeSubmission.gif" class="align-center" src="../_images/Proj_GradescopeSubmission.gif" style="width: 740px;" /></a>
+<br>
+</section>
+<section id="presentation">
+<h3>Presentation<a class="headerlink" href="#presentation" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Provide a <strong>7-minute</strong> presentation that discusses the following topics:</p></li>
+<li><p>Figures/tables/graphs are more helpful than words.</p></li>
+<li><p><strong>[10 Points]</strong> Purpose: Briefly describe the following</p>
+<ul>
+<li><p>Describe the problem.</p></li>
+<li><p>Discuss the requirements.</p></li>
+<li><p>What assumptions did you make going into the project?</p></li>
+</ul>
+</li>
+<li><p><strong>[25 Points]</strong> Design: Briefly describe the following</p>
+<ul>
+<li><p>Discuss the design of your controller.</p></li>
+<li><p>Discuss any issues and problems you encountered. How did you overcome these?</p></li>
+</ul>
+</li>
+<li><p><strong>[40 Points]</strong> Analysis and Results</p>
+<ul>
+<li><p>This is the most essential part of the final project.</p></li>
+<li><p>Discuss your results for each level. You must include measurements - plots.</p></li>
+<li><p>What levels were you unable to accomplish and why?</p></li>
+<li><p>What issues still exist in your robot?</p></li>
+<li><p>Did you do anything unique to make your robot better than others?</p></li>
+</ul>
+</li>
+<li><p><strong>[10 Points]</strong> Conclusion</p>
+<ul>
+<li><p>Conclude your work</p></li>
+</ul>
+</li>
+<li><p><strong>[10 Points]</strong> Questions:</p>
+<ul>
+<li><p>Be prepared to answer questions about the code that you have written.</p></li>
+<li><p>Be prepared to answer questions about how you would implement additional functionality to your project.</p></li>
+<li><p>The question component will be an additional 2 minutes.</p></li>
+</ul>
+</li>
+<li><p><strong>[5 Points]</strong> Timing</p>
+<ul>
+<li><p>You will lose points for going over the 7-minute limit.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Send your presentation file (<strong>pptx</strong>) to your instructor NLT L39 0700. Export your Powerpoint file to a <strong>pdf</strong> file and submit it in Gradescope NLT L39 0700. <strong>Select questions and pages to indicate where your responses are located. You will lose points if you do not.</strong></p>
+</div>
+</section>
+<section id="timeline">
+<h3>Timeline<a class="headerlink" href="#timeline" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Turn-in Requirements:</p>
+<ul>
+<li><p>L39 0700: Demo.</p></li>
+<li><p>L39 0700: Powerpoint slides</p></li>
+<li><p>L39/40: Final presentaion</p></li>
+<li><p>T40 2359: Final report &amp; Code</p></li>
+</ul>
+</li>
+<li><p>Demo: due L39 0700</p>
+<ul>
+<li><p>Early bird <strong>[5 Bonus Points]</strong> Finish any one level by <strike>M37 (Wed 30 Nov) 2359</strike> <font color='red'>T38 (Thu 1 Dec) 2359</font></p></li>
+<li><p>Early bird <strong>[5 Bonus Points]</strong> Finish any two levels by M38 (Fri 2 Dec)  <strike>0700</strike> <font color='red'>2359</font></p></li>
+<li><p>Late Demos: You can use grace days, but all products must be submitted NLT T40 2359 (by the Dean’s policy). You may still lose points on your final presentation (See the Final Presentation section).</p></li>
+<li><p>No grace days can be used for early bird demos.</p></li>
+</ul>
+</li>
+<li><p>Final Presentation: L39 and L40</p>
+<ul>
+<li><p>All cadets must submit their presentation files to their instructors NLT L39 0700.</p>
+<ul>
+<li><p>M-day sections: M39 0700.</p></li>
+<li><p>T-day sections: T39 0700.</p></li>
+</ul>
+</li>
+<li><p>Send your presentation file (<strong>pptx</strong>) to your instructor NLT L39 0700.</p></li>
+<li><p>Export your Powerpoint file to a <strong>pdf</strong> file and submit it in Gradescope NLT L39 0700.</p></li>
+<li><p>Even though you do not have successful demos (whether you use grace days or not), you still need to discuss all three levels based on what you have.</p></li>
+<li><p>You won’t lose any points for late demos if you use grace days. However, you may lose points on your final presentation if the analysis parts of the demos are insufficient.</p></li>
+<li><p>No grace days can be used for the presentation.</p></li>
+</ul>
+</li>
+<li><p>Report: T40 2359.</p>
+<ul>
+<li><p>No grace days can be used. All products must be submitted by T40 at midnight.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="deliverables">
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<section id="deliverable-1-100-26-bonus-points-demo-and-code">
+<h3>Deliverable 1: [100 + 26 Bonus Points] Demo and Code.<a class="headerlink" href="#deliverable-1-100-26-bonus-points-demo-and-code" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[55 Points]</strong> Demo.</p></li>
+<li><p><strong>[45 Points]</strong> Code</p>
+<ul>
+<li><p><strong>[15 Points]</strong> 5 points per level are taken off if delays or loops exist in ISR.</p></li>
+<li><p><strong>[15 Points]</strong> 5 points per level are taken off if the controller code is in the main instead of an ISR.</p></li>
+<li><p><strong>[15 Points]</strong> At most, 5 points per level are taken off for bad coding practices (e.g., poor comments or using hard-coded numbers instead of variables or enumerated types.)</p></li>
+</ul>
+</li>
+<li><p><strong>[0 Points]</strong> Uncompilable code. If your Level 1 demo works but your Level 2 code is not compilable, you will still get a grade of 0 for the entire Deliverable 1. Always submit compilable code!</p></li>
+</ul>
+</section>
+<section id="deliverable-2-100-points-presentation">
+<h3>Deliverable 2: [100 Points] Presentation.<a class="headerlink" href="#deliverable-2-100-points-presentation" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[10 Points]</strong> Purpose</p></li>
+<li><p><strong>[25 Points]</strong> Design</p></li>
+<li><p><strong>[40 Points]</strong> Analysis and Results</p></li>
+<li><p><strong>[10 Points]</strong> Conclusion</p></li>
+<li><p><strong>[10 Points]</strong> Questions</p></li>
+<li><p><strong>[5 Points]</strong> Timing</p></li>
+</ul>
+</section>
+<section id="deliverable-3-100-points-report">
+<h3>Deliverable 3: [100 Points] Report<a class="headerlink" href="#deliverable-3-100-points-report" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[10 Points]</strong> Introduction</p></li>
+<li><p><strong>[20 Points]</strong> Design</p></li>
+<li><p><strong>[20 Points]</strong> Debugging and testing</p></li>
+<li><p><strong>[40 Points]</strong> Analysis and Results</p></li>
+<li><p><strong>[10 Points]</strong> Conclusion</p></li>
+</ul>
+</section>
+<section id="deliverable-4-0-points-return-your-robot">
+<h3>Deliverable 4: [0 Points] Return your robot<a class="headerlink" href="#deliverable-4-0-points-return-your-robot" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>You must return your robot to your instructor <strong>in person</strong> by Tuesday 13 Dec 1600.</p></li>
+<li><p>Ensure your robot has no loose parts. Tighten all the screws before returning your robots.</p></li>
+<li><p><strong>[-20 Points]</strong> Up to 20 points will be deducted if your robot has any loose parts.</p></li>
+</ul>
+</section>
+</section>
+<section id="final-race">
+<h2>🏇 Final Race<a class="headerlink" href="#final-race" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>TBD</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lab17.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">🔬 Lab 17 Control Systems</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Stan Baek<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

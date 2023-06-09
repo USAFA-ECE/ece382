@@ -1,0 +1,835 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>🔬 Lab 11 Serial Ports &#8212; Embedded Computer Systems I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="🔬 Lab 12 Motors" href="lab12.html" />
+    <link rel="prev" title="🔬 Lab 10 Multithreading" href="lab10.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ece382.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Embedded Computer Systems I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE382 Embedded Computer Systems I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   🚩 Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   📆 Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assembly.html">
+   🔧 Assembly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c_programming.html">
+   🌜 C Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq.html">
+   🙋 FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources.html">
+   💎 Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NoPointer.html">
+   🐍 No Pointer in Python?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1.html">
+   ✏️ HW 1 Setting up CCS and Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework2.html">
+   ✏️ HW 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab2.html">
+   🔬 Lab 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework3.html">
+   ✏️ HW 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab3.html">
+   🔬 Lab 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework4.html">
+   ✏️ HW 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab4.html">
+   🔬 Lab 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab5.html">
+   🔬 Lab 5 Software Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab8.html">
+   🔬 Lab 8 I/O Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab10.html">
+   🔬 Lab 10 Multithreading
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   🔬 Lab 11 Serial Ports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab12.html">
+   🔬 Lab 12 Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab13.html">
+   🔬 Lab 13 Timers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab14.html">
+   🔬 Lab 14 Real-Time Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab15.html">
+   🔬 Lab 15 ADC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab15_calibration.html">
+   📈 Lab15 Sensor Calibration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab16.html">
+   🔬 Lab 16 Tachometer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab17.html">
+   🔬 Lab 17 Control Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="project.html">
+   🚀 Final Project
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2FAssignments/lab11.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Assignments/lab11.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synopsis">
+   📜 Synopsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-uart-functions-in-uart0-c">
+     Write UART functions in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       UART0.c
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-uart-functions-in-uart2-c">
+     Write UART functions in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       UART2.c
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-spi-functions-in-spi-b1">
+     Write SPI functions in SPI_B1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1">
+     Deliverable 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2">
+     Deliverable 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3">
+     Deliverable 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-4">
+     Deliverable 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>🔬 Lab 11 Serial Ports</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synopsis">
+   📜 Synopsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-uart-functions-in-uart0-c">
+     Write UART functions in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       UART0.c
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-uart-functions-in-uart2-c">
+     Write UART functions in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       UART2.c
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-spi-functions-in-spi-b1">
+     Write SPI functions in SPI_B1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1">
+     Deliverable 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2">
+     Deliverable 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3">
+     Deliverable 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-4">
+     Deliverable 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-11-serial-ports">
+<h1>🔬 Lab 11 Serial Ports<a class="headerlink" href="#lab-11-serial-ports" title="Permalink to this headline">#</a></h1>
+<section id="objectives">
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Students should be able to develop device drivers for the Universal Asynchronous Receiver/Transmitter (UART) and Synchronous Peripheral Interface (SPI).</p></li>
+<li><p>Students should be able to measure UART and SPI signals using a logic analyzer and analyze the binary bits.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The best thing about a Boolean is even if you are wrong, you are only off by a bit.</p>
+</div>
+</section>
+<section id="synopsis">
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
+<p>The objective of this lab is to develop software modules that communicate with external devices connected by the most commonly-available serial communication interfaces.  The Nokia 5110 is connected to the MSP432 by a serial peripheral interface (SPI) and your PC’s USB port is connected to the MSP432 via a universal asynchronous receiver-transmitter (UART).</p>
+</section>
+<section id="procedure">
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<section id="write-uart-functions-in-uart0-c">
+<span id="lab11-uart"></span><h3>Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART0.c</span></code><a class="headerlink" href="#write-uart-functions-in-uart0-c" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">UART0_Init()</span></code></p>
+<ul class="simple">
+<li><p>Follow the steps in the code and Appendix 1 in Lecture 11.</p></li>
+</ul>
+</li>
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">UART0_OutChar()</span></code></p>
+<ul class="simple">
+<li><p>Wait for TXBUF to be empty (UCxTXIFG)</p></li>
+<li><p>Send data using TXBUF</p></li>
+<li><p>Hint: Read <code class="docutils literal notranslate"><span class="pre">UART0_InChar()</span></code> and Lecture 11.</p></li>
+</ul>
+</li>
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">UART0_OutString()</span></code></p>
+<ul class="simple">
+<li><p>A NULL-terminated string is a string with the NULL character at the end of it.</p></li>
+<li><p>The NULL character is 0 (ASCII: 0), not ‘0’ (ASCII: 0x30). You can find the ASCII table on Valvano pp. 60.</p></li>
+<li><p>Transmit one character in the string at a time until you reach the end of the string. Do not transmit the NULL character.  Do not rewrite the code you already wrote.</p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The NULL character is not a null pointer, which is a pointer or reference that refers to an invalid object (or nothing). For example, if you have <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">x;</span></code>, the pointer <code class="docutils literal notranslate"><span class="pre">x</span></code> refers to nothing until you assign an address to it.</p>
+</div>
+<ul class="simple">
+<li><p>Debug (or F11) <code class="docutils literal notranslate"><span class="pre">Program11_1</span></code> but do not click <code class="docutils literal notranslate"><span class="pre">Resume</span></code> (or F8) yet.</p></li>
+<li><p>Open Windows Device Manager and go to Ports.</p></li>
+<li><p>Find the COM port for <code class="docutils literal notranslate"><span class="pre">XDS110</span> <span class="pre">Class</span> <span class="pre">Application/User</span> <span class="pre">UART</span></code></p></li>
+<li><p>Go to CCS and open the <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> tab under the <code class="docutils literal notranslate"><span class="pre">View</span></code> menu.</p></li>
+<li><p>Open a new terminal and select the COM port you found in Device Manager.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Resume</span></code> (or F8) to continue <code class="docutils literal notranslate"><span class="pre">Program11_1</span></code>.</p></li>
+<li><p>It will print strings and numbers in the serial terminal as shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab11_SerialTerminal.gif"><img alt="../_images/Lab11_SerialTerminal.gif" class="align-center" src="../_images/Lab11_SerialTerminal.gif" style="width: 760px;" /></a>
+<br>
+<ul class="simple">
+<li><p>Take a screenshot of the serial terminal displaying the header strings and a few lines of data in the while-loop.  You can pause your program and use the Snip &amp; Sketch tool to take a screenshot.</p></li>
+<li><p>Submit the screenshot in Gradescope.</p></li>
+</ul>
+<div class="admonition-q-a admonition">
+<p class="admonition-title">Q&amp;A</p>
+<p>Q: For the UCAxBRW problem, when figuring out the value to put in, how does the system handle decimal points? Is there a rounding that should be done?
+<br>
+A: Round to the nearest integer. The tolerance is +/- 5%
+<br>
+<br>
+Q: Did anyone else have the problem where the terminal was showing only high numbers under the “Serial Terminal” option (COM9-COM12)? My app keeps crashing when I try to run the terminal on one of these. I’m getting the right values otherwise and my code works fine.
+<br>
+A: It can be.  It depends on how many serial devices have been connected to your computer.  I once had something like COM24.</p>
+</div>
+</section>
+<section id="write-uart-functions-in-uart2-c">
+<h3>Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART2.c</span></code><a class="headerlink" href="#write-uart-functions-in-uart2-c" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">UART2_Init()</span></code>, <code class="docutils literal notranslate"><span class="pre">UART2_OutChar()</span></code>, and <code class="docutils literal notranslate"><span class="pre">UART2_OutString()</span></code>. They should be very similar to those in <code class="docutils literal notranslate"><span class="pre">UART0.c</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UART2_Init()</span></code> takes <code class="docutils literal notranslate"><span class="pre">baudrate</span></code> as a function argument. So, users can choose their own baudrates when they initialize UART2 whereas the UART0 baud rate is fixed at 115,200 bps.</p></li>
+<li><p>Replace <em>Baek</em> in <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">Name[]</span> <span class="pre">=</span> <span class="pre">&quot;Baek&quot;</span></code> before <code class="docutils literal notranslate"><span class="pre">Program11_2</span></code> with the first three letters of your last name.  Use your first name if your last name is less than three letters long.</p></li>
+<li><p>Connect Moku:Gp Logic Analyzer to your LaunchPad.</p>
+<ul>
+<li><p>Connect the 20-pin I/O port to Moku:Go as shown inside the red circle in the figure below.</p></li>
+<li><p>Connect Pin 1 of the Logic Analyzer to P3.3 of your LaunchPad as shown inside the yellow circle.</p></li>
+<li><p>Connect a Logic Analyzer’s ground pin (black wire) to one of the LaunchPad ground pins as shown in the yellow circle.</p></li>
+</ul>
+</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab11_MokuConnection.png"><img alt="../_images/Lab11_MokuConnection.png" class="align-center" src="../_images/Lab11_MokuConnection.png" style="width: 760px;" /></a>
+<br>
+<ul class="simple">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program11_2</span></code> and start Moku:Go Logic Analyzer to measure the signal transmitted from the UART2 port of your LaunchPad as shown below.</p></li>
+<li><p>Scroll your mouse wheel up or down to display the entire signal. If you don’t have a scroll wheel, change the <code class="docutils literal notranslate"><span class="pre">Time</span> <span class="pre">span</span></code> value under the <code class="docutils literal notranslate"><span class="pre">Acquisition</span></code> tab.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab11_LogicAnalyzerMeasure.gif"><img alt="../_images/Lab11_LogicAnalyzerMeasure.gif" class="align-center" src="../_images/Lab11_LogicAnalyzerMeasure.gif" style="width: 760px;" /></a>
+<br>
+<ul class="simple">
+<li><p>Take a screenshot and clearly annotate start bits (S), stop bits (E), and the binary bits of your three letters as shown below.</p></li>
+<li><p>Add your three letters under the corresponding binary signals.</p></li>
+<li><p>You can find an ASCII binary table in <a class="reference internal" href="../resources.html#resources-ascii-table"><span class="std std-ref">ASCII Table</span></a>.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab11_Moku_UART_Fox.png"><img alt="../_images/Lab11_Moku_UART_Fox.png" class="align-center" src="../_images/Lab11_Moku_UART_Fox.png" style="width: 760px;" /></a>
+<br>
+</section>
+<section id="write-spi-functions-in-spi-b1">
+<h3>Write SPI functions in SPI_B1<a class="headerlink" href="#write-spi-functions-in-spi-b1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">SPIB1_Init()</span></code>, <code class="docutils literal notranslate"><span class="pre">SPIB1_OutChar()</span></code>, and <code class="docutils literal notranslate"><span class="pre">SPIB1_OutString()</span></code>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program11_3</span></code> and start Moku:Go Logic Analyzer to measure the signal transmitted from the SPI_ B1 port of your LaunchPad.</p></li>
+<li><p>Connect Moku:Gp Logic Analyzer to your LaunchPad.</p>
+<ul>
+<li><p>Connect three Logic Analyzer probes to P6.2 (STE), P6.3 (CLK), and P6.4 (MOSI) of your LaunchPad.</p></li>
+<li><p>Connect a Logic Analyzer’s ground pin (black wire) to one of the LaunchPad ground pins.</p></li>
+</ul>
+</li>
+<li><p>Take a screenshot of the signal below and clearly annotate the binary bits of your three letters.</p></li>
+<li><p>Add your three letters under the corresponding binary signals.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab11_Moku_SPI_Fox.png"><img alt="../_images/Lab11_Moku_SPI_Fox.png" class="align-center" src="../_images/Lab11_Moku_SPI_Fox.png" style="width: 760px;" /></a>
+<br>
+<div class="admonition-q-a admonition">
+<p class="admonition-title">Q&amp;A</p>
+<p>Q: My program will not leave the while loop initiated in</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="p">((</span><span class="n">EUSCI_B1</span><span class="o">-&gt;</span><span class="n">IFG</span><span class="o">&amp;</span><span class="mh">0x02</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">EUSCI_B1</span><span class="o">-&gt;</span><span class="n">TXBUF</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A: You probably did not initialize it properly.  Look at your init() function carefully.</p>
+</div>
+<br>
+</section>
+</section>
+<section id="deliverables">
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<section id="deliverable-1">
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[4 Points]</strong> Run <code class="docutils literal notranslate"><span class="pre">Program11_1()</span></code> to transmit strings via USB/UART and take a screenshot of the serial terminal displaying the strings. Submit a screenshot of your Serial Terminal in Gradescope.</p></li>
+</ul>
+</section>
+<section id="deliverable-2">
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[5 Points]</strong> Run <code class="docutils literal notranslate"><span class="pre">Program11_2()</span></code> to transmit your name via UART. Submit a screenshot of Moku:Go Logic Analyzer. <strong>Annotate three letters of your name and their binary values.</strong></p></li>
+</ul>
+</section>
+<section id="deliverable-3">
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[5 Points]</strong> Run <code class="docutils literal notranslate"><span class="pre">Program11_3()</span></code> to transmit your name via SPI. Submit a screenshot of Moku:Go Logic Analyzer.  <strong>Annotate three letters of your name and their binary values.</strong></p></li>
+</ul>
+</section>
+<section id="deliverable-4">
+<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[5.5 Points]</strong> Push your code to your repository using git. Ensure you comment on your code.</p></li>
+</ul>
+<br>
+<p>This lab has been adapted from <a class="reference external" href="https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum">TI-RSLK MAX Solderless
+Maze Edition Curriculum</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lab10.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">🔬 Lab 10 Multithreading</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lab12.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">🔬 Lab 12 Motors</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Stan Baek<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

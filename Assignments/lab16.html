@@ -1,0 +1,928 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>🔬 Lab 16 Tachometer &#8212; Embedded Computer Systems I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="🔬 Lab 17 Control Systems" href="lab17.html" />
+    <link rel="prev" title="📈 Lab15 Sensor Calibration" href="lab15_calibration.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ece382.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Embedded Computer Systems I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE382 Embedded Computer Systems I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   🚩 Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   📆 Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assembly.html">
+   🔧 Assembly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c_programming.html">
+   🌜 C Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq.html">
+   🙋 FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources.html">
+   💎 Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NoPointer.html">
+   🐍 No Pointer in Python?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1.html">
+   ✏️ HW 1 Setting up CCS and Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework2.html">
+   ✏️ HW 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab2.html">
+   🔬 Lab 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework3.html">
+   ✏️ HW 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab3.html">
+   🔬 Lab 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework4.html">
+   ✏️ HW 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab4.html">
+   🔬 Lab 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab5.html">
+   🔬 Lab 5 Software Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab8.html">
+   🔬 Lab 8 I/O Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab10.html">
+   🔬 Lab 10 Multithreading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab11.html">
+   🔬 Lab 11 Serial Ports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab12.html">
+   🔬 Lab 12 Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab13.html">
+   🔬 Lab 13 Timers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab14.html">
+   🔬 Lab 14 Real-Time Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab15.html">
+   🔬 Lab 15 ADC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab15_calibration.html">
+   📈 Lab15 Sensor Calibration
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   🔬 Lab 16 Tachometer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab17.html">
+   🔬 Lab 17 Control Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="project.html">
+   🚀 Final Project
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2FAssignments/lab16.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Assignments/lab16.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synopsis">
+   📜 Synopsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complete-functions-in-ta3inputcapture-c">
+     Complete functions in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TA3InputCapture.c
+      </span>
+     </code>
+     .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demo-program16-1">
+     Demo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Program16_1()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graph-duty-cycle-versus-actual-speed">
+     Graph duty cycle versus actual speed.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complete-functions-for-program16-2">
+     Complete functions for
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Program16_2
+      </span>
+     </code>
+     .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-your-robot-drive-in-a-square">
+     Make your robot drive in a square.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1">
+     Deliverable 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2">
+     Deliverable 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3">
+     Deliverable 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-4">
+     Deliverable 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>🔬 Lab 16 Tachometer</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synopsis">
+   📜 Synopsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complete-functions-in-ta3inputcapture-c">
+     Complete functions in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TA3InputCapture.c
+      </span>
+     </code>
+     .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demo-program16-1">
+     Demo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Program16_1()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graph-duty-cycle-versus-actual-speed">
+     Graph duty cycle versus actual speed.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complete-functions-for-program16-2">
+     Complete functions for
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Program16_2
+      </span>
+     </code>
+     .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-your-robot-drive-in-a-square">
+     Make your robot drive in a square.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1">
+     Deliverable 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2">
+     Deliverable 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3">
+     Deliverable 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-4">
+     Deliverable 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-16-tachometer">
+<h1>🔬 Lab 16 Tachometer<a class="headerlink" href="#lab-16-tachometer" title="Permalink to this headline">#</a></h1>
+<section id="objectives">
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Students should be able to configure Timer_A module for input capture measurements.</p></li>
+<li><p>Students should be able to develop low-level software drivers to measure distance and speed of the two motors on the robot.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Simplicity is the soul of efficiency. – Austin Freeman</p>
+</div>
+</section>
+<section id="synopsis">
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
+<p>In this lab, we will develop a software module that measures the speeds of motors and the displacement of the robot. The key element for measuring the speed and displacement of our robot is a Hall-effect sensor, a semiconductor device that produces a voltage proportional to the magnetic field. As shown in the figure below, a Hall-effect sensor can measure the magnetic field intensity of two magnets attached to a rotating plate.</p>
+<a class="reference internal image-reference" href="../_images/Hall_sensor_tach.gif"><img alt="../_images/Hall_sensor_tach.gif" class="align-center" src="../_images/Hall_sensor_tach.gif" style="width: 400px;" /></a>
+<p>The first goal of this lab is to write <code class="docutils literal notranslate"><span class="pre">Timer_A</span></code> software that can measure periods from the two encoders. The counter of <code class="docutils literal notranslate"><span class="pre">Timer_A</span></code> is 16-bit wide, so the period measurement will have a <em>precision</em> of 16 bits. This means you can measure about 65536 different periods. The <em>resolution</em> is the smallest change in the period the measurement can distinguish. The resolution in input capture mode is equal to the period of the selected clock. If you choose the SMCLK at 12 MHz, a prescale of 1, and an input divider of 1/8, the period measurement resolution will be 2/3 us. The maximum period that can be measured is the precision in alternatives times the resolution. At this clock and prescale, the <strong>maximum</strong> period that can be measured is about 43 ms.</p>
+<p>The second goal is to use the period to determine wheel speed. Since there are 360 pulses per rotation, this 43 ms maximum means the slowest wheel speed that can be measured will be about 3.81 rpm. If <span class="math notranslate nohighlight">\(n\)</span> is the period in 2/3 us units, then the angular speed of the wheel, <span class="math notranslate nohighlight">\(\omega\)</span>, in rpm can be calculated as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-921a817b-59e0-4dac-8ed9-ec428e4a6701">
+<span class="eqno">(1)<a class="headerlink" href="#equation-921a817b-59e0-4dac-8ed9-ec428e4a6701" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\omega = \frac{1\text{ pulse}}{2/3\cdot10^{-6}~s} \frac{1^\circ}{ n~\text{pulses} }\frac{1~\text{rev}}{360^\circ}\frac{60\text{ sec}}{1\text{ min}} 
+= \frac{250,000}{n} \text{rpm}
+\end{equation}\]</div>
+<p>The third goal is to use the second input of the encoder to determine which direction the motor is spinning. You will write software that counts the number of pulses observed on each wheel as the robot moves. You will add to a counter as the robot moves forward and subtract from a counter as the robot moves backward. Then, the counter will be used to calculate the distance the wheel travels.</p>
+</section>
+<section id="procedure">
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Go to ECE382 Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
+<li><p>Download <code class="docutils literal notranslate"><span class="pre">Lab16_Tachmain.c</span></code> from the Teams folder into your <code class="docutils literal notranslate"><span class="pre">/workspace/Lab16_Tach</span></code> folder using Windows File Explorer (not Code Composer Studio). <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">Lab16_Tach</span></code> folder not in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
+<li><p>Download <code class="docutils literal notranslate"><span class="pre">Tachometer.c</span></code>, <code class="docutils literal notranslate"><span class="pre">Tachometer.h</span></code>, and <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code> into your workspace/inc folder using Windows File Explorer (not Code Composer Studio). <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder not in the <code class="docutils literal notranslate"><span class="pre">Lab16_Tach</span></code> folder.</p></li>
+<li><p>Right-click on your <code class="docutils literal notranslate"><span class="pre">Lab16_Tach</span></code> project in CCS and select “Add Files…”. Browse to your <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">UART0.c</span></code>. Click Open. Ensure “Link to file” is selected and create a link to the “PROJECT_LOC”.</p></li>
+</ul>
+</section>
+<section id="complete-functions-in-ta3inputcapture-c">
+<h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.<a class="headerlink" href="#complete-functions-in-ta3inputcapture-c" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>This is part of Homework 16</strong></p></li>
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">TimerA3Capture_Init</span></code>, <code class="docutils literal notranslate"><span class="pre">TA3_0_IRQHandler()</span></code>, and <code class="docutils literal notranslate"><span class="pre">TA3_N_IRQHandler()</span></code> in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.</p></li>
+<li><p>Follow the instructions inside <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code> to complete it.</p></li>
+<li><p>Copy and paste the code in Gradescope to submit your Homework 16.</p></li>
+</ul>
+<p>Before starting this lab, check the solutions posted in Gradescope to ensure you have the correct code.  If the solution is not published in Gradescope, go through your code with your instructor.</p>
+</section>
+<section id="demo-program16-1">
+<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code><a class="headerlink" href="#demo-program16-1" title="Permalink to this headline">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should understand the main code provided in every module. No such code will be provided for your final project, and you must write your main.c from scratch.</p>
+</div>
+<ul class="simple">
+<li><p>Complete LCDSpeed() in <code class="docutils literal notranslate"><span class="pre">Lab16_Tachmain.c</span></code>. The LCD should display the left and right tachometer periods and the speeds of both wheels in RPM as shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab16_Tachometer.png"><img alt="../_images/Lab16_Tachometer.png" class="align-center" src="../_images/Lab16_Tachometer.png" style="width: 300px;" /></a>
+<br>
+<ul class="simple">
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> running at the speeds from 25%, 50%, 75%, 100%, and back to 25% as shown below.</p></li>
+</ul>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-YDAwoAS6Sw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<br>
+</section>
+<section id="graph-duty-cycle-versus-actual-speed">
+<h3>Graph duty cycle versus actual speed.<a class="headerlink" href="#graph-duty-cycle-versus-actual-speed" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> stores the speed of each motor and the assigned duty cycles in the following buffers.</p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">PeriodBufferR</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">    </span><span class="c1">// to store right period</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">PeriodBufferL</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">    </span><span class="c1">// to store left period</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">SpeedBufferR</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">     </span><span class="c1">// to store right speed</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">SpeedBufferL</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">     </span><span class="c1">// to store left speed</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">DutyBuffer</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">       </span><span class="c1">// to store duty cycles</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>At the end of <code class="docutils literal notranslate"><span class="pre">Program16_1</span></code>, the LCD will display whether you want to transmit the data in the buffers, as shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab16_TxBuffer.png"><img alt="../_images/Lab16_TxBuffer.png" class="align-center" src="../_images/Lab16_TxBuffer.png" style="width: 300px;" /></a>
+<br>
+<ul class="simple">
+<li><p>Press the left switch to select Y (yes), but do not press a bump switch yet.</p></li>
+<li><p>Connect the USB cable to the robot and open the serial terminal as we did in <a class="reference internal" href="lab11.html#lab11-uart"><span class="std std-ref">Lab 11</span></a>.</p></li>
+<li><p>Press a bump switch to start transmitting data to the serial terminal. The data will be transmitted as shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab16_SerialTerminal.gif"><img alt="../_images/Lab16_SerialTerminal.gif" class="align-center" src="../_images/Lab16_SerialTerminal.gif" style="width: 700px;" /></a>
+<br>
+<ul class="simple">
+<li><p>Once the data transmission is complete, the LCD will display <code class="docutils literal notranslate"><span class="pre">TX</span> <span class="pre">is</span> <span class="pre">Done</span></code>.</p></li>
+<li><p>Select the entire data in the serial terminal except the header, <code class="docutils literal notranslate"><span class="pre">***Receiving</span> <span class="pre">buffer</span> <span class="pre">data***</span></code>.</p></li>
+<li><p>Copy the data into a text file and save it as a text file (.txt extension) or a comma-separated value file (.csv extension).</p></li>
+<li><p>Use a software tool of your choice to plot the duty cycle, the timer periods, and the actual speeds in rpm using the values from the <code class="docutils literal notranslate"><span class="pre">PeriodBuffer</span></code>, <code class="docutils literal notranslate"><span class="pre">SpeedBuffer</span></code> and <code class="docutils literal notranslate"><span class="pre">DutyBuffer</span></code> arrays.  Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook.  You can also use this Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/stanbaek/ece382/blob/main/files/ECE382_Plots.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<ul>
+<li><p>The first column of the data is time in 10 milliseconds - 1 means 10ms and 2 means 20ms.</p></li>
+<li><p>The axes must have labels and units, e.g., <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(sec)</span></code>. You must use the standard units, such as sec, ms, and us - 10ms is not a standard unit. So, you must convert the time data into seconds - You know how to convert the data in 10 ms into the values in sec.</p></li>
+<li><p>The duty cycle must be in percentage, not permyriad.</p></li>
+<li><p>The speed must be in rpm, rad/sec, or deg/sec.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The figures must have <strong><em>correct labels and units</em></strong>. You will only receive the full credit if labels and units are present or correct.</p>
+</div>
+<br>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Data-based analyses are critical in engineering and science. Videos and pictures are suitable for showcases but not essential elements in engineering experiments. You need to take measurements for your experiments and show your analyses based on the measurements. Taking measurements, generating meaningful plots, and comprehensive analyses will be a significant part of your final presentations and reports.</p>
+</div>
+<ul class="simple">
+<li><p>The component block diagram of this part is shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab16_ComponentBlockDiagram1.png"><img alt="../_images/Lab16_ComponentBlockDiagram1.png" class="align-center" src="../_images/Lab16_ComponentBlockDiagram1.png" style="width: 760px;" /></a>
+<br>
+<ul class="simple">
+<li><p>Submit the following plots in Gradescope.</p>
+<ul>
+<li><p>Periods vs. time</p></li>
+<li><p>Speeds vs. time</p></li>
+<li><p>Duty cycle vs. time</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="complete-functions-for-program16-2">
+<h3>Complete functions for <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code>.<a class="headerlink" href="#complete-functions-for-program16-2" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Read <code class="docutils literal notranslate"><span class="pre">Tachometer.c</span></code> and <code class="docutils literal notranslate"><span class="pre">Tachometer.h</span></code> thoroughly.</p></li>
+<li><p>Read the following functions thoroughly.  You need to understand how the semaphore, <code class="docutils literal notranslate"><span class="pre">IsControllerEnabled</span></code>, is used in multiple functions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">average()</span></code></p>
+<ul>
+<li><p>You will average a specific number of the latest tachometer readings stored in an array.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">average()</span></code> function will be used to calculate the average over an array.</p></li>
+<li><p>This function is already implemented for you.</p></li>
+</ul>
+</li>
+<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">UpdateParameters()</span></code> function in <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code>.</p>
+<ul>
+<li><p>Use the two switches to increment the desired speed of each wheel by 10 rpm (sw1 - right and sw2 - left) and roll over if the maximum value is reached.</p></li>
+<li><p>Use the comments to complete the code inside the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p></li>
+</ul>
+</li>
+<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Controller()</span></code> function in <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code>.</p>
+<ul>
+<li><p>Create a basic controller that will increase/decrease the speed of the wheels accordingly to get close to the desired speed.</p></li>
+<li><p>Use the comments to complete the code.</p></li>
+</ul>
+</li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program16_2()</span></code> that you can increase the desired speed of the wheels with the switches and display the actual and desired speeds and the distance traveled on the LCD. Show that both wheels are running at 50 rpm followed by 100 rpm. Slightly hold a wheel to add friction to the wheel and show that the speed controller maintains the desired speed. You also need to show that the desired speeds roll over if you reach the maximum value.</p></li>
+</ul>
+<p>The component block diagram of this part is shown below.</p>
+<a class="reference internal image-reference" href="../_images/Lab16_ComponentBlockDiagram2.png"><img alt="../_images/Lab16_ComponentBlockDiagram2.png" class="align-center" src="../_images/Lab16_ComponentBlockDiagram2.png" style="width: 760px;" /></a>
+<br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RfeW7urILWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<br>
+</section>
+<section id="make-your-robot-drive-in-a-square">
+<h3>Make your robot drive in a square.<a class="headerlink" href="#make-your-robot-drive-in-a-square" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">Program16_3</span></code> to drive the robot in the maze.</p></li>
+<li><p>You may need to adjust your drive-straight wheel speed values if one wheel is going faster/slower than the other.</p></li>
+<li><p>The robot must start anywhere behind the start line shown in the figure below.</p></li>
+<li><p>You are not allowed to intentionally bump into the walls to decide when to turn (cannot do the bump-n-turn algorithm).</p></li>
+<li><p>You have to base your decision to turn on the distance traveled only.</p></li>
+<li><p>Your robot must stop before hitting the wall at the goal.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program16_3</span></code> driving the robot in a maze.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab14_DriveInMaze.png"><img alt="../_images/Lab14_DriveInMaze.png" class="align-center" src="../_images/Lab14_DriveInMaze.png" style="width: 560px;" /></a>
+<br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9sA1o86J1-w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<br>
+</section>
+</section>
+<section id="deliverables">
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<section id="deliverable-1">
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[10 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> running increasing speed from 25%, 50%, 75%, 100%, and back to 25%  <strong>Comment your code</strong> and push it to your repository.</p></li>
+</ul>
+</section>
+<section id="deliverable-2">
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[10 points]</strong> Submit your three plots in Gradescope.</p></li>
+</ul>
+</section>
+<section id="deliverable-3">
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[15 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program16_2()</span></code> with operational switches and LCD. The actual wheel speeds must reach the desired wheel speeds.  <strong>Comment your code</strong> and push it to your repository.</p></li>
+</ul>
+</section>
+<section id="deliverable-4">
+<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[15 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program16_3()</span></code> driving the robot in the maze. <strong>Comment your code</strong> and push it to your repository.</p></li>
+</ul>
+<p>This lab has been adapted from the TI RSLK: <a class="reference external" href="https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum">The Solderless Maze Edition curriculum</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lab15_calibration.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">📈 Lab15 Sensor Calibration</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lab17.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">🔬 Lab 17 Control Systems</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Stan Baek<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

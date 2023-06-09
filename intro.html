@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>ECE382 Embedded Computer Systems I &#8212; Embedded Computer Systems I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="🚩 Syllabus" href="syllabus.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ece382.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Embedded Computer Systems I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    ECE382 Embedded Computer Systems I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="syllabus.html">
+   🚩 Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="schedule.html">
+   📆 Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assembly.html">
+   🔧 Assembly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="c_programming.html">
+   🌜 C Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="faq.html">
+   🙋 FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resources.html">
+   💎 Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NoPointer.html">
+   🐍 No Pointer in Python?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/homework1.html">
+   ✏️ HW 1 Setting up CCS and Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/homework2.html">
+   ✏️ HW 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab2.html">
+   🔬 Lab 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/homework3.html">
+   ✏️ HW 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab3.html">
+   🔬 Lab 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/homework4.html">
+   ✏️ HW 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab4.html">
+   🔬 Lab 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab5.html">
+   🔬 Lab 5 Software Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab8.html">
+   🔬 Lab 8 I/O Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab10.html">
+   🔬 Lab 10 Multithreading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab11.html">
+   🔬 Lab 11 Serial Ports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab12.html">
+   🔬 Lab 12 Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab13.html">
+   🔬 Lab 13 Timers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab14.html">
+   🔬 Lab 14 Real-Time Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab15.html">
+   🔬 Lab 15 ADC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab15_calibration.html">
+   📈 Lab15 Sensor Calibration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab16.html">
+   🔬 Lab 16 Tachometer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab17.html">
+   🔬 Lab 17 Control Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/project.html">
+   🚀 Final Project
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/intro.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instructors">
+   👨‍🏫 Instructors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-information">
+   📝 Course information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#communication-and-control-c2">
+   📡 Communication and Control (C2)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#late-policy">
+   ⏰ Late Policy:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#documentation-requirements">
+   📄 Documentation Requirements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sample-documentation">
+     Sample Documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommendations-from-23ers-color-red-text-early">
+   🔑 Recommendations from 23ers -
+   <span class="math notranslate nohighlight">
+    \(\color{red}{\text{Early!!}}\)
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>ECE382 Embedded Computer Systems I</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instructors">
+   👨‍🏫 Instructors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-information">
+   📝 Course information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#communication-and-control-c2">
+   📡 Communication and Control (C2)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#late-policy">
+   ⏰ Late Policy:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#documentation-requirements">
+   📄 Documentation Requirements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sample-documentation">
+     Sample Documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommendations-from-23ers-color-red-text-early">
+   🔑 Recommendations from 23ers -
+   <span class="math notranslate nohighlight">
+    \(\color{red}{\text{Early!!}}\)
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="ece382-embedded-computer-systems-i">
+<h1>ECE382 Embedded Computer Systems I<a class="headerlink" href="#ece382-embedded-computer-systems-i" title="Permalink to this headline">#</a></h1>
+<section id="instructors">
+<h2>👨‍🏫 Instructors<a class="headerlink" href="#instructors" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stanbaek.github.io"><img alt="baek" src="https://img.shields.io/badge/Dr.%20Stan%20Baek-2E38-red" /></a></p></li>
+<li><p><img alt="york" src="https://img.shields.io/badge/Dr.%20George%20York-2E44-green" /></p></li>
+<li><p><img alt="seery" src="https://img.shields.io/badge/Maj%20Michael%20Seery-2F46A-yellow" /></p></li>
+<li><p><img alt="yabrough" src="https://img.shields.io/badge/Capt%20Brian%20Yabrough-2E46C-blue" /></p></li>
+</ul>
+</section>
+<section id="course-information">
+<h2>📝 Course information<a class="headerlink" href="#course-information" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Course Goal</strong>: Dvelop skills to design, implement, test, and debug microcontroller-based systems by developing operational assembly and C language programs that incorporate the built-in microcontroller functions, and by successfully interfacing the microcontroller to the external world.</p></li>
+<li><p><strong>Course Text</strong>: <a class="reference external" href="https://www.amazon.com/Embedded-Systems-Introduction-Jonathan-Valvano/dp/1074544307">Embedded Systems: Introduction to Robotics</a>, Johnathan W. Valvano, First Edition, 2019. ISBN: 978-1074544300.</p></li>
+<li><p><strong>Syllabus</strong>: Posted <a class="reference internal" href="syllabus.html"><span class="doc std std-doc">here</span></a>.</p></li>
+<li><p><strong>Course Schedule</strong>: Posted <a class="reference internal" href="schedule.html"><span class="doc std std-doc">here</span></a> and subject to change.</p></li>
+</ul>
+</section>
+<section id="communication-and-control-c2">
+<h2>📡 Communication and Control (C2)<a class="headerlink" href="#communication-and-control-c2" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>All communication and announcement 📣 will be provided through MS Teams</p></li>
+<li><p>All lecture 📓 materials will be provided through MS Teams.</p></li>
+<li><p>Laboratory 🔬 work will be posted in this course web.</p></li>
+<li><p>All assignments must be submitted in <a class="reference external" href="https://www.gradecope.com">Gradescope</a></p></li>
+<li><p><a class="reference external" href="https://www.bitbucket.com">Bitbucket</a> will be used for students to provide their source code 📄 for homework and laboratory assignments.</p></li>
+</ul>
+</section>
+<section id="late-policy">
+<h2>⏰ Late Policy:<a class="headerlink" href="#late-policy" title="Permalink to this headline">#</a></h2>
+<p><strong>If problems arise with graded assignments, see your instructor in advance</strong></p>
+<ul class="simple">
+<li><p>The cutoff for <strong>on-time submission is 07:00 🕖 a.m.</strong> on the due date.</p></li>
+<li><p>Late days are counted in 24-hour periods. Submitting between 07:00:01 on the due date and 07:00:00 the next day is one day late, and so on.</p></li>
+<li><p>You are given <strong>5 grace days (self-granted extensions)</strong> which you can use to give yourself extra time without penalty. No more than <strong>2 grace days</strong> (calendar days) can used for each assignment.</p></li>
+<li><p>Instructor-granted extensions are only considered after all grace days are used and only given in exceptional situations. Computer problems such as hard-drive reimaging are <strong>not</strong> considered as exceptional situations and you must use grace days.</p></li>
+<li><p>Late work handed in when you have run out of grace is 💥 <strong>discounted up to 20% (-3/17 for homework and -4/20 for labs) for the first day late and up to 15% (-2/17 for homework and -3/20 for labs) per day late thereafter</strong>.</p></li>
+<li><p>Every assignment has a hard deadline; <strong>4 calendar days</strong> past the original due date.</p></li>
+<li><p>Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published. No late submissions (penalty or not) will be accepted for the assignments right before GRs.</p></li>
+</ul>
+</section>
+<section id="documentation-requirements">
+<h2>📄 Documentation Requirements<a class="headerlink" href="#documentation-requirements" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>All help received on work submitted for grading must be documented in accordance with the course documentation policy.</p></li>
+<li><p>Each documentation statement must be specific enough that it explicitly describes what assistance was provided, how it was used in completing the assignment, and who provided the assistance.</p></li>
+<li><p>If no help was received on this assignment, the documentation statement must state “None.”</p></li>
+<li><p>If you checked answers with anyone, you must document with whom on which problems. You must document whether you made any changes or not.  If you did make changes, you must document the problems you changed and the reasons why.</p></li>
+<li><p>Vague documentation statements will result in a 5% deduction on the assignment.</p></li>
+</ul>
+<section id="sample-documentation">
+<h3>Sample Documentation<a class="headerlink" href="#sample-documentation" title="Permalink to this headline">#</a></h3>
+<p>Consider the following examples when writing your own detailed documentation statements:</p>
+<p><strong>Bad Example</strong>:  Cadet McFly explained how the factorial worked.
+<br>
+<strong>Good Example</strong>: Cadet McFly explained how a recursive function worked conceptually, using diagrams and the assignment materials. He did not look at my code nor did I look at his code during this discussion.</p>
+<p><strong>Bad Example</strong>: : Cadet McFly helped fix my factorial() method.
+<br>
+<strong>Good Example</strong>: Cadet McFly helped fix my factorial() method by looking at my code** and finding that I had n &gt; 0 instead of n &gt;= 0 on line 85. <em>Note: A situation such as this may result in **less than full credit for the factorial() method, but due to the documentation statement there is no violation of the honor code.</em></p>
+<p><strong>Bad Example</strong>: : Cadet McFly and I worked together on the factorial() method.
+<br>
+<strong>Good Example</strong>: Cadet McFly and I worked together on the factorial() method, each contributing equally to its development. Prior to this help, neither of our factorial() methods was working. My factorial() method is now nearly identical to Cadet McFly’s factorial() method. <em>Note: In a situation such as this, at most half-credit would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.</em></p>
+<p><strong>Bad Example</strong>: : Cadet McFly showed me how the factorial() method works.
+<br>
+<strong>Good Example</strong>: Cadet McFly showed me how the factorial() method works by letting me look at his code. Prior to this help, my own factorial() method was not working.  My factorial() method is now nearly identical to Cadet McFly’s factorial() method. <em>Note: In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.</em></p>
+<p><strong>Bad Example</strong>: : Cadet McFly showed me how the factorial() method works.
+<br>
+<strong>Good Example</strong>: Cadet McFly showed me how the factorial() method works by looking at my code and talking me through each line as I wrote it. Prior to this help my own factorial() method was wrong.  My factorial() method is now nearly identical to Cadet McFly’s factorial() method. <em>Note: In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code.</em></p>
+</section>
+</section>
+<section id="recommendations-from-23ers-color-red-text-early">
+<h2>🔑 Recommendations from 23ers - <span class="math notranslate nohighlight">\(\color{red}{\text{Early!!}}\)</span><a class="headerlink" href="#recommendations-from-23ers-color-red-text-early" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Be prepared to spend a lot of time on this course.</p></li>
+<li><p>Work <span class="math notranslate nohighlight">\(\color{red}{\text{early}}\)</span> and ask for EI</p></li>
+<li><p>Get the Labs and HW’s done on time! If you don’t know how, get EI.</p></li>
+<li><p>Start labs <span class="math notranslate nohighlight">\(\color{red}{\text{early}}\)</span>. Get help <span class="math notranslate nohighlight">\(\color{red}{\text{early}}\)</span>. <span class="math notranslate nohighlight">\(\color{red}{\text{Early}}\)</span>. <span class="math notranslate nohighlight">\(\color{red}{\text{Early}}\)</span>. <span class="math notranslate nohighlight">\(\color{red}{\text{Early}}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\color{blue}{\text{Don't even think about starting any assignments the night before... you will regret your decision every time.}}\)</span></p></li>
+<li><p>Start <span class="math notranslate nohighlight">\(\color{red}{\text{early}}\)</span> and ask questions.</p></li>
+<li><p>Look to the textbook first for questions on code and try to start the labs the night they are assigned so that if you have a question it can be answered the next day, where as if you start the night before its due you are largely on your own.</p></li>
+<li><p>Start <span class="math notranslate nohighlight">\(\color{red}{\text{early}}\)</span> on every assignment. Set a personal due date at least 2 days before the actual due date to prevent needing to pull all-nighters when stuff doesn’t go right.</p></li>
+<li><p>Set aside a lot of time to complete assignments for this class.</p></li>
+<li><p>Start <span class="math notranslate nohighlight">\(\color{red}{\text{early}}\)</span>, don’t get behind. Work <span class="math notranslate nohighlight">\(\color{red}{\text{early}}\)</span></p></li>
+<li><p>Work on labs <span class="math notranslate nohighlight">\(\color{red}{\text{early}}\)</span> and make sure you understand all the code, it builds on itself.</p></li>
+<li><p>Start working <span class="math notranslate nohighlight">\(\color{red}{\text{early}}\)</span></p></li>
+<li><p>Use the object files if you get behind in Labs rather than fall farther behind.</p></li>
+<li><p>Try to understand everything. If you don’t make sure you reach out earlier than you think. Labs and homework will take twice the amount of time you expect. Make sure you understand the overall reason for each lab; it will make the final project 50x easier.</p></li>
+<li><p>Stay on top of the assignments- don’t wait until the last minute and reach out for help if you need it</p></li>
+<li><p>DO NOT WAIT UNTIL THE LAST MINUTE!!! Go in for EI <span class="math notranslate nohighlight">\(\color{red}{\text{early}}\)</span> and often</p></li>
+<li><p>Start <span class="math notranslate nohighlight">\(\color{red}{\text{early}}\)</span> and ask lots of questions</p></li>
+<li><p>Start the labs and the HW the day they are assigned, some of those puppies are more time intensive than you would think. Don’t fall behind because a bunch of the labs build on each other.</p></li>
+<li><p>Stay on top of HW and Labs. Utilize the discussions channel a lot. If I had an issue someone else usually had the same problem. Review missed questions on HW before the tests. Don’t make the same mistakes twice.</p></li>
+<li><p>Take time to get the labs right.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\color{red}{\text{Early}}\)</span> Birds help you stay on top of your work, and makes nights before demo days less stressful.</p></li>
+<li><p>Read the textbook and for homework and labs if you understand them</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Info</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="syllabus.html">🚩 Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">📆 Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assembly.html">🔧 Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_programming.html">🌜 C Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">🙋 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">💎 Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NoPointer.html">🐍 No Pointer in Python?</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/homework1.html">✏️ HW 1 Setting up CCS and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/homework2.html">✏️ HW 2 Assembly Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab2.html">🔬 Lab 2 Assembly Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/homework3.html">✏️ HW 3 Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab3.html">🔬 Lab 3 Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/homework4.html">✏️ HW 4 Subroutines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab4.html">🔬 Lab 4 Subroutines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab5.html">🔬 Lab 5 Software Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab8.html">🔬 Lab 8 I/O Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab10.html">🔬 Lab 10 Multithreading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab11.html">🔬 Lab 11 Serial Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab12.html">🔬 Lab 12 Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab13.html">🔬 Lab 13 Timers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab14.html">🔬 Lab 14 Real-Time Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab15.html">🔬 Lab 15 ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab15_calibration.html">📈 Lab15 Sensor Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab16.html">🔬 Lab 16 Tachometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/lab17.html">🔬 Lab 17 Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assignments/project.html">🚀 Final Project</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="syllabus.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">🚩 Syllabus</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Stan Baek<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

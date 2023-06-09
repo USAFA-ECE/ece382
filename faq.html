@@ -1,0 +1,1014 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>🙋 FAQ &#8212; Embedded Computer Systems I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="💎 Resources" href="resources.html" />
+    <link rel="prev" title="🌜 C Programming" href="c_programming.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ece382.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Embedded Computer Systems I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ECE382 Embedded Computer Systems I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="syllabus.html">
+   🚩 Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="schedule.html">
+   📆 Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assembly.html">
+   🔧 Assembly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="c_programming.html">
+   🌜 C Programming
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   🙋 FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resources.html">
+   💎 Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NoPointer.html">
+   🐍 No Pointer in Python?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/homework1.html">
+   ✏️ HW 1 Setting up CCS and Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/homework2.html">
+   ✏️ HW 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab2.html">
+   🔬 Lab 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/homework3.html">
+   ✏️ HW 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab3.html">
+   🔬 Lab 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/homework4.html">
+   ✏️ HW 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab4.html">
+   🔬 Lab 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab5.html">
+   🔬 Lab 5 Software Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab8.html">
+   🔬 Lab 8 I/O Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab10.html">
+   🔬 Lab 10 Multithreading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab11.html">
+   🔬 Lab 11 Serial Ports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab12.html">
+   🔬 Lab 12 Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab13.html">
+   🔬 Lab 13 Timers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab14.html">
+   🔬 Lab 14 Real-Time Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab15.html">
+   🔬 Lab 15 ADC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab15_calibration.html">
+   📈 Lab15 Sensor Calibration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab16.html">
+   🔬 Lab 16 Tachometer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/lab17.html">
+   🔬 Lab 17 Control Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Assignments/project.html">
+   🚀 Final Project
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2Ffaq.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/faq.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general">
+   General
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-are-the-bonus-points-used-for-my-final-grade">
+     <em>
+      How are the bonus points used for my final grade?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-the-xds110-usb-debug-probe-error-shown-below">
+     <em>
+      What is the XDS110 USB Debug Probe error shown below?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-build-error-10234-d-unresolved-symbols-remain">
+     <em>
+      What is build error #10234-D: unresolved symbols remain?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-load-program-error">
+     <em>
+      What is Load Program Error?
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ccs">
+   CCS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-comment-out-a-block-of-code-in-ccs">
+     <em>
+      How to comment out a block of code in CCS?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-auto-completion-available-in-ccs">
+     <em>
+      Is auto-completion available in CCS?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-i-rename-a-variable-function-name-in-the-entire-project-without-finding-them">
+     <em>
+      How can I rename a variable/function name in the entire project without finding them?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-do-i-have-a-compile-error-if-i-copy-paste-code-from-a-pdf-file-to-ccs">
+     <em>
+      Why do I have a compile error if I copy &amp; paste code from a pdf file to CCS?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-i-change-serial-terminal-buffer-size">
+     <em>
+      How can I change Serial Terminal Buffer size?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#are-there-git-clients-other-than-git-bash">
+     <em>
+      Are there git clients other than
+      <strong>
+       Git Bash
+      </strong>
+      ?
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hardware-software-interface">
+   Hardware/Software Interface
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-does-my-bump-sensor-not-reset-to-0-after-the-sensor-is-decompressed">
+     <em>
+      Why does my bump sensor not reset to 0 after the sensor is decompressed?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-have-two-switches-on-my-robot-which-one-should-i-use">
+     <em>
+      I have two switches on my robot. Which one should I use?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-run-the-hardware-diagnostics-tool-for-hardware-issues-on-my-robot">
+     <em>
+      How to run the hardware diagnostics tool for hardware issues on my robot?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-interface-the-nokia-lcd-with-launchpad">
+     <em>
+      How to interface the Nokia LCD with LaunchPad?
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>🙋 FAQ</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general">
+   General
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-are-the-bonus-points-used-for-my-final-grade">
+     <em>
+      How are the bonus points used for my final grade?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-the-xds110-usb-debug-probe-error-shown-below">
+     <em>
+      What is the XDS110 USB Debug Probe error shown below?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-build-error-10234-d-unresolved-symbols-remain">
+     <em>
+      What is build error #10234-D: unresolved symbols remain?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-load-program-error">
+     <em>
+      What is Load Program Error?
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ccs">
+   CCS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-comment-out-a-block-of-code-in-ccs">
+     <em>
+      How to comment out a block of code in CCS?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-auto-completion-available-in-ccs">
+     <em>
+      Is auto-completion available in CCS?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-i-rename-a-variable-function-name-in-the-entire-project-without-finding-them">
+     <em>
+      How can I rename a variable/function name in the entire project without finding them?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-do-i-have-a-compile-error-if-i-copy-paste-code-from-a-pdf-file-to-ccs">
+     <em>
+      Why do I have a compile error if I copy &amp; paste code from a pdf file to CCS?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-i-change-serial-terminal-buffer-size">
+     <em>
+      How can I change Serial Terminal Buffer size?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#are-there-git-clients-other-than-git-bash">
+     <em>
+      Are there git clients other than
+      <strong>
+       Git Bash
+      </strong>
+      ?
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hardware-software-interface">
+   Hardware/Software Interface
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-does-my-bump-sensor-not-reset-to-0-after-the-sensor-is-decompressed">
+     <em>
+      Why does my bump sensor not reset to 0 after the sensor is decompressed?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-have-two-switches-on-my-robot-which-one-should-i-use">
+     <em>
+      I have two switches on my robot. Which one should I use?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-run-the-hardware-diagnostics-tool-for-hardware-issues-on-my-robot">
+     <em>
+      How to run the hardware diagnostics tool for hardware issues on my robot?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-interface-the-nokia-lcd-with-launchpad">
+     <em>
+      How to interface the Nokia LCD with LaunchPad?
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="faq">
+<h1>🙋 FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">#</a></h1>
+<section id="general">
+<span id="faq-general"></span><h2>General<a class="headerlink" href="#general" title="Permalink to this headline">#</a></h2>
+<section id="how-are-the-bonus-points-used-for-my-final-grade">
+<h3><em>How are the bonus points used for my final grade?</em><a class="headerlink" href="#how-are-the-bonus-points-used-for-my-final-grade" title="Permalink to this headline">#</a></h3>
+<p>The bonus points earned in your labs and homework assignments will be used for your other labs and homework assignments, respectively.</p>
+<p>Here is how to calculate the final lab grade. Let <span class="math notranslate nohighlight">\(L_k\)</span> be your Lab <span class="math notranslate nohighlight">\(k\)</span> grade. The final lab grade, <span class="math notranslate nohighlight">\(L_f\)</span> will be</p>
+<div class="math notranslate nohighlight">
+\[ L_f = \min(250, \sum L_k) \]</div>
+<p>Suppose we have five labs and each lab is 50 points.  If your lab scores are 50, 48, 52, 50, and 48. Then, your final lab grade will be min(250, 248) = 248. If your scores are 50, 50, 48, 52, and 52, your final lab grade will be min(250, 252) = 250.  The bonus points earned in labs will only be used for your final lab grade.  They can’t be transferred to homework, GRs, or the final project.</p>
+<p>Your final homework grade will be calculated in the same way. The bonus points earned in homework will only be used for your final homework grade.</p>
+<p>There are also bonus points in the final project, which can be used towards the final grade.
+If you earn 250/250 for the final project, the contribution of your final project to the final grade will be 25% because the final project is worth 25% of the final grade.  If you earn 260/250 for the final project, the contribution of your final project towards the final grade will be 26.0% - you can change your final letter grade.  Note that you are eligible for the final project bonus points only if you complete all the lab demos.</p>
+</section>
+<section id="what-is-the-xds110-usb-debug-probe-error-shown-below">
+<h3><em>What is the XDS110 USB Debug Probe error shown below?</em><a class="headerlink" href="#what-is-the-xds110-usb-debug-probe-error-shown-below" title="Permalink to this headline">#</a></h3>
+<a class="reference internal image-reference" href="_images/BoardDisconnected.jpg"><img alt="_images/BoardDisconnected.jpg" class="align-center" src="_images/BoardDisconnected.jpg" style="width: 481.0px; height: 231.0px;" /></a>
+<br> 
+<p>This error simply means that your MSP432 board is not connected correctly to your computer.  Check the USB cable!</p>
+</section>
+<section id="what-is-build-error-10234-d-unresolved-symbols-remain">
+<h3><em>What is build error #10234-D: unresolved symbols remain?</em><a class="headerlink" href="#what-is-build-error-10234-d-unresolved-symbols-remain" title="Permalink to this headline">#</a></h3>
+<a class="reference internal image-reference" href="_images/UnresolvedSymbol.png"><img alt="_images/UnresolvedSymbol.png" class="align-center" src="_images/UnresolvedSymbol.png" style="width: 360px;" /></a>
+<br> 
+<p>The linker generates the error when it cannot find the definition for the symbol. This typically happens if an object file or library containing the definition for the symbol is not provided to the linker. The build output in the CCS build console should provide information on which object files and libraries are passed to the linke</p>
+<p>In short, you <strong>MISSPELLED</strong> (including capitalization error) a variable name or function name!</p>
+<p>Use autocompletion to avoid such problems:  CCS Autocompletion in the FAQ.</p>
+</section>
+<section id="what-is-load-program-error">
+<h3><em>What is Load Program Error?</em><a class="headerlink" href="#what-is-load-program-error" title="Permalink to this headline">#</a></h3>
+<a class="reference internal image-reference" href="_images/LoadProgramError.png"><img alt="_images/LoadProgramError.png" class="align-center" src="_images/LoadProgramError.png" style="width: 360px;" /></a>
+<br> 
+<p>The binary file (*.out) does not exist because you probably had a compile error as shown below.</p>
+<a class="reference internal image-reference" href="_images/CompileError.png"><img alt="_images/CompileError.png" class="align-center" src="_images/CompileError.png" style="width: 360px;" /></a>
+<br> 
+<p>Fix the compile error first.</p>
+</section>
+</section>
+<section id="ccs">
+<span id="faq-ccs"></span><h2>CCS<a class="headerlink" href="#ccs" title="Permalink to this headline">#</a></h2>
+<section id="how-to-comment-out-a-block-of-code-in-ccs">
+<h3><em>How to comment out a block of code in CCS?</em><a class="headerlink" href="#how-to-comment-out-a-block-of-code-in-ccs" title="Permalink to this headline">#</a></h3>
+<p>To comment out and uncomment multiple code lines, <code class="docutils literal notranslate"><span class="pre">Ctrl+/</span></code></p>
+</section>
+<section id="is-auto-completion-available-in-ccs">
+<h3><em>Is auto-completion available in CCS?</em><a class="headerlink" href="#is-auto-completion-available-in-ccs" title="Permalink to this headline">#</a></h3>
+<p>Yes, it is, and please use it extensively.  You can easily avoid compile errors.</p>
+<ul class="simple">
+<li><p>Type a few letters and press Ctrl+Space.  It will show you a few options you can choose.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/AutoCompletion_1.png"><img alt="_images/AutoCompletion_1.png" class="align-center" src="_images/AutoCompletion_1.png" style="width: 395.0px; height: 137.0px;" /></a>
+<br>
+- Choose one and hit Enter. Then, it will show you the declaration of the function you have chosen.
+<a class="reference internal image-reference" href="_images/AutoCompletion_2.png"><img alt="_images/AutoCompletion_2.png" class="align-center" src="_images/AutoCompletion_2.png" style="width: 348.0px; height: 57.0px;" /></a>
+<br>
+- You can also use it for both functions and variables. It is particularly useful for registers.
+<a class="reference internal image-reference" href="_images/AutoCompletion_3.png"><img alt="_images/AutoCompletion_3.png" class="align-center" src="_images/AutoCompletion_3.png" style="width: 227.0px; height: 201.0px;" /></a>
+</section>
+<section id="how-can-i-rename-a-variable-function-name-in-the-entire-project-without-finding-them">
+<h3><em>How can I rename a variable/function name in the entire project without finding them?</em><a class="headerlink" href="#how-can-i-rename-a-variable-function-name-in-the-entire-project-without-finding-them" title="Permalink to this headline">#</a></h3>
+<p>It is called <em>refactoring</em>.  Sometimes you want to rename identifiers for code symbols, such as local variables, functions, properties, and types. In such cases, you want to rename something safely without having to find all instances and copy/paste the new name. Here is how you do it:</p>
+<p>Right-click on a variable and explore Refactor &gt; Rename (or Alt + Shift +R).  Enter a new name and press Enter.</p>
+<a class="reference internal image-reference" href="_images/Refactoring.png"><img alt="_images/Refactoring.png" class="align-center" src="_images/Refactoring.png" style="width: 473.0px; height: 81.0px;" /></a>
+<br>
+It will find all instances of the variable/function and change them in the **entire** project. 
+</section>
+<section id="why-do-i-have-a-compile-error-if-i-copy-paste-code-from-a-pdf-file-to-ccs">
+<h3><em>Why do I have a compile error if I copy &amp; paste code from a pdf file to CCS?</em><a class="headerlink" href="#why-do-i-have-a-compile-error-if-i-copy-paste-code-from-a-pdf-file-to-ccs" title="Permalink to this headline">#</a></h3>
+<p>If you copy &amp; paste code (texts) from pdf, it may have hidden characters that CCS does not understand. So, <em>NEVER</em> copy and paste texts from pdf files to CCS.
+If you have an error message similar to the figure below, it is probably due to the hidden characters copied from the pdf.</p>
+<a class="reference internal image-reference" href="_images/pdf_copy_error.png"><img alt="_images/pdf_copy_error.png" class="align-center" src="_images/pdf_copy_error.png" style="width: 460px;" /></a>
+<br>
+</section>
+<section id="how-can-i-change-serial-terminal-buffer-size">
+<span id="faq-ccs-terminalbuffer"></span><h3><em>How can I change Serial Terminal Buffer size?</em><a class="headerlink" href="#how-can-i-change-serial-terminal-buffer-size" title="Permalink to this headline">#</a></h3>
+<p>In the menu bar, go to Window &gt; Preferences &gt; Terminal and change the buffer lines.</p>
+<a class="reference internal image-reference" href="_images/TerminalBuffer.png"><img alt="_images/TerminalBuffer.png" class="align-center" src="_images/TerminalBuffer.png" style="width: 652.0px; height: 199.0px;" /></a>
+<br>
+</section>
+<section id="are-there-git-clients-other-than-git-bash">
+<span id="faq-ccs-gitclinets"></span><h3><em>Are there git clients other than <strong>Git Bash</strong>?</em><a class="headerlink" href="#are-there-git-clients-other-than-git-bash" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>CCS comes with built-in GIT, and it can be opened from CCS menu &gt; View &gt; Other &gt; Git &gt; Git Staging. You can commit and push at the same time.</p></li>
+<li><p>There are many graphic user interface (GUI) clients out there. Check out <a class="reference external" href="https://git-scm.com/downloads/guis">https://git-scm.com/downloads/guis</a>.</p></li>
+</ol>
+</section>
+</section>
+<section id="hardware-software-interface">
+<span id="faq-hardwaresoftwareinterface"></span><h2>Hardware/Software Interface<a class="headerlink" href="#hardware-software-interface" title="Permalink to this headline">#</a></h2>
+<section id="why-does-my-bump-sensor-not-reset-to-0-after-the-sensor-is-decompressed">
+<h3><em>Why does my bump sensor not reset to 0 after the sensor is decompressed?</em><a class="headerlink" href="#why-does-my-bump-sensor-not-reset-to-0-after-the-sensor-is-decompressed" title="Permalink to this headline">#</a></h3>
+<p>Your pull-up/down resistors may not be configured appropriately.</p>
+</section>
+<section id="i-have-two-switches-on-my-robot-which-one-should-i-use">
+<span id="faq-twoswitches"></span><h3><em>I have two switches on my robot. Which one should I use?</em><a class="headerlink" href="#i-have-two-switches-on-my-robot-which-one-should-i-use" title="Permalink to this headline">#</a></h3>
+<p>There are two switches on your robot as shown below. <strong>Keep the slide switch in the yellow rectangle in the off position</strong> and use the button switch in the yellow circle to turn the robot on and off. Do not use the slide switch because it is very fragile.</p>
+<a class="reference internal image-reference" href="_images/RSLK_Switches.PNG"><img alt="_images/RSLK_Switches.PNG" class="align-center" src="_images/RSLK_Switches.PNG" style="width: 640px;" /></a>
+<br>
+</section>
+<section id="how-to-run-the-hardware-diagnostics-tool-for-hardware-issues-on-my-robot">
+<span id="faq-hardwarediagnostics"></span><h3><em>How to run the hardware diagnostics tool for hardware issues on my robot?</em><a class="headerlink" href="#how-to-run-the-hardware-diagnostics-tool-for-hardware-issues-on-my-robot" title="Permalink to this headline">#</a></h3>
+<p>In some cases, it may be unclear whether the issue lies with your code or hardware. Here’s how to test your hardware.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need 6 AA batteries to run this tool.</p>
+</div>
+<p><strong>Load diagnostics tool</strong></p>
+<ol class="simple">
+<li><p>Download <a class="reference download internal" download="" href="_downloads/304b030e748af218173edb9d0344e3f4/HardwareDiagnostics.out"><code class="xref download docutils literal notranslate"><span class="pre">HardwareDiagnostics.out</span></code></a>.</p></li>
+<li><p>Download the <a class="reference external" href="https://www.ti.com/tool/UNIFLASH#downloads">UniFlash flash programming tool</a> and install it on your computer.</p></li>
+<li><p>Run UniFlash.</p></li>
+<li><p>Connect the LaunchPad to your computer. UniFlash will detect your LauchPad as shown below. Click <code class="docutils literal notranslate"><span class="pre">Start</span></code>.</p></li>
+<li><p>In UniFlash, click <code class="docutils literal notranslate"><span class="pre">Browse</span></code> and select the <code class="docutils literal notranslate"><span class="pre">HardwareDiagnostics.out</span></code> file you downloaded on your computer.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Image</span></code>. If you are asked to update the firmware, you must update it.</p></li>
+<li><p>Once the hardware diagnostics program is successfully flashed on your microprocessor, UniFlash will display <code class="docutils literal notranslate"><span class="pre">[SUCCESS]</span> <span class="pre">Program</span> <span class="pre">Load</span> <span class="pre">completed</span> <span class="pre">successfully</span></code>.</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/HardwareDiagnostics.gif"><img alt="_images/HardwareDiagnostics.gif" class="align-center" src="_images/HardwareDiagnostics.gif" style="width: 720px;" /></a>
+<br>
+<p><strong>Turn on chassis</strong></p>
+<ul class="simple">
+<li><p>Disconnect the USB cable.</p></li>
+<li><p>You must use the <strong>button</strong> switch to turn on the chassis power.  Please read <a class="reference internal" href="#faq-twoswitches"><span class="std std-ref">this section</span></a>.</p></li>
+<li><p>Insert 6 AA batteries and turn on the robot.</p></li>
+</ul>
+<p><strong>Test LCD &amp; LED</strong></p>
+<ul class="simple">
+<li><p>The first test is the LED and LCD tests.</p></li>
+<li><p>It will blink 6 LEDs and display texts and numbers as shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/LCDTest.gif"><img alt="_images/LCDTest.gif" class="align-center" src="_images/LCDTest.gif" style="width: 360px;" /></a>
+<br>
+<ul class="simple">
+<li><p>To change the contrast of the LCD, press the left and right switches located on the sides of the LaunchPad.</p></li>
+<li><p>Press one of the six bump switches on the front of the robot to move to the next test.</p></li>
+</ul>
+<p><strong>Test reflectance sensors</strong></p>
+<ul class="simple">
+<li><p>Starting in Fall 2023, we don’t use the reflectance sensors. Jump to the next test.</p></li>
+<li><p>Block the reflectance sensors on the bottom of the robot one at a time.</p></li>
+<li><p>The corresponding binary value on the LCD will become zero as shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/ReflectanceTest.gif"><img alt="_images/ReflectanceTest.gif" class="align-center" src="_images/ReflectanceTest.gif" style="width: 360px;" /></a>
+<br>
+<p><strong>Test bump switches</strong></p>
+<ul class="simple">
+<li><p>To test each bump switch, press one of the six bump switches at a time.</p></li>
+<li><p>Press the bump switches one at a time.</p></li>
+<li><p>The corresponding binary value will become one as shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/BumpTest.gif"><img alt="_images/BumpTest.gif" class="align-center" src="_images/BumpTest.gif" style="width: 360px;" /></a>
+<br>
+<ul class="simple">
+<li><p>Hold the robot before moving to the next test because the motors will be running.</p></li>
+<li><p>Press one of the switches on the LaunchPad to move to the next test.</p></li>
+</ul>
+<p><strong>Test motors</strong></p>
+<ul class="simple">
+<li><p>If your motor is not running, slowly rotate it to kick in.</p></li>
+<li><p>As motors run, the measured speeds will be displayed on the LCD as shown below.</p></li>
+<li><p>The motor speeds should be around 80 rpm and the errors are supposed to be fluctuating.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/MotorTest.gif"><img alt="_images/MotorTest.gif" class="align-center" src="_images/MotorTest.gif" style="width: 360px;" /></a>
+<br>
+<ul class="simple">
+<li><p>Press one of the six bump switches to move to the next test.</p></li>
+</ul>
+<p><strong>Test distance sensors</strong></p>
+<ul class="simple">
+<li><p>The next test is the Distance Sensor test.</p></li>
+<li><p>If there is no object in front of a sensor, the distance value should be 800 mm.</p></li>
+<li><p>As you move an object close to a sensor, the LPF values should increase and the distance value should decrease as shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/DistanceSensorTest.gif"><img alt="_images/DistanceSensorTest.gif" class="align-center" src="_images/DistanceSensorTest.gif" style="width: 360px;" /></a>
+<br>
+<ul class="simple">
+<li><p>Press one of the six bump switches to move back to the first test.</p></li>
+</ul>
+<p>There is also an online tool from TI to test your hardware. You can use this tool to test your line sensors, bump sensors, motors, and LEDs. You cannot test the IR distance sensors and Nokia LCD.  Here is the <a class="reference external" href="https://dev.ti.com/gallery/view/1766484/RSLK_Debug/ver/2.0.1/">link</a></p>
+</section>
+<section id="how-to-interface-the-nokia-lcd-with-launchpad">
+<h3><em>How to interface the Nokia LCD with LaunchPad?</em><a class="headerlink" href="#how-to-interface-the-nokia-lcd-with-launchpad" title="Permalink to this headline">#</a></h3>
+<p>Before you mount your LCD on the robot, you want to test the connection between the LCD and your LaunchPad. Using jumper wires provided by your instructor, connect your LCD to LaunchPad as shown below. Do not connect the LED backlight to 3.3 V.  The LEDs will draw too much current.</p>
+<a class="reference internal image-reference" href="_images/Nokia5110_BackSide.png"><img alt="_images/Nokia5110_BackSide.png" class="align-center" src="_images/Nokia5110_BackSide.png" style="width: 600px;" /></a>
+<br>
+<a class="reference internal image-reference" href="_images/Nokia5110_Connection.png"><img alt="_images/Nokia5110_Connection.png" class="align-center" src="_images/Nokia5110_Connection.png" style="width: 343.8px; height: 214.79999999999998px;" /></a>
+<br>
+<ul class="simple">
+<li><p>If you have a red LCD, connect it to your LaunchPad using the following interface.</p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="c1">// Red SparkFun Nokia 5110 (LCD-10168)</span>
+<span class="c1">// -----------------------------------</span>
+<span class="c1">// Signal        (Nokia 5110) LaunchPad pin</span>
+<span class="c1">// 3.3V          (VCC, pin 1) power</span>
+<span class="c1">// Ground        (GND, pin 2) ground</span>
+<span class="c1">// UCA3STE       (SCE, pin 3) connected to P9.4</span>
+<span class="c1">// Reset         (RST, pin 4) connected to P9.3</span>
+<span class="c1">// Data/Command  (D/C, pin 5) connected to P9.6</span>
+<span class="c1">// UCA3SIMO      (DN,  pin 6) connected to P9.7</span>
+<span class="c1">// UCA3CLK       (SCLK, pin 7) connected to P9.5</span>
+<span class="c1">// backlight    (LED, pin 8) not connected, </span>
+<span class="c1">// consists of 4 3.3 V white LEDs, which draw ~80mA total</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If you have a blue LCD, connect it to your LaunchPad using the following interface.</p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="c1">// Blue Adafruit 338 Nokia 5110</span>
+<span class="c1">// ---------------</span>
+<span class="c1">// Signal        (Nokia 5110) LaunchPad pin</span>
+<span class="c1">// Ground        (Gnd, pin 1) ground</span>
+<span class="c1">// 3.3V          (Vcc, pin 2) power</span>
+<span class="c1">// UCA3CLK       (Clk, pin 3) connected to P9.5</span>
+<span class="c1">// UCA3SIMO      (Din, pin 4) connected to P9.7</span>
+<span class="c1">// Data/Command  (D/C, pin 5) connected to P9.6</span>
+<span class="c1">// UCA3STE       (CS,  pin 6) connected to P9.4</span>
+<span class="c1">// Reset         (RST, pin 7) connected to P9.3</span>
+<span class="c1">// backlight    (LED, pin 8) not connected, </span>
+<span class="c1">//consists of 4 white LEDs which draw ~80mA total</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To test your connections, run the <code class="docutils literal notranslate"><span class="pre">HardwareDiagnosis</span></code> project explained in Homework 1.</p></li>
+<li><p>You should be able to see messages on the LCD.  If not, check your connections between the LCD and the LaunchPad.</p></li>
+<li><p>Mount the LCD on the LaunchPad using a hex standoff in your box as shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/MountingLCD.png"><img alt="_images/MountingLCD.png" class="align-center" src="_images/MountingLCD.png" style="width: 512.0px; height: 384.0px;" /></a>
+<br>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="c_programming.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">🌜 C Programming</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="resources.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">💎 Resources</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Stan Baek<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

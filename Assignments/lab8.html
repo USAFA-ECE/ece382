@@ -1,0 +1,829 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>🔬 Lab 8 I/O Interface &#8212; Embedded Computer Systems I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="🔬 Lab 10 Multithreading" href="lab10.html" />
+    <link rel="prev" title="🔬 Lab 5 Software Design" href="lab5.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ece382.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Embedded Computer Systems I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE382 Embedded Computer Systems I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   🚩 Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   📆 Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assembly.html">
+   🔧 Assembly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c_programming.html">
+   🌜 C Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq.html">
+   🙋 FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources.html">
+   💎 Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NoPointer.html">
+   🐍 No Pointer in Python?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1.html">
+   ✏️ HW 1 Setting up CCS and Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework2.html">
+   ✏️ HW 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab2.html">
+   🔬 Lab 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework3.html">
+   ✏️ HW 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab3.html">
+   🔬 Lab 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework4.html">
+   ✏️ HW 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab4.html">
+   🔬 Lab 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab5.html">
+   🔬 Lab 5 Software Design
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   🔬 Lab 8 I/O Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab10.html">
+   🔬 Lab 10 Multithreading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab11.html">
+   🔬 Lab 11 Serial Ports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab12.html">
+   🔬 Lab 12 Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab13.html">
+   🔬 Lab 13 Timers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab14.html">
+   🔬 Lab 14 Real-Time Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab15.html">
+   🔬 Lab 15 ADC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab15_calibration.html">
+   📈 Lab15 Sensor Calibration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab16.html">
+   🔬 Lab 16 Tachometer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab17.html">
+   🔬 Lab 17 Control Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="project.html">
+   🚀 Final Project
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2FAssignments/lab8.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Assignments/lab8.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synopsis">
+   📜 Synopsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implement-the-bump-sensors">
+     Implement the bump sensors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demo-program8-2-with-moku-go-oscilloscope">
+     Demo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Program8_2()
+      </span>
+     </code>
+     with Moku:Go Oscilloscope
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implement-alarm-algorithm-in-program8-3">
+     Implement alarm algorithm in Program8_3()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1">
+     Deliverable 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2">
+     Deliverable 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3">
+     Deliverable 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-4">
+     Deliverable 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>🔬 Lab 8 I/O Interface</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synopsis">
+   📜 Synopsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implement-the-bump-sensors">
+     Implement the bump sensors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demo-program8-2-with-moku-go-oscilloscope">
+     Demo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Program8_2()
+      </span>
+     </code>
+     with Moku:Go Oscilloscope
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implement-alarm-algorithm-in-program8-3">
+     Implement alarm algorithm in Program8_3()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1">
+     Deliverable 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2">
+     Deliverable 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3">
+     Deliverable 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-4">
+     Deliverable 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-8-i-o-interface">
+<h1>🔬 Lab 8 I/O Interface<a class="headerlink" href="#lab-8-i-o-interface" title="Permalink to this headline">#</a></h1>
+<section id="objectives">
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Students should be able to interface switches and LEDs to a microcontroller using TI’s LaunchPad development board.</p></li>
+<li><p>Students should be able to write assembly code to configure switches as inputs and LEDs as outputs.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are two ways to write error-free programs; only the third one works. -Alan J. Perlis</p>
+</div>
+</section>
+<section id="synopsis">
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
+<p>In this lab you will design, develop, and test a window intruder detector alarm system. The block diagram of the system is shown below.</p>
+<a class="reference internal image-reference" href="../_images/Lab08_BlockDiagram.png"><img alt="../_images/Lab08_BlockDiagram.png" class="align-center" src="../_images/Lab08_BlockDiagram.png" style="width: 380px;" /></a>
+<br>
+<p>Our window intruder detector alarm system is equipped with three inputs and one output. The inputs consist of three switches that are implemented with <strong>positive logic</strong>. The rightmost bump switch, which is called <em>Activate</em>, serves as the arm/disarm control.
+The two left bump switches connected to P4.7 and P4.6 are two window sensors, which are named <em>Window1</em> and <em>Window2</em> respectively. When <em>Activate</em> is pressed or true, the security system is activated. When <em>Activate</em> is not pressed or false, the system is deactivated, meaning the alarm will be <em>OFF</em> regardless of the state of the window sensors. The window is in a secure position when the window sensor is pressed or true. It is unsafe if either window sensor is not pressed. The output consists of an LED called <em>Alarm</em> that is implemented in positive logic. The LED flashes at 1 Hz (on for 50 ms, off for 50 ms) to signify the unsafe condition when either Window1 or Window2 detects an intruder based on the truth table below.</p>
+<a class="reference internal image-reference" href="../_images/Lab08_TruthTable.png"><img alt="../_images/Lab08_TruthTable.png" class="align-center" src="../_images/Lab08_TruthTable.png" style="width: 460px;" /></a>
+<br>
+</section>
+<section id="procedure">
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Connect the LaunchPad to your computer via the provided USB cable.</p></li>
+<li><p>Open Code Composer Studio (CCS) and select your starter workspace.</p></li>
+<li><p>Ensure your Project Explorer is open on the left of the CCS screen. Otherwise, select View &gt; Project Explorer.</p></li>
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">Lab08_InterfacingIO</span></code> project by double-clicking it.</p></li>
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">Lab08_InterfacingIOmain.c</span></code> file by double-clicking it.</p></li>
+</ul>
+</section>
+<section id="implement-the-bump-sensors">
+<h3>Implement the bump sensors<a class="headerlink" href="#implement-the-bump-sensors" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Please read <code class="docutils literal notranslate"><span class="pre">Bump.h</span></code> in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder. You can also open it by right-clicking <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;…/inc/Bump.h&quot;</span></code> and selecting Open Declaration (F3).</p></li>
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">Bump_Init()</span></code> and <code class="docutils literal notranslate"><span class="pre">Bump_Read()</span></code> in <code class="docutils literal notranslate"><span class="pre">Bump.c</span></code>.</p></li>
+<li><p>In Homework 8, you already wrote the function to initialize the bump sensors, <code class="docutils literal notranslate"><span class="pre">Bump_Init()</span></code>. This function sets the appropriate port pins and enables internal resistors as pull-up resistors (active low).</p></li>
+<li><p>A second function, <code class="docutils literal notranslate"><span class="pre">Bump_Read()</span></code>, reads the switches and returns one 8-bit result.</p></li>
+<li><p>The bump sensors are active-low, which means that when pressed they will switch from a 1 to a 0.</p></li>
+<li><p>We want the output of our <code class="docutils literal notranslate"><span class="pre">Bump_Read()</span></code> function to return a 1 when pressed, so you should <strong>invert</strong> the result before returning from the function.</p></li>
+<li><p>The bump sensors are connected to P4.7-P4.5, P4.3, P4.2, and P4.0.</p></li>
+<li><p>If the two middle sensors are pressed, P4 will be 0b110x01x1, where x denotes <code class="docutils literal notranslate"><span class="pre">unknown</span> <span class="pre">(don’t</span> <span class="pre">care)</span></code>. Since it is negative logic, 0 means <em>pressed</em> and 1 means <em>not pressed</em>.</p></li>
+<li><p>The function returns an 8-bit unsigned integer. The first 6 bits (Bit0 - Bit5) of the return value must be the sensor output with positive logic. If the two middle sensors are pressed, the function must return 0b00001100.</p></li>
+<li><p>In the function, you need to <strong>invert</strong> the sensor reading and perform <strong>select-shift-combine</strong> operations.</p></li>
+</ul>
+<div class="admonition-q-a admonition">
+<p class="admonition-title">Q&amp;A</p>
+<p><strong>Q</strong>: I don’t understand what/why we are shifting in Bump Read.
+<br>
+<strong>A</strong>: If you look in the comments for Bump_Init, the switches are mapped to pins 7-5, 3-2, and 0. You want to move everything, so it’s in bits 5-0.</p>
+</div>
+<ul class="simple">
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program8_1()</span></code> testing the bump switches as shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab08_BumpTest.gif"><img alt="../_images/Lab08_BumpTest.gif" class="align-center" src="../_images/Lab08_BumpTest.gif" style="width: 640px;" /></a>
+<br>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you want to give a video demo, use a screen recorder such as OBS Studio - it is free. Do not record your screen with a mobile device or a webcam. If you do so, <strong>you will get -10 points</strong>.</p>
+</div>
+</section>
+<section id="demo-program8-2-with-moku-go-oscilloscope">
+<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program8_2()</span></code> with Moku:Go Oscilloscope<a class="headerlink" href="#demo-program8-2-with-moku-go-oscilloscope" title="Permalink to this headline">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use the alligator clip to clamp the ground pin. If the alligator clip touches another pin on your LaunchPad, <strong>it may fry your LaunchPad</strong>.</p>
+</div>
+<ul class="simple">
+<li><p>Turn off your LaunchPad. <strong>Do not connect</strong> an oscilloscope probe to your LaunchPad while it is on.</p></li>
+<li><p>Connect an oscilloscope probe to your LaunchPad as shown below. Use a jumper wire to connect the ground signal.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab08_OscConnections.png"><img alt="../_images/Lab08_OscConnections.png" class="align-center" src="../_images/Lab08_OscConnections.png" style="width: 492.8px; height: 326.40000000000003px;" /></a>
+<br>
+<p><strong>Steps to use the Oscilloscope</strong></p>
+<p>We will now utilize Moku:Go Oscilloscope to observe the signal sent over P1.0 to determine if the LED is blinking at a rate of 1 Hz.</p>
+<ul class="simple">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program8_2()</span></code> to  test <code class="docutils literal notranslate"><span class="pre">LED_Oscillate</span></code> you implemented in Homework 8.</p></li>
+<li><p>Your Moku:Go will turn on automatically when connected to power.  Connect the magnetic power supply to the magnetic power adapter.  To turn off Moku:Go, unplug the power source.</p></li>
+<li><p>The LED on Moku:Go is off when the power is disconnected. While Moku:Go is booting, the LED is orange. When Moku:Go is ready, the LED becomes green.</p></li>
+<li><p>Connect the Moku:Go to your computer via a USB-C cable.</p></li>
+<li><p>Once you have connected your Moku:Go to your computer, you can start using your device with the Moku:Go App. Launch the Moku:Go App on your computer. The Moku:Go device connected by USB will appear on the <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">your</span> <span class="pre">device</span></code> page as shown below.</p></li>
+<li><p>Double click your Moku:Go tile to start using your device. The default name of your Moku:Go is <code class="docutils literal notranslate"><span class="pre">Moku-######</span></code>, where <code class="docutils literal notranslate"><span class="pre">######</span></code> is the 6-digit serial number printed on the bottom of the device.</p></li>
+<li><p>On the <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">your</span> <span class="pre">instrument</span></code> menu, double click Oscilloscope.</p></li>
+<li><p>Change the voltage level and time span by scrolling your mouse up or down as shown below. The time span should be at least 4 seconds or you need to have at least 5 periods (repeating signals) on your window.</p></li>
+<li><p>Ensure the trigger mode is <code class="docutils literal notranslate"><span class="pre">Normal</span></code>, the type is <code class="docutils literal notranslate"><span class="pre">Edge</span></code>, and the level is at least 3 V.</p></li>
+<li><p>Click the Ruler button (Measurement) to measure the frequency.  You can measure the period instead of the frequency if you prefer.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab08_MokuGo.gif"><img alt="../_images/Lab08_MokuGo.gif" class="align-center" src="../_images/Lab08_MokuGo.gif" style="width: 797.6px; height: 542.4px;" /></a>
+<br>
+<ul class="simple">
+<li><p>To get the frequency of your signal to be 1 Hz (period = 1 sec), you need to adjust your <code class="docutils literal notranslate"><span class="pre">DELAY</span></code> in <code class="docutils literal notranslate"><span class="pre">LEDs.asm</span></code>. No trial and error is needed for this. You can easily find the correct value of <code class="docutils literal notranslate"><span class="pre">DELAY</span></code> using a simple ratio.</p></li>
+<li><p>Click the <strong>Cloud</strong> button (Export Data) and export the screenshot to your local folder.</p></li>
+<li><p>Submit the screenshot in Gradescope.</p></li>
+</ul>
+</section>
+<section id="implement-alarm-algorithm-in-program8-3">
+<h3>Implement alarm algorithm in Program8_3()<a class="headerlink" href="#implement-alarm-algorithm-in-program8-3" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Within Lab08_LED_Switchesmain.c, use <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code> to implement the alarm algorithm discussed in Synopsis and depicted in the block diagram below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab08_FlowChart.png"><img alt="../_images/Lab08_FlowChart.png" class="align-center" src="../_images/Lab08_FlowChart.png" style="width: 380px;" /></a>
+<br>
+<ul class="simple">
+<li><p>The system starts with the LED off.</p></li>
+<li><p>Wait about 100 ms.</p></li>
+<li><p>Look at the three bump switches; if <code class="docutils literal notranslate"><span class="pre">Activate</span></code> is pressed and one or both <code class="docutils literal notranslate"><span class="pre">Window1</span></code> and <code class="docutils literal notranslate"><span class="pre">Window2</span></code> are not pressed, then toggle the LED else turn the LED off.</p></li>
+<li><p>You must use the functions in <code class="docutils literal notranslate"><span class="pre">LED.asm</span></code>.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code></p></li>
+</ul>
+<br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8T5bG38kvj0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<br>
+</section>
+</section>
+<section id="deliverables">
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<section id="deliverable-1">
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[4 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program8_1()</span></code> testing the bump switches.</p></li>
+</ul>
+</section>
+<section id="deliverable-2">
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[4 Points]</strong> Submit a Moku:Go screenshot showing your LED blinks at 1 Hz.</p></li>
+</ul>
+</section>
+<section id="deliverable-3">
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[4 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code> showing the alarm system works properly.</p></li>
+</ul>
+</section>
+<section id="deliverable-4">
+<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[7.5 Points]</strong> Push your code to your repository using git. Please write comments in your code.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Your code <strong>must be compilable</strong>.  If your code throws any compile errors, you will get <strong>a grade of 0</strong> for the coding part.</p>
+</div>
+<p>This lab has been adapted from <a class="reference external" href="https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum">TI-RSLK MAX Solderless
+Maze Edition Curriculum</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lab5.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">🔬 Lab 5 Software Design</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lab10.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">🔬 Lab 10 Multithreading</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Stan Baek<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

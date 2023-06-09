@@ -1,0 +1,906 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>🔬 Lab 5 Software Design &#8212; Embedded Computer Systems I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="🔬 Lab 8 I/O Interface" href="lab8.html" />
+    <link rel="prev" title="🔬 Lab 4 Subroutines" href="lab4.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ece382.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Embedded Computer Systems I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE382 Embedded Computer Systems I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   🚩 Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   📆 Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assembly.html">
+   🔧 Assembly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c_programming.html">
+   🌜 C Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq.html">
+   🙋 FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources.html">
+   💎 Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NoPointer.html">
+   🐍 No Pointer in Python?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1.html">
+   ✏️ HW 1 Setting up CCS and Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework2.html">
+   ✏️ HW 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab2.html">
+   🔬 Lab 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework3.html">
+   ✏️ HW 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab3.html">
+   🔬 Lab 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework4.html">
+   ✏️ HW 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab4.html">
+   🔬 Lab 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   🔬 Lab 5 Software Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab8.html">
+   🔬 Lab 8 I/O Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab10.html">
+   🔬 Lab 10 Multithreading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab11.html">
+   🔬 Lab 11 Serial Ports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab12.html">
+   🔬 Lab 12 Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab13.html">
+   🔬 Lab 13 Timers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab14.html">
+   🔬 Lab 14 Real-Time Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab15.html">
+   🔬 Lab 15 ADC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab15_calibration.html">
+   📈 Lab15 Sensor Calibration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab16.html">
+   🔬 Lab 16 Tachometer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab17.html">
+   🔬 Lab 17 Control Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="project.html">
+   🚀 Final Project
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2FAssignments/lab5.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Assignments/lab5.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synopsis">
+   📜 Synopsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-the-program5-1-function-to-adjust-constrast">
+     Run the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Program5_1
+      </span>
+     </code>
+     function to adjust constrast
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-the-nokia5110-outstring-function">
+     Write the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Nokia5110_OutString
+      </span>
+     </code>
+     function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions">
+     Write the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Nokia5110_OutUDec
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Nokia5110_OutSDec
+      </span>
+     </code>
+     functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1">
+     Deliverable 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2">
+     Deliverable 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3">
+     Deliverable 3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>🔬 Lab 5 Software Design</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synopsis">
+   📜 Synopsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-the-program5-1-function-to-adjust-constrast">
+     Run the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Program5_1
+      </span>
+     </code>
+     function to adjust constrast
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-the-nokia5110-outstring-function">
+     Write the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Nokia5110_OutString
+      </span>
+     </code>
+     function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions">
+     Write the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Nokia5110_OutUDec
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Nokia5110_OutSDec
+      </span>
+     </code>
+     functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1">
+     Deliverable 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2">
+     Deliverable 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3">
+     Deliverable 3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-5-software-design">
+<h1>🔬 Lab 5 Software Design<a class="headerlink" href="#lab-5-software-design" title="Permalink to this headline">#</a></h1>
+<section id="objectives">
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Students should be able to write logic, conditionals, and loops in C.</p></li>
+<li><p>Students should be able to write functions with input and output parameters in C.</p></li>
+<li><p>Students should be able to use debugging tools for C, such as Step-In, Step-Out, and Step-Next.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The only way to learn a new programming language is by writing programs in it. -Dennis Ritchie (inventor of C programming language)</p>
+</div>
+</section>
+<section id="synopsis">
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
+<p>The objective of this lab is to interface a liquid crystal display (LCD) to the microcontroller and use it to output characters and numbers. The Nokia 5110 LCD shown below is a monocrhome display that is 84 pixels wide by 48 pixels high.</p>
+<a class="reference internal image-reference" href="../_images/Lab05_Nokia5110_AF.png"><img alt="../_images/Lab05_Nokia5110_AF.png" class="align-center" src="../_images/Lab05_Nokia5110_AF.png" style="width: 280px;" /></a>
+<br>
+<p>Each character on the LCD is defined by a 5 pixel wide by 8 pixel high image. You can see the font table as a constant array called ASCII inside <code class="docutils literal notranslate"><span class="pre">Nokia5110</span> <span class="pre">.c</span></code>. For example, the letter ‘7’ is defined as 0x01, 0x71, 0x09, 0x05, 0x03. This 40-bit value creates the image shown below on the display. The 0x01 is the first column and 0x03 is the last column, with bit 0 on top.</p>
+<a class="reference internal image-reference" href="../_images/Lab5_Number7.PNG"><img alt="../_images/Lab5_Number7.PNG" class="align-center" src="../_images/Lab5_Number7.PNG" style="width: 320px;" /></a>
+<br>
+<p>The <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutChar</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Nokia5110.c</span></code> finds the 40-bit value associated with the character passed to the function and displays the character on the LCD.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Print a character to the Nokia 5110 48x84 LCD.  The</span>
+<span class="cm"> * character will be printed at the current cursor position,</span>
+<span class="cm"> * the cursor will automatically be updated, and it will</span>
+<span class="cm"> * wrap to the next row or back to the top if necessary.</span>
+<span class="cm"> * One blank column of pixels will be printed on either side</span>
+<span class="cm"> * of the character for readability.  Since characters are 8</span>
+<span class="cm"> * pixels tall and 5 pixels wide, 12 characters fit per row,</span>
+<span class="cm"> * and there are six rows.</span>
+<span class="cm"> * @param data  character to print</span>
+<span class="cm"> * @return none</span>
+<span class="cm"> * @note  LCD is in default horizontal addressing mode (V = 0)</span>
+<span class="cm"> * @see Nokia5110_Init(), Nokia5110_Clear(), Nokia5110_SetCursor()</span>
+<span class="cm"> * @brief  Print a character to the LCD</span>
+<span class="cm"> * @note use Nokia5110_SetCursor to specify position</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">Nokia5110_OutChar</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You need to use <code class="docutils literal notranslate"><span class="pre">Nokia5110_SetCursor2</span></code> to move the cursor to the desired row and column position on the LCD. The next character printed by <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutChar</span></code> will be printed here. Read the documentation for <code class="docutils literal notranslate"><span class="pre">Nokia5110_SetCursor2</span></code> inside <code class="docutils literal notranslate"><span class="pre">nokia5110.h</span></code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">workspace/inc</span></code> folder is where the actual .h and .c files are stored and allow us to use these files across multiple projects. The .c files are typically <strong>linked</strong> within the project folder, so editing the file in the project folder is actually editing the file inside the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder. The .h files are not linked.</p>
+</div>
+<p>In this lab, you need to implement the following functions inside <code class="docutils literal notranslate"><span class="pre">Nokia5110.c</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code>: Prints a string of characters to Nokia5110 LCD</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code>: Prints an unsigned number in variable-size format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code>: Prints a signed number in variable-size format.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Read <code class="docutils literal notranslate"><span class="pre">Nokia5110.h</span></code> before you start writing code. Putting the declarations in the header enables any code file that includes this header file to call these functions.</p>
+</div>
+</section>
+<section id="procedure">
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Connect the LaunchPad to your computer via the provided USB cable.</p></li>
+<li><p>Open Code Composer Studio (CCS) and select your workspace.</p></li>
+<li><p>Ensure your Project Explorer is open on the left of the CCS screen.</p></li>
+</ul>
+</section>
+<section id="run-the-program5-1-function-to-adjust-constrast">
+<h3>Run the <code class="docutils literal notranslate"><span class="pre">Program5_1</span></code> function to adjust constrast<a class="headerlink" href="#run-the-program5-1-function-to-adjust-constrast" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project by double-clicking it.</p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesignMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project.</p></li>
+<li><p>Ensure <code class="docutils literal notranslate"><span class="pre">Program5_1</span></code> is uncommented inside the <code class="docutils literal notranslate"><span class="pre">main</span></code> function.</p></li>
+<li><p>Build and debug the program.</p></li>
+<li><p>It will display the Air Force logo as shown below.</p></li>
+<li><p>Adjust <code class="docutils literal notranslate"><span class="pre">CONSTRAST</span></code> if needed.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab5_Prog5-1.gif"><img alt="../_images/Lab5_Prog5-1.gif" class="align-center" src="../_images/Lab5_Prog5-1.gif" style="width: 300px;" /></a>
+</section>
+<section id="write-the-nokia5110-outstring-function">
+<h3>Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function<a class="headerlink" href="#write-the-nokia5110-outstring-function" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>In CCS open the <code class="docutils literal notranslate"><span class="pre">inc</span></code> project by double-clicking it.</p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Nokia5110.h</span></code> and read the documentation for the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutChar</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> functions.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is crucial to read and comprehend the documentation in header files. Typically, the documentation inside header files is provided to end users, but the contents of source files (*.c) are not usually provided to end users for various reasons, including security. Sometimes, source files are already compiled and end users are not permitted to read them. For example, SPIA3.obj inside Lab05_SoftwareDesign is already compiled and its source code cannot be read. However, you can read its header file, SPIA3.h.</p>
+</div>
+<ul class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project by double-clicking it.</p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Nokia5110.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may have noticed that <code class="docutils literal notranslate"><span class="pre">Nokia5110.c</span></code> is also located inside the <code class="docutils literal notranslate"><span class="pre">inc</span></code> project. The file is physically located inside the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder and the one insde the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project is a <strong>link</strong> to the file in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.  We need a link, not a copy, of the file because we need the file across multiple projects.  If you have a copy of the file, you have to re-copy the file to every project everytime you modify it.</p>
+</div>
+<ul class="simple">
+<li><p>Find the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Nokia5110.c</span></code>.</p></li>
+<li><p>The input arguemnt, <code class="docutils literal notranslate"><span class="pre">ptr</span></code>, of the fucntion is a pointer to a string, i.e., <code class="docutils literal notranslate"><span class="pre">ptr</span></code> is the address of the first character of the string.  A string in C is an array of characters with the Null character (ASCII value 0) at the end. A string in C can be initialized in many different ways. For example,</p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;3&#39;</span><span class="p">,</span><span class="sc">&#39;8&#39;</span><span class="p">,</span><span class="sc">&#39;2&#39;</span><span class="p">,</span><span class="sc">&#39;\0&#39;</span><span class="p">};</span><span class="w"></span>
+<span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;3&#39;</span><span class="p">,</span><span class="sc">&#39;8&#39;</span><span class="p">,</span><span class="sc">&#39;2&#39;</span><span class="p">,</span><span class="sc">&#39;\0&#39;</span><span class="p">};</span><span class="w"></span>
+<span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ECE382&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// array size can be &gt; 7. C compilers will put \0 at str[6] ... str[9]</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ECE382&quot;</span><span class="p">;</span><span class="w">    </span><span class="c1">// C compilers will append Null (\0) at the end. </span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ECE382&quot;</span><span class="p">;</span><span class="w">     </span><span class="c1">// C compilers will append Null (\0) at the end.</span>
+</pre></div>
+</div>
+<p>The last two methods would be the best to define a string in C.  Note that an array is a pointer.  In the above example, the <code class="docutils literal notranslate"><span class="pre">str</span></code> variable from <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">str[]</span> <span class="pre">=</span> <span class="pre">&quot;ECE382&quot;</span></code> holds the <strong>address</strong> of the first letter, ‘E’, in “ECE382”. So, you can access ‘E’ by <code class="docutils literal notranslate"><span class="pre">*str</span></code> or <code class="docutils literal notranslate"><span class="pre">str[0]</span></code> and ‘C’ by <code class="docutils literal notranslate"><span class="pre">*(str+1)</span></code> or <code class="docutils literal notranslate"><span class="pre">str[1]</span></code>.  The difference between arrays and pointers is that a memory space must be allocated to an array during the compile time (you must define them with a size) whereas no memory space needs to be allocated to a pointer when it is define.  If we need to allocate a memory space to a pointer during the runtime, we can use <em>malloc</em> or <em>calloc</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>An array is considered to be the same thing as a pointer to the first item in the array. Therefore, an array is a pointer.</p>
+</div>
+<ul class="simple">
+<li><p>Use a <code class="docutils literal notranslate"><span class="pre">while</span></code> to iterate each character in the string until you see the Null chracter and print the character to the Nokia LCD using the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutChar</span></code> function.</p></li>
+<li><p>Write this function in 2 lines and earn extra bonus points.  <strong>Hint</strong>: Use a pointer with increment (<code class="docutils literal notranslate"><span class="pre">++</span></code>) or decrement (<code class="docutils literal notranslate"><span class="pre">--</span></code>) operators.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">Program5_2</span></code> to test your function.</p></li>
+<li><p>Demo your LCD printing “LCD Test”, a small AF logo, letters, a hexadecimal number, and a binary number on the LCD as shown below. Please ignore the two decimal number in the bottom row.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab5_Prog5-2.gif"><img alt="../_images/Lab5_Prog5-2.gif" class="align-center" src="../_images/Lab5_Prog5-2.gif" style="width: 199.79999999999998px; height: 171.6px;" /></a>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Ensure you understand how to use the <code class="docutils literal notranslate"><span class="pre">Nokia5110_SetCursor2</span></code>.  You will be using the Nokia LCD throughout the semester for high-level debugging, and you are required to use it extensively for the final project.</p>
+</div>
+</section>
+<section id="write-the-nokia5110-outudec-and-nokia5110-outsdec-functions">
+<h3>Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions<a class="headerlink" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions" title="Permalink to this headline">#</a></h3>
+<p>Let’s implemente two functions for the entire integer types: one for unsigned integers and another for signed integers.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Ensure you understand the test programs. You may be asked to write such programs in GRs.</p>
+</div>
+<ul class="simple">
+<li><p>In CCS open the <code class="docutils literal notranslate"><span class="pre">inc</span></code> project by double-clicking it.</p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Nokia5110.h</span></code> and read the documentation for the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code>functions.</p></li>
+<li><p>You can use these functions to print any signed and unsigned intergers to the Nokia LCD.</p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Nokia5110.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project and carefully read the <code class="docutils literal notranslate"><span class="pre">Nokia_Num2String</span></code> function.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">Nokia_Num2String</span></code> is a <strong>static function</strong> as it has the <strong>static</strong> qualifer. A static function in C is a <strong>private (or internal) function</strong> that cannot be called externally. The function can be called by other functions defined inside the same file the static function is defined.  This is why there is no documentation of this function in the header file.</p>
+</div>
+<ul class="simple">
+<li><p>Now, implement <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> that first calls the <code class="docutils literal notranslate"><span class="pre">Nokia_Num2String</span></code> function.</p></li>
+<li><p>Remember <code class="docutils literal notranslate"><span class="pre">Nokia_Num2String</span></code> returns <code class="docutils literal notranslate"><span class="pre">count</span></code>, the number of digits in the string.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">count</span></code> and <code class="docutils literal notranslate"><span class="pre">min_length</span></code> to determine the length of the string to print on the LCD to print spaces to the LCD. Remember that <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutU16Dec</span></code> prints <strong>right-justified digits</strong>.</p></li>
+<li><p>Then print the string inside StrNum in the reverse order.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code> to test this function.</p></li>
+<li><p>Then, implement <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code>, which is very similar to <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code>.  The only difference is that you need to add a negative sign (‘-’) or a space (’ ‘) in front of the integer.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If a signed 8-bit integer n is -128, <code class="docutils literal notranslate"><span class="pre">int8_t</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">-n</span></code> assigns -128 to x not 128 because the 2’s complement of -128 is -128 in 8-bit signed numbers. If x is an unsigned integer, however, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">-n</span></code> will assign 128 to x.</p>
+</div>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code> to test these functions.</p></li>
+<li><p>Demo your LCD displaying numbers as shown below.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You may wonder why we don’t use printf or sprintf for formated outputs.  For example,</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">strnum</span><span class="p">;</span><span class="w"></span>
+<span class="n">uint_16</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span><span class="w"></span>
+<span class="n">sprintf</span><span class="p">(</span><span class="n">strnum</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%6d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="c1">// strnum --&gt; &quot; 12345&quot;</span>
+</pre></div>
+</div>
+<p>printf and sprintf are macros (not functions) in C and they are extremeley slow.  So, they are not used in the world of embedded systems and software.</p>
+</div>
+<a class="reference internal image-reference" href="../_images/Lab5_Prog5-3.gif"><img alt="../_images/Lab5_Prog5-3.gif" class="align-center" src="../_images/Lab5_Prog5-3.gif" style="width: 199.79999999999998px; height: 171.6px;" /></a>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Implement and test one function at a time, and then move to the next function. Do not write everything at once and expect they are all working fine.</p>
+</div>
+</section>
+</section>
+<section id="deliverables">
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Your code <strong>must be compilable</strong>.  If your code throws any compile errors, you will get <strong>a grade of 0</strong> for the coding part.</p>
+</div>
+<section id="deliverable-1">
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[5 Points]</strong> Complete the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function and test it with <code class="docutils literal notranslate"><span class="pre">Program5_2</span></code>. You must use <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutChar</span></code> inside <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code>.  Demo your LCD printing “LCD Test”, a small AF logo, letters, a hexadecimal number, and a binary number on the LCD.</p></li>
+</ul>
+</section>
+<section id="deliverable-2">
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[5 Points]</strong> Complete the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions and test them with <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code>. Demo <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code> printing signed/unsigned integers on the LCD.<br />
+Demo Program5_4 printing signed/unsigned integers on the LCD.</p></li>
+</ul>
+</section>
+<section id="deliverable-3">
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[9.5 Points]</strong> Please comment your code and push it to your repository. <strong>0.5 bonus pts</strong>: Complete <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> with only 2 lines - one for while and another for Nokia5110_OutChar.</p></li>
+</ul>
+<p>This lab has been adapted from <a class="reference external" href="https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum">TI-RSLK MAX Solderless
+Maze Edition Curriculum</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lab4.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">🔬 Lab 4 Subroutines</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lab8.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">🔬 Lab 8 I/O Interface</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Stan Baek<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

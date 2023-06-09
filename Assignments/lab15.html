@@ -1,0 +1,971 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>🔬 Lab 15 ADC &#8212; Embedded Computer Systems I</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="📈 Lab15 Sensor Calibration" href="lab15_calibration.html" />
+    <link rel="prev" title="🔬 Lab 14 Real-Time Systems" href="lab14.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ece382.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Embedded Computer Systems I</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    ECE382 Embedded Computer Systems I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   🚩 Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   📆 Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assembly.html">
+   🔧 Assembly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../c_programming.html">
+   🌜 C Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq.html">
+   🙋 FAQ
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources.html">
+   💎 Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NoPointer.html">
+   🐍 No Pointer in Python?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework1.html">
+   ✏️ HW 1 Setting up CCS and Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework2.html">
+   ✏️ HW 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab2.html">
+   🔬 Lab 2 Assembly Basic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework3.html">
+   ✏️ HW 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab3.html">
+   🔬 Lab 3 Memory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="homework4.html">
+   ✏️ HW 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab4.html">
+   🔬 Lab 4 Subroutines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab5.html">
+   🔬 Lab 5 Software Design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab8.html">
+   🔬 Lab 8 I/O Interface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab10.html">
+   🔬 Lab 10 Multithreading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab11.html">
+   🔬 Lab 11 Serial Ports
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab12.html">
+   🔬 Lab 12 Motors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab13.html">
+   🔬 Lab 13 Timers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab14.html">
+   🔬 Lab 14 Real-Time Systems
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   🔬 Lab 15 ADC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab15_calibration.html">
+   📈 Lab15 Sensor Calibration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab16.html">
+   🔬 Lab 16 Tachometer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab17.html">
+   🔬 Lab 17 Control Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="project.html">
+   🚀 Final Project
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2FAssignments/lab15.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Assignments/lab15.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synopsis">
+   📜 Synopsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complete-functions-in-adc14-c">
+     Complete functions in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ADC14.c
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demo-program15-1">
+     Demo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Program15_1()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calibrate-your-sensors">
+     Calibrate your sensors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complete-functions-in-irdistance-c">
+     Complete functions in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       IRDistance.c
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-and-test-the-classify-function">
+     Write and test the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Classify()
+      </span>
+     </code>
+     function.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demo-the-classify-function">
+     Demo the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Classify()
+      </span>
+     </code>
+     function.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1">
+     Deliverable 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2">
+     Deliverable 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3">
+     Deliverable 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-4">
+     Deliverable 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-5">
+     Deliverable 5
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>🔬 Lab 15 ADC</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   📌 Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synopsis">
+   📜 Synopsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procedure">
+   💻 Procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complete-functions-in-adc14-c">
+     Complete functions in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ADC14.c
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demo-program15-1">
+     Demo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Program15_1()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calibrate-your-sensors">
+     Calibrate your sensors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complete-functions-in-irdistance-c">
+     Complete functions in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       IRDistance.c
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-and-test-the-classify-function">
+     Write and test the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Classify()
+      </span>
+     </code>
+     function.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demo-the-classify-function">
+     Demo the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Classify()
+      </span>
+     </code>
+     function.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deliverables">
+   🚚 Deliverables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-1">
+     Deliverable 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-2">
+     Deliverable 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-3">
+     Deliverable 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-4">
+     Deliverable 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deliverable-5">
+     Deliverable 5
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-15-adc">
+<h1>🔬 Lab 15 ADC<a class="headerlink" href="#lab-15-adc" title="Permalink to this headline">#</a></h1>
+<section id="objectives">
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Students should be able to implement the ADC module to input analog data into the microcontroller.</p></li>
+<li><p>Students should be able to use periodic interrupts to sample the ADC at a regular rate.</p></li>
+<li><p>Students should be able to develop a function in C that converts raw ADC samples to distances.</p></li>
+<li><p>Students should be able to evaluate the performance of the data acquisition system.</p></li>
+<li><p>Students should be able to use an automated test approach called black-box functional testing to verify that their algorithm is operating correctly.</p></li>
+<li><p>Students should be able to classify the states of the robot using the distance measurements from three sensors.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before software can be reusable, it first has to be usable.</p>
+</div>
+</section>
+<section id="synopsis">
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
+<p>In this lab, we will convert raw ADC samples into the distance from the analog domain to the digital domain. Three convert functions will be used to take input from the 3 IR distance sensors and convert it to a distance in millimeters. The range of the IR distance sensor is about 70 to 800 mm, and the resolution is about 1 mm at 200 mm.</p>
+<p>The figure below shows the relationship between the output voltage of the IR sensor and the distance to the wall. Notice the non-monotonic behavior of the sensor. For example, if the system records a sensor value of 2 V, it could mean 30 mm or 120 mm. During the robot challenge, you will endeavor to keep the robot away from the wall, so you will assume the sensor distance is greater than 70 mm. Due to the nature of the robot challenges, we are not interested in distances beyond 800 mm.</p>
+<a class="reference internal image-reference" href="../_images/Lab15_SensorResponse.png"><img alt="../_images/Lab15_SensorResponse.png" class="align-center" src="../_images/Lab15_SensorResponse.png" style="width: 560px;" /></a>
+<br>
+<p>We will develop a function that converts raw ADC samples into distance measured from the wall. Let <span class="math notranslate nohighlight">\(n\)</span> be a 14-bit sample from the ADC (0 to 16383), and <span class="math notranslate nohighlight">\(d\)</span> be the distance in mm from the sensor to the wall. Then the distance in mm from the sensor to the wall is given by</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+d = \frac{m}{n - c}
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are calibration coefficients to be empirically determined. Let <span class="math notranslate nohighlight">\(L\)</span> be the distance from the center of the robot to the wall, which is given by</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+L = d + r = \frac{m}{n - c} + r
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(r\)</span> is the distance from the center of the robot to the distance sensor. You must measure <span class="math notranslate nohighlight">\(r\)</span> for each sensor.</p>
+<p>The second task is to use three distance values to determine and classify the situation into one of many possible scenarios.  The robot has three distance sensors: left, center, and right, and each sensor will measure the distance from the center of the robot to the wall in mm. The center of the robot is the single reference point on the robot, and the three distances will be measured from that common reference point. Shown below are the four possible scenarios as the robot approaches a decision point. The three variables (left, center, and right) are defined as the distance from the center of the robot to the wall.</p>
+<a class="reference internal image-reference" href="../_images/Lab15_FirstCases.png"><img alt="../_images/Lab15_FirstCases.png" class="align-center" src="../_images/Lab15_FirstCases.png" style="width: 560px;" /></a>
+<br>
+Four more scenarios are shown below as the robot approaches a decision point.
+<a class="reference internal image-reference" href="../_images/Lab15_SecondCases.png"><img alt="../_images/Lab15_SecondCases.png" class="align-center" src="../_images/Lab15_SecondCases.png" style="width: 560px;" /></a>
+<br>
+</section>
+<section id="procedure">
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Go to ECE382 Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
+<li><p>Download <code class="docutils literal notranslate"><span class="pre">Lab15_ADCmain.c</span></code> from the Teams folder into your <code class="docutils literal notranslate"><span class="pre">/workspace/Lab15_ADC</span></code> folder using Windows File Explorer (not Code Composer Studio). <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">Lab15_ADC</span></code> folder, not in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
+<li><p>Download <code class="docutils literal notranslate"><span class="pre">IRDistance.c</span></code> and <code class="docutils literal notranslate"><span class="pre">IRDistance.h</span></code> from the Teams folder into your <code class="docutils literal notranslate"><span class="pre">/workspace/inc</span></code> folder using the Windows File Explorer (not Code Composer Studio). <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder, not your project folder.</p></li>
+</ul>
+</section>
+<section id="complete-functions-in-adc14-c">
+<h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code><a class="headerlink" href="#complete-functions-in-adc14-c" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>This is part of Homework 15</strong></p></li>
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">ADC0_InitSWTriggerCh17_14_16()</span></code> and <code class="docutils literal notranslate"><span class="pre">ADC_In17_14_16()</span></code> in <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code>.</p></li>
+<li><p>Follow the instructions inside <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code> to complete it.</p></li>
+<li><p>Copy and paste the code in Gradescope to submit your Homework 15.</p></li>
+</ul>
+<p>Before starting this lab, check the solutions posted in Gradescope to ensure you have the correct code.  If the solution is not published in Gradescope, go through your code with your instructor.</p>
+<ul class="simple">
+<li><p>The component block diagram of this lab is shown below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab15_CBD.png"><img alt="../_images/Lab15_CBD.png" class="align-center" src="../_images/Lab15_CBD.png" style="width: 760px;" /></a>
+<br>
+</section>
+<section id="demo-program15-1">
+<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code><a class="headerlink" href="#demo-program15-1" title="Permalink to this headline">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should understand the main code provided in every module. No such code will be provided for your final project, and you must write your main.c from scratch.</p>
+</div>
+<ul class="simple">
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">LCDOut1()</span></code> in <code class="docutils literal notranslate"><span class="pre">Lab15_ADCmain.c</span></code>.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code> running with raw digital sensor values as shown below.</p></li>
+<li><p>Ignore the distance values on the LCD for this part.</p></li>
+<li><p><strong>Note</strong>: The chassis board powers the distance sensors.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab15_ADC.png"><img alt="../_images/Lab15_ADC.png" class="align-center" src="../_images/Lab15_ADC.png" style="width: 260px;" /></a>
+<br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oI-ZincragE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<br>
+</section>
+<section id="calibrate-your-sensors">
+<h3>Calibrate your sensors<a class="headerlink" href="#calibrate-your-sensors" title="Permalink to this headline">#</a></h3>
+<p>For each IR sensor, you will empirically determine the two calibration constants (<span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(c\)</span>). Each sensor will have its own <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(c\)</span> constants. To determine these values, go to <a class="reference internal" href="lab15_calibration.html"><span class="doc std std-doc">Calibration</span></a>.</p>
+</section>
+<section id="complete-functions-in-irdistance-c">
+<h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">IRDistance.c</span></code><a class="headerlink" href="#complete-functions-in-irdistance-c" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">LeftConvert()</span></code>, <code class="docutils literal notranslate"><span class="pre">RightConvert()</span></code>, <code class="docutils literal notranslate"><span class="pre">CenterConvert()</span></code> in <code class="docutils literal notranslate"><span class="pre">IRDistance.c</span></code>.</p></li>
+<li><p>You found the calibration coefficients <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(c\)</span> in the previous section.</p></li>
+<li><p>As discussed in the Synopsis section, the functions must return the actual distance, <span class="math notranslate nohighlight">\(L\)</span>, from <strong>the center of the robot to the wall</strong>.</p></li>
+<li><p>The maximum measurement distance for the sensor is 800 mm, so if the ADC value is less than the ADC value for 800 mm (2244 in the example on the calibration(./lab15_calibration.ipynb) page), your function should return <span class="math notranslate nohighlight">\(800\)</span>.</p></li>
+<li><p>All the values you enter in CCS should be integers.</p></li>
+<li><p>ADCMAX_xxxx is the ADC value at 800mm.</p></li>
+<li><p>Do not use hard-coded numbers. Use enum and #define.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program15_1</span></code> running with accurate distance values on the LCD. Use the distances of 150, 200, 250, and 300 mm for your demo.  The error should be less than 50 mm for the demo.  Use one of the paper rulers (donated by IKEA) in the lab for the demo. A live demo is preferred, but a video demo is also acceptable. For a video demo, <strong>add your voice to clearly state the distances you are testing</strong>.</p></li>
+</ul>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BFKF1ZMtGAc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<br>
+</section>
+<section id="write-and-test-the-classify-function">
+<h3>Write and test the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function.<a class="headerlink" href="#write-and-test-the-classify-function" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Classifier.h</span></code> under the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
+<li><p>Add the following state representations to the enumerated type:</p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">ClassificationError</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="n">LeftTooClose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">RightTooClose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">CenterTooClose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="n">Straight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="w"></span>
+<span class="n">LeftTurn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="w"></span>
+<span class="n">RightTurn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="n">TeeJoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="w"></span>
+<span class="n">LeftJoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="w"></span>
+<span class="n">RightJoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="w"></span>
+<span class="n">CrossRoad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">14</span><span class="w"></span>
+<span class="n">Blocked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
+</pre></div>
+</div>
+<br>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We put the enumerated types in the header file so that any code files that include the .h file can access these constants.</p>
+</div>
+<ul class="simple">
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Classifier.c</span></code> in the project folder.</p></li>
+<li><p>We will use <code class="docutils literal notranslate"><span class="pre">#define</span></code> constants to specify the bounds to make it easier to understand the classification algorithm.  You will adjust these values during the final project to match the actual distances within the maze.</p></li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define SIDEMIN    212   </span><span class="c1">// smallest side distance to the wall in mm</span>
+<span class="cp">#define SIDEMAX    354   </span><span class="c1">// largest side distance to wall in mm</span>
+<span class="cp">#define CENTERMIN  150   </span><span class="c1">// min distance to the wall in the front</span>
+<span class="cp">#define CENTEROPEN 600   </span><span class="c1">// distance to the wall between open/blocked</span>
+<span class="cp">#define IRMIN      50    </span><span class="c1">// min possible reading of IR sensor</span>
+<span class="cp">#define IRMAX      800   </span><span class="c1">// max possible reading of IR sensor</span>
+</pre></div>
+</div>
+<br>
+<ul class="simple">
+<li><p>Create the following classification algorithm that will return the following:</p>
+<ul>
+<li><p>ClassificationError (0) if any of the sensors are less than 50 mm or greater than 800 mm.</p></li>
+<li><p>LeftTooClose (1) error if the left sensor is less than  212 mm.</p></li>
+<li><p>RightTooClose (2) error if the right sensor is less than  212 mm.</p></li>
+<li><p>CenterTooClose (4) error if the center sensor is less than 150 mm.</p></li>
+<li><p>With a combination of the last three conditions, there will be possible to have multiple simultaneous danger conditions. For example, 5 will signify both CenterTooClose and LeftTooClose. 7 will mean all three directions are too close.</p></li>
+<li><p>The rest (Straight (8) - Blocked (15)) depend on the state of the sensors.</p></li>
+</ul>
+</li>
+</ul>
+<p>First, consider the center sensor. As the robot approaches the intersection, the center sensor will be used to classify the difference between the set of {Blocked, Right Turn, Left Turn, and Tee Joint} where the center sensor is less than 600 mm and the set of {Straight, Right Joint, Left Joint, and Cross Road} where the center sensor greater than or equal to 600 mm. Because there could be a long straight road, there is no maximum acceptable value for the sensors.</p>
+<p>We use numbers derived from a road that is 400 mm wide and side sensors that are placed at 45 degrees. If the robot is in the middle of the road with the straight or blocked scenarios, both side sensors placed at 45 degrees will read 283 mm. If the robot is within 50 mm from the center of the road with the straight or blocked scenarios, the side sensors could range from 212 (SIDEMIN) to 354 mm (SIDEMAX). The 354 (SIDEMAX) threshold will be used to classify whether or not it is possible to turn left or right at the next intersection. Less than 354 (SIDEMAX) means the turn path is not possible; 354 (SIDEMAX) or above means the turn path is possible.</p>
+<ul class="simple">
+<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Classifier.c</span></code></p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Lab15_ADCmain.c</span></code> in the project folder.</p></li>
+<li><p>Scroll down to the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function and ensure the line with <code class="docutils literal notranslate"><span class="pre">Program15_2()</span></code> is uncommented while the other two are commented.</p></li>
+<li><p>Add the following variables to the Expressions tab: left, center, right, result, truth,  and errors.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">main()</span></code> by selecting the debug tool.</p></li>
+<li><p>Observe the value of <code class="docutils literal notranslate"><span class="pre">errors</span></code>. If greater than 0, debug your <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function by placing breakpoints and observing the state of your program.</p></li>
+</ul>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">Program15_2</span></code> only tests corner cases. For the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function, each of the three possible inputs can vary from 50 to 800. Therefore, there are <span class="math notranslate nohighlight">\(751^3\)</span> (<span class="math notranslate nohighlight">\(423,564,751\)</span>) possible inputs. An exhaustive test (<code class="docutils literal notranslate"><span class="pre">Program15_3</span></code>) would evaluate them all. However, due to the nature of the problem, we can reduce the input values to a small subset of values around the threshold values. Using the knowledge of how the system works to select strategic values to test is called <em>corner cases</em>. In particular, we can reduce the number of test values from 751 to 18 with minimal loss of testing accuracy.  We will only test values that are <span class="math notranslate nohighlight">\(\pm 1\)</span> from the threshold values of 50, 150, 212, 354, 600, and 800.</p>
+</section>
+<section id="demo-the-classify-function">
+<h3>Demo the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function.<a class="headerlink" href="#demo-the-classify-function" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">LCDOut4()</span></code> function to display data on the LCD.</p></li>
+<li><p>Use the maze in the lab to test 7 <em>too close</em> cases and eight normal cases.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program15_4()</span></code> displaying the classification on the LCD. You must show at least three error cases (enum scenario &lt;= 7) and at least five non-error cases (enum scenario &gt; 7).  A live demo is preferred, but a video demo is also acceptable. For a video demo, <strong>add your voice to clearly state the classification you are testing</strong>. Push your code to your repository using git. Comment your code.</p></li>
+</ul>
+</section>
+</section>
+<section id="deliverables">
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<section id="deliverable-1">
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[10 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code> displaying raw ADC data on the LCD. The distance values on the LCD are not valid yet. Push your code to your repository using git. Comment your code.</p></li>
+</ul>
+</section>
+<section id="deliverable-2">
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[10 Points]</strong> Calibrate your sensors. Submit three plots for your right, center, and left sensors.</p></li>
+</ul>
+</section>
+<section id="deliverable-3">
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[10 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code> with accurate distances on LCD. You must pick three distances for each sensor; 100, 300, and 500 mm. Use the ruler in the lab for the demo. A live demo is preferred, but a video demo is also acceptable. For a video demo, <strong>add your voice to clearly state the distances you are testing</strong>. Push your code to your repository using git. Comment your code.</p></li>
+</ul>
+</section>
+<section id="deliverable-4">
+<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[10 Points]</strong> Provide a screenshot of the Expressions tab after running <code class="docutils literal notranslate"><span class="pre">Program15_2()</span></code>. Ensure left, center, right, result, truth, and errors are in the Expressions tab.  Note: If you provide a screenshot before running the program, you will get a grade of 0.</p></li>
+</ul>
+</section>
+<section id="deliverable-5">
+<h3>Deliverable 5<a class="headerlink" href="#deliverable-5" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>[10 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_4()</span></code> displaying the classification on the LCD. You must show at least three error cases (enum scenario &lt;= 7) and at least five non-error cases (enum scenario &gt; 7).  A live demo is preferred, but a video demo is also acceptable. For a video demo, <strong>add your voice to clearly state the classification you are testing</strong>. Push your code to your repository using git. Comment your code.</p></li>
+</ul>
+<p>This lab has been adapted from the TI RSLK: <a class="reference external" href="https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum">The Solderless Maze Edition curriculum</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lab14.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">🔬 Lab 14 Real-Time Systems</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lab15_calibration.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">📈 Lab15 Sensor Calibration</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Stan Baek<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
