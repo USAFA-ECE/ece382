@@ -40,8 +40,8 @@ L = d + r = \frac{m}{n - c} + r
 
 where $r$ is the distance from the center of the robot to the distance sensor. You must measure $r$ for each sensor.
 
+The second task is to classify the situation into one of many possible scenarios using three distance values. The robot has three distance sensors: left, center, and right. Each sensor measures the distance from the center of the robot to the wall in millimeters. The center of the robot is the single reference point, and the three distances are measured from that common reference point. The four possible scenarios as the robot approaches a decision point are shown below. The variables left, center, and right are defined as the distance from the center of the robot to the wall.
 
-The second task is to use three distance values to determine and classify the situation into one of many possible scenarios.  The robot has three distance sensors: left, center, and right, and each sensor will measure the distance from the center of the robot to the wall in mm. The center of the robot is the single reference point on the robot, and the three distances will be measured from that common reference point. Shown below are the four possible scenarios as the robot approaches a decision point. The three variables (left, center, and right) are defined as the distance from the center of the robot to the wall.
 
 ```{image} ./figures/Lab15_FirstCases.png
 :width: 560
