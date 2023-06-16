@@ -7,38 +7,46 @@
 - Setup Code Composer Studio (CSS) integrated development environment (IDE).
 - Import CCS project files.
 
-:::{note}
+
+```{note} 
 Don’t worry if it doesn’t work right. If everything did, you’d be out of a job.
-:::
+```
 
 ## 💻 Procedure
 
-### Create a Bitbucket Repository
+### Create Bitbucket Repository
 
-- Create a <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> account if you do not already have one.
-- Create a new repository in Bitbucket as shown below.
-- Name it ECE382\_LastName\_FirstName.
-- Give your own instructor and the course director (Dr. Baek) read access: Click `Invite` on the top of the right-hand navigation and then click `Add members`. Provide them **read access**. The instructors' email addresses are as follows:
+- Create a <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> account if you don't have one.
+- Log in <a href="https://bitbucket.org/" target="_blank">Bitbucket</a>.
+- Browse to <a href="https://bitbucket.org/stanbaek2/ece382_wksp/src/master/" target="_blank">https://bitbucket.org/stanbaek2/ece382_wksp/src/master/</a>.
+- Click on the three dots ($\cdots$) on the top of the right-hand navigation for more options. 
+- Select `Fork this repository`. 
+- Enter "ECE382" for `Project`.
+- Name this new repository ECE382\_LastName\_FirstName.
+- Ensure the access level is `Private repository`.
+- Give both your instructor and the course director (Dr. Baek) read access: Click `Invite` and then click `Add members`. Provide them **read access**. The instructors' Bitbucket email addresses are as follows:
 
-    - Dr. Baek: stanley.baek@afacademy.af.edu
-    - Dr. York: george.york@usafa.edu
-    - Maj Mike Seery: 
-    - Capt Brian Yarbrough: 
+    - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afafacademy.af.edu-red)    
+    - Dr. York: ![york](https://img.shields.io/badge/george.york@usafa.edu-green)
+    - Maj Seery: ![seery](https://img.shields.io/badge/michael.seery@afacademy.af.edu-yellow)
+    - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
     
-    
-```{image} ./figures/HW1_BitBucketConfig.gif
-:width: 680
+<br>
+
+```{image} ./figures/HW1_GitFork.gif
+:width: 720
 :align: center
 ```
+<br>
 
-```{Note}
-Your repository name must be ECE382\_LastName\_FirstName. Otherwise, instructors may not be able to find your repository.
+```{important}
+Please name your repository as ECE382_LastName_FirstName. This will help instructors find your repository easily.
 ```
 
-- You may need to create a Bitbucket `app password` as shown below.
+- You may need to create a Bitbucket `app password` as follows.
 - Click `Your Profile` on the top of the right-hand navigation and then click `Personal Settings`. 
 - Click `App Passwords` and then click `Create app password`. 
-- Write your preferred label and select permissions as shown below.
+- Write your preferred label and select permissions as needed.
 - Click `Create`.
 - Save the password as you cannot view it after you create it.
 
@@ -46,17 +54,18 @@ Your repository name must be ECE382\_LastName\_FirstName. Otherwise, instructors
 :width: 720
 :align: center
 ```
+<br>
 
 ### Install Git
 
-- Go to https://git-scm.com/download/win to download `64-bit Git for Windows setup`
+- Browse to  <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a> to download `64-bit Git for Windows setup`
 - Install Git with the default settings. Git is already installed on Mac. 
 - Create a folder named `workspace` under your home folder, e.g., C:\Users\stanley.baek\workspace. 
 - Right-click the `workspace` folder and select `Git Bash Here` as shown below.   
 - From your repository in Bitbucket, click Clone and copy the command that begins with _git clone_ by clicking on the copy button as shown below.  
-- Paste it within the Bash terminal (middle-click, right-click > Paste, or `Shift+Ins` to paste) and add a space followed by a _period_ as shown below. The _period_ at the end means that the destination is the _current folder_. Hit Enter.
+- Paste it within the Bash terminal (middle-click, right-click > Paste, or `Shift+Ins` to paste) and add a space followed by a **_period_** as shown below. The **_period_** at the end means that the destination is the **_current folder_**. Hit Enter.
 - If it asks for a password, enter the app password you saved in the previous step.
-- Notice that you have `(master)` at the end of the folder name. If you type `ls`, it should return nothing.
+- Notice that you have `(master)` at the end of the folder name. 
 
 ```{image} ./figures/HW1_GitClone.gif
 :width: 720
@@ -64,63 +73,39 @@ Your repository name must be ECE382\_LastName\_FirstName. Otherwise, instructors
 ```
 <br>
 
-- Go to Teams > General > Files > Class Materials. Download the `workspace_XXXX` file and unzip everything in `workspace_XXXX` into the `workspace` folder in your home directory. Do not copy the `workspace_XXXX` folder itself into the `workspace` folder.  The figure below shows an example of a local `workspace` folder on your computer.
-
+- The figure below shows an example of a local `workspace` folder on your computer.
 
 ```{image} ./figures/HW1_Workspace.png
+:width: 580
+:align: center
+```
+
+<br>
+
+- Go back to Git Bash. If you have already closed it, right-click on an empty space inside the `workspace` folder and select `Git Bash Here`.
+- Type `git remote -v`.  It will return two lines showing that `origin` is your remote repository at bitbucket.org for both fetch and push. 
+- Type `git remote add upstream https://stanbaek2@bitbucket.org/stanbaek2/ece382_wksp.git` (or copy & paste) and hit `Enter`.
+- Type `git remote -v`.  It will now return four lines showing that `upstream`
+is the original instructor's repository that you forked from.
+
+```{image} ./figures/HW1_GitAddUpstream.gif
 :width: 640
 :align: center
 ```
-
 <br>
 
-- Go back to Git Bash. If you have already closed it, right click on an empty space inside the `workspace` folder and select `Git Bash Here`.
-- Type `git add -A` or `git add -all` and hit `Enter`.
-- Type `git commit -m "Initial commit."` and hit `Enter`.
-- Type `git push` as shown below
-- Enter your username and password if prompted.
+- Whenever there are any updates on the original code, you will be asked to run `git fetch upstream` to update your local files.  
+- Your default push and pull repository is `origin`, which is your Bitbucket repository. 
 
-```{image} ./figures/HW1_GitPush.gif
-:width: 720
+```{image} ./figures/HW1_FetchUpstream.png
+:width: 320
 :align: center
 ```
+<center>
+Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-is-the-difference-between-origin-and-upstream-on-github/9257901#9257901" target="_blank">Stakeoverflow</a>
+</center>
 
 <br>
-
-- In the future you will repeat these three steps when committing your changes:
-    - git add -A
-    - git commit -m "Comment"
-    - git push
-
-- Refresh your Bitbucket repository to observe the new files as shown below
-
-```{image} ./figures/HW1_BitbucketPushed.PNG
-:width: 720
-:align: center
-```
-<br>
-
-```{Attention}
-After you push your assignments to Git, it is your responsibility to check your code has been successfully pushed to Bitbucket.
-```
-
-```{tip}
-CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other > Git > Git Staging. You can commit and push at the same time. There are also many third-party graphic user interface (GUI) clients. Check out https://git-scm.com/downloads/guis.
-```
-
-
-- Go to the `workspace` folder on your computer. Then, go to the `inc` folder. 
-- Do you have files with the same names? If you have two files with the same name, one of them is a c source file (`*.c`) and the other one is a header file (`*.h`). Windows hides file extensions unless you change its default setting.
-- If your files display the file extensions such as `.c` and `.h`, skip the following instruction and go to `Install Code Composer Studio (CCS)`.
-- Click `Options` and select `View` as shown the anmination below.
-- Uncheck `Hide extensions for known file types`. You can also change some of the Windows default settings shown in the animation.
-- Click `OK`.  Now you can see file extensions.
-
-```{image} ./figures/HW1_ShowFileExtensions.gif
-:width: 720
-:align: center
-```
-<br> 
 
 ### Install Code Composer Studio (CCS).
 
@@ -141,28 +126,69 @@ CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other >
 
 ### Import Project Files.
 
+```{attention}
+The following steps are critical. If you make a mistake, it may take hours to fix the problem later this semester. Please follow the instructions carefully.
+```
+
 - Open CCS.
 - When asked to `Select a directory as workspace`, select `Browse` and browse to your `workspace` folder. Select the `Use this as the default and do not ask again` check box. Click `Launch`   
 - Import all the projects into CSS. **File > Import...**  Choose **Code Composer Studio > CCS Projects** and click `Next`.
 - Select `Search Directory` and click the `Browse...` option. Browse to the `workspace` folder.
-- CCS should discover many projects inside the `workspace`.  Click `Select All` (**DO NOT** check `Automatically import...` or `Copy projects...` options). This will have CCS reference the project from the original location and preserve the original directory structure required to build. Click `Finish`.
-- In Project Explorer, expand `HW01_Git` and double click test.txt to open. Edit the file and save.
-- Commit and push to Bitbucket. Enter your password if prompted.
-- Refresh your Bitbucket repository to observe the changes. 
-
+- CCS should discover many projects inside the `workspace` folder.  Click `Select All` (**DO NOT** check `Automatically import...` or `Copy projects...` options). This will have CCS reference the project from the original location and preserve the original directory structure required to build. Click `Finish`.
+- In `Project Explorer`, expand `HW01_Git` and double click `test.txt` to open. Edit the file and save. You can simply add "My name is ..." as shown below.
 
 ```{image} ./figures/HW1_CCS_Config.gif
 :scale: 50%
 :align: center
 ```
-
 <br>
 
-```{Attention} 
+### Push Your Code.
+
+- Go back to Git Bash. If you have already closed it, right-click on an empty space inside the `workspace` folder and select `Git Bash Here`.
+- Type `git add -A` or `git add -all` and hit `Enter`.
+- Type `git commit -m "Homework 1"` and hit `Enter`.
+- Type `git push` as shown below.
+- You can run `git status` to check the current status of your local repository.
+- Enter your username and password if prompted.
+- Refresh your Bitbucket repository and ensure your push has been made through. 
+
+```{image} ./figures/HW1_GitPush.gif
+:width: 540
+:align: center
+```
+<br>
+
+- In the future you will repeat these three steps when committing your changes:
+    - git add -A
+    - git commit -m "Comment"
+    - git push
+
+```{attention} 
 It is your responsibility to check your files have been successfully pushed to your Bitbucket repository. Always visit your Bitbucket repository after you push your assignments to the repository.
 ```
 
-### Convert tabs to spaces
+```{tip}
+CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other > Git > Git Staging. You can commit and push at the same time. There are also many third-party graphic user interface (GUI) clients. Check out https://git-scm.com/downloads/guis.
+```
+
+### Unhide File Extensions
+
+- Go to the `workspace` folder on your computer. Then, go to the `inc` folder. 
+- Do you have files with the same names? If you have two files with the same name, one of them is a c source file (`*.c`) and the other one is a header file (`*.h`). Windows hides file extensions unless you change its default setting.
+- If your files display the file extensions such as `.c` and `.h`, skip the following instruction and go to `Install Code Composer Studio (CCS)`.
+- Click `Options` and select `View` as shown the anmination below.
+- Uncheck `Hide extensions for known file types`. You can also change some of the Windows default settings shown in the animation.
+- Click `OK`.  Now you can see file extensions.
+
+```{image} ./figures/HW1_ShowFileExtensions.gif
+:width: 720
+:align: center
+```
+<br> 
+
+
+### Convert Tabs to Spaces
 
 - Open CCS if it is closed.
 - Open Text Editors Settings.  **Window > Preferences > General > Editors > Text Editors**.
@@ -174,7 +200,7 @@ It is your responsibility to check your files have been successfully pushed to y
 :align: center
 ```
 
-
+<br>
 
 ### Hardware Diagnostics Tool
 
@@ -187,12 +213,13 @@ It is your responsibility to check your files have been successfully pushed to y
 :width: 640
 :align: center
 ```
+<br>
 
 ## 🚚 Deliverables
 
 Take screenshots of the following and submit them via Gradescope.  Use `Snip & Sketch` (Win+Shift+S) on Windows 10/11 or Shift+CMD+4 on MacOS to take a screenshot. Save it in `png` or `jpg`.  
 
-```{Warning}
+```{warning}
 Do NOT take a picture of computer screen with your phone because (i) it will introduce sampling aliasing (more details in ECE215/ECE315) (ii) it will take more steps than screen capture if you want use it on your computer, and (iii) it will always be more blurry than screen capture. 
 ```
 
