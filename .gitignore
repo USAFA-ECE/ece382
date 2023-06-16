@@ -9,6 +9,7 @@ __pycache__/
 .ipynb_checkpoints
 .DS_Store
 .vscode
+.venv
 docs/_build/
 docs/_work/
 Lab15_IRCalibLeft.png
