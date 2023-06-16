@@ -54,6 +54,7 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 :width: 720
 :align: center
 ```
+<br>
 
 ### Install Git
 
@@ -82,16 +83,28 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 <br>
 
 - Go back to Git Bash. If you have already closed it, right-click on an empty space inside the `workspace` folder and select `Git Bash Here`.
-- Type `git remote -v`.  It will return two lines showing that the `origin` is your remote repository at bitbucket.org for both fetch and push. 
+- Type `git remote -v`.  It will return two lines showing that `origin` is your remote repository at bitbucket.org for both fetch and push. 
 - Type `git remote add upstream https://stanbaek2@bitbucket.org/stanbaek2/ece382_wksp.git` (or copy & paste) and hit `Enter`.
-- Type `git remote -v`.  It will now return four lines showing that the `upstream`
+- Type `git remote -v`.  It will now return four lines showing that `upstream`
 is the original instructor's repository that you forked from.
-- Whenever there are any updates on the original code, you will be asked to run `git fetch upstream` to update your local files.  
 
 ```{image} ./figures/HW1_GitAddUpstream.gif
 :width: 640
 :align: center
 ```
+<br>
+
+- Whenever there are any updates on the original code, you will be asked to run `git fetch upstream` to update your local files.  
+- Your default push and pull repository is `origin`, which is your Bitbucket repository. 
+
+```{image} ./figures/HW1_FetchUpstream.png
+:width: 320
+:align: center
+```
+<center>
+Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-is-the-difference-between-origin-and-upstream-on-github/9257901#9257901" target="_blank">Stakeoverflow</a>
+</center>
+
 <br>
 
 ### Install Code Composer Studio (CCS).
@@ -175,7 +188,7 @@ CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other >
 <br> 
 
 
-### Convert tabs to spaces
+### Convert Tabs to Spaces
 
 - Open CCS if it is closed.
 - Open Text Editors Settings.  **Window > Preferences > General > Editors > Text Editors**.
@@ -200,6 +213,7 @@ CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other >
 :width: 640
 :align: center
 ```
+<br>
 
 ## 🚚 Deliverables
 

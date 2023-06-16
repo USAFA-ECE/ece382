@@ -393,7 +393,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-project-files">Import Project Files.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-your-code">Push Your Code.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unhide-file-extensions">Unhide File Extensions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-tabs-to-spaces">Convert tabs to spaces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-tabs-to-spaces">Convert Tabs to Spaces</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-diagnostics-tool">Hardware Diagnostics Tool</a></li>
 </ul>
 </li>
@@ -463,6 +463,7 @@ document.write(`
 <li><p>Save the password as you cannot view it after you create it.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW1_BitBucketAppPassword.gif"><img alt="../_images/HW1_BitBucketAppPassword.gif" class="align-center" src="../_images/HW1_BitBucketAppPassword.gif" style="width: 720px;" /></a>
+<br>
 </section>
 <section id="install-git">
 <h3>Install Git<a class="headerlink" href="#install-git" title="Permalink to this heading">#</a></h3>
@@ -485,13 +486,21 @@ document.write(`
 <br>
 <ul class="simple">
 <li><p>Go back to Git Bash. If you have already closed it, right-click on an empty space inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">Bash</span> <span class="pre">Here</span></code>.</p></li>
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.  It will return two lines showing that the <code class="docutils literal notranslate"><span class="pre">origin</span></code> is your remote repository at <a class="reference external" href="http://bitbucket.org">bitbucket.org</a> for both fetch and push.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.  It will return two lines showing that <code class="docutils literal notranslate"><span class="pre">origin</span></code> is your remote repository at <a class="reference external" href="http://bitbucket.org">bitbucket.org</a> for both fetch and push.</p></li>
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">upstream</span> <span class="pre">https://stanbaek2&#64;bitbucket.org/stanbaek2/ece382_wksp.git</span></code> (or copy &amp; paste) and hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.  It will now return four lines showing that the <code class="docutils literal notranslate"><span class="pre">upstream</span></code>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.  It will now return four lines showing that <code class="docutils literal notranslate"><span class="pre">upstream</span></code>
 is the original instructor’s repository that you forked from.</p></li>
-<li><p>Whenever there are any updates on the original code, you will be asked to run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">upstream</span></code> to update your local files.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW1_GitAddUpstream.gif"><img alt="../_images/HW1_GitAddUpstream.gif" class="align-center" src="../_images/HW1_GitAddUpstream.gif" style="width: 640px;" /></a>
+<br>
+<ul class="simple">
+<li><p>Whenever there are any updates on the original code, you will be asked to run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">upstream</span></code> to update your local files.</p></li>
+<li><p>Your default push and pull repository is <code class="docutils literal notranslate"><span class="pre">origin</span></code>, which is your Bitbucket repository.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/HW1_FetchUpstream.png"><img alt="../_images/HW1_FetchUpstream.png" class="align-center" src="../_images/HW1_FetchUpstream.png" style="width: 320px;" /></a>
+<center>
+Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-is-the-difference-between-origin-and-upstream-on-github/9257901#9257901" target="_blank">Stakeoverflow</a>
+</center>
 <br>
 </section>
 <section id="install-code-composer-studio-ccs">
@@ -571,7 +580,7 @@ is the original instructor’s repository that you forked from.</p></li>
 <br> 
 </section>
 <section id="convert-tabs-to-spaces">
-<h3>Convert tabs to spaces<a class="headerlink" href="#convert-tabs-to-spaces" title="Permalink to this heading">#</a></h3>
+<h3>Convert Tabs to Spaces<a class="headerlink" href="#convert-tabs-to-spaces" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Open CCS if it is closed.</p></li>
 <li><p>Open Text Editors Settings.  <strong>Window &gt; Preferences &gt; General &gt; Editors &gt; Text Editors</strong>.</p></li>
@@ -590,6 +599,7 @@ is the original instructor’s repository that you forked from.</p></li>
 <li><p>Submit the picture in Gradescope.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW1_HardwareDiagnostics.jpg"><img alt="../_images/HW1_HardwareDiagnostics.jpg" class="align-center" src="../_images/HW1_HardwareDiagnostics.jpg" style="width: 640px;" /></a>
+<br>
 </section>
 </section>
 <section id="deliverables">
@@ -698,7 +708,7 @@ is the original instructor’s repository that you forked from.</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-project-files">Import Project Files.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-your-code">Push Your Code.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unhide-file-extensions">Unhide File Extensions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-tabs-to-spaces">Convert tabs to spaces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-tabs-to-spaces">Convert Tabs to Spaces</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-diagnostics-tool">Hardware Diagnostics Tool</a></li>
 </ul>
 </li>
