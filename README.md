@@ -7,3 +7,7 @@ ECE382 Course Web
 - run
 > pip install -r requirements.txt
 - I recommned using a virtual environment.
+
+### Recommended extensions for vscode
+- Python, Python Development Extensions Pack
+- Jupyter, MyST-Markdown
