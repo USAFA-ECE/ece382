@@ -1,50 +1,61 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>🔬 Lab 5 Software Design &#8212; Embedded Computer Systems I</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script src="../_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,62 +63,94 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Assignments/lab5';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="🔬 Lab 8 I/O Interface" href="lab8.html" />
     <link rel="prev" title="🔬 Lab 4 Subroutines" href="lab4.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/ece382.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Embedded Computer Systems I</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/ece382.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ece382.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -116,525 +159,260 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Course Info
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Info</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus.html">
-   🚩 Syllabus
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../schedule.html">
-   📆 Course Schedule
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assembly.html">
-   🔧 Assembly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c_programming.html">
-   🌜 C Programming
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../faq.html">
-   🙋 FAQ
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources.html">
-   💎 Resources
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../NoPointer.html">
-   🐍 No Pointer in Python?
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">🚩 Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">📆 Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assembly.html">🔧 Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">🐍 No Pointer in Python?</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Assignments
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="homework1.html">
-   ✏️ HW 1 Setting up CCS and Git
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="homework2.html">
-   ✏️ HW 2 Assembly Basic
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab2.html">
-   🔬 Lab 2 Assembly Basic
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="homework3.html">
-   ✏️ HW 3 Memory
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab3.html">
-   🔬 Lab 3 Memory
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="homework4.html">
-   ✏️ HW 4 Subroutines
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab4.html">
-   🔬 Lab 4 Subroutines
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   🔬 Lab 5 Software Design
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab8.html">
-   🔬 Lab 8 I/O Interface
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab10.html">
-   🔬 Lab 10 Multithreading
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab11.html">
-   🔬 Lab 11 Serial Ports
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab12.html">
-   🔬 Lab 12 Motors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab13.html">
-   🔬 Lab 13 Timers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab14.html">
-   🔬 Lab 14 Real-Time Systems
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab15.html">
-   🔬 Lab 15 ADC
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab15_calibration.html">
-   📈 Lab15 Sensor Calibration
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab16.html">
-   🔬 Lab 16 Tachometer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab17.html">
-   🔬 Lab 17 Control Systems
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="project.html">
-   🚀 Final Project
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="homework1.html">✏️ HW 1 Setting up CCS and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homework2.html">✏️ HW 2 Assembly Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2.html">🔬 Lab 2 Assembly Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homework3.html">✏️ HW 3 Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3.html">🔬 Lab 3 Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homework4.html">✏️ HW 4 Subroutines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab4.html">🔬 Lab 4 Subroutines</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">🔬 Lab 5 Software Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab8.html">🔬 Lab 8 I/O Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab10.html">🔬 Lab 10 Multithreading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab11.html">🔬 Lab 11 Serial Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab12.html">🔬 Lab 12 Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab13.html">🔬 Lab 13 Timers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab14.html">🔬 Lab 14 Real-Time Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab15.html">🔬 Lab 15 ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab15_calibration.html">📈 Lab15 Sensor Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab16.html">🔬 Lab 16 Tachometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab17.html">🔬 Lab 17 Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">🚀 Final Project</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece382" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2FAssignments/lab5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
 
 
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Assignments/lab5.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
   </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/USAFA-ECE/ece382"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2FAssignments/lab5.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/Assignments/lab5.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objectives">
-   📌 Objectives
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#synopsis">
-   📜 Synopsis
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#procedure">
-   💻 Procedure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setup">
-     Setup
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-the-program5-1-function-to-adjust-constrast">
-     Run the
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Program5_1
-      </span>
-     </code>
-     function to adjust constrast
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#write-the-nokia5110-outstring-function">
-     Write the
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Nokia5110_OutString
-      </span>
-     </code>
-     function
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions">
-     Write the
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Nokia5110_OutUDec
-      </span>
-     </code>
-     and
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Nokia5110_OutSDec
-      </span>
-     </code>
-     functions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#deliverables">
-   🚚 Deliverables
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deliverable-1">
-     Deliverable 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deliverable-2">
-     Deliverable 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deliverable-3">
-     Deliverable 3
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>🔬 Lab 5 Software Design</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objectives">
-   📌 Objectives
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#synopsis">
-   📜 Synopsis
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#procedure">
-   💻 Procedure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setup">
-     Setup
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-the-program5-1-function-to-adjust-constrast">
-     Run the
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Program5_1
-      </span>
-     </code>
-     function to adjust constrast
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#write-the-nokia5110-outstring-function">
-     Write the
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Nokia5110_OutString
-      </span>
-     </code>
-     function
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions">
-     Write the
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Nokia5110_OutUDec
-      </span>
-     </code>
-     and
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Nokia5110_OutSDec
-      </span>
-     </code>
-     functions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#deliverables">
-   🚚 Deliverables
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deliverable-1">
-     Deliverable 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deliverable-2">
-     Deliverable 2
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deliverable-3">
-     Deliverable 3
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>🔬 Lab 5 Software Design</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-program5-1-function-to-adjust-constrast">Run the <code class="docutils literal notranslate"><span class="pre">Program5_1</span></code> function to adjust constrast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-nokia5110-outstring-function">Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions">Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1">Deliverable 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2">Deliverable 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="lab-5-software-design">
-<h1>🔬 Lab 5 Software Design<a class="headerlink" href="#lab-5-software-design" title="Permalink to this headline">#</a></h1>
+<h1>🔬 Lab 5 Software Design<a class="headerlink" href="#lab-5-software-design" title="Permalink to this heading">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to write logic, conditionals, and loops in C.</p></li>
 <li><p>Students should be able to write functions with input and output parameters in C.</p></li>
@@ -646,7 +424,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
 <p>The objective of this lab is to interface a liquid crystal display (LCD) to the microcontroller and use it to output characters and numbers. The Nokia 5110 LCD shown below is a monocrhome display that is 84 pixels wide by 48 pixels high.</p>
 <a class="reference internal image-reference" href="../_images/Lab05_Nokia5110_AF.png"><img alt="../_images/Lab05_Nokia5110_AF.png" class="align-center" src="../_images/Lab05_Nokia5110_AF.png" style="width: 280px;" /></a>
 <br>
@@ -669,8 +447,8 @@ title="Print to PDF"
 <span class="cm"> * @see Nokia5110_Init(), Nokia5110_Clear(), Nokia5110_SetCursor()</span>
 <span class="cm"> * @brief  Print a character to the LCD</span>
 <span class="cm"> * @note use Nokia5110_SetCursor to specify position</span>
-<span class="cm"> */</span><span class="w"></span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">Nokia5110_OutChar</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="cm"> */</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">Nokia5110_OutChar</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>You need to use <code class="docutils literal notranslate"><span class="pre">Nokia5110_SetCursor2</span></code> to move the cursor to the desired row and column position on the LCD. The next character printed by <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutChar</span></code> will be printed here. Read the documentation for <code class="docutils literal notranslate"><span class="pre">Nokia5110_SetCursor2</span></code> inside <code class="docutils literal notranslate"><span class="pre">nokia5110.h</span></code></p>
@@ -690,9 +468,9 @@ title="Print to PDF"
 </div>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Connect the LaunchPad to your computer via the provided USB cable.</p></li>
 <li><p>Open Code Composer Studio (CCS) and select your workspace.</p></li>
@@ -700,7 +478,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="run-the-program5-1-function-to-adjust-constrast">
-<h3>Run the <code class="docutils literal notranslate"><span class="pre">Program5_1</span></code> function to adjust constrast<a class="headerlink" href="#run-the-program5-1-function-to-adjust-constrast" title="Permalink to this headline">#</a></h3>
+<h3>Run the <code class="docutils literal notranslate"><span class="pre">Program5_1</span></code> function to adjust constrast<a class="headerlink" href="#run-the-program5-1-function-to-adjust-constrast" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Open the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project by double-clicking it.</p></li>
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesignMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project.</p></li>
@@ -712,7 +490,7 @@ title="Print to PDF"
 <a class="reference internal image-reference" href="../_images/Lab5_Prog5-1.gif"><img alt="../_images/Lab5_Prog5-1.gif" class="align-center" src="../_images/Lab5_Prog5-1.gif" style="width: 300px;" /></a>
 </section>
 <section id="write-the-nokia5110-outstring-function">
-<h3>Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function<a class="headerlink" href="#write-the-nokia5110-outstring-function" title="Permalink to this headline">#</a></h3>
+<h3>Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function<a class="headerlink" href="#write-the-nokia5110-outstring-function" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>In CCS open the <code class="docutils literal notranslate"><span class="pre">inc</span></code> project by double-clicking it.</p></li>
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">Nokia5110.h</span></code> and read the documentation for the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutChar</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> functions.</p></li>
@@ -733,8 +511,8 @@ title="Print to PDF"
 <li><p>Find the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Nokia5110.c</span></code>.</p></li>
 <li><p>The input arguemnt, <code class="docutils literal notranslate"><span class="pre">ptr</span></code>, of the fucntion is a pointer to a string, i.e., <code class="docutils literal notranslate"><span class="pre">ptr</span></code> is the address of the first character of the string.  A string in C is an array of characters with the Null character (ASCII value 0) at the end. A string in C can be initialized in many different ways. For example,</p></li>
 </ul>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;3&#39;</span><span class="p">,</span><span class="sc">&#39;8&#39;</span><span class="p">,</span><span class="sc">&#39;2&#39;</span><span class="p">,</span><span class="sc">&#39;\0&#39;</span><span class="p">};</span><span class="w"></span>
-<span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;3&#39;</span><span class="p">,</span><span class="sc">&#39;8&#39;</span><span class="p">,</span><span class="sc">&#39;2&#39;</span><span class="p">,</span><span class="sc">&#39;\0&#39;</span><span class="p">};</span><span class="w"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;3&#39;</span><span class="p">,</span><span class="sc">&#39;8&#39;</span><span class="p">,</span><span class="sc">&#39;2&#39;</span><span class="p">,</span><span class="sc">&#39;\0&#39;</span><span class="p">};</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;3&#39;</span><span class="p">,</span><span class="sc">&#39;8&#39;</span><span class="p">,</span><span class="sc">&#39;2&#39;</span><span class="p">,</span><span class="sc">&#39;\0&#39;</span><span class="p">};</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ECE382&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// array size can be &gt; 7. C compilers will put \0 at str[6] ... str[9]</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ECE382&quot;</span><span class="p">;</span><span class="w">    </span><span class="c1">// C compilers will append Null (\0) at the end. </span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ECE382&quot;</span><span class="p">;</span><span class="w">     </span><span class="c1">// C compilers will append Null (\0) at the end.</span>
@@ -758,7 +536,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="write-the-nokia5110-outudec-and-nokia5110-outsdec-functions">
-<h3>Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions<a class="headerlink" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions" title="Permalink to this headline">#</a></h3>
+<h3>Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions<a class="headerlink" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions" title="Permalink to this heading">#</a></h3>
 <p>Let’s implemente two functions for the entire integer types: one for unsigned integers and another for signed integers.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -793,8 +571,8 @@ title="Print to PDF"
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>You may wonder why we don’t use printf or sprintf for formated outputs.  For example,</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">strnum</span><span class="p">;</span><span class="w"></span>
-<span class="n">uint_16</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">strnum</span><span class="p">;</span>
+<span class="n">uint_16</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
 <span class="n">sprintf</span><span class="p">(</span><span class="n">strnum</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%6d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="c1">// strnum --&gt; &quot; 12345&quot;</span>
 </pre></div>
 </div>
@@ -808,26 +586,26 @@ title="Print to PDF"
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Your code <strong>must be compilable</strong>.  If your code throws any compile errors, you will get <strong>a grade of 0</strong> for the coding part.</p>
 </div>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[5 Points]</strong> Complete the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function and test it with <code class="docutils literal notranslate"><span class="pre">Program5_2</span></code>. You must use <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutChar</span></code> inside <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code>.  Demo your LCD printing “LCD Test”, a small AF logo, letters, a hexadecimal number, and a binary number on the LCD.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[5 Points]</strong> Complete the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions and test them with <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code>. Demo <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code> printing signed/unsigned integers on the LCD.<br />
 Demo Program5_4 printing signed/unsigned integers on the LCD.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[9.5 Points]</strong> Please comment your code and push it to your repository. <strong>0.5 bonus pts</strong>: Complete <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> with only 2 lines - one for while and another for Nokia5110_OutChar.</p></li>
 </ul>
@@ -849,7 +627,7 @@ Maze Edition Curriculum</a></p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./Assignments"
         },
         predefinedOutput: true
@@ -857,50 +635,119 @@ Maze Edition Curriculum</a></p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="lab4.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">🔬 Lab 4 Subroutines</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">🔬 Lab 4 Subroutines</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="lab8.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="lab8.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">🔬 Lab 8 I/O Interface</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Stan Baek<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-program5-1-function-to-adjust-constrast">Run the <code class="docutils literal notranslate"><span class="pre">Program5_1</span></code> function to adjust constrast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-nokia5110-outstring-function">Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions">Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1">Deliverable 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2">Deliverable 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stan Baek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

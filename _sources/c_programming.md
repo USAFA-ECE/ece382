@@ -1,4 +1,4 @@
-# 🌜 C Programming
+# 💻 C Programming
 
 (faq-c_programming)=
 ## C Programming Language

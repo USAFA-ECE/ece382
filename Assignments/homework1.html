@@ -1,50 +1,61 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>✏️ HW 1 Setting up CCS and Git &#8212; Embedded Computer Systems I</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script src="../_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,62 +63,96 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Assignments/homework1';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="✏️ HW 2 Assembly Basic" href="homework2.html" />
     <link rel="prev" title="🐍 No Pointer in Python?" href="../NoPointer.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/ece382.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Embedded Computer Systems I</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/ece382.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/ece382.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -116,453 +161,258 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Course Info
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Info</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus.html">
-   🚩 Syllabus
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../schedule.html">
-   📆 Course Schedule
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assembly.html">
-   🔧 Assembly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../c_programming.html">
-   🌜 C Programming
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../faq.html">
-   🙋 FAQ
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources.html">
-   💎 Resources
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../NoPointer.html">
-   🐍 No Pointer in Python?
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">🚩 Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">📆 Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assembly.html">🔧 Assembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">🐍 No Pointer in Python?</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Assignments
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   ✏️ HW 1 Setting up CCS and Git
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="homework2.html">
-   ✏️ HW 2 Assembly Basic
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab2.html">
-   🔬 Lab 2 Assembly Basic
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="homework3.html">
-   ✏️ HW 3 Memory
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab3.html">
-   🔬 Lab 3 Memory
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="homework4.html">
-   ✏️ HW 4 Subroutines
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab4.html">
-   🔬 Lab 4 Subroutines
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab5.html">
-   🔬 Lab 5 Software Design
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab8.html">
-   🔬 Lab 8 I/O Interface
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab10.html">
-   🔬 Lab 10 Multithreading
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab11.html">
-   🔬 Lab 11 Serial Ports
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab12.html">
-   🔬 Lab 12 Motors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab13.html">
-   🔬 Lab 13 Timers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab14.html">
-   🔬 Lab 14 Real-Time Systems
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab15.html">
-   🔬 Lab 15 ADC
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab15_calibration.html">
-   📈 Lab15 Sensor Calibration
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab16.html">
-   🔬 Lab 16 Tachometer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab17.html">
-   🔬 Lab 17 Control Systems
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="project.html">
-   🚀 Final Project
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">✏️ HW 1 Setting up CCS and Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homework2.html">✏️ HW 2 Assembly Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab2.html">🔬 Lab 2 Assembly Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homework3.html">✏️ HW 3 Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3.html">🔬 Lab 3 Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="homework4.html">✏️ HW 4 Subroutines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab4.html">🔬 Lab 4 Subroutines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab5.html">🔬 Lab 5 Software Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab8.html">🔬 Lab 8 I/O Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab10.html">🔬 Lab 10 Multithreading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab11.html">🔬 Lab 11 Serial Ports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab12.html">🔬 Lab 12 Motors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab13.html">🔬 Lab 13 Timers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab14.html">🔬 Lab 14 Real-Time Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab15.html">🔬 Lab 15 ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab15_calibration.html">📈 Lab15 Sensor Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab16.html">🔬 Lab 16 Tachometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab17.html">🔬 Lab 17 Control Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">🚀 Final Project</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece382" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2FAssignments/homework1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
 
 
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Assignments/homework1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
   </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/USAFA-ECE/ece382"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/USAFA-ECE/ece382/issues/new?title=Issue%20on%20page%20%2FAssignments/homework1.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/Assignments/homework1.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agenda">
-   📜 Agenda
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#procedure">
-   💻 Procedure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-a-bitbucket-repository">
-     Create a Bitbucket Repository
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-git">
-     Install Git
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-code-composer-studio-ccs">
-     Install Code Composer Studio (CCS).
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-project-files">
-     Import Project Files.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#convert-tabs-to-spaces">
-     Convert tabs to spaces
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hardware-diagnostics-tool">
-     Hardware Diagnostics Tool
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#deliverables">
-   🚚 Deliverables
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>✏️ HW 1 Setting up CCS and Git</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agenda">
-   📜 Agenda
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#procedure">
-   💻 Procedure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-a-bitbucket-repository">
-     Create a Bitbucket Repository
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-git">
-     Install Git
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#install-code-composer-studio-ccs">
-     Install Code Composer Studio (CCS).
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-project-files">
-     Import Project Files.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#convert-tabs-to-spaces">
-     Convert tabs to spaces
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hardware-diagnostics-tool">
-     Hardware Diagnostics Tool
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#deliverables">
-   🚚 Deliverables
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>✏️ HW 1 Setting up CCS and Git</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">📜 Agenda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-bitbucket-repository">Create Bitbucket Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-git">Install Git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-code-composer-studio-ccs">Install Code Composer Studio (CCS).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-project-files">Import Project Files.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-your-code">Push Your Code.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unhide-file-extensions">Unhide File Extensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-tabs-to-spaces">Convert tabs to spaces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-diagnostics-tool">Hardware Diagnostics Tool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="hw-1-setting-up-ccs-and-git">
-<h1>✏️ HW 1 Setting up CCS and Git<a class="headerlink" href="#hw-1-setting-up-ccs-and-git" title="Permalink to this headline">#</a></h1>
+<h1>✏️ HW 1 Setting up CCS and Git<a class="headerlink" href="#hw-1-setting-up-ccs-and-git" title="Permalink to this heading">#</a></h1>
 <section id="agenda">
-<h2>📜 Agenda<a class="headerlink" href="#agenda" title="Permalink to this headline">#</a></h2>
+<h2>📜 Agenda<a class="headerlink" href="#agenda" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Create a Bitbucket repository.</p></li>
 <li><p>Configure git repository.</p></li>
@@ -576,98 +426,76 @@ title="Print to PDF"
 </div>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
-<section id="create-a-bitbucket-repository">
-<h3>Create a Bitbucket Repository<a class="headerlink" href="#create-a-bitbucket-repository" title="Permalink to this headline">#</a></h3>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
+<section id="create-bitbucket-repository">
+<h3>Create Bitbucket Repository<a class="headerlink" href="#create-bitbucket-repository" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Create a <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> account if you do not already have one.</p></li>
-<li><p>Create a new repository in Bitbucket as shown below.</p></li>
-<li><p>Name it ECE382_LastName_FirstName.</p></li>
-<li><p>Give your own instructor and the course director (Dr. Baek) read access: Click <code class="docutils literal notranslate"><span class="pre">Invite</span></code> on the top of the right-hand navigation and then click <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">members</span></code>. Provide them <strong>read access</strong>. The instructors’ email addresses are as follows:</p>
+<li><p>Create a <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> account if you don’t have one.</p></li>
+<li><p>Log in <a href="https://bitbucket.org/" target="_blank">Bitbucket</a>.</p></li>
+<li><p>Browse to <a href="https://bitbucket.org/stanbaek2/ece382_wksp/src/master/" target="_blank">https://bitbucket.org/stanbaek2/ece382_wksp/src/master/</a>.</p></li>
+<li><p>Click on the three dots (<span class="math notranslate nohighlight">\(\cdots\)</span>) on the top of the right-hand navigation for more options.</p></li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">Fork</span> <span class="pre">this</span> <span class="pre">repository</span></code>.</p></li>
+<li><p>Enter “ECE382” for <code class="docutils literal notranslate"><span class="pre">Project</span></code>.</p></li>
+<li><p>Name this new repository ECE382_LastName_FirstName.</p></li>
+<li><p>Ensure the access level is <code class="docutils literal notranslate"><span class="pre">Private</span> <span class="pre">repository</span></code>.</p></li>
+<li><p>Give both your instructor and the course director (Dr. Baek) read access: Click <code class="docutils literal notranslate"><span class="pre">Invite</span></code> and then click <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">members</span></code>. Provide them <strong>read access</strong>. The instructors’ Bitbucket email addresses are as follows:</p>
 <ul>
-<li><p>Dr. Baek: <a class="reference external" href="mailto:stanley&#46;baek&#37;&#52;&#48;afacademy&#46;af&#46;edu">stanley<span>&#46;</span>baek<span>&#64;</span>afacademy<span>&#46;</span>af<span>&#46;</span>edu</a></p></li>
-<li><p>Dr. York: <a class="reference external" href="mailto:george&#46;york&#37;&#52;&#48;usafa&#46;edu">george<span>&#46;</span>york<span>&#64;</span>usafa<span>&#46;</span>edu</a></p></li>
-<li><p>Maj Mike Seery:</p></li>
-<li><p>Capt Brian Yarbrough:</p></li>
+<li><p>Dr. Baek: <img alt="baek" src="https://img.shields.io/badge/stanley.baek&#64;afafacademy.af.edu-red" /></p></li>
+<li><p>Dr. York: <img alt="york" src="https://img.shields.io/badge/george.york&#64;usafa.edu-green" /></p></li>
+<li><p>Maj Seery: <img alt="seery" src="https://img.shields.io/badge/michael.seery&#64;afacademy.af.edu-yellow" /></p></li>
+<li><p>Capt Yarbrough: <img alt="yarbrough" src="https://img.shields.io/badge/bcynmelk&#64;yahoo.com-blue" /></p></li>
 </ul>
 </li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_BitBucketConfig.gif"><img alt="../_images/HW1_BitBucketConfig.gif" class="align-center" src="../_images/HW1_BitBucketConfig.gif" style="width: 680px;" /></a>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Your repository name must be ECE382_LastName_FirstName. Otherwise, instructors may not be able to find your repository.</p>
+<br>
+<a class="reference internal image-reference" href="../_images/HW1_GitFork.gif"><img alt="../_images/HW1_GitFork.gif" class="align-center" src="../_images/HW1_GitFork.gif" style="width: 720px;" /></a>
+<br>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Please name your repository as ECE382_LastName_FirstName. This will help instructors find your repository easily.</p>
 </div>
 <ul class="simple">
-<li><p>You may need to create a Bitbucket <code class="docutils literal notranslate"><span class="pre">app</span> <span class="pre">password</span></code> as shown below.</p></li>
+<li><p>You may need to create a Bitbucket <code class="docutils literal notranslate"><span class="pre">app</span> <span class="pre">password</span></code> as follows.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">Profile</span></code> on the top of the right-hand navigation and then click <code class="docutils literal notranslate"><span class="pre">Personal</span> <span class="pre">Settings</span></code>.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">App</span> <span class="pre">Passwords</span></code> and then click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">app</span> <span class="pre">password</span></code>.</p></li>
-<li><p>Write your preferred label and select permissions as shown below.</p></li>
+<li><p>Write your preferred label and select permissions as needed.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Create</span></code>.</p></li>
 <li><p>Save the password as you cannot view it after you create it.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW1_BitBucketAppPassword.gif"><img alt="../_images/HW1_BitBucketAppPassword.gif" class="align-center" src="../_images/HW1_BitBucketAppPassword.gif" style="width: 720px;" /></a>
 </section>
 <section id="install-git">
-<h3>Install Git<a class="headerlink" href="#install-git" title="Permalink to this headline">#</a></h3>
+<h3>Install Git<a class="headerlink" href="#install-git" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Go to <a class="reference external" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> to download <code class="docutils literal notranslate"><span class="pre">64-bit</span> <span class="pre">Git</span> <span class="pre">for</span> <span class="pre">Windows</span> <span class="pre">setup</span></code></p></li>
+<li><p>Browse to  <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a> to download <code class="docutils literal notranslate"><span class="pre">64-bit</span> <span class="pre">Git</span> <span class="pre">for</span> <span class="pre">Windows</span> <span class="pre">setup</span></code></p></li>
 <li><p>Install Git with the default settings. Git is already installed on Mac.</p></li>
 <li><p>Create a folder named <code class="docutils literal notranslate"><span class="pre">workspace</span></code> under your home folder, e.g., C:\Users\stanley.baek\workspace.</p></li>
 <li><p>Right-click the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">Bash</span> <span class="pre">Here</span></code> as shown below.</p></li>
 <li><p>From your repository in Bitbucket, click Clone and copy the command that begins with <em>git clone</em> by clicking on the copy button as shown below.</p></li>
-<li><p>Paste it within the Bash terminal (middle-click, right-click &gt; Paste, or <code class="docutils literal notranslate"><span class="pre">Shift+Ins</span></code> to paste) and add a space followed by a <em>period</em> as shown below. The <em>period</em> at the end means that the destination is the <em>current folder</em>. Hit Enter.</p></li>
+<li><p>Paste it within the Bash terminal (middle-click, right-click &gt; Paste, or <code class="docutils literal notranslate"><span class="pre">Shift+Ins</span></code> to paste) and add a space followed by a <strong><em>period</em></strong> as shown below. The <strong><em>period</em></strong> at the end means that the destination is the <strong><em>current folder</em></strong>. Hit Enter.</p></li>
 <li><p>If it asks for a password, enter the app password you saved in the previous step.</p></li>
-<li><p>Notice that you have <code class="docutils literal notranslate"><span class="pre">(master)</span></code> at the end of the folder name. If you type <code class="docutils literal notranslate"><span class="pre">ls</span></code>, it should return nothing.</p></li>
+<li><p>Notice that you have <code class="docutils literal notranslate"><span class="pre">(master)</span></code> at the end of the folder name.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW1_GitClone.gif"><img alt="../_images/HW1_GitClone.gif" class="align-center" src="../_images/HW1_GitClone.gif" style="width: 720px;" /></a>
 <br>
 <ul class="simple">
-<li><p>Go to Teams &gt; General &gt; Files &gt; Class Materials. Download the <code class="docutils literal notranslate"><span class="pre">workspace_XXXX</span></code> file and unzip everything in <code class="docutils literal notranslate"><span class="pre">workspace_XXXX</span></code> into the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder in your home directory. Do not copy the <code class="docutils literal notranslate"><span class="pre">workspace_XXXX</span></code> folder itself into the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder.  The figure below shows an example of a local <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder on your computer.</p></li>
+<li><p>The figure below shows an example of a local <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder on your computer.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_Workspace.png"><img alt="../_images/HW1_Workspace.png" class="align-center" src="../_images/HW1_Workspace.png" style="width: 640px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW1_Workspace.png"><img alt="../_images/HW1_Workspace.png" class="align-center" src="../_images/HW1_Workspace.png" style="width: 580px;" /></a>
 <br>
 <ul class="simple">
-<li><p>Go back to Git Bash. If you have already closed it, right click on an empty space inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">Bash</span> <span class="pre">Here</span></code>.</p></li>
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-A</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-all</span></code> and hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Initial</span> <span class="pre">commit.&quot;</span></code> and hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> as shown below</p></li>
-<li><p>Enter your username and password if prompted.</p></li>
+<li><p>Go back to Git Bash. If you have already closed it, right-click on an empty space inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">Bash</span> <span class="pre">Here</span></code>.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.  It will return two lines showing that the <code class="docutils literal notranslate"><span class="pre">origin</span></code> is your remote repository at <a class="reference external" href="http://bitbucket.org">bitbucket.org</a> for both fetch and push.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">upstream</span> <span class="pre">https://stanbaek2&#64;bitbucket.org/stanbaek2/ece382_wksp.git</span></code> (or copy &amp; paste) and hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.  It will now return four lines showing that the <code class="docutils literal notranslate"><span class="pre">upstream</span></code>
+is the original instructor’s repository that you forked from.</p></li>
+<li><p>Whenever there are any updates on the original code, you will be asked to run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">upstream</span></code> to update your local files.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_GitPush.gif"><img alt="../_images/HW1_GitPush.gif" class="align-center" src="../_images/HW1_GitPush.gif" style="width: 720px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW1_GitAddUpstream.gif"><img alt="../_images/HW1_GitAddUpstream.gif" class="align-center" src="../_images/HW1_GitAddUpstream.gif" style="width: 640px;" /></a>
 <br>
-<ul class="simple">
-<li><p>In the future you will repeat these three steps when committing your changes:</p>
-<ul>
-<li><p>git add -A</p></li>
-<li><p>git commit -m “Comment”</p></li>
-<li><p>git push</p></li>
-</ul>
-</li>
-<li><p>Refresh your Bitbucket repository to observe the new files as shown below</p></li>
-</ul>
-<a class="reference internal image-reference" href="../_images/HW1_BitbucketPushed.PNG"><img alt="../_images/HW1_BitbucketPushed.PNG" class="align-center" src="../_images/HW1_BitbucketPushed.PNG" style="width: 720px;" /></a>
-<br>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>After you push your assignments to Git, it is your responsibility to check your code has been successfully pushed to Bitbucket.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>CCS comes with built-in GIT, and it can be opened from CCS menu &gt; View &gt; Other &gt; Git &gt; Git Staging. You can commit and push at the same time. There are also many third-party graphic user interface (GUI) clients. Check out <a class="reference external" href="https://git-scm.com/downloads/guis">https://git-scm.com/downloads/guis</a>.</p>
-</div>
-<ul class="simple">
-<li><p>Go to the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder on your computer. Then, go to the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
-<li><p>Do you have files with the same names? If you have two files with the same name, one of them is a c source file (<code class="docutils literal notranslate"><span class="pre">*.c</span></code>) and the other one is a header file (<code class="docutils literal notranslate"><span class="pre">*.h</span></code>). Windows hides file extensions unless you change its default setting.</p></li>
-<li><p>If your files display the file extensions such as <code class="docutils literal notranslate"><span class="pre">.c</span></code> and <code class="docutils literal notranslate"><span class="pre">.h</span></code>, skip the following instruction and go to <code class="docutils literal notranslate"><span class="pre">Install</span> <span class="pre">Code</span> <span class="pre">Composer</span> <span class="pre">Studio</span> <span class="pre">(CCS)</span></code>.</p></li>
-<li><p>Click <code class="docutils literal notranslate"><span class="pre">Options</span></code> and select <code class="docutils literal notranslate"><span class="pre">View</span></code> as shown the anmination below.</p></li>
-<li><p>Uncheck <code class="docutils literal notranslate"><span class="pre">Hide</span> <span class="pre">extensions</span> <span class="pre">for</span> <span class="pre">known</span> <span class="pre">file</span> <span class="pre">types</span></code>. You can also change some of the Windows default settings shown in the animation.</p></li>
-<li><p>Click <code class="docutils literal notranslate"><span class="pre">OK</span></code>.  Now you can see file extensions.</p></li>
-</ul>
-<a class="reference internal image-reference" href="../_images/HW1_ShowFileExtensions.gif"><img alt="../_images/HW1_ShowFileExtensions.gif" class="align-center" src="../_images/HW1_ShowFileExtensions.gif" style="width: 720px;" /></a>
-<br> 
 </section>
 <section id="install-code-composer-studio-ccs">
-<h3>Install Code Composer Studio (CCS).<a class="headerlink" href="#install-code-composer-studio-ccs" title="Permalink to this headline">#</a></h3>
+<h3>Install Code Composer Studio (CCS).<a class="headerlink" href="#install-code-composer-studio-ccs" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Go to <a class="reference external" href="https://www.ti.com/tool/download/CCSTUDIO/12.3.0">https://www.ti.com/tool/download/CCSTUDIO/12.3.0</a> to download <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">on-demand</span> <span class="pre">installer</span> <span class="pre">for</span> <span class="pre">CCS</span> <span class="pre">IDE</span></code>. For Mac users, download <code class="docutils literal notranslate"><span class="pre">macOS</span> <span class="pre">on-demand</span> <span class="pre">installer</span> <span class="pre">for</span> <span class="pre">CCS</span> <span class="pre">IDE</span></code>.  Do not download version 13 since it was recently released and there will be multiple patches next few months.</p></li>
 <li><p>Run the installer by double-clicking the <code class="docutils literal notranslate"><span class="pre">ccs_setup_12.X.X.XXXXX.exe</span></code> executable.</p></li>
@@ -682,26 +510,68 @@ title="Print to PDF"
 <br>
 </section>
 <section id="import-project-files">
-<h3>Import Project Files.<a class="headerlink" href="#import-project-files" title="Permalink to this headline">#</a></h3>
+<h3>Import Project Files.<a class="headerlink" href="#import-project-files" title="Permalink to this heading">#</a></h3>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The following steps are critical. If you make a mistake, it may take hours to fix the problem later this semester. Please follow the instructions carefully.</p>
+</div>
 <ul class="simple">
 <li><p>Open CCS.</p></li>
 <li><p>When asked to <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">a</span> <span class="pre">directory</span> <span class="pre">as</span> <span class="pre">workspace</span></code>, select <code class="docutils literal notranslate"><span class="pre">Browse</span></code> and browse to your <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder. Select the <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">this</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">default</span> <span class="pre">and</span> <span class="pre">do</span> <span class="pre">not</span> <span class="pre">ask</span> <span class="pre">again</span></code> check box. Click <code class="docutils literal notranslate"><span class="pre">Launch</span></code></p></li>
 <li><p>Import all the projects into CSS. <strong>File &gt; Import…</strong>  Choose <strong>Code Composer Studio &gt; CCS Projects</strong> and click <code class="docutils literal notranslate"><span class="pre">Next</span></code>.</p></li>
 <li><p>Select <code class="docutils literal notranslate"><span class="pre">Search</span> <span class="pre">Directory</span></code> and click the <code class="docutils literal notranslate"><span class="pre">Browse...</span></code> option. Browse to the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder.</p></li>
-<li><p>CCS should discover many projects inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code>.  Click <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">All</span></code> (<strong>DO NOT</strong> check <code class="docutils literal notranslate"><span class="pre">Automatically</span> <span class="pre">import...</span></code> or <code class="docutils literal notranslate"><span class="pre">Copy</span> <span class="pre">projects...</span></code> options). This will have CCS reference the project from the original location and preserve the original directory structure required to build. Click <code class="docutils literal notranslate"><span class="pre">Finish</span></code>.</p></li>
-<li><p>In Project Explorer, expand <code class="docutils literal notranslate"><span class="pre">HW01_Git</span></code> and double click test.txt to open. Edit the file and save.</p></li>
-<li><p>Commit and push to Bitbucket. Enter your password if prompted.</p></li>
-<li><p>Refresh your Bitbucket repository to observe the changes.</p></li>
+<li><p>CCS should discover many projects inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder.  Click <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">All</span></code> (<strong>DO NOT</strong> check <code class="docutils literal notranslate"><span class="pre">Automatically</span> <span class="pre">import...</span></code> or <code class="docutils literal notranslate"><span class="pre">Copy</span> <span class="pre">projects...</span></code> options). This will have CCS reference the project from the original location and preserve the original directory structure required to build. Click <code class="docutils literal notranslate"><span class="pre">Finish</span></code>.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Explorer</span></code>, expand <code class="docutils literal notranslate"><span class="pre">HW01_Git</span></code> and double click <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> to open. Edit the file and save. You can simply add “My name is …” as shown below.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW1_CCS_Config.gif"><img alt="../_images/HW1_CCS_Config.gif" class="align-center" src="../_images/HW1_CCS_Config.gif" style="width: 598.0px; height: 466.5px;" /></a>
 <br>
+</section>
+<section id="push-your-code">
+<h3>Push Your Code.<a class="headerlink" href="#push-your-code" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Go back to Git Bash. If you have already closed it, right-click on an empty space inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">Bash</span> <span class="pre">Here</span></code>.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-A</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-all</span></code> and hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Homework</span> <span class="pre">1&quot;</span></code> and hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> as shown below.</p></li>
+<li><p>You can run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to check the current status of your local repository.</p></li>
+<li><p>Enter your username and password if prompted.</p></li>
+<li><p>Refresh your Bitbucket repository and ensure your push has been made through.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/HW1_GitPush.gif"><img alt="../_images/HW1_GitPush.gif" class="align-center" src="../_images/HW1_GitPush.gif" style="width: 540px;" /></a>
+<br>
+<ul class="simple">
+<li><p>In the future you will repeat these three steps when committing your changes:</p>
+<ul>
+<li><p>git add -A</p></li>
+<li><p>git commit -m “Comment”</p></li>
+<li><p>git push</p></li>
+</ul>
+</li>
+</ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>It is your responsibility to check your files have been successfully pushed to your Bitbucket repository. Always visit your Bitbucket repository after you push your assignments to the repository.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>CCS comes with built-in GIT, and it can be opened from CCS menu &gt; View &gt; Other &gt; Git &gt; Git Staging. You can commit and push at the same time. There are also many third-party graphic user interface (GUI) clients. Check out <a class="reference external" href="https://git-scm.com/downloads/guis">https://git-scm.com/downloads/guis</a>.</p>
+</div>
+</section>
+<section id="unhide-file-extensions">
+<h3>Unhide File Extensions<a class="headerlink" href="#unhide-file-extensions" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Go to the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder on your computer. Then, go to the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
+<li><p>Do you have files with the same names? If you have two files with the same name, one of them is a c source file (<code class="docutils literal notranslate"><span class="pre">*.c</span></code>) and the other one is a header file (<code class="docutils literal notranslate"><span class="pre">*.h</span></code>). Windows hides file extensions unless you change its default setting.</p></li>
+<li><p>If your files display the file extensions such as <code class="docutils literal notranslate"><span class="pre">.c</span></code> and <code class="docutils literal notranslate"><span class="pre">.h</span></code>, skip the following instruction and go to <code class="docutils literal notranslate"><span class="pre">Install</span> <span class="pre">Code</span> <span class="pre">Composer</span> <span class="pre">Studio</span> <span class="pre">(CCS)</span></code>.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Options</span></code> and select <code class="docutils literal notranslate"><span class="pre">View</span></code> as shown the anmination below.</p></li>
+<li><p>Uncheck <code class="docutils literal notranslate"><span class="pre">Hide</span> <span class="pre">extensions</span> <span class="pre">for</span> <span class="pre">known</span> <span class="pre">file</span> <span class="pre">types</span></code>. You can also change some of the Windows default settings shown in the animation.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">OK</span></code>.  Now you can see file extensions.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/HW1_ShowFileExtensions.gif"><img alt="../_images/HW1_ShowFileExtensions.gif" class="align-center" src="../_images/HW1_ShowFileExtensions.gif" style="width: 720px;" /></a>
+<br> 
 </section>
 <section id="convert-tabs-to-spaces">
-<h3>Convert tabs to spaces<a class="headerlink" href="#convert-tabs-to-spaces" title="Permalink to this headline">#</a></h3>
+<h3>Convert tabs to spaces<a class="headerlink" href="#convert-tabs-to-spaces" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Open CCS if it is closed.</p></li>
 <li><p>Open Text Editors Settings.  <strong>Window &gt; Preferences &gt; General &gt; Editors &gt; Text Editors</strong>.</p></li>
@@ -709,9 +579,10 @@ title="Print to PDF"
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">and</span> <span class="pre">Close</span></code>.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW1_Tabs2Spaces.png"><img alt="../_images/HW1_Tabs2Spaces.png" class="align-center" src="../_images/HW1_Tabs2Spaces.png" style="width: 560px;" /></a>
+<br>
 </section>
 <section id="hardware-diagnostics-tool">
-<h3>Hardware Diagnostics Tool<a class="headerlink" href="#hardware-diagnostics-tool" title="Permalink to this headline">#</a></h3>
+<h3>Hardware Diagnostics Tool<a class="headerlink" href="#hardware-diagnostics-tool" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Click 🙋 FAQ on the left sidebar of this website. If the sidebar is hidden, click the hamburger button (the triple bar ☰).</p></li>
 <li><p>Go to <em>How to run the hardware diagnostics tool for hardware issues on my robot?</em> section and complete the hardware diagnotics.</p></li>
@@ -722,7 +593,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
 <p>Take screenshots of the following and submit them via Gradescope.  Use <code class="docutils literal notranslate"><span class="pre">Snip</span> <span class="pre">&amp;</span> <span class="pre">Sketch</span></code> (Win+Shift+S) on Windows 10/11 or Shift+CMD+4 on MacOS to take a screenshot. Save it in <code class="docutils literal notranslate"><span class="pre">png</span></code> or <code class="docutils literal notranslate"><span class="pre">jpg</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -764,7 +635,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./Assignments"
         },
         predefinedOutput: true
@@ -772,50 +643,117 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../NoPointer.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">🐍 No Pointer in Python?</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../NoPointer.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">🐍 No Pointer in Python?</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="homework2.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="homework2.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">✏️ HW 2 Assembly Basic</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Stan Baek<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">📜 Agenda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-bitbucket-repository">Create Bitbucket Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-git">Install Git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-code-composer-studio-ccs">Install Code Composer Studio (CCS).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-project-files">Import Project Files.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-your-code">Push Your Code.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unhide-file-extensions">Unhide File Extensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-tabs-to-spaces">Convert tabs to spaces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-diagnostics-tool">Hardware Diagnostics Tool</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stan Baek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
