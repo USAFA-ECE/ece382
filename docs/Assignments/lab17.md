@@ -65,7 +65,7 @@ Control systems are a rich and complex field within engineering spanning: electr
 
 
 - Collect the data for the wheel speed of 100 rpm via the USB/UART port and discuss the performance of your controller in `Program17_1()`. 
-- You may need to change the Serial Terminal buffer size.  The default is 1000 lines.  If you need more than 1000 lines, you need to change it. The instruction is [here](FAQ:CCS:TerminalBuffer).
+- You may need to change the Serial Terminal buffer size.  The default is 1000 lines.  If you need more than 1000 lines, you need to change it. The instruction is {ref}`here <FAQ:CCS:TerminalBuffer>`.
 - Provide the step response of the speed controller with/without the disturbance, which is applied after the speed settles at the desired speed. 
 - Provide the input signals (PWM duty cycles) to the robot. 
 - You can use any software you like - MATLAB, MS Excel, etc. for figures. Your plots must include labels, units, and legends whenever required. You should plot the region of interest.  Use the axis limit functions such as `plt.ylim` or `plt.xlim`.  
