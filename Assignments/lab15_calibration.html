@@ -453,20 +453,20 @@ d = \frac{m}{n - c}
 <h2>Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Read this page thoroughly.</strong></p></li>
-<li><p>Then, go to Colab by clicking the icon at the end of this page and complete the sensor calibration. <strong>AR means action required in Colab</strong>.</p></li>
+<li><p>Then, go to Colab by clicking the rocket icon at the top of this page and complete the sensor calibration. <strong>AR means action required in Colab</strong>.</p></li>
 </ol>
 <section id="record-actual-distance-and-adc-values">
 <h3>Record actual distance and ADC values<a class="headerlink" href="#record-actual-distance-and-adc-values" title="Permalink to this heading">#</a></h3>
-<p>Now let’s collect the ADC samples <span class="math notranslate nohighlight">\(N=(n_1, n_2, \dots, n_k)\)</span> for known distances, <span class="math notranslate nohighlight">\(D=(d_1, d_2, \dots, d_k)\)</span>.  Note that you need to collect the ADC data for distances from the sensors, not the center of the robot.  Place your robot on the paper ruler in the lab as shown the figure below (the figure may not be displayed in Colab).</p>
+<p>Now let’s collect the ADC samples <span class="math notranslate nohighlight">\(N=(n_1, n_2, \dots, n_k)\)</span> for known distances, <span class="math notranslate nohighlight">\(D=(d_1, d_2, \dots, d_k)\)</span>.  Note that you need to collect the ADC data for distances from the sensors, not the center of the robot.  Place your robot on the paper ruler in the lab as shown in the figure below (the figure may not be displayed in Colab).  Place your robot at 0 cm and place the box of your robot at the desired distances to collect ADC data for the distances between the box and the sensors.</p>
 <a class="reference internal image-reference" href="../_images/Lab15_MeasuringDistances.png"><img alt="../_images/Lab15_MeasuringDistances.png" class="align-center" src="../_images/Lab15_MeasuringDistances.png" style="width: 400px;" /></a>
 <br>
-<p>Record ADC values displayed on LCD for distances between 80mm and 800mm.  You may need more data at close distances to the wall than at far distances. For example, you want to collect data at distances of <span class="math notranslate nohighlight">\(80, 100, ..., 280, 300\)</span> mm and <span class="math notranslate nohighlight">\(300, 350, ..., 500, 550, 800\)</span> mm because your robot will be at a distance less than 300 mm most time and there is more noise as the distance becomes larger.</p>
+<p>Record ADC values displayed on the LCD for distances between 80mm and 800mm.  You may need more data at close distances to the wall than at far distances. For example, you want to collect data at distances of <span class="math notranslate nohighlight">\(80, 100, ..., 280, 300, 350, 400, ..., 500, 550\)</span>, and <span class="math notranslate nohighlight">\(800\)</span> mm because your robot will be at a distance less than 300 mm most of the time and there is more noise as the distance becomes larger.</p>
 <p>The more data you collect, the better the fitting line you will have.</p>
 <p>Hints:</p>
 <ul class="simple">
 <li><p>Ensure your sensors are mounted straight up and facing the front/right/left.</p></li>
 <li><p>Put your sensors at 0mm and place your box at different distances to collect the LCD data.  It would be much easier than putting your box at 0mm and moving around your robot.</p></li>
-<li><p>Use the same materials for the calibration and the demo.  For example, if you used a white box for your calibration, use the same box for the demo.  If you use the textbook (it is black) instead, you will get different values. The black textbook will absorb some of the IR light.</p></li>
+<li><p>Use the same materials for the calibration and the demo.  For example, if you used a white box for your calibration, use the same box for the demo.  If you use the textbook instead, which is black, you will get different values. The black textbook will absorb some of the IR light.</p></li>
 <li><p>If you have many outliers, you may want to retake the measurements at the distances you have outliers. Usually, the LCD values at 800mm are not quite accurate and you can move on if it is the only outlier.</p></li>
 </ul>
 <p><strong>AR</strong>: Update D and N in the following code.</p>
@@ -533,7 +533,7 @@ n = m d' + c
 <p>The above figure shows a linear relationship of the ADC sample and the inverse distance. Now we want to find <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(c\)</span> for the line <span class="math notranslate nohighlight">\(n = m d' + c\)</span> that best fits to the data in the figure.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The following math is beyond the scope of ECE382. It will be covered in Math 356/378 (linear regression) and Math 344/360 (linear least squares).</p>
+<p>The following math is beyond the scope of ECE382. It will be discussed in ECE 487 and may be covered in Math 356/378 (linear regression) or Math 344/360 (linear least squares).</p>
 </div>
 <p>We can rewrite equation (2) in matrix form given by</p>
 <div class="amsmath math notranslate nohighlight">
@@ -646,7 +646,7 @@ n = \begin{bmatrix} d' &amp; 1 \end{bmatrix} \begin{bmatrix} m \\ c \end{bmatrix
 </section>
 <section id="colab">
 <h2>Colab<a class="headerlink" href="#colab" title="Permalink to this heading">#</a></h2>
-<p>To run your code in Colab, click on the rocket button at the top of this page. <img alt="Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></p>
+<p>To run your code in Colab, click on the rocket icon at the top of this page. <img alt="Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></p>
 </section>
 </section>
 
