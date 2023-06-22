@@ -58,3 +58,7 @@ parse:
     - substitution
     # To allow you to use ::: fences for admonitions, in order to make them easier to render in interfaces that do not support MyST. See Markdown-friendly directives with :::.
     - colon_fence
+
+# Add a "Launch on Google Colab" button to .ipynb files
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
