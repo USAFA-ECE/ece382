@@ -24,8 +24,8 @@ This schedule is subject to change as appropriate.
 | 15     | Lecture 11 – Serial Communication                 | 11.2-11.3, 11.5-11.6 | [Lab10](Assignments/lab10.md)         (20)|
 | 16     | [Lab 11 – Serial Comm](Assignments/lab11.md)      |                      | Homework11                            (17)|
 | 17     | Lecture 12 – DC Motors                            | 12.1, 12.5           | [Lab11](Assignments/lab11.md)         (20)|
-| 18     | GR 1                                              |                      |                                      (100)|
-| 19     | [Lab 12 – DC Motors](Assignments/lab12.md)        |                      | Homework12                            (17)|
+| 18     | [Lab 12 – DC Motors](Assignments/lab12.md)        |                      | Homework12                            (17)|
+| 19     | GR 1                                              |                      |                                      (100)|
 | 20     | Lecture 13 – Timers & PWM                         | 13.1-13.3            | [Lab12](Assignments/lab12.md)         (20)|
 | 21     | [Lab 13 – Timers & PWM](Assignments/lab13.md)     |                      | Homework13                            (17)|
 | 22     | [Lab 13 – Timers & PWM](Assignments/lab13.md)     |                      |                                           |
