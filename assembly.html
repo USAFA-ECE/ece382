@@ -404,6 +404,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-and-pop">PUSH and POP</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arm-directives">ARM Directives</a></li>
 </ul>
             </nav>
         </div>
@@ -463,6 +464,16 @@ document.write(`
 </section>
 <section id="mul-and-udiv">
 <h3>MUL and UDIV<a class="headerlink" href="#mul-and-udiv" title="Permalink to this heading">#</a></h3>
+<p>Multiply (MUL) and unsigned divide (UDIV)</p>
+<p>Examples:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">MUL</span><span class="w">  </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">     </span><span class="c1">; R3 = R2*R1</span>
+<span class="w">    </span><span class="nf">MUL</span><span class="w">  </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="w">         </span><span class="c1">; R3 = R3*R2</span>
+<span class="w">    </span><span class="nf">MUL</span><span class="w">  </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="mi">#2</span><span class="w">     </span><span class="c1">; ERROR</span>
+<span class="w">    </span><span class="nf">UDIV</span><span class="w"> </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">     </span><span class="c1">; R3 = R2/R1</span>
+<span class="w">    </span><span class="nf">UDIV</span><span class="w"> </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="w">         </span><span class="c1">; R3 = R3/R2</span>
+<span class="w">    </span><span class="nf">UDIV</span><span class="w"> </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="mi">#2</span><span class="w">     </span><span class="c1">; ERROR</span>
+</pre></div>
+</div>
 </section>
 <section id="and-orr-eor-and-bic-32-bit-bitwise-and-or-exclusive-or-and-bit-clear">
 <h3>AND, ORR, EOR, and BIC: 32-bit bitwise AND, OR, Exclusive OR, and Bit Clear<a class="headerlink" href="#and-orr-eor-and-bic-32-bit-bitwise-and-or-exclusive-or-and-bit-clear" title="Permalink to this heading">#</a></h3>
@@ -613,6 +624,23 @@ Note that arithmetic left shift is identical to logical left shift.</p>
 </div>
 </section>
 </section>
+<section id="arm-directives">
+<span id="assembly-directives"></span><h2>ARM Directives<a class="headerlink" href="#arm-directives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.text</span></code>: Places following objects in flash ROM</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.data</span></code>: Places following objects in data memory (RAM)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.space</span></code>: Reserves space in bytes, uninitialized in RAM</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.string</span></code>: Allocates one or more bytes of memory from a string literal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.word</span></code>: Places 32-bit words into memory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.byte</span></code>: Places bytes into memory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.align</span> <span class="pre">2</span></code>: skips 0 to 1 byte to make next halfword aligned</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.align</span> <span class="pre">4</span></code>: skips 0 to 3 byte to make next word aligned</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.global</span></code>: import/export function between files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.asmfunc</span></code>: signifies the start of an assembly function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.endasmfunc</span></code>: signifies the end of an assembly function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.end</span></code>: end of file</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -703,6 +731,7 @@ Note that arithmetic left shift is identical to logical left shift.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#push-and-pop">PUSH and POP</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arm-directives">ARM Directives</a></li>
 </ul>
   </nav></div>
 
