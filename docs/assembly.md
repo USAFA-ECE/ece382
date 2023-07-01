@@ -51,6 +51,17 @@ Examples:
 
 ### MUL and UDIV
 
+Multiply (MUL) and unsigned divide (UDIV) 
+
+Examples:
+```asm
+    MUL  R3, R2, R1     ; R3 = R2*R1
+    MUL  R3, R2         ; R3 = R3*R2
+    MUL  R3, R2, #2     ; ERROR
+    UDIV R3, R2, R1     ; R3 = R2/R1
+    UDIV R3, R2         ; R3 = R3/R2
+    UDIV R3, R2, #2     ; ERROR
+```
 
 ### AND, ORR, EOR, and BIC: 32-bit bitwise AND, OR, Exclusive OR, and Bit Clear
 
@@ -221,3 +232,18 @@ Here is a even more elegant way to push and pop multiple registers.
     POP {LR, R4-R6, R9, LR}       ;  order does not matter
 ```
 
+(assembly-directives)=
+## ARM Directives
+
+- `.text`: Places following objects in flash ROM
+- `.data`: Places following objects in data memory (RAM)
+- `.space`: Reserves space in bytes, uninitialized in RAM
+- `.string`: Allocates one or more bytes of memory from a string literal
+- `.word`: Places 32-bit words into memory
+- `.byte`: Places bytes into memory
+- `.align 2`: skips 0 to 1 byte to make next halfword aligned
+- `.align 4`: skips 0 to 3 byte to make next word aligned
+- `.global`: import/export function between files
+- `.asmfunc`: signifies the start of an assembly function
+- `.endasmfunc`: signifies the end of an assembly function
+- `.end`: end of file  
