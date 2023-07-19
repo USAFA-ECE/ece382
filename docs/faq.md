@@ -153,6 +153,7 @@ Your pull-up/down resistors may not be configured appropriately.
 
 There are two switches on your robot as shown below. **Keep the slide switch in the yellow rectangle in the off position** and use the button switch in the yellow circle to turn the robot on and off. Do not use the slide switch because it is very fragile.  
 
+
 ```{image} ./figures/RSLK_Switches.png
 :width: 640
 :align: center
