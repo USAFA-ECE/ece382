@@ -109,9 +109,11 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 
 ### Install Code Composer Studio (CCS).
 
-- Go to https://www.ti.com/tool/download/CCSTUDIO/12.3.0 to download `Windows on-demand installer for CCS IDE`. For Mac users, download `macOS on-demand installer for CCS IDE`.  Do not download version 13 since it was recently released and there will be multiple patches next few months.   
-- Run the installer by double-clicking the `ccs_setup_12.X.X.XXXXX.exe` executable.
-- Begin the installation process, by default it will ask you to install under a `ti` folder, which is recommended.
+- Download `Code Compose Studio 12.4.0` using one of the following methods
+    - Go to https://www.ti.com/tool/download/CCSTUDIO/12.4.0 to download `Windows on-demand installer for CCS IDE`. For Mac users, download `macOS on-demand installer for CCS IDE`.  <!--Do not download version 13 since it was recently released and there will be multiple patches next few months. -->
+    - Go Teams > General > Files > Class Materials > Software and download `ccs_setup_12.x.x.xxxxx.exe`.    
+- Run the installer by double-clicking the `ccs_setup_12.x.x.xxxxx.exe` executable.
+- Begin the installation process, by default it will ask you to install under the `C:\ti` folder, which is recommended.
 - Select `Custom Installation` (Recommended)
 - Select the processor support for `SimpleLink MSP432 MCUs`.
 - Ensure the default Install debug probe is selected and leave the rest unselected.
@@ -175,9 +177,9 @@ CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other >
 ### Unhide File Extensions
 
 - Go to the `workspace` folder on your computer. Then, go to the `inc` folder. 
-- Do you have files with the same names? If you have two files with the same name, one of them is a c source file (`*.c`) and the other one is a header file (`*.h`). Windows hides file extensions unless you change its default setting.
-- If your files display the file extensions such as `.c` and `.h`, skip the following instruction and go to `Install Code Composer Studio (CCS)`.
-- Click `Options` and select `View` as shown the anmination below.
+- Do you have files with the same names? If you have two files with the same name, one of them is a c source file (`*.c`) and the other is a header file (`*.h`). Windows hides file extensions unless you change its default setting.
+- If your Windows File Explorer displays file extensions such as `.c` and `.h`, skip this section.
+- Click `Options` and select `View` as shown in the gif anmination below.
 - Uncheck `Hide extensions for known file types`. You can also change some of the Windows default settings shown in the animation.
 - Click `OK`.  Now you can see file extensions.
 
@@ -204,9 +206,9 @@ CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other >
 
 ### Hardware Diagnostics Tool
 
-- Click 🙋 FAQ on the left sidebar of this website. If the sidebar is hidden, click the hamburger button (the triple bar ☰). 
+- Click 🙋 FAQ on the left sidebar of this website. If the sidebar is hidden, click the hamburger button (the triple bars ☰). 
 - Go to _How to run the hardware diagnostics tool for hardware issues on my robot?_ section and complete the hardware diagnotics.
-- While you are running the tool, take a picture of your robot. Your picture must show one of the tests on the LCD as shown below. 
+- While you are running the tool, take a picture of your robot. Your picture must show one of the tests on the LCD as shown below. Ensure you have a small AF symbol on each test screen.
 - Submit the picture in Gradescope.
 
 ```{image} ./figures/HW1_HardwareDiagnostics.jpg

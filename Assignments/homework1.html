@@ -506,9 +506,14 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 <section id="install-code-composer-studio-ccs">
 <h3>Install Code Composer Studio (CCS).<a class="headerlink" href="#install-code-composer-studio-ccs" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Go to <a class="reference external" href="https://www.ti.com/tool/download/CCSTUDIO/12.3.0">https://www.ti.com/tool/download/CCSTUDIO/12.3.0</a> to download <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">on-demand</span> <span class="pre">installer</span> <span class="pre">for</span> <span class="pre">CCS</span> <span class="pre">IDE</span></code>. For Mac users, download <code class="docutils literal notranslate"><span class="pre">macOS</span> <span class="pre">on-demand</span> <span class="pre">installer</span> <span class="pre">for</span> <span class="pre">CCS</span> <span class="pre">IDE</span></code>.  Do not download version 13 since it was recently released and there will be multiple patches next few months.</p></li>
-<li><p>Run the installer by double-clicking the <code class="docutils literal notranslate"><span class="pre">ccs_setup_12.X.X.XXXXX.exe</span></code> executable.</p></li>
-<li><p>Begin the installation process, by default it will ask you to install under a <code class="docutils literal notranslate"><span class="pre">ti</span></code> folder, which is recommended.</p></li>
+<li><p>Download <code class="docutils literal notranslate"><span class="pre">Code</span> <span class="pre">Compose</span> <span class="pre">Studio</span> <span class="pre">12.4.0</span></code> using one of the following methods</p>
+<ul>
+<li><p>Go to <a class="reference external" href="https://www.ti.com/tool/download/CCSTUDIO/12.4.0">https://www.ti.com/tool/download/CCSTUDIO/12.4.0</a> to download <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">on-demand</span> <span class="pre">installer</span> <span class="pre">for</span> <span class="pre">CCS</span> <span class="pre">IDE</span></code>. For Mac users, download <code class="docutils literal notranslate"><span class="pre">macOS</span> <span class="pre">on-demand</span> <span class="pre">installer</span> <span class="pre">for</span> <span class="pre">CCS</span> <span class="pre">IDE</span></code>.  <!--Do not download version 13 since it was recently released and there will be multiple patches next few months. --></p></li>
+<li><p>Go Teams &gt; General &gt; Files &gt; Class Materials &gt; Software and download <code class="docutils literal notranslate"><span class="pre">ccs_setup_12.x.x.xxxxx.exe</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Run the installer by double-clicking the <code class="docutils literal notranslate"><span class="pre">ccs_setup_12.x.x.xxxxx.exe</span></code> executable.</p></li>
+<li><p>Begin the installation process, by default it will ask you to install under the <code class="docutils literal notranslate"><span class="pre">C:\ti</span></code> folder, which is recommended.</p></li>
 <li><p>Select <code class="docutils literal notranslate"><span class="pre">Custom</span> <span class="pre">Installation</span></code> (Recommended)</p></li>
 <li><p>Select the processor support for <code class="docutils literal notranslate"><span class="pre">SimpleLink</span> <span class="pre">MSP432</span> <span class="pre">MCUs</span></code>.</p></li>
 <li><p>Ensure the default Install debug probe is selected and leave the rest unselected.</p></li>
@@ -570,9 +575,9 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 <h3>Unhide File Extensions<a class="headerlink" href="#unhide-file-extensions" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Go to the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder on your computer. Then, go to the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
-<li><p>Do you have files with the same names? If you have two files with the same name, one of them is a c source file (<code class="docutils literal notranslate"><span class="pre">*.c</span></code>) and the other one is a header file (<code class="docutils literal notranslate"><span class="pre">*.h</span></code>). Windows hides file extensions unless you change its default setting.</p></li>
-<li><p>If your files display the file extensions such as <code class="docutils literal notranslate"><span class="pre">.c</span></code> and <code class="docutils literal notranslate"><span class="pre">.h</span></code>, skip the following instruction and go to <code class="docutils literal notranslate"><span class="pre">Install</span> <span class="pre">Code</span> <span class="pre">Composer</span> <span class="pre">Studio</span> <span class="pre">(CCS)</span></code>.</p></li>
-<li><p>Click <code class="docutils literal notranslate"><span class="pre">Options</span></code> and select <code class="docutils literal notranslate"><span class="pre">View</span></code> as shown the anmination below.</p></li>
+<li><p>Do you have files with the same names? If you have two files with the same name, one of them is a c source file (<code class="docutils literal notranslate"><span class="pre">*.c</span></code>) and the other is a header file (<code class="docutils literal notranslate"><span class="pre">*.h</span></code>). Windows hides file extensions unless you change its default setting.</p></li>
+<li><p>If your Windows File Explorer displays file extensions such as <code class="docutils literal notranslate"><span class="pre">.c</span></code> and <code class="docutils literal notranslate"><span class="pre">.h</span></code>, skip this section.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Options</span></code> and select <code class="docutils literal notranslate"><span class="pre">View</span></code> as shown in the gif anmination below.</p></li>
 <li><p>Uncheck <code class="docutils literal notranslate"><span class="pre">Hide</span> <span class="pre">extensions</span> <span class="pre">for</span> <span class="pre">known</span> <span class="pre">file</span> <span class="pre">types</span></code>. You can also change some of the Windows default settings shown in the animation.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">OK</span></code>.  Now you can see file extensions.</p></li>
 </ul>
@@ -593,9 +598,9 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 <section id="hardware-diagnostics-tool">
 <h3>Hardware Diagnostics Tool<a class="headerlink" href="#hardware-diagnostics-tool" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Click 🙋 FAQ on the left sidebar of this website. If the sidebar is hidden, click the hamburger button (the triple bar ☰).</p></li>
+<li><p>Click 🙋 FAQ on the left sidebar of this website. If the sidebar is hidden, click the hamburger button (the triple bars ☰).</p></li>
 <li><p>Go to <em>How to run the hardware diagnostics tool for hardware issues on my robot?</em> section and complete the hardware diagnotics.</p></li>
-<li><p>While you are running the tool, take a picture of your robot. Your picture must show one of the tests on the LCD as shown below.</p></li>
+<li><p>While you are running the tool, take a picture of your robot. Your picture must show one of the tests on the LCD as shown below. Ensure you have a small AF symbol on each test screen.</p></li>
 <li><p>Submit the picture in Gradescope.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW1_HardwareDiagnostics.jpg"><img alt="../_images/HW1_HardwareDiagnostics.jpg" class="align-center" src="../_images/HW1_HardwareDiagnostics.jpg" style="width: 640px;" /></a>
