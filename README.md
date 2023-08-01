@@ -9,7 +9,7 @@ ECE382 Course Web
 
 ### How to build and publish?
 - Run the following under the `docs` folder.
-- Build: `jupyter-book build -all .`  
+- Build: `jupyter-book build --all .`  
 - Publish: `ghp-import -n -p -f _build/html` 
 
 ### Recommended extensions for vscode

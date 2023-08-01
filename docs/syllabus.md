@@ -102,7 +102,7 @@ Consider the following examples when writing your own detailed documentation sta
 <br>
 **Good Example**: Cadet McFly showed me how the factorial() method works by looking at my code and talking me through each line as I wrote it. Prior to this help my own factorial() method was wrong.  My factorial() method is now nearly identical to Cadet McFly's factorial() method. _Note: In a situation such as this, no points would be earned for the factorial() method, but due to the documentation statement there is no violation of the honor code._
 
-## EI Policy
+## Extra Instruction (EI)
 
 Schedule EI with an instructor if you are having difficulty with the course material.  You must have read the assignment and attempted the homework before requesting EI.  Note:  You are responsible for material if you miss class, so get notes from someone in your section.  For example, you miss the lesson where the instructor announces a quiz for the next lesson or the instructor assigns homework due next lesson.  Even though you missed the lesson, you are still responsible for the quiz, homework, or any other assignments made.  It is in your best interest to check with your classmates after an absence.  After you’ve read the assignment, attempted the homework, and checked with your classmates, you may then schedule EI if you have difficulty with the material—not to make up a class you missed.
 
@@ -147,4 +147,4 @@ Labs are held in 2E48, but may include a prelab assignment that must be done bef
 The final project will be a culmination of the learned material and will include a robot maze and competition. The final project will include a formal laboratory write-up and seven-minute presentation describing your design, solution, and results. The final project is worth 25% of your final grade.
 
 ## Miscellaneous
-This course is designed to help in your development as an engineer or cyber scientist.  Feel free to provide feedback on the lessons and labs at any time.  If you have ideas to improve or enhance the course, please let me know.  The class builds on concepts from the prerequisites, so it is important for you to seek help as soon as you need it.   Procrastination is truly the enemy in a hardware design course.  A little foresight and planning and a lot of effort will result in an extremely rewarding experience serving as the basis for future microprocessor design work.
+This course is designed to help in your development as an engineer.  Feel free to provide feedback on the lessons and labs at any time.  If you have ideas to improve or enhance the course, please let me know.  The class builds on concepts from the prerequisites, so it is important for you to seek help as soon as you need it.  Procrastination is truly the enemy in a design course.  A little foresight and planning and a lot of effort will result in an extremely rewarding experience serving as the basis for future microprocessor design work.
