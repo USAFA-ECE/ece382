@@ -14,6 +14,12 @@ Don’t worry if it doesn’t work right. If everything did, you’d be out of a
 
 ## 💻 Procedure
 
+
+```{warning} 
+The GIF animations provided on this page are intended to complement the main resources, rather than serve as the main source of information. It's important to thoroughly read the text instructions in order to understand and follow the guidance. If the instructions are unclear, you can refer to the supplementary GIF animations for further clarity. However, solely relying on the animations without reading the accompanying text may make it difficult to accurately follow the instructions.
+```
+
+
 ### Create Bitbucket Repository
 
 - Create a <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> account if you don't have one.
