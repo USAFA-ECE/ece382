@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>🐍 No Pointer in Python? &#8212; Embedded Computer Systems I</title>
+    <title>🐍 No Pointers in Python? &#8212; Embedded Computer Systems I</title>
   
   
   
@@ -167,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="c_programming.html">💻 C Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">🙋 FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">💎 Resources</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">🐍 No Pointer in Python?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">🐍 No Pointers in Python?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -402,7 +402,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>🐍 No Pointer in Python?</h1>
+    <h1>🐍 No Pointers in Python?</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -416,12 +416,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="no-pointer-in-python">
-<h1>🐍 No Pointer in Python?<a class="headerlink" href="#no-pointer-in-python" title="Permalink to this heading">#</a></h1>
-<hr><p>You can run this code in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/stanbaek/ece382/blob/main/docs/Assignments/NoPointer.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
-<p>I’ve met a number of computer science/engineeering students who believe there is no pointer in Java, Python, C#, Objective C, etc. All of them said the same thing, “I use Python/Java because I don’t have to worry about the <em>nasty</em> pointers.”</p>
-<p>I would not work with these people because they will only add a number of bugs.</p>
-<p>Let’s consider a list in <strong>Python</strong>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="no-pointers-in-python">
+<h1>🐍 No Pointers in Python?<a class="headerlink" href="#no-pointers-in-python" title="Permalink to this heading">#</a></h1>
+<hr><p>To run your code in Colab, click on the rocket icon at the top of this page. <img alt="Colab" src="https://colab.research.google.com/assets/colab-badge.svg" />
+<br></p>
+<p>I’ve come across numerous computer science and engineering students who mistakenly believe that languages such as Java, Python, C#, and Objective-C don’t incorporate the concept of pointers. Many of them share a common sentiment, saying, “I prefer Python/Java/C# because I don’t have to deal with those <em>tricky</em> pointers.”</p>
+<p>Personally, I’d hesitate to collaborate with individuals who hold this misconception, as their approach could potentially introduce a slew of bugs into the project.</p>
+<p>Now, let’s delve into an example involving a list in Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
