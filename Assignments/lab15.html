@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -72,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="📈 Lab15 Sensor Calibration" href="lab15_calibration.html" />
     <link rel="prev" title="🔬 Lab 14 Real-Time Systems" href="lab14.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -417,9 +416,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-15-adc">
-<h1>🔬 Lab 15 ADC<a class="headerlink" href="#lab-15-adc" title="Permalink to this heading">#</a></h1>
+<h1>🔬 Lab 15 ADC<a class="headerlink" href="#lab-15-adc" title="Permalink to this headline">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to implement the ADC module to input analog data into the microcontroller.</p></li>
 <li><p>Students should be able to use periodic interrupts to sample the ADC at a regular rate.</p></li>
@@ -434,7 +433,7 @@ document.write(`
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
 <p>In this lab, we will convert raw ADC samples into the distance from the analog domain to the digital domain. Three convert functions will be used to take input from the 3 IR distance sensors and convert it to a distance in millimeters. The range of the IR distance sensor is about 70 to 800 mm, and the resolution is about 1 mm at 200 mm.</p>
 <p>The figure below shows the relationship between the output voltage of the IR sensor and the distance to the wall. Notice the non-monotonic behavior of the sensor. For example, if the system records a sensor value of 2 V, it could mean 30 mm or 120 mm. During the robot challenge, you will endeavor to keep the robot away from the wall, so you will assume the sensor distance is greater than 70 mm. Due to the nature of the robot challenges, we are not interested in distances beyond 800 mm.</p>
 <a class="reference internal image-reference" href="../_images/Lab15_SensorResponse.png"><img alt="../_images/Lab15_SensorResponse.png" class="align-center" src="../_images/Lab15_SensorResponse.png" style="width: 560px;" /></a>
@@ -458,9 +457,9 @@ Four more scenarios are shown below as the robot approaches a decision point.
 <br>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Go to ECE382 Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
 <li><p>Download <code class="docutils literal notranslate"><span class="pre">Lab15_ADCmain.c</span></code> from the Teams folder into your <code class="docutils literal notranslate"><span class="pre">/workspace/Lab15_ADC</span></code> folder using Windows File Explorer (not Code Composer Studio). <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">Lab15_ADC</span></code> folder, not in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
@@ -468,7 +467,7 @@ Four more scenarios are shown below as the robot approaches a decision point.
 </ul>
 </section>
 <section id="complete-functions-in-adc14-c">
-<h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code><a class="headerlink" href="#complete-functions-in-adc14-c" title="Permalink to this heading">#</a></h3>
+<h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code><a class="headerlink" href="#complete-functions-in-adc14-c" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>This is part of Homework 15</strong></p></li>
 <li><p>Complete <code class="docutils literal notranslate"><span class="pre">ADC0_InitSWTriggerCh17_14_16()</span></code> and <code class="docutils literal notranslate"><span class="pre">ADC_In17_14_16()</span></code> in <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code>.</p></li>
@@ -483,7 +482,7 @@ Four more scenarios are shown below as the robot approaches a decision point.
 <br>
 </section>
 <section id="demo-program15-1">
-<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code><a class="headerlink" href="#demo-program15-1" title="Permalink to this heading">#</a></h3>
+<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code><a class="headerlink" href="#demo-program15-1" title="Permalink to this headline">#</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>You should understand the main code provided in every module. No such code will be provided for your final project, and you must write your main.c from scratch.</p>
@@ -502,11 +501,11 @@ Four more scenarios are shown below as the robot approaches a decision point.
 <br>
 </section>
 <section id="calibrate-your-sensors">
-<h3>Calibrate your sensors<a class="headerlink" href="#calibrate-your-sensors" title="Permalink to this heading">#</a></h3>
+<h3>Calibrate your sensors<a class="headerlink" href="#calibrate-your-sensors" title="Permalink to this headline">#</a></h3>
 <p>For each IR sensor, you will empirically determine the two calibration constants (<span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(c\)</span>). Each sensor will have its own <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(c\)</span> constants. To determine these values, go to <a class="reference internal" href="lab15_calibration.html"><span class="doc std std-doc">Calibration</span></a>.</p>
 </section>
 <section id="complete-functions-in-irdistance-c">
-<h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">IRDistance.c</span></code><a class="headerlink" href="#complete-functions-in-irdistance-c" title="Permalink to this heading">#</a></h3>
+<h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">IRDistance.c</span></code><a class="headerlink" href="#complete-functions-in-irdistance-c" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Complete <code class="docutils literal notranslate"><span class="pre">LeftConvert()</span></code>, <code class="docutils literal notranslate"><span class="pre">RightConvert()</span></code>, <code class="docutils literal notranslate"><span class="pre">CenterConvert()</span></code> in <code class="docutils literal notranslate"><span class="pre">IRDistance.c</span></code>.</p></li>
 <li><p>You found the calibration coefficients <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(c\)</span> in the previous section.</p></li>
@@ -523,7 +522,7 @@ Four more scenarios are shown below as the robot approaches a decision point.
 <br>
 </section>
 <section id="write-and-test-the-classify-function">
-<h3>Write and test the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function.<a class="headerlink" href="#write-and-test-the-classify-function" title="Permalink to this heading">#</a></h3>
+<h3>Write and test the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function.<a class="headerlink" href="#write-and-test-the-classify-function" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">Classifier.h</span></code> under the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
 <li><p>Add the following state representations to the enumerated type:</p></li>
@@ -585,7 +584,7 @@ Four more scenarios are shown below as the robot approaches a decision point.
 <p>Note that <code class="docutils literal notranslate"><span class="pre">Program15_2</span></code> only tests corner cases. For the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function, each of the three possible inputs can vary from 50 to 800. Therefore, there are <span class="math notranslate nohighlight">\(751^3\)</span> (<span class="math notranslate nohighlight">\(423,564,751\)</span>) possible inputs. An exhaustive test (<code class="docutils literal notranslate"><span class="pre">Program15_3</span></code>) would evaluate them all. However, due to the nature of the problem, we can reduce the input values to a small subset of values around the threshold values. Using the knowledge of how the system works to select strategic values to test is called <em>corner cases</em>. In particular, we can reduce the number of test values from 751 to 18 with minimal loss of testing accuracy.  We will only test values that are <span class="math notranslate nohighlight">\(\pm 1\)</span> from the threshold values of 50, 150, 212, 354, 600, and 800.</p>
 </section>
 <section id="demo-the-classify-function">
-<h3>Demo the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function.<a class="headerlink" href="#demo-the-classify-function" title="Permalink to this heading">#</a></h3>
+<h3>Demo the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function.<a class="headerlink" href="#demo-the-classify-function" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Complete the <code class="docutils literal notranslate"><span class="pre">LCDOut4()</span></code> function to display data on the LCD.</p></li>
 <li><p>Use the maze in the lab to test 7 <em>too close</em> cases and eight normal cases.</p></li>
@@ -594,33 +593,33 @@ Four more scenarios are shown below as the robot approaches a decision point.
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[10 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code> displaying raw ADC data on the LCD. The distance values on the LCD are not valid yet. Push your code to your repository using git. Comment your code.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[10 Points]</strong> Calibrate your sensors. Submit three plots for your right, center, and left sensors.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[10 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code> with accurate distances on LCD. You must pick three distances for each sensor; 100, 300, and 500 mm. Use the ruler in the lab for the demo. A live demo is preferred, but a video demo is also acceptable. For a video demo, <strong>add your voice to clearly state the distances you are testing</strong>. Push your code to your repository using git. Comment your code.</p></li>
 </ul>
 </section>
 <section id="deliverable-4">
-<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[10 Points]</strong> Provide a screenshot of the Expressions tab after running <code class="docutils literal notranslate"><span class="pre">Program15_2()</span></code>. Ensure left, center, right, result, truth, and errors are in the Expressions tab.  Note: If you provide a screenshot before running the program, you will get a grade of 0.</p></li>
 </ul>
 </section>
 <section id="deliverable-5">
-<h3>Deliverable 5<a class="headerlink" href="#deliverable-5" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 5<a class="headerlink" href="#deliverable-5" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[10 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_4()</span></code> displaying the classification on the LCD. You must show at least three error cases (enum scenario &lt;= 7) and at least five non-error cases (enum scenario &gt; 7).  A live demo is preferred, but a video demo is also acceptable. For a video demo, <strong>add your voice to clearly state the classification you are testing</strong>. Push your code to your repository using git. Comment your code.</p></li>
 </ul>

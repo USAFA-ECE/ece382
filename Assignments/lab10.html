@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -70,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="🔬 Lab 11 Serial Ports" href="lab11.html" />
     <link rel="prev" title="🔬 Lab 8 I/O Interface" href="lab8.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -409,9 +408,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-10-multithreading">
-<h1>🔬 Lab 10 Multithreading<a class="headerlink" href="#lab-10-multithreading" title="Permalink to this heading">#</a></h1>
+<h1>🔬 Lab 10 Multithreading<a class="headerlink" href="#lab-10-multithreading" title="Permalink to this headline">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to flash the RGB LED using a background thread.</p></li>
 <li><p>Students should be able to use Timers to implement multithreading.</p></li>
@@ -423,14 +422,14 @@ document.write(`
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
 <p>The primary objective of this lab is to develop a program that utilizes Timer interrupts to flash RGB LED. When the red and blue LEDs flash slowly, we can observe the two distinct colors alternately. However, if they flash very fast, we will see only one color. The resulting color will be magenta if there is an equal amount of red and blue (50% each) and violet if there is 33.3% red and 66.6% blue. We can use a <em>foreground</em> thread with a delay function to flash red and blue. In this case, the CPU performs no useful operation but wastes CPU power to run a simple loop. Alternatively, we can use a <em>background</em> thread that utilizes a Timer module. In this case, the LED changes its color in the background while the CPU can perform many other operations.</p>
 <p>In the next step, you will investigate <em>causal dependency</em> (or race condition) that causes unexpected results when two or more threads access the same data or memory. For example, incrementing a value with a finite number of iterations concurrently can yield random results.</p>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Open Code Composer Studio (CCS) and select your workspace.</p></li>
 <li><p>Ensure your Project Explorer is open on the left of the CCS screen. Otherwise, select View &gt; Project Explorer.</p></li>
@@ -453,7 +452,7 @@ document.write(`
 -->
 </section>
 <section id="blink-the-rgb-led-using-a-background-thread">
-<h3>Blink the RGB LED using a background thread.<a class="headerlink" href="#blink-the-rgb-led-using-a-background-thread" title="Permalink to this heading">#</a></h3>
+<h3>Blink the RGB LED using a background thread.<a class="headerlink" href="#blink-the-rgb-led-using-a-background-thread" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Open the <code class="docutils literal notranslate"><span class="pre">Lab10_MultithreadingMain.c</span></code> file by double-clicking it.</p></li>
 <li><p>Thoroughly read <code class="docutils literal notranslate"><span class="pre">Program10_1</span></code> .</p></li>
@@ -495,7 +494,7 @@ Video Credit: C24 Chanon Mallanoo
 <br>
 </section>
 <section id="examine-causal-dependency-and-fix-it-using-an-atomic-operation">
-<h3>Examine causal dependency and fix it using an atomic operation<a class="headerlink" href="#examine-causal-dependency-and-fix-it-using-an-atomic-operation" title="Permalink to this heading">#</a></h3>
+<h3>Examine causal dependency and fix it using an atomic operation<a class="headerlink" href="#examine-causal-dependency-and-fix-it-using-an-atomic-operation" title="Permalink to this headline">#</a></h3>
 <ol class="arabic simple">
 <li><p>We will examine the foreground thread.</p>
 <ul class="simple">
@@ -532,21 +531,21 @@ Video Credit: C24 Chanon Mallanoo
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[5 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program10_2()</span></code> showing that the RGB LED lights magenta using a background thread.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[5 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program10_3()</span></code> displaying the correct <code class="docutils literal notranslate"><span class="pre">count</span></code> value on the LCD. You must use both foreground and background threads concurrently.</p></li>
 </ul>
 </section>
 <section id="id1">
-<h3>Deliverable 3<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[9.5 Points]</strong> Push your code to your repository using git. Write comments in your code.</p></li>
 </ul>

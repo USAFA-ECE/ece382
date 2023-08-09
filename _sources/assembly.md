@@ -33,8 +33,15 @@ Yes, they _can_ be stored in the stack, whereas R4-R11 _must_ be because you hav
 You may insist you would not want to push R4-R11 if you are using them for R0-R3, which still causes memory to be used. You are right, but if you have used R4-R11 for something else, you have already pushed them. Otherwise, there is no reason to push R0-R3 because a function can freely modify R0-R3. 
 
 
+## ARM Cortex-m Assembly cheat sheet
+
+![Assembly](./figures/ARM_Assembly.png)
+
 (assembly-opcode)=
 ## ARM Instruction Reference
+
+
+
 
 ### ADD and SUB: 32-bit addition and subtraction
 

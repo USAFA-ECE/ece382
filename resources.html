@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -45,7 +45,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -70,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="🐍 No Pointers in Python?" href="NoPointer.html" />
     <link rel="prev" title="🙋 FAQ" href="faq.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -384,8 +383,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbook-errata">Textbook Errata 😵</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arm-cortex-m-assembly-cheat-sheet-is-here">ARM Cortex-m Assembly cheat sheet is here</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-programming-language-2nd-ed-by-kernighan-and-ritche">C Programming Language, 2nd Ed.  by Kernighan and Ritche</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii-table">ASCII Table</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ti-rslk-max-pin-map">TI-RSLK Max Pin Map</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dr-valvano-s-lecture-videos">Dr. Valvano’s Lecture Videos</a></li>
@@ -402,43 +399,33 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="resources">
-<h1>💎 Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h1>
+<h1>💎 Resources<a class="headerlink" href="#resources" title="Permalink to this headline">#</a></h1>
 <section id="textbook-errata">
-<h2>Textbook Errata 😵<a class="headerlink" href="#textbook-errata" title="Permalink to this heading">#</a></h2>
+<h2>Textbook Errata 😵<a class="headerlink" href="#textbook-errata" title="Permalink to this headline">#</a></h2>
 <p>Embedded Systems: Introduction to Robotics, Johnathan W. Valvano, First Edition, 2019. ISBN: 978-1074544300.</p>
 <p><strong>304-304, Program 13.2</strong></p>
 <p>NVIC-&gt;IP[2] = (NVIC-&gt;IP[2]&amp;0xFFFFFF00)|0x00000040; // priority 2</p>
 <p>should read</p>
 <p>NVIC-&gt;IP[8] = 0x40; // priority 2</p>
-<p><strong>pp.310, Program 13.5</strong> also has an error, but we are not going to use Timer32.</p>
-</section>
-<section id="arm-cortex-m-assembly-cheat-sheet-is-here">
-<h2>ARM Cortex-m Assembly cheat sheet is here<a class="headerlink" href="#arm-cortex-m-assembly-cheat-sheet-is-here" title="Permalink to this heading">#</a></h2>
-<p><img alt="Assembly" src="_images/ARM_Assembly.png" /></p>
-</section>
-<section id="c-programming-language-2nd-ed-by-kernighan-and-ritche">
-<h2>C Programming Language, 2nd Ed.  by Kernighan and Ritche<a class="headerlink" href="#c-programming-language-2nd-ed-by-kernighan-and-ritche" title="Permalink to this heading">#</a></h2>
-<p>Ritche invented the C programming language.  This is the <strong>best book</strong> for C programming and the most popular one.  Every C programmer must have this book.
-Amazon <a class="reference external" href="https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628">link</a></p>
-<p><img alt="C Programming" src="_images/C_Programming.jpg" /></p>
+<p><strong>pp.310, Program 13.5</strong> also has an error, but we don’t use Timer32 in ECE 382.</p>
 </section>
 <section id="ascii-table">
-<span id="resources-ascii-table"></span><h2>ASCII Table<a class="headerlink" href="#ascii-table" title="Permalink to this heading">#</a></h2>
+<span id="resources-ascii-table"></span><h2>ASCII Table<a class="headerlink" href="#ascii-table" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://www.sciencebuddies.org/science-fair-projects/references/ascii-table">Here is an online version</a></p>
 <p><img alt="ASCII" src="_images/ASCII.png" /></p>
 </section>
 <section id="ti-rslk-max-pin-map">
-<h2>TI-RSLK Max Pin Map<a class="headerlink" href="#ti-rslk-max-pin-map" title="Permalink to this heading">#</a></h2>
+<h2>TI-RSLK Max Pin Map<a class="headerlink" href="#ti-rslk-max-pin-map" title="Permalink to this headline">#</a></h2>
 <p><img alt="Pin Map" src="_images/TI-RSLK_Max_Pin_Map.png" /></p>
 </section>
 <section id="dr-valvano-s-lecture-videos">
-<h2>Dr. Valvano’s Lecture Videos<a class="headerlink" href="#dr-valvano-s-lecture-videos" title="Permalink to this heading">#</a></h2>
+<h2>Dr. Valvano’s Lecture Videos<a class="headerlink" href="#dr-valvano-s-lecture-videos" title="Permalink to this headline">#</a></h2>
 <p>TI Robotics System Learning Kit (TI-RSLK) Max Edition Lecture Videos</p>
 <p>Check out this link for lecture videos we used in 2019.
 <a class="reference external" href="https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum">https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum</a></p>
 </section>
 <section id="capt-beyer-s-lecture-videos">
-<h2>Capt Beyer’s Lecture videos<a class="headerlink" href="#capt-beyer-s-lecture-videos" title="Permalink to this heading">#</a></h2>
+<h2>Capt Beyer’s Lecture videos<a class="headerlink" href="#capt-beyer-s-lecture-videos" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://www.youtube.com/playlist?list=PLLvuo5HBf25HKbK18J28lJNyPkltAxfln">2020 Lecture Videos</a></p>
 </section>
 </section>
@@ -511,8 +498,6 @@ Amazon <a class="reference external" href="https://www.amazon.com/Programming-La
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbook-errata">Textbook Errata 😵</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arm-cortex-m-assembly-cheat-sheet-is-here">ARM Cortex-m Assembly cheat sheet is here</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-programming-language-2nd-ed-by-kernighan-and-ritche">C Programming Language, 2nd Ed.  by Kernighan and Ritche</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii-table">ASCII Table</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ti-rslk-max-pin-map">TI-RSLK Max Pin Map</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dr-valvano-s-lecture-videos">Dr. Valvano’s Lecture Videos</a></li>

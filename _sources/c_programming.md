@@ -90,7 +90,9 @@ Variables declared outside functions are also global variables, and other files 
 
 
 
+## C Programming Language, 2nd Ed.  by Kernighan and Ritche
 
+Ritche invented the C programming language.  This is the **best book** for C programming and the most popular one. 
+[Amazon link](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628)
 
-
-
+![C Programming](./figures/C_Programming.jpg)

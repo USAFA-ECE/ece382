@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -72,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="🔬 Lab 15 ADC" href="lab15.html" />
     <link rel="prev" title="🔬 Lab 13 Timers" href="lab13.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -413,9 +412,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-14-real-time-systems">
-<h1>🔬 Lab 14 Real-Time Systems<a class="headerlink" href="#lab-14-real-time-systems" title="Permalink to this heading">#</a></h1>
+<h1>🔬 Lab 14 Real-Time Systems<a class="headerlink" href="#lab-14-real-time-systems" title="Permalink to this headline">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to implement software for edge-triggered interrupts to detect collisions.</p></li>
 <li><p>Students should be able to use shared global variables to communicate between threads.</p></li>
@@ -427,21 +426,21 @@ document.write(`
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
 <p>The goal of this lab is to use edge-triggered interrupts to detect collisions by the bump sensors while the robot is moving. A collision event should cause an interrupt, and reading the status of the bumper switches should occur in the interrupt service routine (ISR).</p>
 <p>In the previous labs, we made the periodic interrupt a high priority because we wanted to run user tasks in real time.  For example, in Lab 10, we took the line-sensor measurements in real time.  However, in Lab 14, the collision task should have a priority even higher than the periodic measurements because a collision represents a dangerous condition that requires immediate service. In lab 8, you interfaced the bump sensors with the microcontroller. In this lab, you will shift the software servicing of the sensors from a periodic interrupt to an event-driven trigger.</p>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Go to ECE382 Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
 <li><p>Download <code class="docutils literal notranslate"><span class="pre">Lab14_RealTimeSystemsMain.c</span></code> from the Teams folder into your <code class="docutils literal notranslate"><span class="pre">/workspace/Lab14_RealTimeSystems</span></code> folder using Windows File Explorer (not Code Composer Studio).  You need to overwrite the existing file.  <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">Lab14_RealTimeSystems</span></code> folder not in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
 </ul>
 </section>
 <section id="complete-functions-in-bumpint-c">
-<h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">BumpInt.c</span></code><a class="headerlink" href="#complete-functions-in-bumpint-c" title="Permalink to this heading">#</a></h3>
+<h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">BumpInt.c</span></code><a class="headerlink" href="#complete-functions-in-bumpint-c" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>This is part of Homework 14</strong></p></li>
 <li><p>Complete <code class="docutils literal notranslate"><span class="pre">BumpInt_Init()</span></code> and <code class="docutils literal notranslate"><span class="pre">PORT4_IRQHandler()</span></code> in <code class="docutils literal notranslate"><span class="pre">BumpInt.c</span></code>.</p></li>
@@ -451,7 +450,7 @@ document.write(`
 <p>Before starting the following sections, check the solutions to <code class="docutils literal notranslate"><span class="pre">BumpInt_Init()</span></code> and <code class="docutils literal notranslate"><span class="pre">PORT4_IRQHandler()</span></code> posted in Gradescope to ensure you have the correct code. If the solution is not published in Gradescope, go through your code with your instructor.</p>
 </section>
 <section id="demo-program14-2">
-<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program14_2()</span></code><a class="headerlink" href="#demo-program14-2" title="Permalink to this heading">#</a></h3>
+<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program14_2()</span></code><a class="headerlink" href="#demo-program14-2" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Write <code class="docutils literal notranslate"><span class="pre">LCDOut2()</span></code>. Watch the video below to find what you need to display on the LCD.</p></li>
 <li><p>Shown below is the component block diagram for this part of the lab.</p></li>
@@ -469,7 +468,7 @@ Video Credit: C24 Chanon Mallanoo
 <br>
 </section>
 <section id="complete-functions-for-program14-3">
-<h3>Complete functions for <code class="docutils literal notranslate"><span class="pre">Program14_3()</span></code><a class="headerlink" href="#complete-functions-for-program14-3" title="Permalink to this heading">#</a></h3>
+<h3>Complete functions for <code class="docutils literal notranslate"><span class="pre">Program14_3()</span></code><a class="headerlink" href="#complete-functions-for-program14-3" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Write <code class="docutils literal notranslate"><span class="pre">Controller3()</span></code>, <code class="docutils literal notranslate"><span class="pre">Collision3()</span></code>, and <code class="docutils literal notranslate"><span class="pre">Program14_3()</span></code>.</p></li>
 <li><p>As shown in the component block diagram below, there are two interrupts: TimerA1.0 and Port4.</p></li>
@@ -528,7 +527,7 @@ Video Credit: C24 Chanon Mallanoo
 <br>
 </section>
 <section id="make-your-robot-drive-in-a-square">
-<h3>Make your robot drive in a square.<a class="headerlink" href="#make-your-robot-drive-in-a-square" title="Permalink to this heading">#</a></h3>
+<h3>Make your robot drive in a square.<a class="headerlink" href="#make-your-robot-drive-in-a-square" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Complete <code class="docutils literal notranslate"><span class="pre">Program14_4</span></code> to drive the robot in the maze.</p></li>
 <li><p>You may need to adjust your drive-straight PWM values if one wheel is going faster/slower than the other.</p></li>
@@ -555,21 +554,21 @@ A: I had that same problem, It is supposed to be called inside mainly the contro
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[15 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program14_2()</span></code> proving the edge-triggered interrupts are properly working.  Your LCD will display the number of collisions and the bump data that identifies which bump switch is pressed. Explain why the number of collisions displayed in the LCD is incorrect. Push your code to your repository using git. Write comments in your code.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[15 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program14_3()</span></code> running a simple set of commands - <code class="docutils literal notranslate"><span class="pre">Motor_Backward()</span></code>, <code class="docutils literal notranslate"><span class="pre">Motor_TurnRight()</span></code>, and <code class="docutils literal notranslate"><span class="pre">Motor_Forward()</span></code>. On a collision, the robot must stop and restart the set of commands.  Push your code to your repository using git. Write comments in your code.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[20 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program14_4()</span></code> driving the robot in the maze.</p>
 <ul>
