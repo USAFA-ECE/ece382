@@ -12,20 +12,8 @@ should read
 
 NVIC->IP[8] = 0x40; // priority 2
 
-**pp.310, Program 13.5** also has an error, but we are not going to use Timer32.
+**pp.310, Program 13.5** also has an error, but we don't use Timer32 in ECE 382.
 
-
-## ARM Cortex-m Assembly cheat sheet is here
-
-![Assembly](./figures/ARM_Assembly.png)
-
-
-## C Programming Language, 2nd Ed.  by Kernighan and Ritche
-
-Ritche invented the C programming language.  This is the **best book** for C programming and the most popular one.  Every C programmer must have this book.
-Amazon [link](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628)
-
-![C Programming](./figures/C_Programming.jpg)
 
 (Resources:ASCII_Table)=
 ## ASCII Table
