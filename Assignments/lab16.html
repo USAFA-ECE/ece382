@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -71,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="🔬 Lab 17 Control Systems" href="lab17.html" />
     <link rel="prev" title="📈 Lab15 Sensor Calibration" href="lab15_calibration.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -168,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">🐍 No Pointers in Python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">↗️ No Pointers in Python?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -414,9 +415,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-16-tachometer">
-<h1>🔬 Lab 16 Tachometer<a class="headerlink" href="#lab-16-tachometer" title="Permalink to this headline">#</a></h1>
+<h1>🔬 Lab 16 Tachometer<a class="headerlink" href="#lab-16-tachometer" title="Permalink to this heading">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to configure Timer_A module for input capture measurements.</p></li>
 <li><p>Students should be able to develop low-level software drivers to measure distance and speed of the two motors on the robot.</p></li>
@@ -427,22 +428,22 @@ document.write(`
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
 <p>In this lab, we will develop a software module that measures the speeds of motors and the displacement of the robot. The key element for measuring the speed and displacement of our robot is a Hall-effect sensor, a semiconductor device that produces a voltage proportional to the magnetic field. As shown in the figure below, a Hall-effect sensor can measure the magnetic field intensity of two magnets attached to a rotating plate.</p>
 <a class="reference internal image-reference" href="../_images/Hall_sensor_tach.gif"><img alt="../_images/Hall_sensor_tach.gif" class="align-center" src="../_images/Hall_sensor_tach.gif" style="width: 400px;" /></a>
 <p>The first goal of this lab is to write <code class="docutils literal notranslate"><span class="pre">Timer_A</span></code> software that can measure periods from the two encoders. The counter of <code class="docutils literal notranslate"><span class="pre">Timer_A</span></code> is 16-bit wide, so the period measurement will have a <em>precision</em> of 16 bits. This means you can measure about 65536 different periods. The <em>resolution</em> is the smallest change in the period the measurement can distinguish. The resolution in input capture mode is equal to the period of the selected clock. If you choose the SMCLK at 12 MHz, a prescale of 1, and an input divider of 1/8, the period measurement resolution will be 2/3 us. The maximum period that can be measured is the precision in alternatives times the resolution. At this clock and prescale, the <strong>maximum</strong> period that can be measured is about 43 ms.</p>
 <p>The second goal is to use the period to determine wheel speed. Since there are 360 pulses per rotation, this 43 ms maximum means the slowest wheel speed that can be measured will be about 3.81 rpm. If <span class="math notranslate nohighlight">\(n\)</span> is the period in 2/3 us units, then the angular speed of the wheel, <span class="math notranslate nohighlight">\(\omega\)</span>, in rpm can be calculated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c8b37e75-ef89-46ba-bd5d-7ca38c339289">
-<span class="eqno">(1)<a class="headerlink" href="#equation-c8b37e75-ef89-46ba-bd5d-7ca38c339289" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f2e47ece-3440-4009-950d-37d9208f4b58">
+<span class="eqno">(1)<a class="headerlink" href="#equation-f2e47ece-3440-4009-950d-37d9208f4b58" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \omega = \frac{1\text{ pulse}}{2/3\cdot10^{-6}~s} \frac{1^\circ}{ n~\text{pulses} }\frac{1~\text{rev}}{360^\circ}\frac{60\text{ sec}}{1\text{ min}} 
 = \frac{250,000}{n} \text{rpm}
 \end{equation}\]</div>
 <p>The third goal is to use the second input of the encoder to determine which direction the motor is spinning. You will write software that counts the number of pulses observed on each wheel as the robot moves. You will add to a counter as the robot moves forward and subtract from a counter as the robot moves backward. Then, the counter will be used to calculate the distance the wheel travels.</p>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Go to ECE382 Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
 <li><p>Download <code class="docutils literal notranslate"><span class="pre">Lab16_Tachmain.c</span></code> from the Teams folder into your <code class="docutils literal notranslate"><span class="pre">/workspace/Lab16_Tach</span></code> folder using Windows File Explorer (not Code Composer Studio). <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">Lab16_Tach</span></code> folder not in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
@@ -451,7 +452,7 @@ document.write(`
 </ul>
 </section>
 <section id="complete-functions-in-ta3inputcapture-c">
-<h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.<a class="headerlink" href="#complete-functions-in-ta3inputcapture-c" title="Permalink to this headline">#</a></h3>
+<h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.<a class="headerlink" href="#complete-functions-in-ta3inputcapture-c" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>This is part of Homework 16</strong></p></li>
 <li><p>Complete <code class="docutils literal notranslate"><span class="pre">TimerA3Capture_Init</span></code>, <code class="docutils literal notranslate"><span class="pre">TA3_0_IRQHandler()</span></code>, and <code class="docutils literal notranslate"><span class="pre">TA3_N_IRQHandler()</span></code> in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.</p></li>
@@ -461,7 +462,7 @@ document.write(`
 <p>Before starting this lab, check the solutions posted in Gradescope to ensure you have the correct code.  If the solution is not published in Gradescope, go through your code with your instructor.</p>
 </section>
 <section id="demo-program16-1">
-<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code><a class="headerlink" href="#demo-program16-1" title="Permalink to this headline">#</a></h3>
+<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code><a class="headerlink" href="#demo-program16-1" title="Permalink to this heading">#</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>You should understand the main code provided in every module. No such code will be provided for your final project, and you must write your main.c from scratch.</p>
@@ -480,7 +481,7 @@ document.write(`
 <br>
 </section>
 <section id="graph-duty-cycle-versus-actual-speed">
-<h3>Graph duty cycle versus actual speed.<a class="headerlink" href="#graph-duty-cycle-versus-actual-speed" title="Permalink to this headline">#</a></h3>
+<h3>Graph duty cycle versus actual speed.<a class="headerlink" href="#graph-duty-cycle-versus-actual-speed" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> stores the speed of each motor and the assigned duty cycles in the following buffers.</p></li>
 </ul>
@@ -541,7 +542,7 @@ document.write(`
 </ul>
 </section>
 <section id="complete-functions-for-program16-2">
-<h3>Complete functions for <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code>.<a class="headerlink" href="#complete-functions-for-program16-2" title="Permalink to this headline">#</a></h3>
+<h3>Complete functions for <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code>.<a class="headerlink" href="#complete-functions-for-program16-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Read <code class="docutils literal notranslate"><span class="pre">Tachometer.c</span></code> and <code class="docutils literal notranslate"><span class="pre">Tachometer.h</span></code> thoroughly.</p></li>
 <li><p>Read the following functions thoroughly.  You need to understand how the semaphore, <code class="docutils literal notranslate"><span class="pre">IsControllerEnabled</span></code>, is used in multiple functions.</p></li>
@@ -575,7 +576,7 @@ document.write(`
 <br>
 </section>
 <section id="make-your-robot-drive-in-a-square">
-<h3>Make your robot drive in a square.<a class="headerlink" href="#make-your-robot-drive-in-a-square" title="Permalink to this headline">#</a></h3>
+<h3>Make your robot drive in a square.<a class="headerlink" href="#make-your-robot-drive-in-a-square" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Complete <code class="docutils literal notranslate"><span class="pre">Program16_3</span></code> to drive the robot in the maze.</p></li>
 <li><p>You may need to adjust your drive-straight wheel speed values if one wheel is going faster/slower than the other.</p></li>
@@ -594,27 +595,27 @@ document.write(`
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[10 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> running increasing speed from 25%, 50%, 75%, 100%, and back to 25%  <strong>Comment your code</strong> and push it to your repository.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[10 points]</strong> Submit your three plots in Gradescope.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[15 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program16_2()</span></code> with operational switches and LCD. The actual wheel speeds must reach the desired wheel speeds.  <strong>Comment your code</strong> and push it to your repository.</p></li>
 </ul>
 </section>
 <section id="deliverable-4">
-<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[15 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program16_3()</span></code> driving the robot in the maze. <strong>Comment your code</strong> and push it to your repository.</p></li>
 </ul>

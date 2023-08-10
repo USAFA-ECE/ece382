@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -71,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="✏️ HW 4 Subroutines" href="homework4.html" />
     <link rel="prev" title="✏️ HW 3 Memory" href="homework3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -168,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">🐍 No Pointers in Python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">↗️ No Pointers in Python?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -411,9 +412,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-3-memory">
-<h1>🔬 Lab 3 Memory<a class="headerlink" href="#lab-3-memory" title="Permalink to this headline">#</a></h1>
+<h1>🔬 Lab 3 Memory<a class="headerlink" href="#lab-3-memory" title="Permalink to this heading">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to write assembly code to access memory using the LDR and STR instructions.</p></li>
 <li><p>Students should be able to find values stored in registers and memory space using the CCS debugging tools.</p></li>
@@ -428,7 +429,7 @@ document.write(`
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
 <p>In this lab, you will write an Assembly program determining whether given integers are prime or composite.  A prime number is a positive integer that is divisible by only 1 and itself.  The equivalent C program is provided in <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeNumbers</span></code> project.</p>
 <p>The array of numbers to test is {1, 2, 7, 10, 15, 62, 97, 282, 408, 467, 967, 6687, 25913, 25481, 118061, 0}. The number 0 at the end of the array is to indicate the end of array.  The result array should be {0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, x}, where 1 denotes <code class="docutils literal notranslate"><span class="pre">prime</span></code>, 0 denotes <code class="docutils literal notranslate"><span class="pre">composite</span></code>, and x denotes <code class="docutils literal notranslate"><span class="pre">don't</span> <span class="pre">care</span></code>.</p>
 <p>An integer <span class="math notranslate nohighlight">\(n\)</span> is not divisible by a number <span class="math notranslate nohighlight">\(m\)</span> if <span class="math notranslate nohighlight">\(n/2 &lt; m &lt; n\)</span>.  For example, 15 is not divisible by any number between 7.5 and 15, i.e., 15 is not divisible by 8, 9, … , or 14.  So, you don’t have to check if 15 is divisible by these numbers.  That’s why we have</p>
@@ -437,9 +438,9 @@ document.write(`
 </div>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Connect the LaunchPad to your computer via the provided USB cable.</p></li>
 <li><p>Open Code Composer Studio (CCS) and select your workspace.</p></li>
@@ -448,7 +449,7 @@ document.write(`
 </ul>
 </section>
 <section id="run-main-c">
-<h3>Run main.c<a class="headerlink" href="#run-main-c" title="Permalink to this headline">#</a></h3>
+<h3>Run main.c<a class="headerlink" href="#run-main-c" title="Permalink to this heading">#</a></h3>
 <p>Open <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeNumbers</span></code> project and carefully read the code. If you click on <code class="docutils literal notranslate"><span class="pre">Resume</span></code> (F8) followed by <code class="docutils literal notranslate"><span class="pre">Suspend</span></code> (Alt+F8), it will stop at <code class="docutils literal notranslate"><span class="pre">while(1);</span></code>.  Observe the values of the <code class="docutils literal notranslate"><span class="pre">Res</span></code> array in the <code class="docutils literal notranslate"><span class="pre">Expressions</span></code> tab. You may need to click on <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> next to <code class="docutils literal notranslate"><span class="pre">Res</span></code> to expand the array into individual variables. Take a screenshot of the contents of <code class="docutils literal notranslate"><span class="pre">Res</span></code> after execution of the code.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -460,7 +461,7 @@ document.write(`
 </div>
 </section>
 <section id="complete-lalab03-prime-asm">
-<h3>Complete <code class="docutils literal notranslate"><span class="pre">LaLab03_Prime.asm</span></code><a class="headerlink" href="#complete-lalab03-prime-asm" title="Permalink to this headline">#</a></h3>
+<h3>Complete <code class="docutils literal notranslate"><span class="pre">LaLab03_Prime.asm</span></code><a class="headerlink" href="#complete-lalab03-prime-asm" title="Permalink to this heading">#</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Before you start writing code, carefully read both <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> and <code class="docutils literal notranslate"><span class="pre">LaLab03_Prime.asm</span></code> and the comments in them.</p>
@@ -509,15 +510,15 @@ document.write(`
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[4 pts]</strong> Run <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeNumbers</span></code> project and take a screenshot showing the contents of <code class="docutils literal notranslate"><span class="pre">Res</span></code> after the execution of the code. You must <strong>expand</strong> the array to show the individual values in the array.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[7.5 pts]</strong> Complete <code class="docutils literal notranslate"><span class="pre">LaLab03_Prime.asm</span></code> and add a comment to every line of your code. Push your code to your repository. <strong>It is your responsibility to check your files have been successfully pushed to your Bitbucket repository.</strong></p></li>
 </ul>
@@ -527,13 +528,13 @@ document.write(`
 </div>
 </section>
 <section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[4 pts]</strong> Provide screenshots showing the <strong>addresses</strong> of <code class="docutils literal notranslate"><span class="pre">Result</span></code> and <code class="docutils literal notranslate"><span class="pre">Nums</span></code>, stored in RAM/ROM (use the Memory Browser and the pointers you created).</p></li>
 </ul>
 </section>
 <section id="deliverable-4">
-<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[4 pts]</strong> Provide a screenshot showing the <strong>contents</strong> of <code class="docutils literal notranslate"><span class="pre">Result</span></code>, stored in memory after execution of the code (use the Memory Browser and change the format to <strong>8-Bit Hex - TI Style</strong>).</p></li>
 <li><p><strong>[-10 pts]</strong> Take pictures of your screen with a mobile device or digital camera and submit them in Gradescope. Yes, I am serious…</p></li>

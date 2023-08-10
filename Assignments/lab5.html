@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -69,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="🔬 Lab 8 I/O Interface" href="lab8.html" />
     <link rel="prev" title="🔬 Lab 4 Subroutines" href="lab4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -166,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">🐍 No Pointers in Python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">↗️ No Pointers in Python?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -409,9 +410,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-5-software-design">
-<h1>🔬 Lab 5 Software Design<a class="headerlink" href="#lab-5-software-design" title="Permalink to this headline">#</a></h1>
+<h1>🔬 Lab 5 Software Design<a class="headerlink" href="#lab-5-software-design" title="Permalink to this heading">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to write logic, conditionals, and loops in C.</p></li>
 <li><p>Students should be able to write functions with input and output parameters in C.</p></li>
@@ -423,7 +424,7 @@ document.write(`
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
 <p>The objective of this lab is to interface a liquid crystal display (LCD) to the microcontroller and use it to output characters and numbers. The Nokia 5110 LCD shown below is a monocrhome display that is 84 pixels wide by 48 pixels high.</p>
 <a class="reference internal image-reference" href="../_images/Lab05_Nokia5110_AF.png"><img alt="../_images/Lab05_Nokia5110_AF.png" class="align-center" src="../_images/Lab05_Nokia5110_AF.png" style="width: 280px;" /></a>
 <br>
@@ -467,9 +468,9 @@ document.write(`
 </div>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Connect the LaunchPad to your computer via the provided USB cable.</p></li>
 <li><p>Open Code Composer Studio (CCS) and select your workspace.</p></li>
@@ -477,7 +478,7 @@ document.write(`
 </ul>
 </section>
 <section id="run-the-program5-1-function-to-adjust-constrast">
-<h3>Run the <code class="docutils literal notranslate"><span class="pre">Program5_1</span></code> function to adjust constrast<a class="headerlink" href="#run-the-program5-1-function-to-adjust-constrast" title="Permalink to this headline">#</a></h3>
+<h3>Run the <code class="docutils literal notranslate"><span class="pre">Program5_1</span></code> function to adjust constrast<a class="headerlink" href="#run-the-program5-1-function-to-adjust-constrast" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Open the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project by double-clicking it.</p></li>
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesignMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project.</p></li>
@@ -489,7 +490,7 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/Lab5_Prog5-1.gif"><img alt="../_images/Lab5_Prog5-1.gif" class="align-center" src="../_images/Lab5_Prog5-1.gif" style="width: 300px;" /></a>
 </section>
 <section id="write-the-nokia5110-outstring-function">
-<h3>Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function<a class="headerlink" href="#write-the-nokia5110-outstring-function" title="Permalink to this headline">#</a></h3>
+<h3>Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function<a class="headerlink" href="#write-the-nokia5110-outstring-function" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>In CCS open the <code class="docutils literal notranslate"><span class="pre">inc</span></code> project by double-clicking it.</p></li>
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">Nokia5110.h</span></code> and read the documentation for the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutChar</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> functions.</p></li>
@@ -535,7 +536,7 @@ document.write(`
 </div>
 </section>
 <section id="write-the-nokia5110-outudec-and-nokia5110-outsdec-functions">
-<h3>Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions<a class="headerlink" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions" title="Permalink to this headline">#</a></h3>
+<h3>Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions<a class="headerlink" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions" title="Permalink to this heading">#</a></h3>
 <p>Let’s implemente two functions for the entire integer types: one for unsigned integers and another for signed integers.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -585,26 +586,26 @@ document.write(`
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Your code <strong>must be compilable</strong>.  If your code throws any compile errors, you will get <strong>a grade of 0</strong> for the coding part.</p>
 </div>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[5 Points]</strong> Complete the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function and test it with <code class="docutils literal notranslate"><span class="pre">Program5_2</span></code>. You must use <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutChar</span></code> inside <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code>.  Demo your LCD printing “LCD Test”, a small AF logo, letters, a hexadecimal number, and a binary number on the LCD.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[5 Points]</strong> Complete the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions and test them with <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code>. Demo <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code> printing signed/unsigned integers on the LCD.<br />
 Demo Program5_4 printing signed/unsigned integers on the LCD.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[9.5 Points]</strong> Please comment your code and push it to your repository. <strong>0.5 bonus pts</strong>: Complete <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> with only 2 lines - one for while and another for Nokia5110_OutChar.</p></li>
 </ul>

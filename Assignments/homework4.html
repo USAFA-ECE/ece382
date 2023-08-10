@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -71,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="🔬 Lab 4 Subroutines" href="lab4.html" />
     <link rel="prev" title="🔬 Lab 3 Memory" href="lab3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -168,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">🐍 No Pointers in Python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">↗️ No Pointers in Python?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -413,9 +414,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hw-4-subroutines">
-<h1>✏️ HW 4 Subroutines<a class="headerlink" href="#hw-4-subroutines" title="Permalink to this headline">#</a></h1>
+<h1>✏️ HW 4 Subroutines<a class="headerlink" href="#hw-4-subroutines" title="Permalink to this heading">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Build and debug <code class="docutils literal notranslate"><span class="pre">Example05_Power</span></code> project.</p></li>
 <li><p>Students should be able to write assembly procedures (also called subroutines or functions) that comply with the AAPCS.</p></li>
@@ -427,7 +428,7 @@ document.write(`
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
 <p>This homework is an opportunity to learn about subroutines (functions or procedures) in Assembly and to apply that knowledge to two subroutines for calculating factorials.</p>
 <p>The first part of this homework is to build and debug the <code class="docutils literal notranslate"><span class="pre">Example05_Power</span></code> project and answer questions in Gradescope. Please read the code and comments carefully as they will help you write the factorial functions in the second part of this homework.</p>
 <p>For the second part of this homework, you will write two subroutines calculating <strong>factorials</strong> of <em>non-negative</em> integers. One of them is an iterative function that loops to repeat a block of the code and the other is a recursive function that calls itself to repeat the code.</p>
@@ -443,7 +444,7 @@ document.write(`
 <p>Why is <span class="math notranslate nohighlight">\(0!=1\)</span>? From the definition of factorial, we can find <span class="math notranslate nohighlight">\((n-1)! = n! / n\)</span>.  When <span class="math notranslate nohighlight">\(n=1\)</span>, we have <span class="math notranslate nohighlight">\(0! = 1! / 1 = 1\)</span>.</p>
 </div>
 <section id="arm-architecture-procedure-call-standard-aapcs">
-<h3>ARM Architecture Procedure Call Standard (AAPCS)<a class="headerlink" href="#arm-architecture-procedure-call-standard-aapcs" title="Permalink to this headline">#</a></h3>
+<h3>ARM Architecture Procedure Call Standard (AAPCS)<a class="headerlink" href="#arm-architecture-procedure-call-standard-aapcs" title="Permalink to this heading">#</a></h3>
 <p>The Arm architecture places few restrictions on how <em>general</em> purpose registers are used. If you want your code to interact with code that is written by someone else, or with code that is produced by a compiler, then you need to agree rules for register usage. For the Arm architecture, these rules are called the Procedure Call Standard (PCS).</p>
 <p>The PCS specifies:</p>
 <ul class="simple">
@@ -472,9 +473,9 @@ document.write(`
 </section>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Connect the LaunchPad to your computer via the provided USB cable.</p></li>
 <li><p>Open Code Composer Studio (CCS) and select your workspace.</p></li>
@@ -482,7 +483,7 @@ document.write(`
 </ul>
 </section>
 <section id="execute-power-asm">
-<h3>Execute <code class="docutils literal notranslate"><span class="pre">Power.asm</span></code>.<a class="headerlink" href="#execute-power-asm" title="Permalink to this headline">#</a></h3>
+<h3>Execute <code class="docutils literal notranslate"><span class="pre">Power.asm</span></code>.<a class="headerlink" href="#execute-power-asm" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">PowerMain.c</span></code> in the the <code class="docutils literal notranslate"><span class="pre">Example05_Power</span></code> project.</p></li>
 <li><p>Uncomment lines 88-89 if they are commented out and ensure lines 90-91 are commented out. They should look like the following.</p></li>
@@ -512,7 +513,7 @@ document.write(`
 </ul>
 </section>
 <section id="execute-hw04-factorialmain-c">
-<h3>Execute <code class="docutils literal notranslate"><span class="pre">HW04_FactorialMain.c</span></code><a class="headerlink" href="#execute-hw04-factorialmain-c" title="Permalink to this headline">#</a></h3>
+<h3>Execute <code class="docutils literal notranslate"><span class="pre">HW04_FactorialMain.c</span></code><a class="headerlink" href="#execute-hw04-factorialmain-c" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Open the <code class="docutils literal notranslate"><span class="pre">HW04_Factorial</span></code> project by double-clicking it.</p></li>
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">HW04_FactorialMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">HW04_Factorial</span></code> project</p></li>
@@ -526,7 +527,7 @@ document.write(`
 </div>
 </section>
 <section id="complete-hw04-factorial-asm">
-<h3>Complete <code class="docutils literal notranslate"><span class="pre">HW04_Factorial.asm</span></code><a class="headerlink" href="#complete-hw04-factorial-asm" title="Permalink to this headline">#</a></h3>
+<h3>Complete <code class="docutils literal notranslate"><span class="pre">HW04_Factorial.asm</span></code><a class="headerlink" href="#complete-hw04-factorial-asm" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Exclude <code class="docutils literal notranslate"><span class="pre">HW04_FactorialMain.c</span></code> from Build and include <code class="docutils literal notranslate"><span class="pre">HW04_Factorial.asm</span></code>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> function is already written for you, but it does not mean you don’t have to understand the code. Please read carefully the code and comments before writing your code in <code class="docutils literal notranslate"><span class="pre">fact_iter</span></code> and <code class="docutils literal notranslate"><span class="pre">fact_rec</span></code>.</p></li>
@@ -540,16 +541,16 @@ document.write(`
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Build and debug the <code class="docutils literal notranslate"><span class="pre">Example05_Power</span></code> project.</p></li>
 <li><p>Step through the program to answer the questions in Gradescope.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Execute <code class="docutils literal notranslate"><span class="pre">HW04_FactorialMain.c</span></code> and provide a screenshot showing the contents of <code class="docutils literal notranslate"><span class="pre">result1</span></code> and <code class="docutils literal notranslate"><span class="pre">result2</span></code> in the Expressions tab. You must <strong>expand the array to show the individual values</strong> in the array.</p></li>
 <li><p>Complete the <code class="docutils literal notranslate"><span class="pre">fact_iter</span></code> subroutine in <code class="docutils literal notranslate"><span class="pre">HW04_Factorial.asm</span></code>.  Provide a screenshot showing the contents of <code class="docutils literal notranslate"><span class="pre">Res1</span></code> after execution of the code. Use Memory Browser and change the encoding style to the <strong>correct format</strong> that everyone can easily understand your result. Your result should be identical to the one from <code class="docutils literal notranslate"><span class="pre">HW04_FactorialMain.c</span></code>.</p></li>
