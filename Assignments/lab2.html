@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -72,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="✏️ HW 3 Memory" href="homework3.html" />
     <link rel="prev" title="✏️ HW 2 Assembly Basic" href="homework2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -169,7 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">↗️ No Pointers in Python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">🐍 No Pointers in Python?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -411,9 +410,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-2-assembly-basic">
-<h1>🔬 Lab 2 Assembly Basic<a class="headerlink" href="#lab-2-assembly-basic" title="Permalink to this heading">#</a></h1>
+<h1>🔬 Lab 2 Assembly Basic<a class="headerlink" href="#lab-2-assembly-basic" title="Permalink to this headline">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to identify the flags tested when conditional instructions in the assembly are executed.</p></li>
 <li><p>Students should be able to find values stored in registers and memory space using the CCS debugging tools.</p></li>
@@ -426,13 +425,13 @@ document.write(`
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
 <p>In this lab, you will write an Assembly program that finds the integer square root. The equivalent C program is provided in <code class="docutils literal notranslate"><span class="pre">Lab02_SqrtMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab02_SqaureRoot</span></code> project.</p>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Connect the LaunchPad to your computer via the provided USB cable.</p></li>
 <li><p>Open Code Composer Studio (CCS) and select your workspace.</p></li>
@@ -441,7 +440,7 @@ document.write(`
 </ul>
 </section>
 <section id="run-main-c">
-<h3>Run main.c<a class="headerlink" href="#run-main-c" title="Permalink to this heading">#</a></h3>
+<h3>Run main.c<a class="headerlink" href="#run-main-c" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">Lab02_SqrtMain.c</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab02_SquareRoot</span></code> project and carefully read the code.</p></li>
 <li><p>Build and debug the project.</p></li>
@@ -459,7 +458,7 @@ document.write(`
 </ul>
 </section>
 <section id="complete-lab02-sqrt-asm">
-<h3>Complete <code class="docutils literal notranslate"><span class="pre">Lab02_Sqrt.asm</span></code><a class="headerlink" href="#complete-lab02-sqrt-asm" title="Permalink to this heading">#</a></h3>
+<h3>Complete <code class="docutils literal notranslate"><span class="pre">Lab02_Sqrt.asm</span></code><a class="headerlink" href="#complete-lab02-sqrt-asm" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Right-click <code class="docutils literal notranslate"><span class="pre">Lab02_SqrtMain.c</span></code> and click <strong>Exclude from Build</strong>.</p></li>
 <li><p>Right-click <code class="docutils literal notranslate"><span class="pre">Lab02_Sqrt.asm</span></code> and uncheck <strong>Exclude from Build</strong>.</p></li>
@@ -486,26 +485,26 @@ document.write(`
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Your code <strong>must be compilable</strong>.  If your code throws any compile errors, you will get <strong>a grade of 0</strong> for the coding part.</p>
 </div>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[10 Points]</strong> Complete <code class="docutils literal notranslate"><span class="pre">Lab02_Sqrt.asm</span></code> and push your code to your repository.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[8 Points]</strong> Find <span class="math notranslate nohighlight">\(\sqrt{29583}\)</span> and provide a screenshot of the register that stores
 <span class="math notranslate nohighlight">\(\sqrt{29583}\)</span>.  <em>Change the number format to Decimal before taking the screenshot.</em></p></li>
 </ul>
 </section>
 <section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[1.5 Points]</strong> Briefly explain why your answer keeps changing between two values.</p></li>
 </ul>

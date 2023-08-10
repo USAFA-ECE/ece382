@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -70,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="🔬 Lab 12 Motors" href="lab12.html" />
     <link rel="prev" title="🔬 Lab 10 Multithreading" href="lab10.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -167,7 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../c_programming.html">💻 C Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">🙋 FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../resources.html">💎 Resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">↗️ No Pointers in Python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NoPointer.html">🐍 No Pointers in Python?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -410,9 +409,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-11-serial-ports">
-<h1>🔬 Lab 11 Serial Ports<a class="headerlink" href="#lab-11-serial-ports" title="Permalink to this heading">#</a></h1>
+<h1>🔬 Lab 11 Serial Ports<a class="headerlink" href="#lab-11-serial-ports" title="Permalink to this headline">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to develop device drivers for the Universal Asynchronous Receiver/Transmitter (UART) and Synchronous Peripheral Interface (SPI).</p></li>
 <li><p>Students should be able to measure UART and SPI signals using a logic analyzer and analyze the binary bits.</p></li>
@@ -423,13 +422,13 @@ document.write(`
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
 <p>The objective of this lab is to develop software modules that communicate with external devices connected by the most commonly-available serial communication interfaces.  The Nokia 5110 is connected to the MSP432 by a serial peripheral interface (SPI) and your PC’s USB port is connected to the MSP432 via a universal asynchronous receiver-transmitter (UART).</p>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
 <section id="write-uart-functions-in-uart0-c">
-<span id="lab11-uart"></span><h3>Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART0.c</span></code><a class="headerlink" href="#write-uart-functions-in-uart0-c" title="Permalink to this heading">#</a></h3>
+<span id="lab11-uart"></span><h3>Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART0.c</span></code><a class="headerlink" href="#write-uart-functions-in-uart0-c" title="Permalink to this headline">#</a></h3>
 <ol class="arabic simple">
 <li><p>Write <code class="docutils literal notranslate"><span class="pre">UART0_Init()</span></code></p>
 <ul class="simple">
@@ -483,7 +482,7 @@ A: It can be.  It depends on how many serial devices have been connected to your
 </div>
 </section>
 <section id="write-uart-functions-in-uart2-c">
-<h3>Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART2.c</span></code><a class="headerlink" href="#write-uart-functions-in-uart2-c" title="Permalink to this heading">#</a></h3>
+<h3>Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART2.c</span></code><a class="headerlink" href="#write-uart-functions-in-uart2-c" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Write <code class="docutils literal notranslate"><span class="pre">UART2_Init()</span></code>, <code class="docutils literal notranslate"><span class="pre">UART2_OutChar()</span></code>, and <code class="docutils literal notranslate"><span class="pre">UART2_OutString()</span></code>. They should be very similar to those in <code class="docutils literal notranslate"><span class="pre">UART0.c</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">UART2_Init()</span></code> takes <code class="docutils literal notranslate"><span class="pre">baudrate</span></code> as a function argument. So, users can choose their own baudrates when they initialize UART2 whereas the UART0 baud rate is fixed at 115,200 bps.</p></li>
@@ -513,7 +512,7 @@ A: It can be.  It depends on how many serial devices have been connected to your
 <br>
 </section>
 <section id="write-spi-functions-in-spi-b1">
-<h3>Write SPI functions in SPI_B1<a class="headerlink" href="#write-spi-functions-in-spi-b1" title="Permalink to this heading">#</a></h3>
+<h3>Write SPI functions in SPI_B1<a class="headerlink" href="#write-spi-functions-in-spi-b1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Write <code class="docutils literal notranslate"><span class="pre">SPIB1_Init()</span></code>, <code class="docutils literal notranslate"><span class="pre">SPIB1_OutChar()</span></code>, and <code class="docutils literal notranslate"><span class="pre">SPIB1_OutString()</span></code>.</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">Program11_3</span></code> and start Moku:Go Logic Analyzer to measure the signal transmitted from the SPI_ B1 port of your LaunchPad.</p></li>
@@ -541,27 +540,27 @@ A: It can be.  It depends on how many serial devices have been connected to your
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[4 Points]</strong> Run <code class="docutils literal notranslate"><span class="pre">Program11_1()</span></code> to transmit strings via USB/UART and take a screenshot of the serial terminal displaying the strings. Submit a screenshot of your Serial Terminal in Gradescope.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[5 Points]</strong> Run <code class="docutils literal notranslate"><span class="pre">Program11_2()</span></code> to transmit your name via UART. Submit a screenshot of Moku:Go Logic Analyzer. <strong>Annotate three letters of your name and their binary values.</strong></p></li>
 </ul>
 </section>
 <section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[5 Points]</strong> Run <code class="docutils literal notranslate"><span class="pre">Program11_3()</span></code> to transmit your name via SPI. Submit a screenshot of Moku:Go Logic Analyzer.  <strong>Annotate three letters of your name and their binary values.</strong></p></li>
 </ul>
 </section>
 <section id="deliverable-4">
-<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[5.5 Points]</strong> Push your code to your repository using git. Ensure you comment on your code.</p></li>
 </ul>
