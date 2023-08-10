@@ -56,7 +56,7 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 - Click `Create`.
 - Save the password as you cannot view it after you create it.
 
-```{image} ./figures/HW1_BitbucketAppPassword.gif 
+```{image} ./figures/HW1_BitbucketAppPassword2.gif 
 :width: 720
 :align: center
 ```
