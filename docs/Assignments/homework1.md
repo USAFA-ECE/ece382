@@ -256,7 +256,7 @@ Do NOT take pictures of your computer screen using your phone because (i) it can
 - **[-10 Points]** Take a picture of your screen with a mobile device or digital camera and submit it in Gradescope. Yes, I am serious...
 
 ```{Warning}
-You will receive a grade of -10 everytime you submit a picture of a computer screen taken by your phone or mobile device. 
+You will receive a grade of -10 everytime you submit a picture of computer screen taken by your phone or mobile device. 
 ```
 
 
