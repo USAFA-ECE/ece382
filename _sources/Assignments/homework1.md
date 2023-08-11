@@ -228,7 +228,7 @@ CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other >
 Take screenshots of the following and submit them via Gradescope.  Use `Snip & Sketch` (Win+Shift+S) on Windows 10/11 or Shift+CMD+4 on MacOS to take a screenshot. Save it in `png` or `jpg`.  
 
 ```{warning}
-Do NOT take a picture of computer screen with your phone because (i) it will introduce sampling aliasing (more details in ECE215/ECE315) (ii) it will take more steps than screen capture if you want use it on your computer, and (iii) it will always be more blurry than screen capture. 
+Do NOT take pictures of your computer screen using your phone because (i) it can result in sampling aliasing, as explained in ECE215/ECE315, (ii) it will require more steps compared to a simple screen capture, and (iii) the resulting image will always be blurrier than a direct screen capture.
 ```
 
 - **[5 Points]** Provide a screenshot of your Bitbucket repository as shown below
