@@ -240,7 +240,7 @@ Do NOT take a picture of computer screen with your phone because (i) it will int
 
 <br>
 
-- **[6 Points]** Go to Windows Settings > Apps.  Click on Code Composer Studio and take a screenshot as shown below.  For Mac users, it is in the Applications folder.
+- **[5 Points]** Go to Windows Settings > Apps.  Click on Code Composer Studio and take a screenshot as shown below.  For Mac users, it is in the Applications folder.
 
 ```{image} ./figures/HW1_Deliverable2.png
 :width: 480
