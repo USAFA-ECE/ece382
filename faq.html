@@ -404,7 +404,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-software-interface">Hardware/Software Interface</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-my-bump-sensor-not-reset-to-0-after-the-sensor-is-decompressed"><em>Why does my bump sensor not reset to 0 after the sensor is decompressed?</em></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-have-two-switches-on-my-robot-which-one-should-i-use"><em>I have two switches on my robot. Which one should I use?</em></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-the-hardware-diagnostics-tool-for-hardware-issues-on-my-robot"><em>How to run the hardware diagnostics tool for hardware issues on my robot?</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting-hardware-issues-using-the-hardware-diagnostic-tool"><em>Troubleshooting Hardware Issues: Using the Hardware Diagnostic Tool</em></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interface-the-nokia-lcd-with-launchpad"><em>How to interface the Nokia LCD with LaunchPad?</em></a></li>
 </ul>
 </li>
@@ -519,22 +519,22 @@ If you have an error message similar to the figure below, it is probably due to 
 <a class="reference internal image-reference" href="_images/RSLK_Switches.png"><img alt="_images/RSLK_Switches.png" class="align-center" src="_images/RSLK_Switches.png" style="width: 640px;" /></a>
 <br>
 </section>
-<section id="how-to-run-the-hardware-diagnostics-tool-for-hardware-issues-on-my-robot">
-<span id="faq-hardwarediagnostics"></span><h3><em>How to run the hardware diagnostics tool for hardware issues on my robot?</em><a class="headerlink" href="#how-to-run-the-hardware-diagnostics-tool-for-hardware-issues-on-my-robot" title="Permalink to this heading">#</a></h3>
-<p>In some cases, it may be unclear whether the issue lies with your code or hardware. Here’s how to test your hardware.</p>
+<section id="troubleshooting-hardware-issues-using-the-hardware-diagnostic-tool">
+<span id="faq-hardwarediagnostics"></span><h3><em>Troubleshooting Hardware Issues: Using the Hardware Diagnostic Tool</em><a class="headerlink" href="#troubleshooting-hardware-issues-using-the-hardware-diagnostic-tool" title="Permalink to this heading">#</a></h3>
+<p>When you’re facing problems with your robot, it’s essential to determine whether the root cause lies in your code or hardware. To diagnose hardware-related issues, follow these steps:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You need 6 AA batteries to run this tool.</p>
 </div>
-<p><strong>Load diagnostics tool</strong></p>
+<p><strong>Running the Hardware Diagnostic Tool</strong></p>
 <ol class="arabic simple">
 <li><p>Download <a class="reference download internal" download="" href="_downloads/304b030e748af218173edb9d0344e3f4/HardwareDiagnostics.out"><code class="xref download docutils literal notranslate"><span class="pre">HardwareDiagnostics.out</span></code></a>.</p></li>
 <li><p>Download the <a class="reference external" href="https://www.ti.com/tool/UNIFLASH#downloads">UniFlash flash programming tool</a> and install it on your computer.</p></li>
-<li><p>Run UniFlash.</p></li>
-<li><p>Connect the LaunchPad to your computer. UniFlash will detect your LauchPad as shown below. Click <code class="docutils literal notranslate"><span class="pre">Start</span></code>.</p></li>
-<li><p>In UniFlash, click <code class="docutils literal notranslate"><span class="pre">Browse</span></code> and select the <code class="docutils literal notranslate"><span class="pre">HardwareDiagnostics.out</span></code> file you downloaded on your computer.</p></li>
-<li><p>Click <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Image</span></code>. If you are asked to update the firmware, you must update it.</p></li>
-<li><p>Once the hardware diagnostics program is successfully flashed on your microprocessor, UniFlash will display <code class="docutils literal notranslate"><span class="pre">[SUCCESS]</span> <span class="pre">Program</span> <span class="pre">Load</span> <span class="pre">completed</span> <span class="pre">successfully</span></code>.</p></li>
+<li><p>Launch the UniFlash application after it’s installed.</p></li>
+<li><p>Connect the LaunchPad to your computer. UniFlash will automatically recognize your LauchPad device. Once detected, click the <code class="docutils literal notranslate"><span class="pre">Start</span></code> button.</p></li>
+<li><p>Inside the UniFlash interface, locate and select the <code class="docutils literal notranslate"><span class="pre">Browse</span></code> option. This will enable you to navigate to the location where you saved the HardwareDiagnostics.out file. Choose this file.</p></li>
+<li><p>With the file selected, click on the <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Image</span></code> button. If prompted to update the firmware, make sure to proceed with the update.</p></li>
+<li><p>After successfully flashing the hardware diagnostics program onto your microprocessor, <code class="docutils literal notranslate"><span class="pre">UniFlash</span></code> will confirm the completion with a message: <code class="docutils literal notranslate"><span class="pre">[SUCCESS]</span> <span class="pre">Program</span> <span class="pre">Load</span> <span class="pre">completed</span> <span class="pre">successfully</span></code>.</p></li>
 </ol>
 <a class="reference internal image-reference" href="_images/HardwareDiagnostics.gif"><img alt="_images/HardwareDiagnostics.gif" class="align-center" src="_images/HardwareDiagnostics.gif" style="width: 720px;" /></a>
 <br>
@@ -737,7 +737,7 @@ If you have an error message similar to the figure below, it is probably due to 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-software-interface">Hardware/Software Interface</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-my-bump-sensor-not-reset-to-0-after-the-sensor-is-decompressed"><em>Why does my bump sensor not reset to 0 after the sensor is decompressed?</em></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-have-two-switches-on-my-robot-which-one-should-i-use"><em>I have two switches on my robot. Which one should I use?</em></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-the-hardware-diagnostics-tool-for-hardware-issues-on-my-robot"><em>How to run the hardware diagnostics tool for hardware issues on my robot?</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting-hardware-issues-using-the-hardware-diagnostic-tool"><em>Troubleshooting Hardware Issues: Using the Hardware Diagnostic Tool</em></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-interface-the-nokia-lcd-with-launchpad"><em>How to interface the Nokia LCD with LaunchPad?</em></a></li>
 </ul>
 </li>
