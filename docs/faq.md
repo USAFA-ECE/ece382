@@ -162,23 +162,23 @@ There are two switches on your robot as shown below. **Keep the slide switch in 
 
 
 (FAQ:HardwareDiagnostics)=
-### _How to run the hardware diagnostics tool for hardware issues on my robot?_
+### _Troubleshooting Hardware Issues: Using the Hardware Diagnostic Tool_
 
-In some cases, it may be unclear whether the issue lies with your code or hardware. Here’s how to test your hardware.
+When you're facing problems with your robot, it's essential to determine whether the root cause lies in your code or hardware. To diagnose hardware-related issues, follow these steps:
 
 ```{note}
 You need 6 AA batteries to run this tool.
 ```
 
-**Load diagnostics tool**
+**Running the Hardware Diagnostic Tool**
+
 1. Download {Download}`HardwareDiagnostics.out<./files/HardwareDiagnostics.out>`.
 2. Download the [UniFlash flash programming tool](https://www.ti.com/tool/UNIFLASH#downloads) and install it on your computer.
-3. Run UniFlash.
-4. Connect the LaunchPad to your computer. UniFlash will detect your LauchPad as shown below. Click `Start`.
-5. In UniFlash, click `Browse` and select the `HardwareDiagnostics.out` file you downloaded on your computer.
-6. Click `Load Image`. If you are asked to update the firmware, you must update it.
-7. Once the hardware diagnostics program is successfully flashed on your microprocessor, UniFlash will display `[SUCCESS] Program Load completed successfully`.
-
+3. Launch the UniFlash application after it's installed.
+4. Connect the LaunchPad to your computer. UniFlash will automatically recognize your LauchPad device. Once detected, click the `Start` button. 
+5. Inside the UniFlash interface, locate and select the `Browse` option. This will enable you to navigate to the location where you saved the HardwareDiagnostics.out file. Choose this file.
+6. With the file selected, click on the `Load Image` button. If prompted to update the firmware, make sure to proceed with the update.
+7. After successfully flashing the hardware diagnostics program onto your microprocessor, `UniFlash` will confirm the completion with a message: `[SUCCESS] Program Load completed successfully`.
 
 ```{image} ./figures/HardwareDiagnostics.gif
 :width: 720
