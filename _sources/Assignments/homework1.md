@@ -228,7 +228,7 @@ CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other >
 Take screenshots of the following and submit them via Gradescope.  Use `Snip & Sketch` (Win+Shift+S) on Windows 10/11 or Shift+CMD+4 on MacOS to take a screenshot. Save it in `png` or `jpg`.  
 
 ```{warning}
-Do NOT take pictures of your computer screen using your phone because (i) it can result in sampling aliasing, as explained in ECE215/ECE315, (ii) it will require more steps compared to a simple screen capture, and (iii) the resulting image will always be blurrier than a direct screen capture.
+Do NOT take a picture of computer screen with your phone because (i) it will introduce sampling aliasing (more details in ECE215/ECE315) (ii) it will take more steps than screen capture if you want use it on your computer, and (iii) it will always be more blurry than screen capture. 
 ```
 
 - **[5 Points]** Provide a screenshot of your Bitbucket repository as shown below
@@ -240,7 +240,7 @@ Do NOT take pictures of your computer screen using your phone because (i) it can
 
 <br>
 
-- **[5 Points]** Go to Windows Settings > Apps.  Click on Code Composer Studio and take a screenshot as shown below.  For Mac users, it is in the Applications folder.
+- **[6 Points]** Go to Windows Settings > Apps.  Click on Code Composer Studio and take a screenshot as shown below.  For Mac users, it is in the Applications folder.
 
 ```{image} ./figures/HW1_Deliverable2.png
 :width: 480
@@ -256,7 +256,7 @@ Do NOT take pictures of your computer screen using your phone because (i) it can
 - **[-10 Points]** Take a picture of your screen with a mobile device or digital camera and submit it in Gradescope. Yes, I am serious...
 
 ```{Warning}
-You will receive a grade of -10 everytime you submit a picture of computer screen taken by your phone or mobile device. 
+You will receive a grade of -10 everytime you submit a picture of a computer screen taken by your phone or mobile device. 
 ```
 
 

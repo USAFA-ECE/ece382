@@ -33,7 +33,7 @@ You may be worried about multiple-choice questions where you don’t get partial
 
 - Double-click the `Example02_Addressing` project in the Project Explorer to open it.
 - The project that is currently selected will list **[Active - Debug]** next to it.
-- Double-click the `main.asm` file under the `Example02_Addressing` project to open it. Before you compile your project, always ensure it is selected and has **[Active - Debug]** next to it.
+- Double-click the `Ex02_Addressing.asm` file under the `Example02_Addressing` project to open it. Before you compile your project, always ensure it is selected and has **[Active - Debug]** next to it.
 - Observe the main toolbar at the top of the screen. The toolbar shown below presents before entering the debugger.  If you don't have the toolbar, go to the `Window` menu and then click `Appearance` > `Show Toolbar`.  
 
 ```{image} ./figures/HW2_toolbar.png
@@ -50,7 +50,7 @@ Always run `Build` first to ensure you have no compile errors.  Then, you can ru
 
 - Activate the `Debug` tool by pressing the bug and selecting the `Texas Instruments XDS110 USB Debug Probe/CORTEX_M4_0` tool if prompted. If it requests to update the firmware, select `Update`. Ensure the LaunchPad is connected during this process.
 - After the debugger is launched, you should notice a new layout for your screen. This layout is customizable. Different views can be added using the `View` menu at the top.
-- The following gif animation displays `HW02_Addressing` for the project title.  It should read `Example02_Addressing`.
+- The following GIF animation shows how to build and debug a project.  The project names and files under the project are different than yours.  You should use `Ex02_Addressing.asm` under the `Example02_Addressing` project.
 
 ```{image} ./figures/HW2_BuildProject.gif
 :width: 760
@@ -95,10 +95,9 @@ The yellow arrows are for stepping through the **C** code and the green arrows a
 
 - You can add `Expressions` to observe the values of registers, variables, etc by right-clicking on a register or variable and selecting `Add Watch Expression`. You can also add an expression to the `Expressions` menu by selecting `+ Add new expression`. In the `Expressions` menu, the `Continuous Refresh` button (yellow pause button with two arrows) allows you to continuously update expressions while the program is running.
 
-
-
 - Register values can be viewed using the `Registers` tab. The main registers used in assembly code are under the `Core Registers` menu. The values can be set to update continuously using the pause button with two arrows.
 
+- The following GIF animation shows how to step through your code. The project names and files under the project are different than yours.  You should use `Ex02_Addressing.asm` under the `Example02_Addressing` project.
 
 ```{image} ./figures/HW2_SteppingThrough.gif
 :width: 720

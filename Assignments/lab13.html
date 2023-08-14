@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -72,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="🔬 Lab 14 Real-Time Systems" href="lab14.html" />
     <link rel="prev" title="🔬 Lab 12 Motors" href="lab12.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -413,9 +412,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-13-timers">
-<h1>🔬 Lab 13 Timers<a class="headerlink" href="#lab-13-timers" title="Permalink to this heading">#</a></h1>
+<h1>🔬 Lab 13 Timers<a class="headerlink" href="#lab-13-timers" title="Permalink to this headline">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to write software module that generates periodic interrupts to run user-specific tasks.</p></li>
 <li><p>Students should be able to generate PWM signals using a timer module.</p></li>
@@ -427,7 +426,7 @@ document.write(`
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
 <p>This lab aims to write software that can adjust the applied power to the two motors. You will create PWM outputs on the P2.6 and P2.7 pins connected to the EN pins of the two TI DRV8838 motor drivers. The period of both PWM outputs should be fixed at 20 ms (50 Hz). However, the software should be able to independently set the duty cycle of the EN pin to each motor from 0 to 9,999 (0 to 99.99%). At 50 Hz, the motor will not respond to individual highs and lows; instead, the motors will respond to the average level. More specifically, the delivered power will be:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -436,9 +435,9 @@ P = VI \frac{d}{100}
 <p>where <span class="math notranslate nohighlight">\(V\)</span> is the voltage, <span class="math notranslate nohighlight">\(I\)</span> is the current, and <span class="math notranslate nohighlight">\(d \in [0, 99.99]\)</span> is the duty cycle in percent (%).</p>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Go to Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
 <li><p>Download <code class="docutils literal notranslate"><span class="pre">SPIA3.c</span></code> into your workspace/inc folder using Windows File Explorer (not Code Composer Studio).</p></li>
@@ -451,7 +450,7 @@ P = VI \frac{d}{100}
 <p>Before starting the next, check the solution to <code class="docutils literal notranslate"><span class="pre">TimerA1_Init</span></code> posted in Gradescope to ensure you have the correct code. If the solution is not published in Gradescope, go through your code with your instructor.</p>
 </section>
 <section id="write-timer-functions-in-timera1-c">
-<h3>Write Timer functions in <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code>.<a class="headerlink" href="#write-timer-functions-in-timera1-c" title="Permalink to this heading">#</a></h3>
+<h3>Write Timer functions in <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code>.<a class="headerlink" href="#write-timer-functions-in-timera1-c" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Delete line 62 in Lab13_Timersmain.c.  We don’t use SysTick this year.</p></li>
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">TimerA1.h</span></code> and <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code> and read them thoroughly.</p></li>
@@ -471,7 +470,7 @@ Video Credit: C24 Chanon Mallanoo
 </div>
 </section>
 <section id="write-functions-in-pwm-c-and-motor-c">
-<h3>Write functions in <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> and <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>.<a class="headerlink" href="#write-functions-in-pwm-c-and-motor-c" title="Permalink to this heading">#</a></h3>
+<h3>Write functions in <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> and <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>.<a class="headerlink" href="#write-functions-in-pwm-c-and-motor-c" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Carefully read the documentation in <code class="docutils literal notranslate"><span class="pre">PWM.h</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> for the functions you need to implement.</p></li>
 <li><p>The PWM period for both motors is 20 ms (50 Hz). When <code class="docutils literal notranslate"><span class="pre">PWM_Init34</span></code> is called by <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>, you must pass 15,000 for the period corresponding to the <em>PWM period</em> of 20 ms. It is not the Timer period (refer to Lecture 13 Slide 17).</p></li>
@@ -486,7 +485,7 @@ Video Credit: C24 Chanon Mallanoo
 <br>
 </section>
 <section id="write-functions-in-lab13-timersmain-c">
-<h3>Write functions in Lab13_Timersmain.c<a class="headerlink" href="#write-functions-in-lab13-timersmain-c" title="Permalink to this heading">#</a></h3>
+<h3>Write functions in Lab13_Timersmain.c<a class="headerlink" href="#write-functions-in-lab13-timersmain-c" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Write <code class="docutils literal notranslate"><span class="pre">CheckBumper()</span></code> and <code class="docutils literal notranslate"><span class="pre">Program13_3()</span></code>.</p></li>
 <li><p>Combine the <code class="docutils literal notranslate"><span class="pre">PWM</span></code> and <code class="docutils literal notranslate"><span class="pre">Timer_A1</span></code> periodic interrupt functionality into one software system that runs the robot like <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">13.2</span></code>, but uses the periodic interrupt to check the bump switches, stopping the robot on a collision.  The robot will run for 3 seconds unless a bump switch is pressed, and the robot will not skip the next functions in the while loop as it did in Lab 12.</p></li>
@@ -504,27 +503,27 @@ Video Credit: C24 Chanon Mallanoo
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[6 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_1()</span></code>. Use <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> to blink the red LED at 5 Hz while the blue LED blinks at 2.5 Hz and the LCD updates the elapsed time at 5 Hz.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_2()</span></code>. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to move the robot. Use a bump switch  to start the next motor function. You must run at least one iteration in the while loop. Note: The bump switches cannot stop the motors.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_3()</span></code>. Use PWM to move the robot like <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code>, but use <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> to periodically check the bump switches, stopping the robot on a collision. You must run the robot on the ground for at least one iteration in the while loop without hitting any bump switch. You should show how the robot responds when you hit a bumper switch in each motor function.</p></li>
 </ul>
 </section>
 <section id="deliverable-4">
-<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this heading">#</a></h3>
+<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>[9.5 Points]</strong>  Push your code to your repository using git. Write comments in your code.</p></li>
 </ul>

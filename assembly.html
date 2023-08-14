@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -45,7 +45,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -70,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="💻 C Programming" href="c_programming.html" />
     <link rel="prev" title="📆 Course Schedule" href="schedule.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -418,15 +417,15 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assembly">
-<h1>🔧 Assembly<a class="headerlink" href="#assembly" title="Permalink to this heading">#</a></h1>
+<h1>🔧 Assembly<a class="headerlink" href="#assembly" title="Permalink to this headline">#</a></h1>
 <section id="assembly-questions">
-<span id="faq-assembly"></span><h2>Assembly Questions<a class="headerlink" href="#assembly-questions" title="Permalink to this heading">#</a></h2>
+<span id="faq-assembly"></span><h2>Assembly Questions<a class="headerlink" href="#assembly-questions" title="Permalink to this headline">#</a></h2>
 <section id="why-do-i-need-to-preserve-r2-before-calling-my-function-if-it-only-uses-r0-and-r1">
-<h3>Why do I need to preserve R2 before calling my function if it only uses R0 and R1?<a class="headerlink" href="#why-do-i-need-to-preserve-r2-before-calling-my-function-if-it-only-uses-r0-and-r1" title="Permalink to this heading">#</a></h3>
+<h3>Why do I need to preserve R2 before calling my function if it only uses R0 and R1?<a class="headerlink" href="#why-do-i-need-to-preserve-r2-before-calling-my-function-if-it-only-uses-r0-and-r1" title="Permalink to this headline">#</a></h3>
 <p>According to AAPCS, a subroutine can freely modify R0-R3 &amp; R12.  You claim that “my” function only uses R0 and R1.  Firstly, when developing software or hardware, there is rarely individual ownership as it belong to the team.  All the code developed belongs to the team, not any specific individual.  I have never seen an engineer/programmer working alone like Tony Stark. Engineers/programmers work in a team of ~10 – 1000, and anyone in the team can modify your code.  So, you MUST comply with standards.  Second, you may want to claim that my approach is more efficient. However, efficiency is not the primary concern. Just like stopping at a stop sign is mandatory, regardless of whether a car is coming or not, many other standards, such as safety standards, must be followed. Therefore, always bear in mind that R0-R3 and R12 can hold different values after calling subroutines.</p>
 </section>
 <section id="why-does-add-not-update-program-status-register-psr">
-<h3>Why does ADD not update Program Status Register (PSR)?<a class="headerlink" href="#why-does-add-not-update-program-status-register-psr" title="Permalink to this heading">#</a></h3>
+<h3>Why does ADD not update Program Status Register (PSR)?<a class="headerlink" href="#why-does-add-not-update-program-status-register-psr" title="Permalink to this headline">#</a></h3>
 <p>The textbook (pp. 64) says, “The N, Z, V, C, and Q bits give information about the result of a previous ALU operation.”</p>
 <p>Although ADD and SUB are ALU operations, they do not update the PSR register. If you want to update them, you must use ADDS and SUBS instead.  CMP always updates the PSR flags.</p>
 <p>With SUBS you can replace</p>
@@ -442,19 +441,19 @@ document.write(`
 </div>
 </section>
 <section id="can-r0-and-r1-be-saved-in-the-stack-push-pop-i-thought-it-was-only-r4-r11-that-would-be-able-to-be-stored-in-a-stack">
-<h3>Can R0 and R1 be saved in the Stack (Push/Pop)? I thought it was only R4-R11 that would be able to be stored in a stack.<a class="headerlink" href="#can-r0-and-r1-be-saved-in-the-stack-push-pop-i-thought-it-was-only-r4-r11-that-would-be-able-to-be-stored-in-a-stack" title="Permalink to this heading">#</a></h3>
+<h3>Can R0 and R1 be saved in the Stack (Push/Pop)? I thought it was only R4-R11 that would be able to be stored in a stack.<a class="headerlink" href="#can-r0-and-r1-be-saved-in-the-stack-push-pop-i-thought-it-was-only-r4-r11-that-would-be-able-to-be-stored-in-a-stack" title="Permalink to this headline">#</a></h3>
 <p>Yes, they <em>can</em> be stored in the stack, whereas R4-R11 <em>must</em> be because you have to restore them if you change them in your function. You can store R0-R3, R12 in the stack to preserve them before calling a function in case the function contaminates them.  However, you don’t want to do that because it takes time.  Memory access is generally ~100-1000 times slower than register access. So, you had better store R0-R3 to R4-R11 instead.</p>
 <p>You may insist you would not want to push R4-R11 if you are using them for R0-R3, which still causes memory to be used. You are right, but if you have used R4-R11 for something else, you have already pushed them. Otherwise, there is no reason to push R0-R3 because a function can freely modify R0-R3.</p>
 </section>
 </section>
 <section id="arm-cortex-m-assembly-cheat-sheet">
-<h2>ARM Cortex-m Assembly cheat sheet<a class="headerlink" href="#arm-cortex-m-assembly-cheat-sheet" title="Permalink to this heading">#</a></h2>
+<h2>ARM Cortex-m Assembly cheat sheet<a class="headerlink" href="#arm-cortex-m-assembly-cheat-sheet" title="Permalink to this headline">#</a></h2>
 <p><img alt="Assembly" src="_images/ARM_Assembly.png" /></p>
 </section>
 <section id="arm-instruction-reference">
-<span id="assembly-opcode"></span><h2>ARM Instruction Reference<a class="headerlink" href="#arm-instruction-reference" title="Permalink to this heading">#</a></h2>
+<span id="assembly-opcode"></span><h2>ARM Instruction Reference<a class="headerlink" href="#arm-instruction-reference" title="Permalink to this headline">#</a></h2>
 <section id="add-and-sub-32-bit-addition-and-subtraction">
-<h3>ADD and SUB: 32-bit addition and subtraction<a class="headerlink" href="#add-and-sub-32-bit-addition-and-subtraction" title="Permalink to this heading">#</a></h3>
+<h3>ADD and SUB: 32-bit addition and subtraction<a class="headerlink" href="#add-and-sub-32-bit-addition-and-subtraction" title="Permalink to this headline">#</a></h3>
 <p>Examples:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">ADD</span><span class="w"> </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">     </span><span class="c1">; R3 = R2 + R1</span>
 <span class="w">    </span><span class="nf">ADD</span><span class="w"> </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="w">         </span><span class="c1">; R3 = R3 + R2 (R3 += R2)</span>
@@ -468,7 +467,7 @@ document.write(`
 </div>
 </section>
 <section id="mul-and-udiv">
-<h3>MUL and UDIV<a class="headerlink" href="#mul-and-udiv" title="Permalink to this heading">#</a></h3>
+<h3>MUL and UDIV<a class="headerlink" href="#mul-and-udiv" title="Permalink to this headline">#</a></h3>
 <p>Multiply (MUL) and unsigned divide (UDIV)</p>
 <p>Examples:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">MUL</span><span class="w">  </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">     </span><span class="c1">; R3 = R2*R1</span>
@@ -481,7 +480,7 @@ document.write(`
 </div>
 </section>
 <section id="and-orr-eor-and-bic-32-bit-bitwise-and-or-exclusive-or-and-bit-clear">
-<h3>AND, ORR, EOR, and BIC: 32-bit bitwise AND, OR, Exclusive OR, and Bit Clear<a class="headerlink" href="#and-orr-eor-and-bic-32-bit-bitwise-and-or-exclusive-or-and-bit-clear" title="Permalink to this heading">#</a></h3>
+<h3>AND, ORR, EOR, and BIC: 32-bit bitwise AND, OR, Exclusive OR, and Bit Clear<a class="headerlink" href="#and-orr-eor-and-bic-32-bit-bitwise-and-or-exclusive-or-and-bit-clear" title="Permalink to this headline">#</a></h3>
 <p>Examples:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">AND</span><span class="w"> </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">      </span><span class="c1">; R3 = R2 &amp; R1 </span>
 <span class="w">    </span><span class="nf">AND</span><span class="w"> </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span><span class="no">xFF00</span><span class="w"> </span><span class="c1">; R3 = R2 &amp; 0x0000FF00</span>
@@ -493,7 +492,7 @@ document.write(`
 </div>
 </section>
 <section id="mov-32-bit-move">
-<h3>MOV: 32-bit Move<a class="headerlink" href="#mov-32-bit-move" title="Permalink to this heading">#</a></h3>
+<h3>MOV: 32-bit Move<a class="headerlink" href="#mov-32-bit-move" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">MOV</span></code> instruction copies values into registers. This instruction is useful for moving values from one register to another, and initializing registers to a constant value.</p>
 <p>Note: you cannot use <code class="docutils literal notranslate"><span class="pre">MOV</span></code> to move data from/to memory.  You must use <code class="docutils literal notranslate"><span class="pre">LDR</span></code> or <code class="docutils literal notranslate"><span class="pre">STR</span></code></p>
 <p>Examples:</p>
@@ -509,7 +508,7 @@ document.write(`
 </div>
 </section>
 <section id="ldr-load-from-memory-into-a-register">
-<h3>LDR: Load from memory into a register<a class="headerlink" href="#ldr-load-from-memory-into-a-register" title="Permalink to this heading">#</a></h3>
+<h3>LDR: Load from memory into a register<a class="headerlink" href="#ldr-load-from-memory-into-a-register" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">LDR</span></code> instructions copy values from memory into registers.</p>
 <p>Examples:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">LDR</span><span class="w">  </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">R2</span><span class="p">]</span><span class="w">      </span><span class="c1">; Load 32-bit from address in R2 to R8 </span>
@@ -530,7 +529,7 @@ document.write(`
 </div>
 </section>
 <section id="str-store-from-register-into-memory">
-<h3>STR: Store from register into memory<a class="headerlink" href="#str-store-from-register-into-memory" title="Permalink to this heading">#</a></h3>
+<h3>STR: Store from register into memory<a class="headerlink" href="#str-store-from-register-into-memory" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">STR</span></code> instructions copy values from registers to memory.</p>
 <p>Examples:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">STR</span><span class="w">  </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">R2</span><span class="p">]</span><span class="w">      </span><span class="c1">; Store 32-bit value of R3 into address R2 </span>
@@ -543,7 +542,7 @@ document.write(`
 </div>
 </section>
 <section id="asr-lsl-and-lsr-arithmetic-shift-right-logical-shift-left-and-logical-shift-right">
-<h3>ASR, LSL, and LSR: arithmetic shift right, logical shift left, and logical shift right<a class="headerlink" href="#asr-lsl-and-lsr-arithmetic-shift-right-logical-shift-left-and-logical-shift-right" title="Permalink to this heading">#</a></h3>
+<h3>ASR, LSL, and LSR: arithmetic shift right, logical shift left, and logical shift right<a class="headerlink" href="#asr-lsl-and-lsr-arithmetic-shift-right-logical-shift-left-and-logical-shift-right" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">ASR</span></code>, <code class="docutils literal notranslate"><span class="pre">LSL</span></code>, and <code class="docutils literal notranslate"><span class="pre">LSR</span></code> move the bits in the register to the left or right by the number of places specified by constant.
 Note that arithmetic left shift is identical to logical left shift.</p>
 <p>Examples:</p>
@@ -557,7 +556,7 @@ Note that arithmetic left shift is identical to logical left shift.</p>
 </div>
 </section>
 <section id="cmp-32-bit-compare">
-<h3>CMP: 32-bit compare<a class="headerlink" href="#cmp-32-bit-compare" title="Permalink to this heading">#</a></h3>
+<h3>CMP: 32-bit compare<a class="headerlink" href="#cmp-32-bit-compare" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">CMP</span></code> instruction compares two values. This instruction updates the N, Z, C, and V flags according to the difference between the two values.</p>
 <p>Examples:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">CMP</span><span class="w">  </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="mi">#6400</span><span class="w"> </span><span class="c1">; Compare R2 with #6400. Updates the N, Z, C, and V flags according to R3 - 6400</span>
@@ -566,7 +565,7 @@ Note that arithmetic left shift is identical to logical left shift.</p>
 </div>
 </section>
 <section id="b-branch-instructions">
-<h3>B: Branch instructions<a class="headerlink" href="#b-branch-instructions" title="Permalink to this heading">#</a></h3>
+<h3>B: Branch instructions<a class="headerlink" href="#b-branch-instructions" title="Permalink to this headline">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">B</span></code> instructions cause a branch to <strong>label</strong>.</p>
 <p>Examples:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">B</span><span class="w">    </span><span class="no">label</span><span class="w">    </span><span class="c1">; branch to label </span>
@@ -584,7 +583,7 @@ Note that arithmetic left shift is identical to logical left shift.</p>
 </div>
 </section>
 <section id="bl-branch-link-call-subroutine">
-<h3>BL: Branch link (call subroutine)<a class="headerlink" href="#bl-branch-link-call-subroutine" title="Permalink to this heading">#</a></h3>
+<h3>BL: Branch link (call subroutine)<a class="headerlink" href="#bl-branch-link-call-subroutine" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">BL</span></code> is the call to subroutine (function) instruction. The address of the subroutine is specified by the <strong>label</strong>. The <code class="docutils literal notranslate"><span class="pre">BL</span></code> instruction also saves the return address (the address of the next instruction) in the Link Register (LR).</p>
 <p>Examples:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">BL</span><span class="w">  </span><span class="no">Func</span><span class="w">    </span><span class="c1">; Call to Func, save the return address in LR. </span>
@@ -593,7 +592,7 @@ Note that arithmetic left shift is identical to logical left shift.</p>
 <p>If you use <code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">Func</span></code>, it will call Func, but it will not return to the next instruction because the <code class="docutils literal notranslate"><span class="pre">B</span></code> instruction does not save the return address in LR.</p>
 </section>
 <section id="bx-branch-indirect">
-<h3>BX: Branch indirect<a class="headerlink" href="#bx-branch-indirect" title="Permalink to this heading">#</a></h3>
+<h3>BX: Branch indirect<a class="headerlink" href="#bx-branch-indirect" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">BX</span></code> is a branch indirect instruction, with the branch address indicated in <strong>Rm</strong>.</p>
 <p>Examples:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">BX</span><span class="w">  </span><span class="no">LR</span><span class="w">    </span><span class="c1">; jump to the place specified by LR. return at the end of function call</span>
@@ -602,7 +601,7 @@ Note that arithmetic left shift is identical to logical left shift.</p>
 </div>
 </section>
 <section id="push-and-pop">
-<h3>PUSH and POP<a class="headerlink" href="#push-and-pop" title="Permalink to this heading">#</a></h3>
+<h3>PUSH and POP<a class="headerlink" href="#push-and-pop" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">PUSH</span></code> stores registers on the stack in order of decreasing register numbers, with the lowest-numbered register using the lowest memory address and the highest-numbered register using the highest memory address.
 <code class="docutils literal notranslate"><span class="pre">POP</span></code> loads registers from the stack in order of increasing register numbers, with the lowest-numbered register using the lowest memory address and the highest-numbered register using the highest memory address.</p>
 <p>Curly brackets are needed on the registers for push and pop i.e. <code class="docutils literal notranslate"><span class="pre">PUSH</span> <span class="pre">{LR}</span></code>. Here is how to push and pop multiple registers.</p>
@@ -630,7 +629,7 @@ Note that arithmetic left shift is identical to logical left shift.</p>
 </section>
 </section>
 <section id="arm-directives">
-<span id="assembly-directives"></span><h2>ARM Directives<a class="headerlink" href="#arm-directives" title="Permalink to this heading">#</a></h2>
+<span id="assembly-directives"></span><h2>ARM Directives<a class="headerlink" href="#arm-directives" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">.text</span></code>: Places following objects in flash ROM</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.data</span></code>: Places following objects in data memory (RAM)</p></li>

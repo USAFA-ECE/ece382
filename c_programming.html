@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -45,7 +45,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -70,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="🙋 FAQ" href="faq.html" />
     <link rel="prev" title="🔧 Assembly" href="assembly.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -402,11 +401,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="c-programming">
-<h1>💻 C Programming<a class="headerlink" href="#c-programming" title="Permalink to this heading">#</a></h1>
+<h1>💻 C Programming<a class="headerlink" href="#c-programming" title="Permalink to this headline">#</a></h1>
 <section id="c-programming-language">
-<span id="faq-c-programming"></span><h2>C Programming Language<a class="headerlink" href="#c-programming-language" title="Permalink to this heading">#</a></h2>
+<span id="faq-c-programming"></span><h2>C Programming Language<a class="headerlink" href="#c-programming-language" title="Permalink to this headline">#</a></h2>
 <section id="what-is-the-operator-precedence-in-c">
-<h3><em>What is the operator precedence in C?</em><a class="headerlink" href="#what-is-the-operator-precedence-in-c" title="Permalink to this heading">#</a></h3>
+<h3><em>What is the operator precedence in C?</em><a class="headerlink" href="#what-is-the-operator-precedence-in-c" title="Permalink to this headline">#</a></h3>
 <p>What is the value of Y if you have Y = X &amp; 0xE0 &gt;&gt; 2 ?  Are you expecting the operation will be bit masking followed by shifting, (P4-&gt;IN &amp; 0xE0) &gt;&gt;2?   In C/C++, &lt;&lt; and &gt;&gt; take precedence over &amp; (bitwise AND). So, X &amp; 0xE0 &gt;&gt; 2 is the same as P4-&gt;IN &amp; (0xE0 &gt;&gt; 2) or P4-&gt;IN &amp; 0x03. You all know that 2 + 2 x 2 = 6 not 8, right?  If you are not sure about the precedence order, use parentheses. I don’t remember the entire precedence order, such as <a class="reference external" href="https://en.cppreference.com/w/c/language/operator_precedence">https://en.cppreference.com/w/c/language/operator_precedence</a>.  So, I just use parentheses - it is good coding practice. Otherwise, you will end up wasting hours or days debugging your code.</p>
 <p>Here is a quiz:</p>
 <p>One of these is correct.  One is incorrect. Or are they both the same?</p>
@@ -429,7 +428,7 @@ If you want to change it, go to project properties, CCS Build &gt; Advanced Opti
 <p>The default dialect in CCS is C89, but C11 is used in ECE382 to support the for-loop variable declaration such as for (int i = 0; … ).</p>
 </section>
 <section id="what-is-the-switch-statement-and-how-does-it-work">
-<h3><em>What is the switch statement, and how does it work?</em><a class="headerlink" href="#what-is-the-switch-statement-and-how-does-it-work" title="Permalink to this heading">#</a></h3>
+<h3><em>What is the switch statement, and how does it work?</em><a class="headerlink" href="#what-is-the-switch-statement-and-how-does-it-work" title="Permalink to this headline">#</a></h3>
 <p>The switch statement is a multi-way decision that tests whether an expression matches one of several constant integer values and branches accordingly.</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">expression</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">const</span><span class="o">-</span><span class="no">expr</span><span class="p">:</span><span class="w">  </span>
@@ -470,14 +469,14 @@ If you want to change it, go to project properties, CCS Build &gt; Advanced Opti
 <p>Reference: B. Kernighan &amp; D. Ritchie, “The C Programming Language,” 2nd ed, pp. 58, 1988, Pearson Education.**</p>
 </section>
 <section id="what-is-the-static-qualifier">
-<h3><em>What is the <em>static</em> qualifier?</em><a class="headerlink" href="#what-is-the-static-qualifier" title="Permalink to this heading">#</a></h3>
+<h3><em>What is the <em>static</em> qualifier?</em><a class="headerlink" href="#what-is-the-static-qualifier" title="Permalink to this headline">#</a></h3>
 <p>The functions inside C files are by default <em>global</em> functions.  Although they are not declared in the associated .h files, the functions can be seen (and even called - I don’t want to show you how because it is not good practice) by other files. So, you will have a compile error if you have two functions with the same name in two C files.</p>
 <p>Then, how can you make the function invisible to other files?  Use the <em>static</em> qualifier.  It makes your functions private in the C file they are defined.</p>
 <p>Variables declared outside functions are also global variables, and other files can see them.  They can also be static to make them private (again invisible by other files) - this is different from the static variables inside a function.</p>
 </section>
 </section>
 <section id="c-programming-language-2nd-ed-by-kernighan-and-ritche">
-<h2>C Programming Language, 2nd Ed.  by Kernighan and Ritche<a class="headerlink" href="#c-programming-language-2nd-ed-by-kernighan-and-ritche" title="Permalink to this heading">#</a></h2>
+<h2>C Programming Language, 2nd Ed.  by Kernighan and Ritche<a class="headerlink" href="#c-programming-language-2nd-ed-by-kernighan-and-ritche" title="Permalink to this headline">#</a></h2>
 <p>Ritche invented the C programming language.  This is the <strong>best book</strong> for C programming and the most popular one.
 <a class="reference external" href="https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628">Amazon link</a></p>
 <p><img alt="C Programming" src="_images/C_Programming.jpg" /></p>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -72,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="🔬 Lab 16 Tachometer" href="lab16.html" />
     <link rel="prev" title="🔬 Lab 15 ADC" href="lab15.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -434,9 +433,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab15-sensor-calibration">
-<h1>📈 Lab15 Sensor Calibration<a class="headerlink" href="#lab15-sensor-calibration" title="Permalink to this heading">#</a></h1>
+<h1>📈 Lab15 Sensor Calibration<a class="headerlink" href="#lab15-sensor-calibration" title="Permalink to this headline">#</a></h1>
 <hr><section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
 <p>You will develop a function that converts raw ADC samples into distance from the object. Let <span class="math notranslate nohighlight">\(n\)</span> be a 14-bit sample from the ADC (0 to 16383) , and <span class="math notranslate nohighlight">\(d\)</span> be the distance in mm from the sensor to the object. Then the distance in mm from the sensor to the object is given by</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -450,13 +449,13 @@ d = \frac{m}{n - c}
 </div>
 </section>
 <section id="procedure">
-<h2>Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
+<h2>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Read this page thoroughly.</strong></p></li>
 <li><p>Then, go to Colab by clicking the rocket icon at the top of this page and complete the sensor calibration. <strong>AR means action required in Colab</strong>.</p></li>
 </ol>
 <section id="record-actual-distance-and-adc-values">
-<h3>Record actual distance and ADC values<a class="headerlink" href="#record-actual-distance-and-adc-values" title="Permalink to this heading">#</a></h3>
+<h3>Record actual distance and ADC values<a class="headerlink" href="#record-actual-distance-and-adc-values" title="Permalink to this headline">#</a></h3>
 <p>Now let’s collect the ADC samples <span class="math notranslate nohighlight">\(N=(n_1, n_2, \dots, n_k)\)</span> for known distances, <span class="math notranslate nohighlight">\(D=(d_1, d_2, \dots, d_k)\)</span>.  Note that you need to collect the ADC data for distances from the sensors, not the center of the robot.  Place your robot on the paper ruler in the lab as shown in the figure below (the figure may not be displayed in Colab).  Place your robot at 0 cm and place the box of your robot at the desired distances to collect ADC data for the distances between the box and the sensors.</p>
 <a class="reference internal image-reference" href="../_images/Lab15_MeasuringDistances.png"><img alt="../_images/Lab15_MeasuringDistances.png" class="align-center" src="../_images/Lab15_MeasuringDistances.png" style="width: 400px;" /></a>
 <br>
@@ -645,7 +644,7 @@ n = \begin{bmatrix} d' &amp; 1 \end{bmatrix} \begin{bmatrix} m \\ c \end{bmatrix
 </section>
 </section>
 <section id="colab">
-<h2>Colab<a class="headerlink" href="#colab" title="Permalink to this heading">#</a></h2>
+<h2>Colab<a class="headerlink" href="#colab" title="Permalink to this headline">#</a></h2>
 <p>To run your code in Colab, click on the rocket icon at the top of this page. <img alt="Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></p>
 </section>
 </section>
