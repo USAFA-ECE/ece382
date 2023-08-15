@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -69,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="🔬 Lab 10 Multithreading" href="lab10.html" />
     <link rel="prev" title="🔬 Lab 5 Software Design" href="lab5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -410,9 +411,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lab-8-i-o-interface">
-<h1>🔬 Lab 8 I/O Interface<a class="headerlink" href="#lab-8-i-o-interface" title="Permalink to this headline">#</a></h1>
+<h1>🔬 Lab 8 I/O Interface<a class="headerlink" href="#lab-8-i-o-interface" title="Permalink to this heading">#</a></h1>
 <section id="objectives">
-<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to interface switches and LEDs to a microcontroller using TI’s LaunchPad development board.</p></li>
 <li><p>Students should be able to write assembly code to configure switches as inputs and LEDs as outputs.</p></li>
@@ -423,7 +424,7 @@ document.write(`
 </div>
 </section>
 <section id="synopsis">
-<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">#</a></h2>
+<h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
 <p>In this lab you will design, develop, and test a window intruder detector alarm system. The block diagram of the system is shown below.</p>
 <a class="reference internal image-reference" href="../_images/Lab08_BlockDiagram.png"><img alt="../_images/Lab08_BlockDiagram.png" class="align-center" src="../_images/Lab08_BlockDiagram.png" style="width: 380px;" /></a>
 <br>
@@ -433,9 +434,9 @@ The two left bump switches connected to P4.7 and P4.6 are two window sensors, wh
 <br>
 </section>
 <section id="procedure">
-<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">#</a></h2>
+<h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Connect the LaunchPad to your computer via the provided USB cable.</p></li>
 <li><p>Open Code Composer Studio (CCS) and select your starter workspace.</p></li>
@@ -445,7 +446,7 @@ The two left bump switches connected to P4.7 and P4.6 are two window sensors, wh
 </ul>
 </section>
 <section id="implement-the-bump-sensors">
-<h3>Implement the bump sensors<a class="headerlink" href="#implement-the-bump-sensors" title="Permalink to this headline">#</a></h3>
+<h3>Implement the bump sensors<a class="headerlink" href="#implement-the-bump-sensors" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Please read <code class="docutils literal notranslate"><span class="pre">Bump.h</span></code> in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder. You can also open it by right-clicking <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;…/inc/Bump.h&quot;</span></code> and selecting Open Declaration (F3).</p></li>
 <li><p>Complete <code class="docutils literal notranslate"><span class="pre">Bump_Init()</span></code> and <code class="docutils literal notranslate"><span class="pre">Bump_Read()</span></code> in <code class="docutils literal notranslate"><span class="pre">Bump.c</span></code>.</p></li>
@@ -475,7 +476,7 @@ The two left bump switches connected to P4.7 and P4.6 are two window sensors, wh
 </div>
 </section>
 <section id="demo-program8-2-with-moku-go-oscilloscope">
-<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program8_2()</span></code> with Moku:Go Oscilloscope<a class="headerlink" href="#demo-program8-2-with-moku-go-oscilloscope" title="Permalink to this headline">#</a></h3>
+<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program8_2()</span></code> with Moku:Go Oscilloscope<a class="headerlink" href="#demo-program8-2-with-moku-go-oscilloscope" title="Permalink to this heading">#</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Do not use the alligator clip to clamp the ground pin. If the alligator clip touches another pin on your LaunchPad, <strong>it may fry your LaunchPad</strong>.</p>
@@ -509,7 +510,7 @@ The two left bump switches connected to P4.7 and P4.6 are two window sensors, wh
 </ul>
 </section>
 <section id="implement-alarm-algorithm-in-program8-3">
-<h3>Implement alarm algorithm in Program8_3()<a class="headerlink" href="#implement-alarm-algorithm-in-program8-3" title="Permalink to this headline">#</a></h3>
+<h3>Implement alarm algorithm in Program8_3()<a class="headerlink" href="#implement-alarm-algorithm-in-program8-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Within Lab08_LED_Switchesmain.c, use <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code> to implement the alarm algorithm discussed in Synopsis and depicted in the block diagram below.</p></li>
 </ul>
@@ -530,27 +531,27 @@ The two left bump switches connected to P4.7 and P4.6 are two window sensors, wh
 </section>
 </section>
 <section id="deliverables">
-<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
 <section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[4 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program8_1()</span></code> testing the bump switches.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[4 Points]</strong> Submit a Moku:Go screenshot showing your LED blinks at 1 Hz.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[4 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code> showing the alarm system works properly.</p></li>
 </ul>
 </section>
 <section id="deliverable-4">
-<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this headline">#</a></h3>
+<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[7.5 Points]</strong> Push your code to your repository using git. Please write comments in your code.</p></li>
 </ul>
