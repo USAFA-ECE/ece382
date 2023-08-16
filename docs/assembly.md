@@ -64,10 +64,8 @@ Multiply (MUL) and unsigned divide (UDIV)
 Examples:
 ```asm
     MUL  R3, R2, R1     ; R3 = R2*R1
-    MUL  R3, R2         ; R3 = R3*R2
     MUL  R3, R2, #2     ; ERROR
     UDIV R3, R2, R1     ; R3 = R2/R1
-    UDIV R3, R2         ; R3 = R3/R2
     UDIV R3, R2, #2     ; ERROR
 ```
 
@@ -163,7 +161,7 @@ The `CMP` instruction compares two values. This instruction updates the N, Z, C,
 Examples:
 ```asm
     CMP  R3, #6400 ; Compare R2 with #6400. Updates the N, Z, C, and V flags according to R3 - 6400
-    CMP  R2, R3    ; Compare R2 with R3. Updates the N, Z, C, and V flags according to R3 - R2
+    CMP  R2, R3    ; Compare R2 with R3. Updates the N, Z, C, and V flags according to R2 - R3
 ```
 
 
