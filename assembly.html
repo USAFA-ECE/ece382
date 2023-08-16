@@ -472,10 +472,8 @@ document.write(`
 <p>Multiply (MUL) and unsigned divide (UDIV)</p>
 <p>Examples:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">MUL</span><span class="w">  </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">     </span><span class="c1">; R3 = R2*R1</span>
-<span class="w">    </span><span class="nf">MUL</span><span class="w">  </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="w">         </span><span class="c1">; R3 = R3*R2</span>
 <span class="w">    </span><span class="nf">MUL</span><span class="w">  </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="mi">#2</span><span class="w">     </span><span class="c1">; ERROR</span>
 <span class="w">    </span><span class="nf">UDIV</span><span class="w"> </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">     </span><span class="c1">; R3 = R2/R1</span>
-<span class="w">    </span><span class="nf">UDIV</span><span class="w"> </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="w">         </span><span class="c1">; R3 = R3/R2</span>
 <span class="w">    </span><span class="nf">UDIV</span><span class="w"> </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="mi">#2</span><span class="w">     </span><span class="c1">; ERROR</span>
 </pre></div>
 </div>
@@ -561,7 +559,7 @@ Note that arithmetic left shift is identical to logical left shift.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">CMP</span></code> instruction compares two values. This instruction updates the N, Z, C, and V flags according to the difference between the two values.</p>
 <p>Examples:</p>
 <div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">CMP</span><span class="w">  </span><span class="no">R3</span><span class="p">,</span><span class="w"> </span><span class="mi">#6400</span><span class="w"> </span><span class="c1">; Compare R2 with #6400. Updates the N, Z, C, and V flags according to R3 - 6400</span>
-<span class="w">    </span><span class="nf">CMP</span><span class="w">  </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R3</span><span class="w">    </span><span class="c1">; Compare R2 with R3. Updates the N, Z, C, and V flags according to R3 - R2</span>
+<span class="w">    </span><span class="nf">CMP</span><span class="w">  </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R3</span><span class="w">    </span><span class="c1">; Compare R2 with R3. Updates the N, Z, C, and V flags according to R2 - R3</span>
 </pre></div>
 </div>
 </section>
