@@ -12,11 +12,11 @@ This schedule is subject to change as appropriate.
 | 3      | [Lab 2 – Assembly Basic](Assignments/lab2.md)     |                      | [Homework2](Assignments/homework2.md) (17)|
 | 4      | Lecture 3 – Memory                                | 3.2.2, 3.3.2-3, 3.3.9| [Lab2](Assignments/lab2.md)           (20)|
 | 21 Aug |                                                   |                      | Skills Review                         (12)|           
-| 5      | [Lab 3 – Memory](Assignments/lab3.md)             |                      | [Homework3](Assignments/homework3.md) (17)|
+| 5      | [Lab 3 – Memory](Assignments/lab3.md)             |                      | [Homework3](Assignments/homework3.md) (15)|
 | 6      | Lecture 4 – Assembly Functions                    | 3.3.7-8, 3.4         | [Lab3](Assignments/lab3.md)           (20)|
-| 7      | [Lab 4 – Subroutines](Assignments/lab4.md)        |                      | [Homework4](Assignments/homework4.md) (17)|
+| 7      | [Lab 4 – Subroutines](Assignments/lab4.md)        |                      | [Homework4](Assignments/homework4.md) (19)|
 | 8      | [Lab 4 – Subroutines](Assignments/lab4.md)        |                      |                                           |
-| 9      | Lecture 5 – Software Design                       | 4.1, 4.3             | [Lab4](Assignments/lab4.md)           (30)|
+| 9      | Lecture 5 – Software Design                       | 4.1, 4.3             | [Lab4](Assignments/lab4.md)           (25)|
 | 10     | [Lab 5 – Software Design](Assignments/lab5.md)    |                      | Homework5                             (17)|
 | 11     | Lecture 8 – Interfacing IO                        | 8.2-8.4              | [Lab7](Assignments/lab5.md)           (20)|
 | 12     | [Lab 8 – Interfacing IO](Assignments/lab8.md)     |                      | Homework8                             (17)|
@@ -24,22 +24,23 @@ This schedule is subject to change as appropriate.
 | 14     | [Lab 10 – Multithreading](Assignments/lab10.md)   |                      | Homework10                            (17)|
 | 15     | Lecture 11 – Serial Communication                 | 11.2-11.3, 11.5-11.6 | [Lab10](Assignments/lab10.md)         (20)|
 | 16     | [Lab 11 – Serial Comm](Assignments/lab11.md)      |                      | Homework11                            (17)|
-| 17     | Lecture 12 – DC Motors                            | 12.1, 12.5           | [Lab11](Assignments/lab11.md)         (20)|
-| 18     | [Lab 12 – DC Motors](Assignments/lab12.md)        |                      | Homework12                            (17)|
-| 19     | GR 1                                              |                      |                                      (100)|
-| 20     | Lecture 13 – Timers & PWM                         | 13.1-13.3            | [Lab12](Assignments/lab12.md)         (20)|
-| 21     | [Lab 13 – Timers & PWM](Assignments/lab13.md)     |                      | Homework13                            (17)|
-| 22     | [Lab 13 – Timers & PWM](Assignments/lab13.md)     |                      |                                           |
-| 23     | Lecture 14 – Real-Time Systems (Edge Interrupts)  | 10.4, 14.2           | [Lab13](Assignments/lab13.md)         (30)|
-| 24     | [Lab 14 – Real-Time Systems](Assignments/lab14.md)|                      | Homework14                            (17)|
-| 25     | Lecture 15 – ADC (Distance   Sensors)             | 15.3, 15.5, 15.8     | [Lab14](Assignments/lab14.md)         (20)|
-| 26     | [Lab 15 – ADC](Assignments/lab15.md)              |                      | Homework15                            (17)|
-| 27     | [Lab 15 – ADC](Assignments/lab15.md)              |                      |                                           |
-| 28     | Lecture 16 – Tachometer (Timer Input Capture)     | 16.1-16.3            | [Lab15](Assignments/lab15.md)         (30)|
-| 29     | [Lab 16 – Tachometer](Assignments/lab16.md)       |                      | Homework 16                           (17)|
-| 30     | Lecture 17 – Control Systems                      | 17.1-17.5            | [Lab16](Assignments/lab16.md)         (20)|
-| 31     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      | Homework17                            (17)|
-| 32     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      |                                           |
+| 17     | [Lab 11 – Serial Comm](Assignments/lab11.md)      |                      | |
+| 18     | Lecture 12 – DC Motors                            | 12.1, 12.5           | [Lab11](Assignments/lab11.md)         (25)|
+| 19     | [Lab 12 – DC Motors](Assignments/lab12.md)        |                      | Homework12                            (17)|
+| 20     | GR 1                                              |                      |                                      (100)|
+| 21     | Lecture 13 – Timers & PWM                         | 13.1-13.3            | [Lab12](Assignments/lab12.md)         (20)|
+| 22     | [Lab 13 – Timers & PWM](Assignments/lab13.md)     |                      | Homework13                            (17)|
+| 23     | [Lab 13 – Timers & PWM](Assignments/lab13.md)     |                      |                                           |
+| 24     | Lecture 14 – Real-Time Systems (Edge Interrupts)  | 10.4, 14.2           | [Lab13](Assignments/lab13.md)         (30)|
+| 25     | [Lab 14 – Real-Time Systems](Assignments/lab14.md)|                      | Homework14                            (17)|
+| 26     | Lecture 15 – ADC (Distance   Sensors)             | 15.3, 15.5, 15.8     | [Lab14](Assignments/lab14.md)         (20)|
+| 27     | [Lab 15 – ADC](Assignments/lab15.md)              |                      | Homework15                            (17)|
+| 28     | [Lab 15 – ADC](Assignments/lab15.md)              |                      |                                           |
+| 29     | Lecture 16 – Tachometer (Timer Input Capture)     | 16.1-16.3            | [Lab15](Assignments/lab15.md)         (30)|
+| 30     | [Lab 16 – Tachometer](Assignments/lab16.md)       |                      | Homework 16                           (17)|
+| 31     | Lecture 17 – Control Systems                      | 17.1-17.5            | [Lab16](Assignments/lab16.md)         (20)|
+| 32     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      | Homework17                            (17)|
+| 33     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      |                                           |
 | 34     | [Robot Maze](Assignments/project.md)              |                      | [Lab17](Assignments/lab17.md)         (30)|
 | 35     | GR 2                                              |                      |                                      (100)|
 |        | Thanksgiving Break                                |                      |                                           |   
