@@ -107,7 +107,7 @@ A: The null character is the last character of the message, and that is why you'
 
 Q: Is there an easy way to check if the encrypted message is correct?
 <br>
-A: If so, it is not encryption. 😆  An encrypted message will not be readable characters in the Characters view (It will probably display a bunch of dots).  Change it to the 32-bit Hex view. If you want to know whether your encryption works correctly or not, you need to manually XOR one byte at a time and compare it.
+A: If so, it is not encryption. 😆  Encrypted messages will not be readable characters in the Characters view (It will probably display a bunch of dots).  Change it to the 32-bit Hex view. If you want to know whether your encryption works correctly or not, you need to manually XOR one byte at a time and compare it.
 ```
 
 ### Write the `Decrypt` subroutine
@@ -130,7 +130,7 @@ Do **NOT** implement your own "xor".  You **must** use the provided `XOR_bytes` 
     * The contents of `dec_msg`. Use Memory Browser and change the encoding style to the **correct** format so that everyone can verify that the code works correctly.
 
 ```{tip}
-What is the correct encoding sytle? Your code encrypts and decrypts "Wingardium Leviosa!" After decrypting the spell, what do you expect to see?
+What is the correct encoding sytle? Your code encrypts and decrypts "Wingardium Leviosa!" After decrypting the spell, what do you expect to see? 
 ```
 
 ```{image} ./figures/Lab04_WingardiumLeviosa2.gif
@@ -157,7 +157,7 @@ spell    .word 0xEBFEF6CB, 0xAEE1FAED, 0xFCFAEFDE, 0xE3FBE0E1, 0x00008EAF
 ```
 - Ensure the `main` function at line 58 in `Lab04_Granger.asm` is **commented** out. Otherwise, comment it by adding a semicolon(`;`) at the beginning of the line;
 - Replace the `key` value at line 48 with the secret key. Please do not write "the number of staircases at Hogwarts" verbatim. You can ask Siri, Google, or ChatGPT.  It should be a 1-byte number. You don't need to convert it to hex. You can enter a decimal number.
-- Execute `Lab04_Potter.asm` to decrypt the spell and provide the screenshot of your Memory Browser showing the decrypted message. You must select the correct encoding style showing the spell. 
+- Execute `Lab04_Potter.asm` to decrypt the spell and provide the screenshot of your Memory Browser showing the decrypted message. You must select the **correct** encoding style showing the spell. 
 
 ```{image} ./figures/Lab04_ExpectoPatronum.gif
 :width: 640
@@ -171,17 +171,17 @@ Your code **must be compilable**.  If your code throws any compile errors, you w
 ```
 
 ### Deliverable 1
-- **[12 Points]** Complete `cryptography.asm` and push your code to your repository. `Lab04_Granger.asm` will use your code to encrypt and decrypt the message in it. **Write comments in your code.**
+- **[10 Points]** Complete `cryptography.asm` and push your code to your repository. `Lab04_Granger.asm` will use your code to encrypt and decrypt the message in it. **Write comments in your code.**
 
 ### Deliverable 2
-- **[12 Points]** Execute `Lab04_Granger.asm` and take screenshots of the following and submit them via Gradescope:
+- **[10 Points]** Execute `Lab04_Granger.asm` and take screenshots of the following and submit them via Gradescope:
 
-    * **[6 Points]** The contents of `enc_msg` after execution of `Lab04_Granger.asm`. Use the Memory Browser and change the format to **32-bit Hex**.
+    * **[5 Points]** The contents of `enc_msg` after execution of `Lab04_Granger.asm`. Use the Memory Browser and change the format to **32-bit Hex**.
 
-    * **[6 Points]** The contents of `dec_msg` after execution of `Lab04_Granger.asm`. Use Memory Browser and change the encoding style to the **correct** format so that everyone can verify that the code works correctly.
+    * **[5 Points]** The contents of `dec_msg` after execution of `Lab04_Granger.asm`. Use Memory Browser and change the encoding style to the **correct** format so that everyone can verify that the code works correctly.
 
 
 ### Deliverable 3
-- **[5.5 Points]** Execute `Lab04_Potter.asm` to decrypt `spell` and provide the screenshot of your Memory Browser showing the decrypted message.
+- **[4.5 Points]** Execute `Lab04_Potter.asm` to decrypt `spell` and provide the screenshot of your Memory Browser showing the decrypted message.
 
 

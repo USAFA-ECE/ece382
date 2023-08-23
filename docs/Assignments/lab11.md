@@ -133,16 +133,16 @@ A: You probably did not initialize it properly.  Look at your init() function ca
 ## 🚚 Deliverables
 
 ### Deliverable 1 
-- **[4 Points]** Run `Program11_1()` to transmit strings via USB/UART and take a screenshot of the serial terminal displaying the strings. Submit a screenshot of your Serial Terminal in Gradescope.
+- **[6 Points]** Run `Program11_1()` to transmit strings via USB/UART and take a screenshot of the serial terminal displaying the strings. Submit a screenshot of your Serial Terminal in Gradescope.
 
 ### Deliverable 2
-- **[5 Points]** Run `Program11_2()` to transmit your name via UART. Submit a screenshot of Moku:Go Logic Analyzer. **Annotate three letters of your name and their binary values.**
+- **[6 Points]** Run `Program11_2()` to transmit your name via UART. Submit a screenshot of Moku:Go Logic Analyzer. **Annotate three letters of your name and their binary values.**
 
 ### Deliverable 3 
-- **[5 Points]** Run `Program11_3()` to transmit your name via SPI. Submit a screenshot of Moku:Go Logic Analyzer.  **Annotate three letters of your name and their binary values.** 
+- **[6 Points]** Run `Program11_3()` to transmit your name via SPI. Submit a screenshot of Moku:Go Logic Analyzer.  **Annotate three letters of your name and their binary values.** 
 
 ### Deliverable 4
-- **[5.5 Points]** Push your code to your repository using git. Ensure you comment on your code.
+- **[6.5 Points]** Push your code to your repository using git. Ensure you comment on your code.
 
 <br>
 
