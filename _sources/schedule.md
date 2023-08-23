@@ -11,7 +11,7 @@ This schedule is subject to change as appropriate.
 | 2      | Lecture 2 – Assembly Basic                        | 3.1-3.2.1, 3.3.1, 3.3.4-6| [Homework1](Assignments/homework1.md) (17)|
 | 3      | [Lab 2 – Assembly Basic](Assignments/lab2.md)     |                      | [Homework2](Assignments/homework2.md) (17)|
 | 4      | Lecture 3 – Memory                                | 3.2.2, 3.3.2-3, 3.3.9| [Lab2](Assignments/lab2.md)           (20)|
-| 21 Aug |                                                   |                      | Skills Review                         (12)|           
+| 21 Aug |                                                   |                      | Skills Review                         (12)|
 | 5      | [Lab 3 – Memory](Assignments/lab3.md)             |                      | [Homework3](Assignments/homework3.md) (15)|
 | 6      | Lecture 4 – Assembly Functions                    | 3.3.7-8, 3.4         | [Lab3](Assignments/lab3.md)           (20)|
 | 7      | [Lab 4 – Subroutines](Assignments/lab4.md)        |                      | [Homework4](Assignments/homework4.md) (19)|

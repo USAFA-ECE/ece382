@@ -518,7 +518,7 @@ A: The null character is the last character of the message, and that is why you�
 <br></p>
 <p>Q: Is there an easy way to check if the encrypted message is correct?
 <br>
-A: If so, it is not encryption. 😆  An encrypted message will not be readable characters in the Characters view (It will probably display a bunch of dots).  Change it to the 32-bit Hex view. If you want to know whether your encryption works correctly or not, you need to manually XOR one byte at a time and compare it.</p>
+A: If so, it is not encryption. 😆  Encrypted messages will not be readable characters in the Characters view (It will probably display a bunch of dots).  Change it to the 32-bit Hex view. If you want to know whether your encryption works correctly or not, you need to manually XOR one byte at a time and compare it.</p>
 </div>
 </section>
 <section id="write-the-decrypt-subroutine">
@@ -570,7 +570,7 @@ A: If so, it is not encryption. 😆  An encrypted message will not be readable 
 <ul class="simple">
 <li><p>Ensure the <code class="docutils literal notranslate"><span class="pre">main</span></code> function at line 58 in <code class="docutils literal notranslate"><span class="pre">Lab04_Granger.asm</span></code> is <strong>commented</strong> out. Otherwise, comment it by adding a semicolon(<code class="docutils literal notranslate"><span class="pre">;</span></code>) at the beginning of the line;</p></li>
 <li><p>Replace the <code class="docutils literal notranslate"><span class="pre">key</span></code> value at line 48 with the secret key. Please do not write “the number of staircases at Hogwarts” verbatim. You can ask Siri, Google, or ChatGPT.  It should be a 1-byte number. You don’t need to convert it to hex. You can enter a decimal number.</p></li>
-<li><p>Execute <code class="docutils literal notranslate"><span class="pre">Lab04_Potter.asm</span></code> to decrypt the spell and provide the screenshot of your Memory Browser showing the decrypted message. You must select the correct encoding style showing the spell.</p></li>
+<li><p>Execute <code class="docutils literal notranslate"><span class="pre">Lab04_Potter.asm</span></code> to decrypt the spell and provide the screenshot of your Memory Browser showing the decrypted message. You must select the <strong>correct</strong> encoding style showing the spell.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/Lab04_ExpectoPatronum.gif"><img alt="../_images/Lab04_ExpectoPatronum.gif" class="align-center" src="../_images/Lab04_ExpectoPatronum.gif" style="width: 640px;" /></a>
 </section>
@@ -584,16 +584,16 @@ A: If so, it is not encryption. 😆  An encrypted message will not be readable 
 <section id="deliverable-1">
 <h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[12 Points]</strong> Complete <code class="docutils literal notranslate"><span class="pre">cryptography.asm</span></code> and push your code to your repository. <code class="docutils literal notranslate"><span class="pre">Lab04_Granger.asm</span></code> will use your code to encrypt and decrypt the message in it. <strong>Write comments in your code.</strong></p></li>
+<li><p><strong>[10 Points]</strong> Complete <code class="docutils literal notranslate"><span class="pre">cryptography.asm</span></code> and push your code to your repository. <code class="docutils literal notranslate"><span class="pre">Lab04_Granger.asm</span></code> will use your code to encrypt and decrypt the message in it. <strong>Write comments in your code.</strong></p></li>
 </ul>
 </section>
 <section id="deliverable-2">
 <h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[12 Points]</strong> Execute <code class="docutils literal notranslate"><span class="pre">Lab04_Granger.asm</span></code> and take screenshots of the following and submit them via Gradescope:</p>
+<li><p><strong>[10 Points]</strong> Execute <code class="docutils literal notranslate"><span class="pre">Lab04_Granger.asm</span></code> and take screenshots of the following and submit them via Gradescope:</p>
 <ul>
-<li><p><strong>[6 Points]</strong> The contents of <code class="docutils literal notranslate"><span class="pre">enc_msg</span></code> after execution of <code class="docutils literal notranslate"><span class="pre">Lab04_Granger.asm</span></code>. Use the Memory Browser and change the format to <strong>32-bit Hex</strong>.</p></li>
-<li><p><strong>[6 Points]</strong> The contents of <code class="docutils literal notranslate"><span class="pre">dec_msg</span></code> after execution of <code class="docutils literal notranslate"><span class="pre">Lab04_Granger.asm</span></code>. Use Memory Browser and change the encoding style to the <strong>correct</strong> format so that everyone can verify that the code works correctly.</p></li>
+<li><p><strong>[5 Points]</strong> The contents of <code class="docutils literal notranslate"><span class="pre">enc_msg</span></code> after execution of <code class="docutils literal notranslate"><span class="pre">Lab04_Granger.asm</span></code>. Use the Memory Browser and change the format to <strong>32-bit Hex</strong>.</p></li>
+<li><p><strong>[5 Points]</strong> The contents of <code class="docutils literal notranslate"><span class="pre">dec_msg</span></code> after execution of <code class="docutils literal notranslate"><span class="pre">Lab04_Granger.asm</span></code>. Use Memory Browser and change the encoding style to the <strong>correct</strong> format so that everyone can verify that the code works correctly.</p></li>
 </ul>
 </li>
 </ul>
@@ -601,7 +601,7 @@ A: If so, it is not encryption. 😆  An encrypted message will not be readable 
 <section id="deliverable-3">
 <h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[5.5 Points]</strong> Execute <code class="docutils literal notranslate"><span class="pre">Lab04_Potter.asm</span></code> to decrypt <code class="docutils literal notranslate"><span class="pre">spell</span></code> and provide the screenshot of your Memory Browser showing the decrypted message.</p></li>
+<li><p><strong>[4.5 Points]</strong> Execute <code class="docutils literal notranslate"><span class="pre">Lab04_Potter.asm</span></code> to decrypt <code class="docutils literal notranslate"><span class="pre">spell</span></code> and provide the screenshot of your Memory Browser showing the decrypted message.</p></li>
 </ul>
 </section>
 </section>
