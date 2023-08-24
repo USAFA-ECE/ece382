@@ -28,11 +28,11 @@ The GIF animations provided on this page are intended to complement the main res
 - Click on the three dots ($\cdots$) on the top of the right-hand navigation for more options. 
 - Select `Fork this repository`. 
 - Enter "ECE382" for `Project`.
-- Name this new repository ECE382\_LastName\_FirstName.
+- Name this new repository ECE382_LastName_FirstName.
 - Ensure the access level is `Private repository`.
 - Give both your instructor and the course director (Dr. Baek) read access: Click `Invite` and then click `Add members`. Provide them **read access**. The instructors' Bitbucket email addresses are as follows:
 
-    - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afafacademy.af.edu-red)    
+    - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)    
     - Dr. York: ![york](https://img.shields.io/badge/george.york@usafa.edu-green)
     - Maj Seery: ![seery](https://img.shields.io/badge/michael.seery@afacademy.af.edu-yellow)
     - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
