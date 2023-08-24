@@ -44,14 +44,14 @@ Please take a screenshot of the region of interest and ensure that it is legible
 You will receive a grade of **-10 points** if you submit a picture of a computer screen taken by your phone or mobile device.
 ```
 
-### Complete `LaLab03_Prime.asm`
+### Complete `Lab03_Prime.asm`
 
 
 ```{tip}
-Before you start writing code, carefully read both `Lab03_PrimeMain.c` and `LaLab03_Prime.asm` and the comments in them.
+Before you start writing code, carefully read both `Lab03_PrimeMain.c` and `Lab03_Prime.asm` and the comments in them.
 ```
 
-- Exclude `Lab03_PrimeMain.c` from Build and include `LaLab03_Prime.asm`.
+- Exclude `Lab03_PrimeMain.c` from Build and include `Lab03_Prime.asm`.
 
 
 **Modulo**
@@ -64,26 +64,30 @@ MUL  R9, R8, R6 ; R9 = int(n/i) * i
 CMP  R0, R9     ; n == int(n/i) * i ?,  n is divisible by i if R0 == R9.
 ```
 
-**Add your code to `LaLab03_Prime.asm`**
+**Add your code to `Lab03_Prime.asm`**
 
 - Use `Lab03_PrimeMain.c` as a reference to complete the assembly code. Please read all the comments before writing any code. 
 - It is important to **comment your code**. You must add a comment to every line for this assignment. 
-- You can search the `Memory Browser` by variable name or memory address, such as the contents of `Result` after execution of the code.  You need to change the encoding style (number format) to **8-Bit Hex - TI Style** as shown below. If you click on Resume (F8 or green arrow) followed by Suspend (Alt+F8), it will stop at `Stall B Stall`. Then, you can browse the memory.
+- You can search the `Memory Browser` by variable name or memory address, such as the contents of `ResAddr` after execution of the code.  You need to change the encoding style (number format) to **8-Bit Hex - TI Style** as shown below. If you click on Resume (F8 or green arrow) followed by Suspend (Alt+F8), it will stop at `Stall B Stall`. Then, you can browse the memory.
 
 ```{figure} ./figures/Lab03_PrimeResultMemory.png
 ---
 width: 380
 align: center
-name: result_memory
+name: 8bit_encoding
 ---
 Memory Browser with 8-Bit Hex encoding style.
 ```
 
-If you select a wrong encoding style as shown below, you will not be able to correctly read the values inside `Result`.  
+- If you select a wrong encoding style as shown below, you will not be able to correctly read the values inside `Result`.  
 
-```{image} ./figures/Lab03_PrimeResultMemoryBad.png
-:width: 380
-:align: center
+```{figure} ./figures/Lab03_PrimeResultMemoryBad.png
+---
+width: 380
+align: center
+name: 32bit_encoding
+---
+Memory Browser with 32-Bit Hex encoding style.
 ```
 
 ```{tip}

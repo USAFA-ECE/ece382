@@ -390,7 +390,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-main-c">Run main.c</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-lalab03-prime-asm">Complete <code class="docutils literal notranslate"><span class="pre">LaLab03_Prime.asm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-lab03-prime-asm">Complete <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
@@ -460,14 +460,14 @@ document.write(`
 <p>You will receive a grade of <strong>-10 points</strong> if you submit a picture of a computer screen taken by your phone or mobile device.</p>
 </div>
 </section>
-<section id="complete-lalab03-prime-asm">
-<h3>Complete <code class="docutils literal notranslate"><span class="pre">LaLab03_Prime.asm</span></code><a class="headerlink" href="#complete-lalab03-prime-asm" title="Permalink to this heading">#</a></h3>
+<section id="complete-lab03-prime-asm">
+<h3>Complete <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code><a class="headerlink" href="#complete-lab03-prime-asm" title="Permalink to this heading">#</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Before you start writing code, carefully read both <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> and <code class="docutils literal notranslate"><span class="pre">LaLab03_Prime.asm</span></code> and the comments in them.</p>
+<p>Before you start writing code, carefully read both <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> and <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code> and the comments in them.</p>
 </div>
 <ul class="simple">
-<li><p>Exclude <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> from Build and include <code class="docutils literal notranslate"><span class="pre">LaLab03_Prime.asm</span></code>.</p></li>
+<li><p>Exclude <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> from Build and include <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code>.</p></li>
 </ul>
 <p><strong>Modulo</strong></p>
 <p>For the modulo operation, use the assembly code provided below.</p>
@@ -476,20 +476,27 @@ document.write(`
 <span class="nf">CMP</span><span class="w">  </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="no">R9</span><span class="w">     </span><span class="c1">; n == int(n/i) * i ?,  n is divisible by i if R0 == R9.</span>
 </pre></div>
 </div>
-<p><strong>Add your code to <code class="docutils literal notranslate"><span class="pre">LaLab03_Prime.asm</span></code></strong></p>
+<p><strong>Add your code to <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code></strong></p>
 <ul class="simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">Lab03_PrimeMain.c</span></code> as a reference to complete the assembly code. Please read all the comments before writing any code.</p></li>
 <li><p>It is important to <strong>comment your code</strong>. You must add a comment to every line for this assignment.</p></li>
-<li><p>You can search the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> by variable name or memory address, such as the contents of <code class="docutils literal notranslate"><span class="pre">Result</span></code> after execution of the code.  You need to change the encoding style (number format) to <strong>8-Bit Hex - TI Style</strong> as shown below. If you click on Resume (F8 or green arrow) followed by Suspend (Alt+F8), it will stop at <code class="docutils literal notranslate"><span class="pre">Stall</span> <span class="pre">B</span> <span class="pre">Stall</span></code>. Then, you can browse the memory.</p></li>
+<li><p>You can search the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> by variable name or memory address, such as the contents of <code class="docutils literal notranslate"><span class="pre">ResAddr</span></code> after execution of the code.  You need to change the encoding style (number format) to <strong>8-Bit Hex - TI Style</strong> as shown below. If you click on Resume (F8 or green arrow) followed by Suspend (Alt+F8), it will stop at <code class="docutils literal notranslate"><span class="pre">Stall</span> <span class="pre">B</span> <span class="pre">Stall</span></code>. Then, you can browse the memory.</p></li>
 </ul>
-<figure class="align-center" id="result-memory">
+<figure class="align-center" id="bit-encoding">
 <a class="reference internal image-reference" href="../_images/Lab03_PrimeResultMemory.png"><img alt="../_images/Lab03_PrimeResultMemory.png" src="../_images/Lab03_PrimeResultMemory.png" style="width: 380px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Memory Browser with 8-Bit Hex encoding style.</span><a class="headerlink" href="#result-memory" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Memory Browser with 8-Bit Hex encoding style.</span><a class="headerlink" href="#bit-encoding" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>If you select a wrong encoding style as shown below, you will not be able to correctly read the values inside <code class="docutils literal notranslate"><span class="pre">Result</span></code>.</p>
-<a class="reference internal image-reference" href="../_images/Lab03_PrimeResultMemoryBad.png"><img alt="../_images/Lab03_PrimeResultMemoryBad.png" class="align-center" src="../_images/Lab03_PrimeResultMemoryBad.png" style="width: 380px;" /></a>
+<ul class="simple">
+<li><p>If you select a wrong encoding style as shown below, you will not be able to correctly read the values inside <code class="docutils literal notranslate"><span class="pre">Result</span></code>.</p></li>
+</ul>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/Lab03_PrimeResultMemoryBad.png"><img alt="../_images/Lab03_PrimeResultMemoryBad.png" src="../_images/Lab03_PrimeResultMemoryBad.png" style="width: 380px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Memory Browser with 32-Bit Hex encoding style.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>There are many assembly examples in CCS if you are looking for assembly syntax.  For example, take a look at <code class="docutils literal notranslate"><span class="pre">Example04_ArrayAdd</span></code> for LDR, LDRB, STRB, loops, etc.</p>
@@ -615,7 +622,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-main-c">Run main.c</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-lalab03-prime-asm">Complete <code class="docutils literal notranslate"><span class="pre">LaLab03_Prime.asm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-lab03-prime-asm">Complete <code class="docutils literal notranslate"><span class="pre">Lab03_Prime.asm</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
