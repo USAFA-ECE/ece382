@@ -102,10 +102,10 @@ A: It can be.  It depends on how many serial devices have been connected to your
 <br>
 
 
-### Write SPI functions in SPI\_B1
+### Write SPI functions in SPI_B1
 
 - Write `SPIB1_Init()`, `SPIB1_OutChar()`, and `SPIB1_OutString()`. 
-- Run `Program11_3` and start Moku:Go Logic Analyzer to measure the signal transmitted from the SPI\_ B1 port of your LaunchPad. 
+- Run `Program11_3` and start Moku:Go Logic Analyzer to measure the signal transmitted from the SPI_B1 port of your LaunchPad. 
 - Connect Moku:Gp Logic Analyzer to your LaunchPad.
     - Connect three Logic Analyzer probes to P6.2 (STE), P6.3 (CLK), and P6.4 (MOSI) of your LaunchPad.
     - Connect a Logic Analyzer's ground pin (black wire) to one of the LaunchPad ground pins.  
