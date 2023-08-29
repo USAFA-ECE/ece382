@@ -61,7 +61,7 @@ StrAddr   |
 ```
 
 ```{important}
-It is inaccurate to say that `StrAddr` is the address of the entire string. In fact, `StrAddr` corresponds to the address of the initial character, 'T'. Following this pattern, `StrAddr+1` designate the address of the second character, while `StrAddr+N` signifies the address of the $(N+1)$-th character within the string. To access the $(N+1)$-th character, you can use either *(StrAddr+N) or StrAddr[N].   
+It is inaccurate to say that `StrAddr` is the address of the entire string. In fact, `StrAddr` corresponds to the address of the initial character, 'T'. Following this pattern, `StrAddr+1` designates the address of the second character, while `StrAddr+N` signifies the address of the $(N+1)$-th character within the string. To access the $(N+1)$-th character, you can use either *(StrAddr+N) or StrAddr[N].   
 ```
 
 - After executing `LDR R0, StrAddr` at line 67, examine R0. It should be 0x00000558, which is the value of `StrAddr`. This value agrees with the value we found in the `Memory Broswer`. 
