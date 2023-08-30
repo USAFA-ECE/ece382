@@ -24,10 +24,10 @@ This schedule is subject to change as appropriate.
 | 14     | [Lab 10 – Multithreading](Assignments/lab10.md)   |                      | Homework10                            (17)|
 | 15     | Lecture 11 – Serial Communication                 | 11.2-11.3, 11.5-11.6 | [Lab10](Assignments/lab10.md)         (20)|
 | 16     | [Lab 11 – Serial Comm](Assignments/lab11.md)      |                      | Homework11                            (17)|
-| 17     | [Lab 11 – Serial Comm](Assignments/lab11.md)      |                      | |
+| 17     | [Lab 11 – Serial Comm](Assignments/lab11.md)      |                      |                                           |
 | 18     | Lecture 12 – DC Motors                            | 12.1, 12.5           | [Lab11](Assignments/lab11.md)         (25)|
-| 19     | [Lab 12 – DC Motors](Assignments/lab12.md)        |                      | Homework12                            (17)|
-| 20     | GR 1                                              |                      |                                      (100)|
+| 19     | GR 1                                              |                      |                                      (100)|
+| 20     | [Lab 12 – DC Motors](Assignments/lab12.md)        |                      | Homework12                            (17)|
 | 21     | Lecture 13 – Timers & PWM                         | 13.1-13.3            | [Lab12](Assignments/lab12.md)         (20)|
 | 22     | [Lab 13 – Timers & PWM](Assignments/lab13.md)     |                      | Homework13                            (17)|
 | 23     | [Lab 13 – Timers & PWM](Assignments/lab13.md)     |                      |                                           |
@@ -39,10 +39,10 @@ This schedule is subject to change as appropriate.
 | 29     | Lecture 16 – Tachometer (Timer Input Capture)     | 16.1-16.3            | [Lab15](Assignments/lab15.md)         (30)|
 | 30     | [Lab 16 – Tachometer](Assignments/lab16.md)       |                      | Homework 16                           (17)|
 | 31     | Lecture 17 – Control Systems                      | 17.1-17.5            | [Lab16](Assignments/lab16.md)         (20)|
-| 32     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      | Homework17                            (17)|
-| 33     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      |                                           |
-| 34     | [Robot Maze](Assignments/project.md)              |                      | [Lab17](Assignments/lab17.md)         (30)|
-| 35     | GR 2                                              |                      |                                      (100)|
+| 32     | GR 2                                              |                      |                                      (100)|
+| 33     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      | Homework17                            (17)|
+| 34     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      |                                           |
+| 35     | [Robot Maze](Assignments/project.md)              |                      | [Lab17](Assignments/lab17.md)         (30)|
 |        | Thanksgiving Break                                |                      |                                           |   
 | 36     | [Robot Maze](Assignments/project.md)              |                      | Design Presentation                       |
 | 37     | [Robot Maze](Assignments/project.md)              |                      | Design Presentation                   (50)|
