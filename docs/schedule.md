@@ -18,7 +18,7 @@ This schedule is subject to change as appropriate.
 | 8      | [Lab 4 – Subroutines](Assignments/lab4.md)        |                      |                                           |
 | 9      | Lecture 5 – Software Design                       | 4.1, 4.3             | [Lab4](Assignments/lab4.md)           (25)|
 | 10     | [Lab 5 – Software Design](Assignments/lab5.md)    |                      | Homework5                             (17)|
-| 11     | Lecture 8 – Interfacing IO                        | 8.2-8.4              | [Lab7](Assignments/lab5.md)           (20)|
+| 11     | Lecture 8 – Interfacing IO                        | 8.2-8.4              | [Lab5](Assignments/lab5.md)           (20)|
 | 12     | [Lab 8 – Interfacing IO](Assignments/lab8.md)     |                      | Homework8                             (17)|
 | 13     | Lecture 10 – Multithreading (Interrupts)          | 9.4, 10.1-10.3       | [Lab8](Assignments/lab8.md)           (20)|
 | 14     | [Lab 10 – Multithreading](Assignments/lab10.md)   |                      | Homework10                            (17)|
