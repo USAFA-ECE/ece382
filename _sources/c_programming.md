@@ -5,9 +5,7 @@
 
 ### _What is the operator precedence in C?_
  
-What will the value of Y be when you have Y = X & 0xE0 >> 2? Are you anticipating that the operation will involve bit masking followed by shifting, as in (P4->IN & 0xE0) >> 2? In C/C++, it's important to note that << and >> take precedence over & (bitwise AND). Therefore, X & 0xE0 >> 2 is equivalent to P4->IN & (0xE0 >> 2) or P4->IN & 0x03.
-
-Remember the arithmetic order of operations; for instance, 2 + 2 x 2 equals 6, not 8. If you're uncertain about the precedence order, it's advisable to use parentheses. I may not recall the entire precedence order, but I follow best coding practices by using parentheses. Otherwise, you might spend hours or even days debugging your code. For further reference, you can check operator precedence on the table below. 
+What is the value of Y if you have Y = X & 0xE0 >> 2 ?  Are you expecting the operation will be bit masking followed by shifting, (P4->IN & 0xE0) >>2?   In C/C++, << and >> take precedence over & (bitwise AND). So, X & 0xE0 >> 2 is the same as P4->IN & (0xE0 >> 2) or P4->IN & 0x03. You all know that 2 + 2 x 2 = 6 not 8, right?  If you are not sure about the precedence order, use parentheses. I don't remember the entire precedence order, such as https://en.cppreference.com/w/c/language/operator_precedence.  So, I just use parentheses - it is good coding practice. Otherwise, you will end up wasting hours or days debugging your code.
 
 Here is a quiz:
 
@@ -26,15 +24,16 @@ You can find the precedence order in the textbook on page 111 or below:
  
 **_Are there different versions of C?_**
 
-Indeed, there exist various versions or dialects of the C programming language standard. These include C79, C89, C99, C11, and C17, among others. You can find more information about these versions on this Wikipedia page: https://en.wikipedia.org/wiki/C_(programming_language)#History
+Yes, there are different revisions (dialects) of the C programming language standard, such as C79, C89, C99, C11, & C17; 
+https://en.wikipedia.org/wiki/C_(programming_language)#History
  
-The most recent standard is C17, but the most widely adopted versions are likely C89 (also known as ANSI C) and C79 (K&R C). CCS provides support for K&R, C89, C99, and C11. 
-
-If you wish to switch between these dialects, you can do so by navigating to project properties, then CCS Build > Advanced Options > Language Options, and select your desired dialect, as illustrated in the image below:
+The latest standard is C17, but the most popular versions are perhaps C89 (ANSI C) and C79 (K&R C).     
+CCS supports K&R, C89, C99, and C11.
+If you want to change it, go to project properties, CCS Build > Advanced Options > Language Options, and select the dialect you wish to use, as shown below.
 
 ![C Dialect](./figures/C_Dialect.png)
 
-It's worth noting that the default dialect in CCS is C89, but ECE382 employs C11 to facilitate features like variable declaration within for-loops, as seen in the example: `(int i = 0; ... )`.
+The default dialect in CCS is C89, but C11 is used in ECE382 to support the for-loop variable declaration such as for (int i = 0; ... ).
 
 
 ### _What is the switch statement, and how does it work?_

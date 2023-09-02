@@ -407,8 +407,7 @@ document.write(`
 <span id="faq-c-programming"></span><h2>C Programming Language<a class="headerlink" href="#c-programming-language" title="Permalink to this heading">#</a></h2>
 <section id="what-is-the-operator-precedence-in-c">
 <h3><em>What is the operator precedence in C?</em><a class="headerlink" href="#what-is-the-operator-precedence-in-c" title="Permalink to this heading">#</a></h3>
-<p>What will the value of Y be when you have Y = X &amp; 0xE0 &gt;&gt; 2? Are you anticipating that the operation will involve bit masking followed by shifting, as in (P4-&gt;IN &amp; 0xE0) &gt;&gt; 2? In C/C++, it’s important to note that &lt;&lt; and &gt;&gt; take precedence over &amp; (bitwise AND). Therefore, X &amp; 0xE0 &gt;&gt; 2 is equivalent to P4-&gt;IN &amp; (0xE0 &gt;&gt; 2) or P4-&gt;IN &amp; 0x03.</p>
-<p>Remember the arithmetic order of operations; for instance, 2 + 2 x 2 equals 6, not 8. If you’re uncertain about the precedence order, it’s advisable to use parentheses. I may not recall the entire precedence order, but I follow best coding practices by using parentheses. Otherwise, you might spend hours or even days debugging your code. For further reference, you can check operator precedence on the table below.</p>
+<p>What is the value of Y if you have Y = X &amp; 0xE0 &gt;&gt; 2 ?  Are you expecting the operation will be bit masking followed by shifting, (P4-&gt;IN &amp; 0xE0) &gt;&gt;2?   In C/C++, &lt;&lt; and &gt;&gt; take precedence over &amp; (bitwise AND). So, X &amp; 0xE0 &gt;&gt; 2 is the same as P4-&gt;IN &amp; (0xE0 &gt;&gt; 2) or P4-&gt;IN &amp; 0x03. You all know that 2 + 2 x 2 = 6 not 8, right?  If you are not sure about the precedence order, use parentheses. I don’t remember the entire precedence order, such as <a class="reference external" href="https://en.cppreference.com/w/c/language/operator_precedence">https://en.cppreference.com/w/c/language/operator_precedence</a>.  So, I just use parentheses - it is good coding practice. Otherwise, you will end up wasting hours or days debugging your code.</p>
 <p>Here is a quiz:</p>
 <p>One of these is correct.  One is incorrect. Or are they both the same?</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">SysTick</span><span class="o">-&gt;</span><span class="n">CTRL</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x00010000</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span>
@@ -421,11 +420,13 @@ document.write(`
 <p>You can find the precedence order in the textbook on page 111 or below:</p>
 <p><img alt="Operator Precedence" src="_images/OperatorPrecedence.png" /></p>
 <p><strong><em>Are there different versions of C?</em></strong></p>
-<p>Indeed, there exist various versions or dialects of the C programming language standard. These include C79, C89, C99, C11, and C17, among others. You can find more information about these versions on this Wikipedia page: <a class="reference external" href="https://en.wikipedia.org/wiki/C_(programming_language)#History">https://en.wikipedia.org/wiki/C_(programming_language)#History</a></p>
-<p>The most recent standard is C17, but the most widely adopted versions are likely C89 (also known as ANSI C) and C79 (K&amp;R C). CCS provides support for K&amp;R, C89, C99, and C11.</p>
-<p>If you wish to switch between these dialects, you can do so by navigating to project properties, then CCS Build &gt; Advanced Options &gt; Language Options, and select your desired dialect, as illustrated in the image below:</p>
+<p>Yes, there are different revisions (dialects) of the C programming language standard, such as C79, C89, C99, C11, &amp; C17;
+<a class="reference external" href="https://en.wikipedia.org/wiki/C_(programming_language)#History">https://en.wikipedia.org/wiki/C_(programming_language)#History</a></p>
+<p>The latest standard is C17, but the most popular versions are perhaps C89 (ANSI C) and C79 (K&amp;R C).<br />
+CCS supports K&amp;R, C89, C99, and C11.
+If you want to change it, go to project properties, CCS Build &gt; Advanced Options &gt; Language Options, and select the dialect you wish to use, as shown below.</p>
 <p><img alt="C Dialect" src="_images/C_Dialect.png" /></p>
-<p>It’s worth noting that the default dialect in CCS is C89, but ECE382 employs C11 to facilitate features like variable declaration within for-loops, as seen in the example: <code class="docutils literal notranslate"><span class="pre">(int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">...</span> <span class="pre">)</span></code>.</p>
+<p>The default dialect in CCS is C89, but C11 is used in ECE382 to support the for-loop variable declaration such as for (int i = 0; … ).</p>
 </section>
 <section id="what-is-the-switch-statement-and-how-does-it-work">
 <h3><em>What is the switch statement, and how does it work?</em><a class="headerlink" href="#what-is-the-switch-statement-and-how-does-it-work" title="Permalink to this heading">#</a></h3>
