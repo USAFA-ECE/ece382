@@ -129,10 +129,6 @@ An array is considered to be the same thing as a pointer to the first item in th
 - Use `Program5_2` to test your function.
 - Demo your LCD printing "LCD Test", a small AF logo, letters, a hexadecimal number, and a binary number on the LCD as shown below. Please ignore the two decimal number in the bottom row.
 
-```{image} ./figures/Lab5_Prog5-2.gif
-:scale: 60%
-:align: center
-```
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Uiu4mAWwE10?si=EvpqV0sneFgaV2HU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
