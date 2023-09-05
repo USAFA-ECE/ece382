@@ -134,6 +134,11 @@ An array is considered to be the same thing as a pointer to the first item in th
 :align: center
 ```
 
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Uiu4mAWwE10?si=EvpqV0sneFgaV2HU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+
+
 ```{important}
 Ensure you understand how to use the `Nokia5110_SetCursor2`.  You will be using the Nokia LCD throughout the semester for high-level debugging, and you are required to use it extensively for the final project. 
 ```
@@ -181,11 +186,9 @@ sprintf(strnum, "%6d", n); // strnum --> " 12345"
 printf and sprintf are macros (not functions) in C and they are extremeley slow.  So, they are not used in the world of embedded systems and software. 
 :::
 
-
-```{image} ./figures/Lab5_Prog5-3.gif
-:scale: 60%
-:align: center
-```
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Gaz8E99uqzE?si=sLD6jkb0FARCTOhi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
 
 ```{tip}
 Implement and test one function at a time, and then move to the next function. Do not write everything at once and expect they are all working fine.  
