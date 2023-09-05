@@ -127,10 +127,10 @@ Do **NOT** implement your own "xor".  You **must** use the provided `XOR_bytes` 
 - After execution of `Lab04_Granger.asm` provide the following screenshots.
     * The addresses of each of the variables stored in RAM and ROM (use the Memory Browser and the pointers you created. You can search the Memory Browser by variable name or memory address).
     * The contents of `enc_msg`. Use Memory Browser and change the encoding style to **32-bit Hex**.
-    * The contents of `dec_msg`. Use Memory Browser and change the encoding style to the **correct** format so that everyone can verify that the code works correctly.
+    * The contents of `dec_msg`. Use Memory Browser and change the encoding style to the **correct** format so that everyone can readily verify that the code works correctly.
 
 ```{tip}
-What is the correct encoding sytle? Your code encrypts and decrypts "Wingardium Leviosa!" After decrypting the spell, what do you expect to see? 
+What is the correct encoding style? Your code encrypts and decrypts "Wingardium Leviosa!" After decrypting the spell, what do you expect to see? "Wingardium Leviosa!" that everyone can easily understand or hexadecimal numbers that no one readily understand?
 ```
 
 ```{image} ./figures/Lab04_WingardiumLeviosa2.gif
@@ -147,7 +147,7 @@ It’s important to remember that function calls will overwrite the LR register 
 You intercepted the following encrypted message between Dr. Baek and Dr. York. You also overheard Dr. Baek telling Dr. York that the secret key is _the number of staircases at Hogwarts_.  Use your decrypt function to decrypt the Harry Potter's spell and provide a screenshot of your Memory Browser showing the decrypted message.
 
 ```asm
-spell    .word 0xEBFEF6CB, 0xAEE1FAED, 0xFCFAEFDE, 0xE3FBE0E1, 0x00008EAF
+spell    .word 0xEBFEF6CB, 0xAEE1FAED, 0xFCFAEFDE, 0xE3FBE0E1, 0x0000ADAF
 ```
 
 - Open `Lab04_Potter.asm` in the `Lab04_Cryptography` project.

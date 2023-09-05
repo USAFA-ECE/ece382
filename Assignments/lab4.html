@@ -540,13 +540,13 @@ A: If so, it is not encryption. 😆  Encrypted messages will not be readable ch
 <ul>
 <li><p>The addresses of each of the variables stored in RAM and ROM (use the Memory Browser and the pointers you created. You can search the Memory Browser by variable name or memory address).</p></li>
 <li><p>The contents of <code class="docutils literal notranslate"><span class="pre">enc_msg</span></code>. Use Memory Browser and change the encoding style to <strong>32-bit Hex</strong>.</p></li>
-<li><p>The contents of <code class="docutils literal notranslate"><span class="pre">dec_msg</span></code>. Use Memory Browser and change the encoding style to the <strong>correct</strong> format so that everyone can verify that the code works correctly.</p></li>
+<li><p>The contents of <code class="docutils literal notranslate"><span class="pre">dec_msg</span></code>. Use Memory Browser and change the encoding style to the <strong>correct</strong> format so that everyone can readily verify that the code works correctly.</p></li>
 </ul>
 </li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>What is the correct encoding sytle? Your code encrypts and decrypts “Wingardium Leviosa!” After decrypting the spell, what do you expect to see?</p>
+<p>What is the correct encoding style? Your code encrypts and decrypts “Wingardium Leviosa!” After decrypting the spell, what do you expect to see? “Wingardium Leviosa!” that everyone can easily understand or hexadecimal numbers that no one readily understand?</p>
 </div>
 <a class="reference internal image-reference" href="../_images/Lab04_WingardiumLeviosa2.gif"><img alt="../_images/Lab04_WingardiumLeviosa2.gif" class="align-center" src="../_images/Lab04_WingardiumLeviosa2.gif" style="width: 640px;" /></a>
 <div class="admonition important">
@@ -557,7 +557,7 @@ A: If so, it is not encryption. 😆  Encrypted messages will not be readable ch
 <section id="complete-and-execute-lab04-potter-asm">
 <h3>Complete and execute <code class="docutils literal notranslate"><span class="pre">Lab04_Potter.asm</span></code><a class="headerlink" href="#complete-and-execute-lab04-potter-asm" title="Permalink to this heading">#</a></h3>
 <p>You intercepted the following encrypted message between Dr. Baek and Dr. York. You also overheard Dr. Baek telling Dr. York that the secret key is <em>the number of staircases at Hogwarts</em>.  Use your decrypt function to decrypt the Harry Potter’s spell and provide a screenshot of your Memory Browser showing the decrypted message.</p>
-<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">spell</span><span class="w">    </span><span class="no">.word</span><span class="w"> </span><span class="mi">0xEBFEF6CB</span><span class="p">,</span><span class="w"> </span><span class="mi">0xAEE1FAED</span><span class="p">,</span><span class="w"> </span><span class="mi">0xFCFAEFDE</span><span class="p">,</span><span class="w"> </span><span class="mi">0xE3FBE0E1</span><span class="p">,</span><span class="w"> </span><span class="mi">0x00008EAF</span>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">spell</span><span class="w">    </span><span class="no">.word</span><span class="w"> </span><span class="mi">0xEBFEF6CB</span><span class="p">,</span><span class="w"> </span><span class="mi">0xAEE1FAED</span><span class="p">,</span><span class="w"> </span><span class="mi">0xFCFAEFDE</span><span class="p">,</span><span class="w"> </span><span class="mi">0xE3FBE0E1</span><span class="p">,</span><span class="w"> </span><span class="mi">0x0000ADAF</span>
 </pre></div>
 </div>
 <ul class="simple">
