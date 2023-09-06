@@ -15,3 +15,17 @@ ECE382 Course Web
 ### Recommended extensions for vscode
 - Python, Python Extension Pack
 - Jupyter, MyST-Markdown
+
+
+### Settings inside settings.json
+```
+{
+    "python.envFile": "${workspaceFolder}/.venv",
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    
+    "cSpell.words": [
+        "Gradescope",
+        "microcontroller"
+    ]
+}
+```
