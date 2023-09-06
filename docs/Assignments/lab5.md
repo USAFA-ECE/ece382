@@ -121,7 +121,7 @@ char str[10] = "ECE382";  // array size can be > 7. C compilers will put \0 at s
 
 The first method is the best to define a string (an array of characters) in C.  Note that an array is a pointer.  In the above example, the `str` variable from `char str[] = "ECE382"` holds the **address** of the first letter, 'E', in "ECE382". So, you can access 'E' by `*str` or `str[0]` and 'C' by `*(str+1)` or `str[1]`.  
 
-The difference between arrays and pointers is that a memory space must be allocated to an array during the compile time (you must define them with a size) whereas no memory space needs to be allocated to a pointer when it is define.  If we need to allocate a memory space to a pointer during the runtime, we can use *malloc* or *calloc*.  If you initialize a pointer using the second method in the previous examples, the memory space will be allocated at compile-time, but it will reside in ROM, rather than RAM. Consequently, if you attempt to modify it, it will result in undefined behavior according to the C standard. 😵
+The difference between arrays and pointers is that a memory space must be allocated to an array during the compile time (you must define them with a size) whereas no memory space needs to be allocated to a pointer when it is define.  If we need to allocate a memory space to a pointer during the runtime, we can use *malloc* or *calloc*.  If you initialize a pointer using the second method in the previous examples, the memory space will be allocated at compile-time, but it will reside in ROM, rather than RAM. Consequently, if you attempt to modify it, it will result in undefined behavior according to the C standard. 😵 
 
 
 ```{tip}
