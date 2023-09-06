@@ -84,7 +84,7 @@ Read `Nokia5110.h` before you start writing code. Putting the declarations in th
 - Ensure `Program5_1` is uncommented inside the `main` function.
 - Build and debug the program.
 - It will display the Air Force logo as shown below.
-- Adjust the contrast settings using the switches located on the LaunchPad. If the display remains too dim, adjust the `CONSTRAST` constant, which is defined just above the `Program5_1()`` function if necessary.
+- Adjust the contrast settings using the switches located on the LaunchPad. If the display remains too dim, adjust the `CONTRAST` constant, which is defined just above the `Program5_1()` function.
 
 
 ```{image} ./figures/Lab5_Prog5-1.gif
