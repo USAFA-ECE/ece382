@@ -5,7 +5,7 @@ ECE382 Course Web
 - Open a terminal.
 - Navigate to the root folder and find requirements.txt
 - run `pip install -r requirements.txt`
-- I recommned using a virtual environment.
+- I recommend using a virtual environment.
 
 ### How to build and publish?
 - Run the following under the `docs` folder.
