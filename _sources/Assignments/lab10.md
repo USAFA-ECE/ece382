@@ -106,7 +106,7 @@ Video Credit: C24 Chanon Mallanoo
 ### Deliverable 1 
 - **[5 Points]** Demo `Program10_2()` showing that the RGB LED lights magenta using a background thread. 
 
-### Deliverable 3 
+### Deliverable 2 
 - **[5 Points]** Demo `Program10_3()` displaying the correct `count` value on the LCD. You must use both foreground and background threads concurrently.
 
 ### Deliverable 3 
