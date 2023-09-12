@@ -66,7 +66,7 @@ The two left bump switches connected to P4.7 and P4.6 are two window sensors, wh
 <br>
 
 ```{warning}
-If you want to give a video demo, use a screen recorder such as OBS Studio - it is free. Do not record your screen with a mobile device or a webcam. If you do so, **you will get -10 points**.
+If you want to give a video demo, use a screen recorder such as ScreenToGif or OBS Studio - they are free. Do not record your screen with a mobile device or a webcam. If you do so, **you will get -10 points**.
 ```
 
 ### Demo `Program8_2()` with Moku:Go Oscilloscope
@@ -129,9 +129,11 @@ We will now utilize Moku:Go Oscilloscope to observe the signal sent over P1.0 to
 <br>
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8T5bG38kvj0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6tt7-AJcoWE?si=mNi-JQu-J6P_fSlv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <br>
+Video Credit: C24 Eric DeLuga
+</center>
+
 
 
 ## 🚚 Deliverables
