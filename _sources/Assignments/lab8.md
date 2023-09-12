@@ -130,9 +130,10 @@ We will now utilize Moku:Go Oscilloscope to observe the signal sent over P1.0 to
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6tt7-AJcoWE?si=mNi-JQu-J6P_fSlv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<br>
 Video Credit: C24 Eric DeLuga
 </center>
-<br>
+
 
 
 ## 🚚 Deliverables
