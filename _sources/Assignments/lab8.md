@@ -66,7 +66,7 @@ The two left bump switches connected to P4.7 and P4.6 are two window sensors, wh
 <br>
 
 ```{warning}
-If you want to give a video demo, use a screen recorder such as OBS Studio - it is free. Do not record your screen with a mobile device or a webcam. If you do so, **you will get -10 points**.
+If you want to give a video demo, use a screen recorder such as ScreenToGif or OBS Studio - they are free. Do not record your screen with a mobile device or a webcam. If you do so, **you will get -10 points**.
 ```
 
 ### Demo `Program8_2()` with Moku:Go Oscilloscope
