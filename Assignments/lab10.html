@@ -496,39 +496,39 @@ Video Credit: C24 Chanon Mallanoo
 </section>
 <section id="examine-causal-dependency-and-fix-it-using-an-atomic-operation">
 <h3>Examine causal dependency and fix it using an atomic operation<a class="headerlink" href="#examine-causal-dependency-and-fix-it-using-an-atomic-operation" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>We will examine the foreground thread.</p>
 <ul class="simple">
-<li><p>Thoroughly read <code class="docutils literal notranslate"><span class="pre">incrementer.asm</span></code>.</p></li>
-<li><p>Ensure that <code class="docutils literal notranslate"><span class="pre">Enable_Interrupt()</span></code> inside <code class="docutils literal notranslate"><span class="pre">Program10_4</span></code> is commented out and <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> inside the for-loop is uncommented to run the <code class="docutils literal notranslate"><span class="pre">Increment</span></code> function in the foreground only.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> and record the <code class="docutils literal notranslate"><span class="pre">count</span></code> value displayed on the LCD.</p></li>
-<li><p>Is the value what you expect? If not, explain in Gradescope.</p></li>
+<li><p>Examining the Foreground Thread</p>
+<ul>
+<li><p>Start by thoroughly reviewing the <code class="docutils literal notranslate"><span class="pre">incrementer.asm</span></code> code.</p></li>
+<li><p>Ensure that the <code class="docutils literal notranslate"><span class="pre">Enable_Interrupt()</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> is commented out. Uncomment the line <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> inside the for-loop to run the Increment function exclusively in the foreground.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> and take note of the <code class="docutils literal notranslate"><span class="pre">count</span></code> value displayed on the LCD.</p></li>
+<li><p>Does the displayed value match your expectations? If not, explain in Gradescope.</p></li>
 </ul>
 </li>
-<li><p>We will examine the background thread.</p>
-<ul class="simple">
-<li><p>Ensure that <code class="docutils literal notranslate"><span class="pre">Enable_Interrupt()</span></code> inside <code class="docutils literal notranslate"><span class="pre">Program10_4</span></code> is uncommented and <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> inside the for-loop is commented out to run the <code class="docutils literal notranslate"><span class="pre">Increment</span></code> function in the background only.</p></li>
-<li><p>The background thread is performed by TimerA2 and the <code class="docutils literal notranslate"><span class="pre">Increment</span></code> function is called every 1 ms.</p></li>
+<li><p>Examining the Background Thread</p>
+<ul>
+<li><p>Ensure that the <code class="docutils literal notranslate"><span class="pre">Enable_Interrupt()</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> is uncommented, and the line <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> inside the for-loop is commented out to execute the <code class="docutils literal notranslate"><span class="pre">Increment</span></code> function exclusively in the background.</p></li>
+<li><p>Keep in mind that the background thread operates through <code class="docutils literal notranslate"><span class="pre">TimerA2</span></code>, and the Increment function is invoked every 1 ms.</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> and record the <code class="docutils literal notranslate"><span class="pre">count</span></code> value displayed on the LCD.</p></li>
-<li><p>Is the value what you expect? If not, explain in Gradescope.</p></li>
+<li><p>Does the displayed value align with your expectations? If not, provide an explanation in Gradescope.</p></li>
 </ul>
 </li>
-<li><p>We will examine multithreading.</p>
-<ul class="simple">
-<li><p>Ensure that both <code class="docutils literal notranslate"><span class="pre">Enable_Interrupt()</span></code> and <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> are uncommented to run the <code class="docutils literal notranslate"><span class="pre">Increment</span></code> function in both foreground and background concurrently.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> and record the <code class="docutils literal notranslate"><span class="pre">count</span></code> value displayed on the LCD.</p></li>
-<li><p>Is the value what you expect? If not, explain in Gradescope.</p></li>
+<li><p>Examining Multithreading</p>
+<ul>
+<li><p>Make sure both <code class="docutils literal notranslate"><span class="pre">Enable_Interrupt()</span></code> and <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> are uncommented to enable concurrent execution of the <code class="docutils literal notranslate"><span class="pre">Increment</span></code> function in both foreground and background threads.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> and document the <code class="docutils literal notranslate"><span class="pre">count</span></code> value displayed on the LCD.</p></li>
+<li><p>Does the displayed value match your expectations? If not, explain in Gradescope.</p></li>
 </ul>
 </li>
-<li><p>We will fix causal dependency.</p>
-<ul class="simple">
-<li><p>Modify <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> to prevent unexpected results due to causal dependency.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> and record the <code class="docutils literal notranslate"><span class="pre">count</span></code> value displayed on the LCD.</p></li>
-<li><p>Is the value what you expect? Explain why it fixes the problem.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program10_4</span></code> displaying the correct value on the LCD.  You must use both foreground and background threads concurrently.</p></li>
+<li><p>Fixing Race Condition</p>
+<ul>
+<li><p>Make adjustments to <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> to resolve the issue encountered in the previous step, which was attributed to a race condition.</p></li>
+<li><p>Execute <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> once more and take note of the count value displayed on the LCD.</p></li>
+<li><p>Does the displayed value now align with your expectations? Explain how your modifications resolved the issue.</p></li>
+<li><p>Demonstrate <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> displaying the correct value on the LCD while utilizing both foreground and background threads concurrently.</p></li>
 </ul>
 </li>
-</ol>
+</ul>
 </section>
 </section>
 <section id="deliverables">

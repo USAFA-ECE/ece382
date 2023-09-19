@@ -80,25 +80,29 @@ Video Credit: C24 Chanon Mallanoo
 
 ### Examine causal dependency and fix it using an atomic operation
 
-1. We will examine the foreground thread.
-    - Thoroughly read `incrementer.asm`. 
-    - Ensure that `Enable_Interrupt()` inside `Program10_4` is commented out and `count = Increment();` inside the for-loop is uncommented to run the `Increment` function in the foreground only.
+
+- Examining the Foreground Thread
+    - Start by thoroughly reviewing the `incrementer.asm` code.
+    - Ensure that the `Enable_Interrupt()` function inside `Program10_3` is commented out. Uncomment the line `count = Increment();` inside the for-loop to run the Increment function exclusively in the foreground.
+    - Run `Program10_3` and take note of the `count` value displayed on the LCD.
+    - Does the displayed value match your expectations? If not, explain in Gradescope.
+
+- Examining the Background Thread
+    - Ensure that the `Enable_Interrupt()` function inside `Program10_3` is uncommented, and the line `count = Increment();` inside the for-loop is commented out to execute the `Increment` function exclusively in the background.
+    - Keep in mind that the background thread operates through `TimerA2`, and the Increment function is invoked every 1 ms.
     - Run `Program10_3` and record the `count` value displayed on the LCD.
-    - Is the value what you expect? If not, explain in Gradescope.
-2. We will examine the background thread.
-    - Ensure that `Enable_Interrupt()` inside `Program10_4` is uncommented and `count = Increment();` inside the for-loop is commented out to run the `Increment` function in the background only.
-    - The background thread is performed by TimerA2 and the `Increment` function is called every 1 ms.
-    - Run `Program10_3` and record the `count` value displayed on the LCD.
-    - Is the value what you expect? If not, explain in Gradescope.
-3. We will examine multithreading.
-    - Ensure that both `Enable_Interrupt()` and `count = Increment();` are uncommented to run the `Increment` function in both foreground and background concurrently.
-    - Run `Program10_3` and record the `count` value displayed on the LCD.
-    - Is the value what you expect? If not, explain in Gradescope.
-4. We will fix causal dependency.
-    - Modify `Program10_3` to prevent unexpected results due to causal dependency.
-    - Run `Program10_3` and record the `count` value displayed on the LCD.
-    - Is the value what you expect? Explain why it fixes the problem.
-    - Demo `Program10_4` displaying the correct value on the LCD.  You must use both foreground and background threads concurrently.
+    - Does the displayed value align with your expectations? If not, provide an explanation in Gradescope.
+
+- Examining Multithreading
+    - Make sure both `Enable_Interrupt()` and `count = Increment();` are uncommented to enable concurrent execution of the `Increment` function in both foreground and background threads.
+    - Run `Program10_3` and document the `count` value displayed on the LCD.
+    - Does the displayed value match your expectations? If not, explain in Gradescope.
+
+- Fixing Race Condition
+    - Make adjustments to `Program10_3` to resolve the issue encountered in the previous step, which was attributed to a race condition.
+    - Execute `Program10_3` once more and take note of the count value displayed on the LCD.
+    - Does the displayed value now align with your expectations? Explain how your modifications resolved the issue.
+    - Demonstrate `Program10_3` displaying the correct value on the LCD while utilizing both foreground and background threads concurrently.
 
 
 ## 🚚 Deliverables
