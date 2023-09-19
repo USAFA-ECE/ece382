@@ -11,7 +11,7 @@ The best thing about a Boolean is even if you are wrong, you are only off by a b
 
 ## 📜 Synopsis
 
-The objective of this lab is to develop software modules that communicate with external devices connected by the most commonly-available serial communication interfaces.  The Nokia 5110 is connected to the MSP432 by a serial peripheral interface (SPI) and your PC’s USB port is connected to the MSP432 via a universal asynchronous receiver-transmitter (UART). 
+In this lab, our aim is to develop software modules capable of communicating with external devices connected by the most commonly-available serial communication interfaces.  Specifically, we will establish communication between the MSP432 and the Nokia 5110 using a Serial Peripheral Interface (SPI), and we will connect your PC's USB port to the MSP432 using a Universal Asynchronous Receiver-Transmitter (UART).
 
 
 ## 💻 Procedure
@@ -27,11 +27,11 @@ The objective of this lab is to develop software modules that communicate with e
     - Hint: Read `UART0_InChar()` and Lecture 11.
 3. Write `UART0_OutString()`
     - A NULL-terminated string is a string with the NULL character at the end of it.
-    - The NULL character is 0 (ASCII: 0), not '0' (ASCII: 0x30). You can find the ASCII table on Valvano pp. 60.
+    - The NULL character is 0 (ASCII: 0), not '0' (ASCII: 0x30). You can find the ASCII table on ECE 382 Ref Guide, Valvano pp. 60, or [here](Resources:ASCII_Table).
     - Transmit one character in the string at a time until you reach the end of the string. Do not transmit the NULL character.  Do not rewrite the code you already wrote. 
 
 ```{note}
-The NULL character is not a null pointer, which is a pointer or reference that refers to an invalid object (or nothing). For example, if you have `int * x;`, the pointer `x` refers to nothing until you assign an address to it. 
+The NULL character should not be confused with a null pointer, which is a pointer or reference that points to an invalid object or to nothing. For instance, consider the declaration `int* x;` where the pointer x initially doesn't point to any valid address until you assign one to it.
 ```
 
 - Debug (or F11) `Program11_1` but do not click `Resume` (or F8) yet.  
@@ -93,7 +93,7 @@ A: It can be.  It depends on how many serial devices have been connected to your
 
 - Take a screenshot and clearly annotate start bits (S), stop bits (E), and the binary bits of your three letters as shown below. 
 - Add your three letters under the corresponding binary signals.
-- You can find an ASCII binary table in {ref}`Resources:ASCII_Table`. 
+- You can find an ASCII binary table [here](Resources:ASCII_Table).
 
 ```{image} ./figures/Lab11_Moku_UART_Fox.png
 :width: 760
@@ -116,17 +116,6 @@ A: It can be.  It depends on how many serial devices have been connected to your
 :width: 760
 :align: center
 ```
-<br>
-
-````{admonition} Q&A
-Q: My program will not leave the while loop initiated in 
-```
-while((EUSCI_B1->IFG&0x02)==0);
-EUSCI_B1->TXBUF = data;
-```
-A: You probably did not initialize it properly.  Look at your init() function carefully.
-````
-
 <br>
 
 
