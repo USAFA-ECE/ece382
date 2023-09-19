@@ -424,7 +424,7 @@ document.write(`
 </section>
 <section id="synopsis">
 <h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
-<p>The objective of this lab is to develop software modules that communicate with external devices connected by the most commonly-available serial communication interfaces.  The Nokia 5110 is connected to the MSP432 by a serial peripheral interface (SPI) and your PC’s USB port is connected to the MSP432 via a universal asynchronous receiver-transmitter (UART).</p>
+<p>In this lab, our aim is to develop software modules capable of communicating with external devices connected by the most commonly-available serial communication interfaces.  Specifically, we will establish communication between the MSP432 and the Nokia 5110 using a Serial Peripheral Interface (SPI), and we will connect your PC’s USB port to the MSP432 using a Universal Asynchronous Receiver-Transmitter (UART).</p>
 </section>
 <section id="procedure">
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
@@ -446,14 +446,14 @@ document.write(`
 <li><p>Write <code class="docutils literal notranslate"><span class="pre">UART0_OutString()</span></code></p>
 <ul class="simple">
 <li><p>A NULL-terminated string is a string with the NULL character at the end of it.</p></li>
-<li><p>The NULL character is 0 (ASCII: 0), not ‘0’ (ASCII: 0x30). You can find the ASCII table on Valvano pp. 60.</p></li>
+<li><p>The NULL character is 0 (ASCII: 0), not ‘0’ (ASCII: 0x30). You can find the ASCII table on ECE 382 Ref Guide, Valvano pp. 60, or <a class="reference internal" href="../resources.html#resources-ascii-table"><span class="std std-ref">here</span></a>.</p></li>
 <li><p>Transmit one character in the string at a time until you reach the end of the string. Do not transmit the NULL character.  Do not rewrite the code you already wrote.</p></li>
 </ul>
 </li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The NULL character is not a null pointer, which is a pointer or reference that refers to an invalid object (or nothing). For example, if you have <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">x;</span></code>, the pointer <code class="docutils literal notranslate"><span class="pre">x</span></code> refers to nothing until you assign an address to it.</p>
+<p>The NULL character should not be confused with a null pointer, which is a pointer or reference that points to an invalid object or to nothing. For instance, consider the declaration <code class="docutils literal notranslate"><span class="pre">int*</span> <span class="pre">x;</span></code> where the pointer x initially doesn’t point to any valid address until you assign one to it.</p>
 </div>
 <ul class="simple">
 <li><p>Debug (or F11) <code class="docutils literal notranslate"><span class="pre">Program11_1</span></code> but do not click <code class="docutils literal notranslate"><span class="pre">Resume</span></code> (or F8) yet.</p></li>
@@ -507,7 +507,7 @@ A: It can be.  It depends on how many serial devices have been connected to your
 <ul class="simple">
 <li><p>Take a screenshot and clearly annotate start bits (S), stop bits (E), and the binary bits of your three letters as shown below.</p></li>
 <li><p>Add your three letters under the corresponding binary signals.</p></li>
-<li><p>You can find an ASCII binary table in <a class="reference internal" href="../resources.html#resources-ascii-table"><span class="std std-ref">ASCII Table</span></a>.</p></li>
+<li><p>You can find an ASCII binary table <a class="reference internal" href="../resources.html#resources-ascii-table"><span class="std std-ref">here</span></a>.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/Lab11_Moku_UART_Fox.png"><img alt="../_images/Lab11_Moku_UART_Fox.png" class="align-center" src="../_images/Lab11_Moku_UART_Fox.png" style="width: 760px;" /></a>
 <br>
@@ -527,16 +527,6 @@ A: It can be.  It depends on how many serial devices have been connected to your
 <li><p>Add your three letters under the corresponding binary signals.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/Lab11_Moku_SPI_Fox.png"><img alt="../_images/Lab11_Moku_SPI_Fox.png" class="align-center" src="../_images/Lab11_Moku_SPI_Fox.png" style="width: 760px;" /></a>
-<br>
-<div class="admonition-q-a admonition">
-<p class="admonition-title">Q&amp;A</p>
-<p>Q: My program will not leave the while loop initiated in</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="p">((</span><span class="n">EUSCI_B1</span><span class="o">-&gt;</span><span class="n">IFG</span><span class="o">&amp;</span><span class="mh">0x02</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">);</span>
-<span class="n">EUSCI_B1</span><span class="o">-&gt;</span><span class="n">TXBUF</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>A: You probably did not initialize it properly.  Look at your init() function carefully.</p>
-</div>
 <br>
 </section>
 </section>

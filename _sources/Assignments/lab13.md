@@ -53,7 +53,7 @@ Video Credit: C24 Chanon Mallanoo
 
 
 :::{important}
-Why do we use a function pointer? We want the interrupt service routines to perform various user-defined tasks, but we do not want to rewrite them every time we have a new task.  For example, we have different tasks for `TimerA1` to run, and we don't have to rewrite `TimerA1.c`, but we can simply write functions performing the tasks and pass their addresses to `TimerA1`.  
+Why do we employ a function pointer? We want to enable interrupt service routines to execute a range of user-defined tasks without the need for rewriting them each time a new task arises. As an illustration, when we have distinct tasks for `TimerA1` to execute, we don't have to rewrite the `TimerA1.c` file. Instead, we can create functions that carry out these tasks and simply pass their addresses to `TimerA1`.
 :::
 
 
