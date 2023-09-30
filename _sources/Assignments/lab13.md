@@ -26,8 +26,8 @@ where $V$ is the voltage, $I$ is the current, and $d \in [0, 99.99]$ is the duty
 
 ### Setup
 - Go to Teams > General > Files > Class Materials > SourceFiles.
-- Download `SPIA3.c` into your workspace/inc folder using Windows File Explorer (not Code Composer Studio). 
-- You need to overwrite the existing `SPIA3.c`.
+- Download `SPIA3.c` and `SPIA3.h` into your `workspace/inc` folder using Windows File Explorer (not Code Composer Studio). 
+- You need to overwrite the existing `SPIA3.c` and `SPIA3.h`.
 
 ```{Warning}
 It must be in the inc folder, not in your project folder.
@@ -38,7 +38,6 @@ Before starting the next, check the solution to `TimerA1_Init` posted in Gradesc
 
 ### Write Timer functions in `TimerA1.c`.
 
-- Delete line 62 in Lab13_Timersmain.c.  We don't use SysTick this year.
 - Open `TimerA1.h` and `TimerA1.c` and read them thoroughly.
 - Carefully examine `Program13_1` to understand (i) how TimerA1 is initialized and (ii) how the semaphore is used between the foreground and background threads. 
 - Write `TimerA1_Stop()`, and `TA1_0_IRQHandler()`.  These functions were covered in Lecture 13 and Valvano's textbook. 
@@ -52,9 +51,9 @@ Video Credit: C24 Chanon Mallanoo
 <br>
 
 
-:::{important}
+```{important}
 Why do we employ a function pointer? We want to enable interrupt service routines to execute a range of user-defined tasks without the need for rewriting them each time a new task arises. As an illustration, when we have distinct tasks for `TimerA1` to execute, we don't have to rewrite the `TimerA1.c` file. Instead, we can create functions that carry out these tasks and simply pass their addresses to `TimerA1`.
-:::
+```
 
 
 ### Write functions in `PWM.c` and `Motor.c`.
