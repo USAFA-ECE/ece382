@@ -440,23 +440,23 @@ P = VI \frac{d}{100}
 <section id="setup">
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Go to Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
-<li><p>Download <code class="docutils literal notranslate"><span class="pre">SPIA3.c</span></code> and <code class="docutils literal notranslate"><span class="pre">SPIA3.h</span></code> into your <code class="docutils literal notranslate"><span class="pre">workspace/inc</span></code> folder using Windows File Explorer (not Code Composer Studio).</p></li>
-<li><p>You need to overwrite the existing <code class="docutils literal notranslate"><span class="pre">SPIA3.c</span></code> and <code class="docutils literal notranslate"><span class="pre">SPIA3.h</span></code>.</p></li>
+<li><p>Navigate to Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
+<li><p>Download <code class="docutils literal notranslate"><span class="pre">SPIA3.c</span></code> and <code class="docutils literal notranslate"><span class="pre">SPIA3.h</span></code> and move them into your <code class="docutils literal notranslate"><span class="pre">workspace/inc</span></code> folder using <strong>Windows File Explorer</strong> (not Code Composer Studio).</p></li>
+<li><p>Ensure you overwrite the existing <code class="docutils literal notranslate"><span class="pre">SPIA3.c</span></code> and <code class="docutils literal notranslate"><span class="pre">SPIA3.h</span></code>.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>It must be in the inc folder, not in your project folder.</p>
+<p>It must be in the <strong>inc</strong> folder, NOT in the Lab 13 project folder.</p>
 </div>
-<p>Before starting the next, check the solution to <code class="docutils literal notranslate"><span class="pre">TimerA1_Init</span></code> posted in Gradescope to ensure you have the correct code. If the solution is not published in Gradescope, go through your code with your instructor.</p>
+<p>Before proceeding, review the solution for <code class="docutils literal notranslate"><span class="pre">TimerA1_Init</span></code> posted on Gradescope to confirm you have the accurate code. If the solution isn’t available on Gradescope, consult your instructor to go over your code.</p>
 </section>
 <section id="write-timer-functions-in-timera1-c">
 <h3>Write Timer functions in <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code>.<a class="headerlink" href="#write-timer-functions-in-timera1-c" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">TimerA1.h</span></code> and <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code> and read them thoroughly.</p></li>
-<li><p>Carefully examine <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> to understand (i) how TimerA1 is initialized and (ii) how the semaphore is used between the foreground and background threads.</p></li>
-<li><p>Write <code class="docutils literal notranslate"><span class="pre">TimerA1_Stop()</span></code>, and <code class="docutils literal notranslate"><span class="pre">TA1_0_IRQHandler()</span></code>.  These functions were covered in Lecture 13 and Valvano’s textbook.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> as shown in the video below.  You should demonstrate the red LED blinking at 5 Hz and the blue LED blinking at 2.5 Hz. The LCD should update the elapsed time at 5 Hz.</p></li>
+<li><p>Take a close look at <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> to grasp (i) how <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> is initialized and (ii) how the semaphore is employed to coordinate between the foreground and background threads.</p></li>
+<li><p>Proceed to write the <code class="docutils literal notranslate"><span class="pre">TimerA1_Stop()</span></code> and <code class="docutils literal notranslate"><span class="pre">TA1_0_IRQHandler()</span></code> functions, which were discussed in Lecture 13 and can be found in Valvano’s textbook.</p></li>
+<li><p>Demonstrate <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> as shown in the video below.  Make sure to showcase the red LED blinking at 5 Hz, the blue LED blinking at 2.5 Hz, and the LCD updating the elapsed time at a rate of 5 Hz.</p></li>
 </ul>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ySVa26xwUzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -466,18 +466,19 @@ Video Credit: C24 Chanon Mallanoo
 <br>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Why do we employ a function pointer? We want to enable interrupt service routines to execute a range of user-defined tasks without the need for rewriting them each time a new task arises. As an illustration, when we have distinct tasks for <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> to execute, we don’t have to rewrite the <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code> file. Instead, we can create functions that carry out these tasks and simply pass their addresses to <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code>.</p>
+<p>Why do we employ a function pointer?</p>
+<p>We want to enable interrupt service routines to execute a range of user-defined tasks without the need for rewriting them each time a new task arises. As an illustration, when we have different tasks for <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> to execute, we don’t have to rewrite the <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code> file. Instead, we can create functions that carry out these tasks and simply pass their addresses to <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code>.</p>
 </div>
 </section>
 <section id="write-functions-in-pwm-c-and-motor-c">
 <h3>Write functions in <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> and <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>.<a class="headerlink" href="#write-functions-in-pwm-c-and-motor-c" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Carefully read the documentation in <code class="docutils literal notranslate"><span class="pre">PWM.h</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> for the functions you need to implement.</p></li>
-<li><p>The PWM period for both motors is 20 ms (50 Hz). When <code class="docutils literal notranslate"><span class="pre">PWM_Init34</span></code> is called by <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>, you must pass 15,000 for the period corresponding to the <em>PWM period</em> of 20 ms. It is not the Timer period (refer to Lecture 13 Slide 17).</p></li>
-<li><p>The duty cycles passed into <code class="docutils literal notranslate"><span class="pre">PWM_DutyRight</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM_DutyLeft</span></code> are in permyriad, which we need to convert to the Timer period (it is already done in the code).  Otherwise, we always need to calculate the duty cycles when you call the functions in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>, e.g., you need to pass <span class="math notranslate nohighlight">\((duty \%)\times 100\times(3/2)\)</span>. However, the two duty cycles passed into <code class="docutils literal notranslate"><span class="pre">PWM_Init34</span></code> are in a 0-14,999 range, and you don’t need a unit conversion between permyriad and the Timer period.</p></li>
+<li><p>Thoroughly review the documentation provided in <code class="docutils literal notranslate"><span class="pre">PWM.h</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> to understand the functions you will be implementing.</p></li>
+<li><p>Note that the PWM period for both motors is set at 20 ms (50 Hz). When calling <code class="docutils literal notranslate"><span class="pre">PWM_Init34</span></code> from <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>, you should use a period value of 15,000, corresponding to the <em>PWM period</em> of 20 ms. It is not the Timer period, as explained in Lecture 13 Slide 17.</p></li>
+<li><p>Keep in mind that the duty cycles passed into <code class="docutils literal notranslate"><span class="pre">PWM_DutyRight</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM_DutyLeft</span></code> are in <em>permyriad</em>.  The code handles the conversion to the Timer period, so you don’t need to perform this calculation when calling these functions in Motor.c. However, when passing duty cycles to <code class="docutils literal notranslate"><span class="pre">PWM_Init34</span></code>, they should be in the range of 0-14,999.</p></li>
 <li><p>Read <code class="docutils literal notranslate"><span class="pre">Motor.h</span></code> and <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> thoroughly.</p></li>
-<li><p>We will replace the suite of software functions built in Lab 12 with functions that use <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> to create the two PWM outputs. This suite of functions will control the two wheels on the robot. When active, the PWM to both motors will be 50 Hz (20 ms), but have independent duty cycles.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code> as shown in the video below. Use motor functions defined in Motor.c to move the robot. Use a bump switch to start the next motor function. You must run at least one iteration in the while loop. Note: The bump switches cannot stop the motors.</p></li>
+<li><p>We will be replacing the suite of software functions developed in Lab 12 with functions that use <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> to generate the two PWM outputs. These functions will control the robot’s two wheels. The PWM signals to both motors will operate at 50 Hz (20 ms) when active with independent duty cycles.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code> as shown in the video below. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to maneuver the robot.Activate the next motor function using a bump switch, ensuring you run at least one iteration in the while loop. Please note that the bump switches won’t halt the motors.</p></li>
 </ul>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jMpPHZ5NVKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -494,7 +495,7 @@ Video Credit: C24 Chanon Mallanoo
 <a class="reference internal image-reference" href="../_images/Lab13_ComponentBlockDiagram.png"><img alt="../_images/Lab13_ComponentBlockDiagram.png" class="align-center" src="../_images/Lab13_ComponentBlockDiagram.png" style="width: 460px;" /></a>
 <br>
 <ul class="simple">
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code> as shown in the video below.  Your robot must stop on a collision.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code> as shown in the video below.  Your robot should stop on a collision.</p></li>
 </ul>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DqtfwLTfbmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
