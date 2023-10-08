@@ -25,23 +25,22 @@ where $V$ is the voltage, $I$ is the current, and $d \in [0, 99.99]$ is the duty
 ## 💻 Procedure
 
 ### Setup
-- Go to Teams > General > Files > Class Materials > SourceFiles.
-- Download `SPIA3.c` and `SPIA3.h` into your `workspace/inc` folder using Windows File Explorer (not Code Composer Studio). 
-- You need to overwrite the existing `SPIA3.c` and `SPIA3.h`.
+- Navigate to Teams > General > Files > Class Materials > SourceFiles.
+- Download `SPIA3.c` and `SPIA3.h` and move them into your `workspace/inc` folder using **Windows File Explorer** (not Code Composer Studio). 
+- Ensure you overwrite the existing `SPIA3.c` and `SPIA3.h`.
 
-```{Warning}
-It must be in the inc folder, not in your project folder.
+```{warning}
+It must be in the **inc** folder, NOT in the Lab 13 project folder.
 ```
 
-Before starting the next, check the solution to `TimerA1_Init` posted in Gradescope to ensure you have the correct code. If the solution is not published in Gradescope, go through your code with your instructor.
-
+Before proceeding, review the solution for `TimerA1_Init` posted on Gradescope to confirm you have the accurate code. If the solution isn't available on Gradescope, consult your instructor to go over your code.
 
 ### Write Timer functions in `TimerA1.c`.
 
 - Open `TimerA1.h` and `TimerA1.c` and read them thoroughly.
-- Carefully examine `Program13_1` to understand (i) how TimerA1 is initialized and (ii) how the semaphore is used between the foreground and background threads. 
-- Write `TimerA1_Stop()`, and `TA1_0_IRQHandler()`.  These functions were covered in Lecture 13 and Valvano's textbook. 
-- Demo `Program13_1` as shown in the video below.  You should demonstrate the red LED blinking at 5 Hz and the blue LED blinking at 2.5 Hz. The LCD should update the elapsed time at 5 Hz.
+- Take a close look at `Program13_1` to grasp (i) how `TimerA1` is initialized and (ii) how the semaphore is employed to coordinate between the foreground and background threads. 
+- Proceed to write the `TimerA1_Stop()` and `TA1_0_IRQHandler()` functions, which were discussed in Lecture 13 and can be found in Valvano's textbook. 
+- Demonstrate `Program13_1` as shown in the video below.  Make sure to showcase the red LED blinking at 5 Hz, the blue LED blinking at 2.5 Hz, and the LCD updating the elapsed time at a rate of 5 Hz.
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ySVa26xwUzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -52,18 +51,20 @@ Video Credit: C24 Chanon Mallanoo
 
 
 ```{important}
-Why do we employ a function pointer? We want to enable interrupt service routines to execute a range of user-defined tasks without the need for rewriting them each time a new task arises. As an illustration, when we have distinct tasks for `TimerA1` to execute, we don't have to rewrite the `TimerA1.c` file. Instead, we can create functions that carry out these tasks and simply pass their addresses to `TimerA1`.
+Why do we employ a function pointer? 
+
+We want to enable interrupt service routines to execute a range of user-defined tasks without the need for rewriting them each time a new task arises. As an illustration, when we have different tasks for `TimerA1` to execute, we don't have to rewrite the `TimerA1.c` file. Instead, we can create functions that carry out these tasks and simply pass their addresses to `TimerA1`.
 ```
 
 
 ### Write functions in `PWM.c` and `Motor.c`.
 
-- Carefully read the documentation in `PWM.h` and `PWM.c` for the functions you need to implement.  
-- The PWM period for both motors is 20 ms (50 Hz). When `PWM_Init34` is called by `Motor.c`, you must pass 15,000 for the period corresponding to the _PWM period_ of 20 ms. It is not the Timer period (refer to Lecture 13 Slide 17). 
-- The duty cycles passed into `PWM_DutyRight` and `PWM_DutyLeft` are in permyriad, which we need to convert to the Timer period (it is already done in the code).  Otherwise, we always need to calculate the duty cycles when you call the functions in `Motor.c`, e.g., you need to pass $(duty \%)\times 100\times(3/2)$. However, the two duty cycles passed into `PWM_Init34` are in a 0-14,999 range, and you don't need a unit conversion between permyriad and the Timer period.  
-- Read `Motor.h` and `Motor.c` thoroughly.
-- We will replace the suite of software functions built in Lab 12 with functions that use `PWM.c` to create the two PWM outputs. This suite of functions will control the two wheels on the robot. When active, the PWM to both motors will be 50 Hz (20 ms), but have independent duty cycles. 
-- Demo `Program13_2` as shown in the video below. Use motor functions defined in Motor.c to move the robot. Use a bump switch to start the next motor function. You must run at least one iteration in the while loop. Note: The bump switches cannot stop the motors.
+- Thoroughly review the documentation provided in `PWM.h` and `PWM.c` to understand the functions you will be implementing.  
+- Note that the PWM period for both motors is set at 20 ms (50 Hz). When calling `PWM_Init34` from `Motor.c`, you should use a period value of 15,000, corresponding to the _PWM period_ of 20 ms. It is not the Timer period, as explained in Lecture 13 Slide 17. 
+- Keep in mind that the duty cycles passed into `PWM_DutyRight` and `PWM_DutyLeft` are in _permyriad_.  The code handles the conversion to the Timer period, so you don't need to perform this calculation when calling these functions in Motor.c. However, when passing duty cycles to `PWM_Init34`, they should be in the range of 0-14,999.
+ - Read `Motor.h` and `Motor.c` thoroughly.
+- We will be replacing the suite of software functions developed in Lab 12 with functions that use `PWM.c` to generate the two PWM outputs. These functions will control the robot's two wheels. The PWM signals to both motors will operate at 50 Hz (20 ms) when active with independent duty cycles. 
+- Demo `Program13_2` as shown in the video below. Use motor functions defined in `Motor.c` to maneuver the robot.Activate the next motor function using a bump switch, ensuring you run at least one iteration in the while loop. Please note that the bump switches won't halt the motors.
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jMpPHZ5NVKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -84,13 +85,12 @@ Why do we employ a function pointer? We want to enable interrupt service routine
 ```
 <br>
 
-- Demo `Program13_3` as shown in the video below.  Your robot must stop on a collision.
+- Demo `Program13_3` as shown in the video below.  Your robot should stop on a collision.
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DqtfwLTfbmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <br>
-
 
 
 ## 🚚 Deliverables
