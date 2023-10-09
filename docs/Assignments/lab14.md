@@ -104,7 +104,9 @@ Video Credit: C24 Chanon Mallanoo
 ## 🚚 Deliverables
 
 ### Deliverable 1 
-- **[6 Points]** Demo `Program14_2()` proving the edge-triggered interrupts are properly working.  Your LCD will display the number of collisions and the bump data that identifies which bump switch is pressed. Explain why the number of collisions displayed in the LCD is incorrect. 
+- **[6 Points]** Demo `Program14_2()`, showcasing the count of collisions and the bump data identifying the pressed bump switch. Explain why the count of collisions displayed on the LCD is incorrect.
+
+
 
 ### Deliverable 2 
 - **[6 Points]** Demo `Program14_3()` running a simple set of commands - `Motor_Backward()`, `Motor_TurnRight()`, and `Motor_Forward()`. On a collision, the robot must stop and restart the set of commands. 
