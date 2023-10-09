@@ -388,11 +388,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-in-bumpint-c">Complete functions in <code class="docutils literal notranslate"><span class="pre">BumpInt.c</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program14-2">Demo <code class="docutils literal notranslate"><span class="pre">Program14_2()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-for-program14-3">Complete functions for <code class="docutils literal notranslate"><span class="pre">Program14_3()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-robot-drive-in-a-square">Make your robot drive in a square.</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
@@ -418,8 +416,8 @@ document.write(`
 <h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Students should be able to implement software for edge-triggered interrupts to detect collisions.</p></li>
-<li><p>Students should be able to use shared global variables to communicate between threads.</p></li>
-<li><p>Students should be able to use interrupt priority to define the execution order when servicing multiple concurrent events.</p></li>
+<li><p>Students should be able to utilize shared global variables as a means of communication between threads.</p></li>
+<li><p>Students should be able to utilize interrupt priority to establish the execution order when handling multiple concurrent events.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -428,37 +426,29 @@ document.write(`
 </section>
 <section id="synopsis">
 <h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
-<p>The goal of this lab is to use edge-triggered interrupts to detect collisions by the bump sensors while the robot is moving. A collision event should cause an interrupt, and reading the status of the bumper switches should occur in the interrupt service routine (ISR).</p>
-<p>In the previous labs, we made the periodic interrupt a high priority because we wanted to run user tasks in real time.  For example, in Lab 10, we took the line-sensor measurements in real time.  However, in Lab 14, the collision task should have a priority even higher than the periodic measurements because a collision represents a dangerous condition that requires immediate service. In lab 8, you interfaced the bump sensors with the microcontroller. In this lab, you will shift the software servicing of the sensors from a periodic interrupt to an event-driven trigger.</p>
+<p>The aim of this lab is to utilize edge-triggered interrupts for detecting collisions through the bump sensors while the robot is in motion. When a collision event occurs, it should trigger an interrupt, and the reading of the bumper switches should be handled within the interrupt service routine (ISR).</p>
+<p>In previous labs, we assigned high priority to periodic interrupts to ensure real-time execution of user tasks. For instance, in Lab 13, we updated PWM duty cycles in real time. However, in Lab 14, the collision task requires an even higher priority than the periodic tasks because collisions represent potentially dangerous conditions that demand immediate attention. In this lab, you’ll transition from periodic interrupt-driven sensor servicing to event-driven triggering in the software.</p>
 </section>
 <section id="procedure">
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
-<section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Go to ECE382 Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
-<li><p>Download <code class="docutils literal notranslate"><span class="pre">Lab14_RealTimeSystemsMain.c</span></code> from the Teams folder into your <code class="docutils literal notranslate"><span class="pre">/workspace/Lab14_RealTimeSystems</span></code> folder using Windows File Explorer (not Code Composer Studio).  You need to overwrite the existing file.  <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">Lab14_RealTimeSystems</span></code> folder not in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
-</ul>
-</section>
 <section id="complete-functions-in-bumpint-c">
 <h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">BumpInt.c</span></code><a class="headerlink" href="#complete-functions-in-bumpint-c" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>This is part of Homework 14</strong></p></li>
-<li><p>Complete <code class="docutils literal notranslate"><span class="pre">BumpInt_Init()</span></code> and <code class="docutils literal notranslate"><span class="pre">PORT4_IRQHandler()</span></code> in <code class="docutils literal notranslate"><span class="pre">BumpInt.c</span></code>.</p></li>
-<li><p>Follow the instructions inside <code class="docutils literal notranslate"><span class="pre">BumpInt.c</span></code> to complete it.</p></li>
-<li><p>Copy and paste the code in Gradescope to submit your Homework 14.</p></li>
+<li><p>Complete the implementation of <code class="docutils literal notranslate"><span class="pre">BumpInt_Init()</span></code> and <code class="docutils literal notranslate"><span class="pre">PORT4_IRQHandler()</span></code> within the <code class="docutils literal notranslate"><span class="pre">BumpInt.c</span></code> file. Refer to the instructions provided within <code class="docutils literal notranslate"><span class="pre">BumpInt.c</span></code> for guidance on how to accomplish these tasks.</p></li>
+<li><p>After completion, copy and paste the code into Gradescope to submit your Homework 14.</p></li>
 </ul>
-<p>Before starting the following sections, check the solutions to <code class="docutils literal notranslate"><span class="pre">BumpInt_Init()</span></code> and <code class="docutils literal notranslate"><span class="pre">PORT4_IRQHandler()</span></code> posted in Gradescope to ensure you have the correct code. If the solution is not published in Gradescope, go through your code with your instructor.</p>
+<p>Before proceeding with the following sections, review the solutions for <code class="docutils literal notranslate"><span class="pre">BumpInt_Init()</span></code> and <code class="docutils literal notranslate"><span class="pre">PORT4_IRQHandler()</span></code> available on Gradescope. This will help ensure the correctness of your code. In case the solutions are not accessible on Gradescope, go through your code with your instructor.</p>
 </section>
 <section id="demo-program14-2">
 <h3>Demo <code class="docutils literal notranslate"><span class="pre">Program14_2()</span></code><a class="headerlink" href="#demo-program14-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Write <code class="docutils literal notranslate"><span class="pre">LCDOut2()</span></code>. Watch the video below to find what you need to display on the LCD.</p></li>
-<li><p>Shown below is the component block diagram for this part of the lab.</p></li>
+<li><p>Implement the <code class="docutils literal notranslate"><span class="pre">LCDOut2()</span></code> function. Refer to the video below for guidance on what should be displayed on the LCD.</p></li>
+<li><p>Below is the block diagram illustrating the components involved in this section of the lab.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/Lab14_ComponentBlockDiagram14-2.png"><img alt="../_images/Lab14_ComponentBlockDiagram14-2.png" class="align-center" src="../_images/Lab14_ComponentBlockDiagram14-2.png" style="width: 560px;" /></a>
 <ul class="simple">
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program14_2()</span></code> displaying the number of collisions and the bump data that identifies which bump switch is pressed. Explain why the number of collisions displayed in the LCD is incorrect.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program14_2()</span></code>, showcasing the count of collisions and the bump data identifying the pressed bump switch. Explain why the count of collisions displayed on the LCD is incorrect.</p></li>
 </ul>
 <br>
 <center>
@@ -476,10 +466,6 @@ Video Credit: C24 Chanon Mallanoo
 </ul>
 <a class="reference internal image-reference" href="../_images/Lab14_ComponentBlockDiagram14-3.png"><img alt="../_images/Lab14_ComponentBlockDiagram14-3.png" class="align-center" src="../_images/Lab14_ComponentBlockDiagram14-3.png" style="width: 760px;" /></a>
 <br>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You will construct component block diagrams for the final project.</p>
-</div>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Controller3()</span></code> function should be called by <code class="docutils literal notranslate"><span class="pre">TA1_0_IRQHandler</span></code>.</p></li>
 <li><p>To make this happen, <code class="docutils literal notranslate"><span class="pre">TA1_0_IRQHandler</span></code> must know the address of the <code class="docutils literal notranslate"><span class="pre">Controller3()</span></code> function (function pointer).</p></li>
@@ -491,10 +477,6 @@ Video Credit: C24 Chanon Mallanoo
 <p>TimerA1Task is the address of <code class="docutils literal notranslate"><span class="pre">Controller3</span></code>, not the function itself. You must add the <code class="docutils literal notranslate"><span class="pre">*</span></code> symbol to call the function, i.e., <code class="docutils literal notranslate"><span class="pre">(*TimerA1Task)()</span></code>.</p>
 </div>
 <br>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Why do we use a function pointer? We want the interrupt service routines to perform various user-defined tasks, but we do not want to rewrite them every time we have a new task.  For example, we have different tasks for <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> to run, and we don’t have to rewrite <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code>, but we can simply write functions performing the tasks and pass their addresses to <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code>.</p>
-</div>
 <ul class="simple">
 <li><p>Similarly, the <code class="docutils literal notranslate"><span class="pre">Collision3()</span></code> functions will be called by <code class="docutils literal notranslate"><span class="pre">PORT4_IRQHandler</span></code>.</p></li>
 <li><p>To make this happen, you need to pass the address of <code class="docutils literal notranslate"><span class="pre">Collision3()</span></code> as an argument to <code class="docutils literal notranslate"><span class="pre">BumpInt_Init</span></code>.</p></li>
@@ -527,59 +509,25 @@ Video Credit: C24 Chanon Mallanoo
 </center>
 <br>
 </section>
-<section id="make-your-robot-drive-in-a-square">
-<h3>Make your robot drive in a square.<a class="headerlink" href="#make-your-robot-drive-in-a-square" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Complete <code class="docutils literal notranslate"><span class="pre">Program14_4</span></code> to drive the robot in the maze.</p></li>
-<li><p>You may need to adjust your drive-straight PWM values if one wheel is going faster/slower than the other.</p></li>
-<li><p>The robot must start behind the start line shown in the figure below.</p></li>
-<li><p>You are not allowed to intentionally bump into the walls to decide when to turn (cannot do the bump-n-turn algorithm).  You have to base your decision to turn on your velocity and time (dead reckoning).</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program14_4</span></code> driving the robot in a maze.</p></li>
-<li><p><strong>[5 Bonus Points]</strong> After arriving at the goal, turn around, drive the maze in the opposite direction, and pass the start line.</p></li>
-</ul>
-<a class="reference internal image-reference" href="../_images/Lab14_DriveInMaze.png"><img alt="../_images/Lab14_DriveInMaze.png" class="align-center" src="../_images/Lab14_DriveInMaze.png" style="width: 560px;" /></a>
-<br>
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mehYdqnOhfo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br>
-Video Credit: C24 Chanon Mallanoo
-</center>
-<br>
-<br>
-<div class="admonition-q-a admonition">
-<p class="admonition-title">Q&amp;A</p>
-<p>Q: My robot only goes backward, and I think it is because the line that actually calls the motors to move is only called once. I’m not sure if I need to add it somewhere else in order to get it to call multiple times or if it is supposed to be called somewhere in an interrupt. Does anyone have anything for this?
-<br>
-A: I had that same problem, It is supposed to be called inside mainly the controller and collision function. Every time collision is called through the bump initializer, it should be running a control[currentstep].motor….etc</p>
-</div>
-</section>
 </section>
 <section id="deliverables">
 <h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
 <section id="deliverable-1">
 <h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[15 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program14_2()</span></code> proving the edge-triggered interrupts are properly working.  Your LCD will display the number of collisions and the bump data that identifies which bump switch is pressed. Explain why the number of collisions displayed in the LCD is incorrect. Push your code to your repository using git. Write comments in your code.</p></li>
+<li><p><strong>[6 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program14_2()</span></code> proving the edge-triggered interrupts are properly working.  Your LCD will display the number of collisions and the bump data that identifies which bump switch is pressed. Explain why the number of collisions displayed in the LCD is incorrect.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
 <h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[15 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program14_3()</span></code> running a simple set of commands - <code class="docutils literal notranslate"><span class="pre">Motor_Backward()</span></code>, <code class="docutils literal notranslate"><span class="pre">Motor_TurnRight()</span></code>, and <code class="docutils literal notranslate"><span class="pre">Motor_Forward()</span></code>. On a collision, the robot must stop and restart the set of commands.  Push your code to your repository using git. Write comments in your code.</p></li>
+<li><p><strong>[6 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program14_3()</span></code> running a simple set of commands - <code class="docutils literal notranslate"><span class="pre">Motor_Backward()</span></code>, <code class="docutils literal notranslate"><span class="pre">Motor_TurnRight()</span></code>, and <code class="docutils literal notranslate"><span class="pre">Motor_Forward()</span></code>. On a collision, the robot must stop and restart the set of commands.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
 <h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[20 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program14_4()</span></code> driving the robot in the maze.</p>
-<ul>
-<li><p>10 points for the first turn.</p></li>
-<li><p>5 points for the second turn.</p></li>
-<li><p>3 points for the third turn.</p></li>
-<li><p>2 points for arriving at the goal.</p></li>
-</ul>
-</li>
-<li><p><strong>[5 Bonus Points]</strong>  After arriving at the goal, turn around, drive the maze in the opposite direction, and pass the start line. It must turn around, and moving backward does not count.</p></li>
+<li><p><strong>[7.5 Points]</strong> Push your code to your repository using git. Write comments in your code.</p></li>
 </ul>
 <p>This lab has been adapted from the TI RSLK: <a class="reference external" href="https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum">The Solderless Maze Edition curriculum</a></p>
 </section>
@@ -656,11 +604,9 @@ A: I had that same problem, It is supposed to be called inside mainly the contro
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-in-bumpint-c">Complete functions in <code class="docutils literal notranslate"><span class="pre">BumpInt.c</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program14-2">Demo <code class="docutils literal notranslate"><span class="pre">Program14_2()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-for-program14-3">Complete functions for <code class="docutils literal notranslate"><span class="pre">Program14_3()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-your-robot-drive-in-a-square">Make your robot drive in a square.</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
