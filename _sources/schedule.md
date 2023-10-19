@@ -39,9 +39,9 @@ This schedule is subject to change as appropriate.
 | 29     | Lecture 16 – Tachometer (Timer Input Capture)     | 16.1-16.3            | [Lab15](Assignments/lab15.md)         (30)|
 | 30     | [Lab 16 – Tachometer](Assignments/lab16.md)       |                      | Homework 16                           (17)|
 | 31     | Lecture 17 – Control Systems                      | 17.1-17.5            | [Lab16](Assignments/lab16.md)         (20)|
-| 32     | GR 2                                              |                      |                                      (100)|
-| 33     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      | Homework17                            (17)|
-| 34     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      |                                           |
+| 32     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      | Homework17                            (17)|
+| 33     | [Lab 17 – Control Systems](Assignments/lab17.md)  |                      |                                           |
+| 34     | GR 2                                              |                      |                                      (100)|
 | 35     | [Robot Maze](Assignments/project.md)              |                      | [Lab17](Assignments/lab17.md)         (30)|
 |        | Thanksgiving Break                                |                      |                                           |   
 | 36     | [Robot Maze](Assignments/project.md)              |                      | Design Presentation                       |
