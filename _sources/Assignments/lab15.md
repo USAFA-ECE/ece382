@@ -221,6 +221,6 @@ Choose three distances (100, 300, and 500 mm) for each sensor and use a ruler in
 - **[5 Points]** Demo `Program15_4()` to display the classifications on the LCD. Ensure you show at least three error cases (enum scenario <= 7) and at least five non-error cases (enum scenario > 7). You can do a live demo, which is preferred, or provide a video demo. If you choose a video demo, **include your voice to clearly state the classifications you are testing**. 
 
 ### Deliverable 6 
-- **[5 Points]**  Ensure that you provide comments in your code for clarity and push your code to your repository using git.
+- **[6.5 Points]**  Ensure that you provide comments in your code for clarity and push your code to your repository using git.
 
 This lab has been adapted from the TI RSLK: [The Solderless Maze Edition curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum)
