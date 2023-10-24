@@ -201,7 +201,7 @@ Please note that `Program15_2` focuses on testing corner cases. In the context o
 - While a live demo is preferred, a video demo is also acceptable. If opting for a video demo, please **include your voice to clearly explain the classifications you are testing**.
 - Ensure that you provide comments in your code for clarity and push your code to your repository using git.
 
-## 🚚 Deliverables
+## 🚚 Deliverables (2 extra points)
 
 ### Deliverable 1 
 - **[5 Points]** Demo `Program15_1()` to display raw ADC data on the LCD. Note that the distance values on the LCD are not valid at this stage.
