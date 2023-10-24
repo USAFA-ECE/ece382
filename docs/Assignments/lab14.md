@@ -94,9 +94,9 @@ You know $f(g(x))$ is the same as $y=g(x)$ followed by $f(y)$.
 
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dmsQhTmzbmQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TwGcz-WAbdE?si=NjBEf0dSERInwTUP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <br>
-Video Credit: C24 Chanon Mallanoo
+Video Credit: C25 Kaitlyn Grimm
 </center>
 <br>
 
