@@ -388,7 +388,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-in-adc14-c">Complete functions in <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program15-1">Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrate-your-sensors">Calibrate your sensors</a></li>
@@ -403,6 +402,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4">Deliverable 4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-5">Deliverable 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-6">Deliverable 6</a></li>
 </ul>
 </li>
 </ul>
@@ -435,47 +435,41 @@ document.write(`
 </section>
 <section id="synopsis">
 <h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
-<p>In this lab, we will convert raw ADC samples into the distance from the analog domain to the digital domain. Three convert functions will be used to take input from the 3 IR distance sensors and convert it to a distance in millimeters. The range of the IR distance sensor is about 70 to 800 mm, and the resolution is about 1 mm at 200 mm.</p>
-<p>The figure below shows the relationship between the output voltage of the IR sensor and the distance to the wall. Notice the non-monotonic behavior of the sensor. For example, if the system records a sensor value of 2 V, it could mean 30 mm or 120 mm. During the robot challenge, you will endeavor to keep the robot away from the wall, so you will assume the sensor distance is greater than 70 mm. Due to the nature of the robot challenges, we are not interested in distances beyond 800 mm.</p>
+<p>In this lab, we will perform the conversion of raw analog-to-digital converter (ADC) samples into distance measurements. We will use three separate conversion functions to process data from three IR distance sensors and calculate distances in millimeters. The IR distance sensors have a range of approximately 70 to 800 mm, with a resolution of about 1 mm at a distance of 200 mm.</p>
+<p>The figure below illustrates the relationship between the output voltage of the IR sensor and the distance to the wall. It’s important to note that the sensor’s behavior is non-monotonic. For instance, if the sensor records a value of 2 V, it could correspond to either 30 mm or 120 mm. During the final project, the primary concern is to keep the robot at a safe distance from the wall, so we assume that the sensor distance is always greater than 70 mm. Additionally, given the nature of the maze navigation in the final project, we are not concerned with distances beyond 800 mm.</p>
 <a class="reference internal image-reference" href="../_images/Lab15_SensorResponse.png"><img alt="../_images/Lab15_SensorResponse.png" class="align-center" src="../_images/Lab15_SensorResponse.png" style="width: 560px;" /></a>
 <br>
 <p>We will develop a function that converts raw ADC samples into distance measured from the wall. Let <span class="math notranslate nohighlight">\(n\)</span> be a 14-bit sample from the ADC (0 to 16383), and <span class="math notranslate nohighlight">\(d\)</span> be the distance in mm from the sensor to the wall. Then the distance in mm from the sensor to the wall is given by</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{equation*}
-d = \frac{m}{n - c}
-\end{equation*}\]</div>
-<p>where <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are calibration coefficients to be empirically determined. Let <span class="math notranslate nohighlight">\(L\)</span> be the distance from the center of the robot to the wall, which is given by</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{equation*}
-L = d + r = \frac{m}{n - c} + r
-\end{equation*}\]</div>
-<p>where <span class="math notranslate nohighlight">\(r\)</span> is the distance from the center of the robot to the distance sensor. You must measure <span class="math notranslate nohighlight">\(r\)</span> for each sensor.</p>
-<p>The second task is to classify the situation into one of many possible scenarios using three distance values. The robot has three distance sensors: left, center, and right. Each sensor measures the distance from the center of the robot to the wall in millimeters. The center of the robot is the single reference point, and the three distances are measured from that common reference point. The four possible scenarios as the robot approaches a decision point are shown below. The variables left, center, and right are defined as the distance from the center of the robot to the wall.</p>
-<a class="reference internal image-reference" href="../_images/Lab15_FirstCases.png"><img alt="../_images/Lab15_FirstCases.png" class="align-center" src="../_images/Lab15_FirstCases.png" style="width: 560px;" /></a>
-<br>
-Four more scenarios are shown below as the robot approaches a decision point.
-<a class="reference internal image-reference" href="../_images/Lab15_SecondCases.png"><img alt="../_images/Lab15_SecondCases.png" class="align-center" src="../_images/Lab15_SecondCases.png" style="width: 560px;" /></a>
+<p>In this lab, we will create a function to convert raw ADC samples into distances measured from a wall. Let’s use some variables to represent our measurements:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> represents a 14-bit sample from the ADC, ranging from 0 to 16383.</p></li>
+<li><p><span class="math notranslate nohighlight">\(d\)</span> represents the distance in millimeters from the sensor to the wall.</p></li>
+</ul>
+<p>We’ll calculate <span class="math notranslate nohighlight">\(d\)</span> with the formula:</p>
+<div class="math notranslate nohighlight">
+\[ d = \frac{m}{n - c} \]</div>
+<p>where <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are calibration coefficients that we will need to find through empirically testing.</p>
+<p>Now, let’s consider the distance from the center of the robot to the wall, denoted as <span class="math notranslate nohighlight">\(L\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[L = d + r = \frac{m}{n - c} + r\]</div>
+<p>where <span class="math notranslate nohighlight">\(r\)</span> is the distance from the center of the robot to the distance sensor. You’ll need to measure this value for each sensor.</p>
+<p>Our second task is to classify the robot’s situation based on the readings from three distance sensors: left, center, and right. These sensors measure the distance from the center of the robot to the wall in millimeters. It’s essential to understand that the center of the robot serves as the common reference point for all three sensors.</p>
+<p>As the robot approaches a decision point, we’ll need to categorize its situation into one of the eight scenarios shown in the figure below. The variables ‘left,’ ‘center,’ and ‘right’ in the figure represent the respective distances from the center of the robot to the wall.</p>
+<a class="reference internal image-reference" href="../_images/Lab15_FirstCases.png"><img alt="../_images/Lab15_FirstCases.png" class="align-center" src="../_images/Lab15_FirstCases.png" style="width: 480px;" /></a>
+<a class="reference internal image-reference" href="../_images/Lab15_SecondCases.png"><img alt="../_images/Lab15_SecondCases.png" class="align-center" src="../_images/Lab15_SecondCases.png" style="width: 480px;" /></a>
 <br>
 </section>
 <section id="procedure">
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
-<section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Go to ECE382 Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
-<li><p>Download <code class="docutils literal notranslate"><span class="pre">Lab15_ADCmain.c</span></code> from the Teams folder into your <code class="docutils literal notranslate"><span class="pre">/workspace/Lab15_ADC</span></code> folder using Windows File Explorer (not Code Composer Studio). <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">Lab15_ADC</span></code> folder, not in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
-<li><p>Download <code class="docutils literal notranslate"><span class="pre">IRDistance.c</span></code> and <code class="docutils literal notranslate"><span class="pre">IRDistance.h</span></code> from the Teams folder into your <code class="docutils literal notranslate"><span class="pre">/workspace/inc</span></code> folder using the Windows File Explorer (not Code Composer Studio). <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder, not your project folder.</p></li>
-</ul>
-</section>
 <section id="complete-functions-in-adc14-c">
 <h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code><a class="headerlink" href="#complete-functions-in-adc14-c" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>This is part of Homework 15</strong></p></li>
-<li><p>Complete <code class="docutils literal notranslate"><span class="pre">ADC0_InitSWTriggerCh17_14_16()</span></code> and <code class="docutils literal notranslate"><span class="pre">ADC_In17_14_16()</span></code> in <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code>.</p></li>
-<li><p>Follow the instructions inside <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code> to complete it.</p></li>
-<li><p>Copy and paste the code in Gradescope to submit your Homework 15.</p></li>
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">ADC0_InitSWTriggerCh17_14_16()</span></code> and <code class="docutils literal notranslate"><span class="pre">ADC_In17_14_16()</span></code> located in the <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code> file.</p></li>
+<li><p>Refer to the instructions provided within the <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code> file to guide you through the completion of these functions.</p></li>
+<li><p>Copy and paste the code into Gradescope to submit your Homework 15.</p></li>
 </ul>
-<p>Before starting this lab, check the solutions posted in Gradescope to ensure you have the correct code.  If the solution is not published in Gradescope, go through your code with your instructor.</p>
+<p>Before starting this lab, review the solutions available in Gradescope to confirm that you have the correct code.  If the solutions are not published in Gradescope, go through your code with your instructor.</p>
 <ul class="simple">
 <li><p>The component block diagram of this lab is shown below.</p></li>
 </ul>
@@ -489,10 +483,10 @@ Four more scenarios are shown below as the robot approaches a decision point.
 <p>You should understand the main code provided in every module. No such code will be provided for your final project, and you must write your main.c from scratch.</p>
 </div>
 <ul class="simple">
-<li><p>Complete <code class="docutils literal notranslate"><span class="pre">LCDOut1()</span></code> in <code class="docutils literal notranslate"><span class="pre">Lab15_ADCmain.c</span></code>.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code> running with raw digital sensor values as shown below.</p></li>
-<li><p>Ignore the distance values on the LCD for this part.</p></li>
-<li><p><strong>Note</strong>: The chassis board powers the distance sensors.</p></li>
+<li><p>Finish the implementation of <code class="docutils literal notranslate"><span class="pre">LCDOut1()</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab15_ADCmain.c</span></code> file.</p></li>
+<li><p>Demo the functionality of <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code> by running it with raw digital sensor values as illustrated below.</p></li>
+<li><p>Disregard the distance values displayed on the LCD screen for this particular section.</p></li>
+<li><p><strong>Note</strong>: The distance sensors are powered by the chassis board.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/Lab15_ADC.png"><img alt="../_images/Lab15_ADC.png" class="align-center" src="../_images/Lab15_ADC.png" style="width: 260px;" /></a>
 <br>
@@ -508,14 +502,14 @@ Four more scenarios are shown below as the robot approaches a decision point.
 <section id="complete-functions-in-irdistance-c">
 <h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">IRDistance.c</span></code><a class="headerlink" href="#complete-functions-in-irdistance-c" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Complete <code class="docutils literal notranslate"><span class="pre">LeftConvert()</span></code>, <code class="docutils literal notranslate"><span class="pre">RightConvert()</span></code>, <code class="docutils literal notranslate"><span class="pre">CenterConvert()</span></code> in <code class="docutils literal notranslate"><span class="pre">IRDistance.c</span></code>.</p></li>
-<li><p>You found the calibration coefficients <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(c\)</span> in the previous section.</p></li>
-<li><p>As discussed in the Synopsis section, the functions must return the actual distance, <span class="math notranslate nohighlight">\(L\)</span>, from <strong>the center of the robot to the wall</strong>.</p></li>
-<li><p>The maximum measurement distance for the sensor is 800 mm, so if the ADC value is less than the ADC value for 800 mm (2244 in the example on the calibration(./lab15_calibration.ipynb) page), your function should return <span class="math notranslate nohighlight">\(800\)</span>.</p></li>
-<li><p>All the values you enter in CCS should be integers.</p></li>
-<li><p>ADCMAX_xxxx is the ADC value at 800mm.</p></li>
-<li><p>Do not use hard-coded numbers. Use enum and #define.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program15_1</span></code> running with accurate distance values on the LCD. Use the distances of 150, 200, 250, and 300 mm for your demo.  The error should be less than 50 mm for the demo.  Use one of the paper rulers (donated by IKEA) in the lab for the demo. A live demo is preferred, but a video demo is also acceptable. For a video demo, <strong>add your voice to clearly state the distances you are testing</strong>.</p></li>
+<li><p>Implement <code class="docutils literal notranslate"><span class="pre">LeftConvert()</span></code>, <code class="docutils literal notranslate"><span class="pre">RightConvert()</span></code>, and <code class="docutils literal notranslate"><span class="pre">CenterConvert()</span></code> in the <code class="docutils literal notranslate"><span class="pre">IRDistance.c</span></code> file.</p></li>
+<li><p>You should have already determined the calibration coefficients, denoted as <span class="math notranslate nohighlight">\(n\)</span> and $c, in the previous section.</p></li>
+<li><p>As discussed in the Synopsis section, these functions should return the actual distance, <span class="math notranslate nohighlight">\(L\)</span>, from <strong>the center of the robot to the wall</strong>.</p></li>
+<li><p>Ensure that if the ADC value is less than the ADC value for 800 mm (e.g., 2244 as shown in the example on the calibration page), your function should return a distance of 800 mm.</p></li>
+<li><p>Use integer values for all calculations in Code Composer Studio (CCS).</p></li>
+<li><p>Make use of <code class="docutils literal notranslate"><span class="pre">enum</span></code> and <code class="docutils literal notranslate"><span class="pre">#define</span></code> for constants rather than hard-coding numbers. Deductions will be made for the use of hard-coded numbers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ADCMAX_xxxx</span></code> is the ADC value at 800mm.</p></li>
+<li><p>Demo the <code class="docutils literal notranslate"><span class="pre">Program15_1</span></code> function running with accurate distance values on the LCD. Utilize distances of 150, 200, 250, and 300 mm for your demo. The error should be less than 50 mm during the demo. You can use one of the paper rulers available in the lab (donated by IKEA) for this purpose. While a live demo is preferred, a video demonstration is also acceptable. If you opt for a video demo, <strong>be sure to include your voice to clearly state the distances you are testing</strong>.</p></li>
 </ul>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BFKF1ZMtGAc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -548,8 +542,8 @@ Four more scenarios are shown below as the robot approaches a decision point.
 <p>We put the enumerated types in the header file so that any code files that include the .h file can access these constants.</p>
 </div>
 <ul class="simple">
-<li><p>Open <code class="docutils literal notranslate"><span class="pre">Classifier.c</span></code> in the project folder.</p></li>
-<li><p>We will use <code class="docutils literal notranslate"><span class="pre">#define</span></code> constants to specify the bounds to make it easier to understand the classification algorithm.  You will adjust these values during the final project to match the actual distances within the maze.</p></li>
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">Classifier.c</span></code> file located in the project folder.</p></li>
+<li><p>We will define the bounds using <code class="docutils literal notranslate"><span class="pre">#define</span></code> constants to enhance the clarity of the classification algorithm. You will have the opportunity to fine-tune these values during the final project to align them with the actual distances within the maze.</p></li>
 </ul>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define SIDEMIN    212   </span><span class="c1">// smallest side distance to the wall in mm</span>
 <span class="cp">#define SIDEMAX    354   </span><span class="c1">// largest side distance to wall in mm</span>
@@ -561,35 +555,47 @@ Four more scenarios are shown below as the robot approaches a decision point.
 </div>
 <br>
 <ul class="simple">
-<li><p>Create the following classification algorithm that will return the following:</p>
+<li><p>Develop the following classification algorithm, which will produce the following results:</p>
 <ul>
-<li><p>ClassificationError (0) if any of the sensors are less than 50 mm or greater than 800 mm.</p></li>
-<li><p>LeftTooClose (1) error if the left sensor is less than  212 mm.</p></li>
-<li><p>RightTooClose (2) error if the right sensor is less than  212 mm.</p></li>
-<li><p>CenterTooClose (4) error if the center sensor is less than 150 mm.</p></li>
-<li><p>With a combination of the last three conditions, there will be possible to have multiple simultaneous danger conditions. For example, 5 will signify both CenterTooClose and LeftTooClose. 7 will mean all three directions are too close.</p></li>
-<li><p>The rest (Straight (8) - Blocked (15)) depend on the state of the sensors.</p></li>
+<li><p>ClassificationError (0) if any of the sensors report distances <strong>less than</strong> 50 mm or <strong>greater than</strong> 800 mm.</p></li>
+<li><p>LeftTooClose (1) if the left sensor reports a distance <strong>less than</strong> 212 mm.</p></li>
+<li><p>RightTooClose (2) if the right sensor reports a distance <strong>less than</strong> 212 mm.</p></li>
+<li><p>CenterTooClose (4) if the center sensor reports a distance <strong>less than</strong> 150 mm.</p></li>
+<li><p>Combining conditions may result in multiple simultaneous danger states. For example, 5 indicates both CenterTooClose and LeftTooClose, while 7 implies all three directions are too close.</p></li>
+<li><p>The remaining classifications (Straight (8) - Blocked (15)) depend on the states of the sensors.</p></li>
 </ul>
 </li>
 </ul>
-<p>First, consider the center sensor. As the robot approaches the intersection, the center sensor will be used to classify the difference between the set of {Blocked, Right Turn, Left Turn, and Tee Joint} where the center sensor is less than 600 mm and the set of {Straight, Right Joint, Left Joint, and Cross Road} where the center sensor greater than or equal to 600 mm. Because there could be a long straight road, there is no maximum acceptable value for the sensors.</p>
-<p>We use numbers derived from a road that is 400 mm wide and side sensors that are placed at 45 degrees. If the robot is in the middle of the road with the straight or blocked scenarios, both side sensors placed at 45 degrees will read 283 mm. If the robot is within 50 mm from the center of the road with the straight or blocked scenarios, the side sensors could range from 212 (SIDEMIN) to 354 mm (SIDEMAX). The 354 (SIDEMAX) threshold will be used to classify whether or not it is possible to turn left or right at the next intersection. Less than 354 (SIDEMAX) means the turn path is not possible; 354 (SIDEMAX) or above means the turn path is possible.</p>
+<p>First, let’s focus on the center sensor. As the robot approaches an intersection, the center sensor plays a crucial role in distinguishing between two scenarios:</p>
 <ul class="simple">
-<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Classifier.c</span></code></p></li>
-<li><p>Open <code class="docutils literal notranslate"><span class="pre">Lab15_ADCmain.c</span></code> in the project folder.</p></li>
-<li><p>Scroll down to the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function and ensure the line with <code class="docutils literal notranslate"><span class="pre">Program15_2()</span></code> is uncommented while the other two are commented.</p></li>
-<li><p>Add the following variables to the Expressions tab: left, center, right, result, truth,  and errors.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">main()</span></code> by selecting the debug tool.</p></li>
-<li><p>Observe the value of <code class="docutils literal notranslate"><span class="pre">errors</span></code>. If greater than 0, debug your <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function by placing breakpoints and observing the state of your program.</p></li>
+<li><p>{Blocked, Right Turn, Left Turn, Tee Joint}: When the center sensor measures a distance <strong>less than</strong> 600 mm.</p></li>
+<li><p>{Straight, Right Joint, Left Joint, Cross Road}: When the center sensor measures a distance <strong>greater than or equal to</strong> 600 mm.</p></li>
 </ul>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">Program15_2</span></code> only tests corner cases. For the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function, each of the three possible inputs can vary from 50 to 800. Therefore, there are <span class="math notranslate nohighlight">\(751^3\)</span> (<span class="math notranslate nohighlight">\(423,564,751\)</span>) possible inputs. An exhaustive test (<code class="docutils literal notranslate"><span class="pre">Program15_3</span></code>) would evaluate them all. However, due to the nature of the problem, we can reduce the input values to a small subset of values around the threshold values. Using the knowledge of how the system works to select strategic values to test is called <em>corner cases</em>. In particular, we can reduce the number of test values from 751 to 18 with minimal loss of testing accuracy.  We will only test values that are <span class="math notranslate nohighlight">\(\pm 1\)</span> from the threshold values of 50, 150, 212, 354, 600, and 800.</p>
+<p>It’s important to note that, in scenarios involving long straight roads, there’s no defined maximum acceptable value for the sensors.</p>
+<p>For our measurements, we consider a road that is 400 mm wide with side sensors placed at 45-degree angles. When the robot is positioned in the middle of the road in the straight or blocked scenarios, both side sensors placed at 45 degrees should read approximately 283 mm.</p>
+<p>If the robot is within 50 mm from the center of the road in the straight or blocked scenarios, the side sensors can measure distances ranging from 212 mm (SIDEMIN) to 354 mm (SIDEMAX). The threshold of 354 mm (SIDEMAX) is used to determine whether it’s feasible to make a left or right turn at the upcoming intersection:</p>
+<ul class="simple">
+<li><p>A reading less than 354 mm (SIDEMAX) suggests that the turn path is not feasible.</p></li>
+<li><p>A reading of 354 mm (SIDEMAX) or higher indicates that the turn path is feasible.</p></li>
+</ul>
+<p>After completing the implementation of the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function in the <code class="docutils literal notranslate"><span class="pre">Classifier.c</span></code> file, proceed with the following steps.</p>
+<ul class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">Lab15_ADCmain.c</span></code> file in the project folder.</p></li>
+<li><p>Scroll down to the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function and make sure that the line with <code class="docutils literal notranslate"><span class="pre">Program15_2()</span></code> is uncommented while the other two are commented.</p></li>
+<li><p>Add the variables <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">center</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">result</span></code>, <code class="docutils literal notranslate"><span class="pre">truth</span></code>, and <code class="docutils literal notranslate"><span class="pre">errors</span></code> to the Expressions tab.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">main()</span></code> by selecting the debug tool.</p></li>
+<li><p>Monitor the value of <code class="docutils literal notranslate"><span class="pre">errors</span></code>. If it exceeds 0, utilize breakpoints to debug your <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function and observe the program’s state.”</p></li>
+</ul>
+<p>Please note that <code class="docutils literal notranslate"><span class="pre">Program15_2</span></code> focuses on testing corner cases. In the context of the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function, there’s a wide range of possible inputs, with each of the three sensors varying from 50 to 800. This results in a total of <span class="math notranslate nohighlight">\(751^3\)</span> possibilities, which is equal to 423,564,751 unique inputs. While an exhaustive test (<code class="docutils literal notranslate"><span class="pre">Program15_3</span></code>) would cover all these inputs, the nature of the problem allows us to significantly reduce the number of test values while retaining testing accuracy. This reduction is achieved by strategically selecting test values around the threshold points. This practice, known as testing “corner cases,” enables us to minimize the number of test values from <span class="math notranslate nohighlight">\(751^3\)</span> to just 18. Specifically, we will test values that are within <span class="math notranslate nohighlight">\(\pm 1\)</span> of the threshold values, which include 50, 150, 212, 354, 600, and 800.</p>
 </section>
 <section id="demo-the-classify-function">
 <h3>Demo the <code class="docutils literal notranslate"><span class="pre">Classify()</span></code> function.<a class="headerlink" href="#demo-the-classify-function" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">LCDOut4()</span></code> function to display data on the LCD.</p></li>
-<li><p>Use the maze in the lab to test 7 <em>too close</em> cases and eight normal cases.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program15_4()</span></code> displaying the classification on the LCD. You must show at least three error cases (enum scenario &lt;= 7) and at least five non-error cases (enum scenario &gt; 7).  A live demo is preferred, but a video demo is also acceptable. For a video demo, <strong>add your voice to clearly state the classification you are testing</strong>. Push your code to your repository using git. Comment your code.</p></li>
+<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">LCDOut4()</span></code> function for displaying data on the LCD.</p></li>
+<li><p>Use the maze in the lab to test a combination of seven “too close” cases and eight normal cases.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program15_4()</span></code> displaying the classifications on the LCD. Your demo should include at least three error cases (where <code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">scenario</span></code> is less than or equal to 7) and at least five non-error cases (where <code class="docutils literal notranslate"><span class="pre">enum</span> <span class="pre">scenario</span></code> is greater than 7).</p></li>
+<li><p>While a live demo is preferred, a video demo is also acceptable. If opting for a video demo, please <strong>include your voice to clearly explain the classifications you are testing</strong>.</p></li>
+<li><p>Ensure that you provide comments in your code for clarity and push your code to your repository using git.</p></li>
 </ul>
 </section>
 </section>
@@ -598,31 +604,39 @@ Four more scenarios are shown below as the robot approaches a decision point.
 <section id="deliverable-1">
 <h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[10 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code> displaying raw ADC data on the LCD. The distance values on the LCD are not valid yet. Push your code to your repository using git. Comment your code.</p></li>
+<li><p><strong>[5 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code> to display raw ADC data on the LCD. Note that the distance values on the LCD are not valid at this stage.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
 <h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[10 Points]</strong> Calibrate your sensors. Submit three plots for your right, center, and left sensors.</p></li>
+<li><p><strong>[5 Points]</strong> Calibrate your sensors. Submit three plots for your right, center, and left sensors.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
 <h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[10 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code> with accurate distances on LCD. You must pick three distances for each sensor; 100, 300, and 500 mm. Use the ruler in the lab for the demo. A live demo is preferred, but a video demo is also acceptable. For a video demo, <strong>add your voice to clearly state the distances you are testing</strong>. Push your code to your repository using git. Comment your code.</p></li>
+<li><p><strong>[5 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code> with accurate distances on the LCD.
+Choose three distances (100, 300, and 500 mm) for each sensor and use a ruler in the lab for measurement. You can do a live demo, which is preferred, or provide a video demo. If you choose a video demo, ensure that you <strong>include your voice to clearly state the distances you are testing</strong>.</p></li>
 </ul>
 </section>
 <section id="deliverable-4">
 <h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[10 Points]</strong> Provide a screenshot of the Expressions tab after running <code class="docutils literal notranslate"><span class="pre">Program15_2()</span></code>. Ensure left, center, right, result, truth, and errors are in the Expressions tab.  Note: If you provide a screenshot before running the program, you will get a grade of 0.</p></li>
+<li><p><strong>[5 Points]</strong> Provide a screenshot of the Expressions tab after running <code class="docutils literal notranslate"><span class="pre">Program15_2()</span></code>. Ensure that <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">center</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">result</span></code>, <code class="docutils literal notranslate"><span class="pre">truth</span></code>, and <code class="docutils literal notranslate"><span class="pre">errors</span></code> are visible in the Expressions tab.</p></li>
+<li><p>Note that providing a screenshot before running the program will result in a grade of 0.</p></li>
 </ul>
 </section>
 <section id="deliverable-5">
 <h3>Deliverable 5<a class="headerlink" href="#deliverable-5" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[10 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_4()</span></code> displaying the classification on the LCD. You must show at least three error cases (enum scenario &lt;= 7) and at least five non-error cases (enum scenario &gt; 7).  A live demo is preferred, but a video demo is also acceptable. For a video demo, <strong>add your voice to clearly state the classification you are testing</strong>. Push your code to your repository using git. Comment your code.</p></li>
+<li><p><strong>[5 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program15_4()</span></code> to display the classifications on the LCD. Ensure you show at least three error cases (enum scenario &lt;= 7) and at least five non-error cases (enum scenario &gt; 7). You can do a live demo, which is preferred, or provide a video demo. If you choose a video demo, <strong>include your voice to clearly state the classifications you are testing</strong>.</p></li>
+</ul>
+</section>
+<section id="deliverable-6">
+<h3>Deliverable 6<a class="headerlink" href="#deliverable-6" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>[5 Points]</strong>  Ensure that you provide comments in your code for clarity and push your code to your repository using git.</p></li>
 </ul>
 <p>This lab has been adapted from the TI RSLK: <a class="reference external" href="https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum">The Solderless Maze Edition curriculum</a></p>
 </section>
@@ -699,7 +713,6 @@ Four more scenarios are shown below as the robot approaches a decision point.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-in-adc14-c">Complete functions in <code class="docutils literal notranslate"><span class="pre">ADC14.c</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program15-1">Demo <code class="docutils literal notranslate"><span class="pre">Program15_1()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrate-your-sensors">Calibrate your sensors</a></li>
@@ -714,6 +727,7 @@ Four more scenarios are shown below as the robot approaches a decision point.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4">Deliverable 4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-5">Deliverable 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-6">Deliverable 6</a></li>
 </ul>
 </li>
 </ul>
