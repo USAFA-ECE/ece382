@@ -500,25 +500,20 @@ where \)</span>n$ is the period in units of 2/3 microseconds. This formula allow
 <li><p>Once the data transmission is finished, the LCD will indicate <code class="docutils literal notranslate"><span class="pre">TX</span> <span class="pre">is</span> <span class="pre">Done</span></code>.</p></li>
 <li><p>In the serial terminal, select the entire data, excluding the header, which reads <em><strong>Receiving buffer data</strong></em>.</p></li>
 <li><p>Copy the selected data and save it as a text file with a .txt extension or as a comma-separated value (CSV) file with a .csv extension.</p></li>
-<li><p>Use a software tool of your choice to create plots for the duty cycle, timer periods, and actual speeds in rpm, using data from the <code class="docutils literal notranslate"><span class="pre">PeriodBuffer</span></code>, <code class="docutils literal notranslate"><span class="pre">SpeedBuffer</span></code>, and <code class="docutils literal notranslate"><span class="pre">DutyBuffer</span></code> arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab used for Lab 15<a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
-<ul>
-<li><p>The first column of the data is time in 10 milliseconds - 1 means 10ms and 2 means 20ms.</p></li>
-<li><p>The axes must have labels and units, e.g., <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(sec)</span></code>. You must use the standard units, such as sec, ms, and us - 10ms is not a standard unit. So, you must convert the time data into seconds - You know how to convert the data in 10 ms into the values in sec.</p></li>
-<li><p>The duty cycle must be in percentage, not permyriad.</p></li>
-<li><p>The speed must be in rpm, rad/sec, or deg/sec.</p></li>
+<li><p>Use a software tool of your choice to create plots for the duty cycle, timer periods, and actual speeds in rpm, using data from the <code class="docutils literal notranslate"><span class="pre">PeriodBuffer</span></code>, <code class="docutils literal notranslate"><span class="pre">SpeedBuffer</span></code>, and <code class="docutils literal notranslate"><span class="pre">DutyBuffer</span></code> arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a> used for Lab 15</p></li>
 </ul>
-</li>
-</ul>
+<br>
+<p>It is crucial to emphasize that data-driven analyses play a vital role in engineering and scientific endeavors. While videos and images may be useful for showcasing, they should not replace essential elements in engineering experiments. Gathering measurements, creating informative plots, and conducting thorough analyses will be integral to your final presentations and reports</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>The figures must have <strong><em>correct labels and units</em></strong>. You will only receive the full credit if labels and units are present or correct.</p>
-</div>
-<br>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Data-based analyses are critical in engineering and science. Videos and pictures are suitable for showcases but not essential elements in engineering experiments. You need to take measurements for your experiments and show your analyses based on the measurements. Taking measurements, generating meaningful plots, and comprehensive analyses will be a significant part of your final presentations and reports.</p>
+<p>Full credit will only be awarded if the figures have <strong><em>correct labels and units</em></strong>.”</p>
 </div>
 <ul class="simple">
+<li><p>Ensure that the first column of the data represents time in <strong>10-millisecond intervals</strong>; “1” signifies 10ms, and “2” signifies 20ms.</p></li>
+<li><p>Label your axes with appropriate units, e.g., <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(seconds)</span></code>. Convert the time data from 10ms to seconds. You have to use standard units, such as seconds (sec),milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.</p></li>
+<li><p>Represent the duty cycle in <code class="docutils literal notranslate"><span class="pre">percentage</span></code> rather than <code class="docutils literal notranslate"><span class="pre">permyriad</span></code>.</p></li>
+<li><p>Express the speed in rpm, radians per second (RPM), or degrees per second (deg/sec), and include the relevant units in your plots.
+<br></p></li>
 <li><p>The component block diagram of this part is shown below.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/Lab16_ComponentBlockDiagram1.png"><img alt="../_images/Lab16_ComponentBlockDiagram1.png" class="align-center" src="../_images/Lab16_ComponentBlockDiagram1.png" style="width: 760px;" /></a>

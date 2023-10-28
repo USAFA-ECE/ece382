@@ -101,23 +101,23 @@ uint16_t DutyBuffer[BUFFER_SIZE];       // to store duty cycles
 - Once the data transmission is finished, the LCD will indicate `TX is Done`.
 - In the serial terminal, select the entire data, excluding the header, which reads ***Receiving buffer data***.
 - Copy the selected data and save it as a text file with a .txt extension or as a comma-separated value (CSV) file with a .csv extension.
-- Use a software tool of your choice to create plots for the duty cycle, timer periods, and actual speeds in rpm, using data from the `PeriodBuffer`, `SpeedBuffer`, and `DutyBuffer` arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab used for Lab 15<a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a> 
+- Use a software tool of your choice to create plots for the duty cycle, timer periods, and actual speeds in rpm, using data from the `PeriodBuffer`, `SpeedBuffer`, and `DutyBuffer` arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a> used for Lab 15 
 
-
-
-    - The first column of the data is time in 10 milliseconds - 1 means 10ms and 2 means 20ms.
-    - The axes must have labels and units, e.g., `time (sec)`. You must use the standard units, such as sec, ms, and us - 10ms is not a standard unit. So, you must convert the time data into seconds - You know how to convert the data in 10 ms into the values in sec.     
-    - The duty cycle must be in percentage, not permyriad.
-    - The speed must be in rpm, rad/sec, or deg/sec.
-
-:::{caution}
-The figures must have **_correct labels and units_**. You will only receive the full credit if labels and units are present or correct. 
-:::
 <br>
 
-```{important}
-Data-based analyses are critical in engineering and science. Videos and pictures are suitable for showcases but not essential elements in engineering experiments. You need to take measurements for your experiments and show your analyses based on the measurements. Taking measurements, generating meaningful plots, and comprehensive analyses will be a significant part of your final presentations and reports. 
+It is crucial to emphasize that data-driven analyses play a vital role in engineering and scientific endeavors. While videos and images may be useful for showcasing, they should not replace essential elements in engineering experiments. Gathering measurements, creating informative plots, and conducting thorough analyses will be integral to your final presentations and reports
+
+```{caution}
+Full credit will only be awarded if the figures have **_correct labels and units_**."
 ```
+- Ensure that the first column of the data represents time in **10-millisecond intervals**; "1" signifies 10ms, and "2" signifies 20ms.
+- Label your axes with appropriate units, e.g., `time (seconds)`. Convert the time data from 10ms to seconds. You have to use standard units, such as seconds (sec),milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.
+- Represent the duty cycle in `percentage` rather than `permyriad`.
+- Express the speed in rpm, radians per second (RPM), or degrees per second (deg/sec), and include the relevant units in your plots.
+<br>
+
+
+
 
 - The component block diagram of this part is shown below. 
 
