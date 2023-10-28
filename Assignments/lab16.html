@@ -388,7 +388,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-in-ta3inputcapture-c">Complete functions in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program16-1">Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-duty-cycle-versus-actual-speed">Graph duty cycle versus actual speed.</a></li>
@@ -431,49 +430,42 @@ document.write(`
 <h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
 <p>In this lab, we will develop a software module that measures the speeds of motors and the displacement of the robot. The key element for measuring the speed and displacement of our robot is a Hall-effect sensor, a semiconductor device that produces a voltage proportional to the magnetic field. As shown in the figure below, a Hall-effect sensor can measure the magnetic field intensity of two magnets attached to a rotating plate.</p>
 <a class="reference internal image-reference" href="../_images/Hall_sensor_tach.gif"><img alt="../_images/Hall_sensor_tach.gif" class="align-center" src="../_images/Hall_sensor_tach.gif" style="width: 400px;" /></a>
-<p>The first goal of this lab is to write <code class="docutils literal notranslate"><span class="pre">Timer_A</span></code> software that can measure periods from the two encoders. The counter of <code class="docutils literal notranslate"><span class="pre">Timer_A</span></code> is 16-bit wide, so the period measurement will have a <em>precision</em> of 16 bits. This means you can measure about 65536 different periods. The <em>resolution</em> is the smallest change in the period the measurement can distinguish. The resolution in input capture mode is equal to the period of the selected clock. If you choose the SMCLK at 12 MHz, a prescale of 1, and an input divider of 1/8, the period measurement resolution will be 2/3 us. The maximum period that can be measured is the precision in alternatives times the resolution. At this clock and prescale, the <strong>maximum</strong> period that can be measured is about 43 ms.</p>
-<p>The second goal is to use the period to determine wheel speed. Since there are 360 pulses per rotation, this 43 ms maximum means the slowest wheel speed that can be measured will be about 3.81 rpm. If <span class="math notranslate nohighlight">\(n\)</span> is the period in 2/3 us units, then the angular speed of the wheel, <span class="math notranslate nohighlight">\(\omega\)</span>, in rpm can be calculated as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3e51e8c1-e18a-440a-ab04-46fb27d0d441">
-<span class="eqno">(1)<a class="headerlink" href="#equation-3e51e8c1-e18a-440a-ab04-46fb27d0d441" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\omega = \frac{1\text{ pulse}}{2/3\cdot10^{-6}~s} \frac{1^\circ}{ n~\text{pulses} }\frac{1~\text{rev}}{360^\circ}\frac{60\text{ sec}}{1\text{ min}} 
+<p>Our first objective in this lab is to develop <code class="docutils literal notranslate"><span class="pre">Timer_A</span></code> software capable of measuring periods from two encoders. The counter of `Timer_A`` is 16 bits wide, which means our period measurements will have a precision of 16 bits, allowing us to measure 65,536 different periods.</p>
+<p>The term <code class="docutils literal notranslate"><span class="pre">resolution</span></code> here refers to the smallest period that our measurement system can distinguish. When operating in input capture mode, this resolution is determined by the period of the selected clock. For example, if we choose the SMCLK clock running at 12 MHz, with a prescale of 1 and an input divider of 1/8, the period measurement resolution will be 2/3 microseconds. This means that the system can detect periods as small as 2/3 microseconds. With this configuration, the maximum measurable period is determined by the product of precision and resolution, which equals roughly 43 milliseconds (65,536 <span class="math notranslate nohighlight">\(\times\)</span> 2/3 <span class="math notranslate nohighlight">\(\mu s \approx\)</span> 43 ms).</p>
+<p>The second objective of this lab is to utilize the measured periods to determine the wheel speed. Given that there are 360 pulses per rotation, the 43 ms maximum measurement period corresponds to the slowest wheel speed we can accurately measure, which is about 3.81 revolutions per minute (rpm).</p>
+<p>We can calculate the angular speed of the wheel, denoted as <span class="math notranslate nohighlight">\(\omega\)</span> in rpm, using the following formula:
+$<span class="math notranslate nohighlight">\(
+\omega = \frac{1\text{ pulse}}{2/3\cdot10^{-6}~\text{ sec}} \times\frac{1^\circ}{ n~\text{pulses}} \times \frac{1~\text{rev}}{360^\circ} \times \frac{60\text{ sec}}{1\text{ min}} 
 = \frac{250,000}{n} \text{rpm}
-\end{equation}\]</div>
-<p>The third goal is to use the second input of the encoder to determine which direction the motor is spinning. You will write software that counts the number of pulses observed on each wheel as the robot moves. You will add to a counter as the robot moves forward and subtract from a counter as the robot moves backward. Then, the counter will be used to calculate the distance the wheel travels.</p>
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>n$ is the period in units of 2/3 microseconds. This formula allows us to convert the measured periods into angular speed in rpm.</p>
+<p>The third objective involves utilizing the second input of the encoder to determine the direction of the motor’s rotation. This entails developing software that keeps track of the number of pulses detected on each wheel as the robot advances. As the robot moves forward, these pulses will be added to a counter, and as it moves backward, pulses will be subtracted from the counter. Subsequently, this counter will play a crucial role in determining the distance traveled.</p>
 </section>
 <section id="procedure">
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
-<section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Go to ECE382 Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
-<li><p>Download <code class="docutils literal notranslate"><span class="pre">Lab16_Tachmain.c</span></code> from the Teams folder into your <code class="docutils literal notranslate"><span class="pre">/workspace/Lab16_Tach</span></code> folder using Windows File Explorer (not Code Composer Studio). <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">Lab16_Tach</span></code> folder not in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.</p></li>
-<li><p>Download <code class="docutils literal notranslate"><span class="pre">Tachometer.c</span></code>, <code class="docutils literal notranslate"><span class="pre">Tachometer.h</span></code>, and <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code> into your workspace/inc folder using Windows File Explorer (not Code Composer Studio). <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder not in the <code class="docutils literal notranslate"><span class="pre">Lab16_Tach</span></code> folder.</p></li>
-<li><p>Right-click on your <code class="docutils literal notranslate"><span class="pre">Lab16_Tach</span></code> project in CCS and select “Add Files…”. Browse to your <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">UART0.c</span></code>. Click Open. Ensure “Link to file” is selected and create a link to the “PROJECT_LOC”.</p></li>
-</ul>
-</section>
 <section id="complete-functions-in-ta3inputcapture-c">
 <h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.<a class="headerlink" href="#complete-functions-in-ta3inputcapture-c" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>This is part of Homework 16</strong></p></li>
-<li><p>Complete <code class="docutils literal notranslate"><span class="pre">TimerA3Capture_Init</span></code>, <code class="docutils literal notranslate"><span class="pre">TA3_0_IRQHandler()</span></code>, and <code class="docutils literal notranslate"><span class="pre">TA3_N_IRQHandler()</span></code> in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.</p></li>
-<li><p>Follow the instructions inside <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code> to complete it.</p></li>
-<li><p>Copy and paste the code in Gradescope to submit your Homework 16.</p></li>
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">TimerA3Capture_Init()</span></code>, <code class="docutils literal notranslate"><span class="pre">TA3_0_IRQHandler()</span></code>, and <code class="docutils literal notranslate"><span class="pre">TA3_N_IRQHandler()</span></code> in the <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code> file.</p></li>
+<li><p>Carefully follow the provided instructions within <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code> to ensure your code is accurate.</p></li>
+<li><p>After completing the tasks, submit your Homework 16 by copying and pasting your code into Gradescope.</p></li>
 </ul>
-<p>Before starting this lab, check the solutions posted in Gradescope to ensure you have the correct code.  If the solution is not published in Gradescope, go through your code with your instructor.</p>
+<p>Before starting this lab, review the solutions available in Gradescope to confirm that you have the correct code.  If the solutions are not published in Gradescope, go through your code with your instructor.</p>
 </section>
 <section id="demo-program16-1">
 <h3>Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code><a class="headerlink" href="#demo-program16-1" title="Permalink to this heading">#</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>You should understand the main code provided in every module. No such code will be provided for your final project, and you must write your main.c from scratch.</p>
+<p>You should understand the code inside the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function in every module. For your final project, you will be required to create your <code class="docutils literal notranslate"><span class="pre">main.c</span></code> file entirely from scratch, as no pre-written code will be provided</p>
 </div>
 <ul class="simple">
-<li><p>Complete LCDSpeed() in <code class="docutils literal notranslate"><span class="pre">Lab16_Tachmain.c</span></code>. The LCD should display the left and right tachometer periods and the speeds of both wheels in RPM as shown below.</p></li>
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">LCDSpeed()</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab16_Tachmain.c</span></code> file. The LCD should display the left and right tachometer periods and the speeds of both wheels in RPM as shown below.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/Lab16_Tachometer.png"><img alt="../_images/Lab16_Tachometer.png" class="align-center" src="../_images/Lab16_Tachometer.png" style="width: 300px;" /></a>
 <br>
 <ul class="simple">
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> running at the speeds from 25%, 50%, 75%, 100%, and back to 25% as shown below.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> running at the speeds of 25%, 50%, 75%, 100%, and then return to 25% as shown below.</p></li>
 </ul>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-YDAwoAS6Sw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -483,7 +475,7 @@ document.write(`
 <section id="graph-duty-cycle-versus-actual-speed">
 <h3>Graph duty cycle versus actual speed.<a class="headerlink" href="#graph-duty-cycle-versus-actual-speed" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> stores the speed of each motor and the assigned duty cycles in the following buffers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> stores the speed of each motor and their corresponding duty cycles in the following buffers.</p></li>
 </ul>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">PeriodBufferR</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">    </span><span class="c1">// to store right period</span>
 <span class="kt">uint16_t</span><span class="w"> </span><span class="n">PeriodBufferL</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">    </span><span class="c1">// to store left period</span>
@@ -493,22 +485,22 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>At the end of <code class="docutils literal notranslate"><span class="pre">Program16_1</span></code>, the LCD will display whether you want to transmit the data in the buffers, as shown below.</p></li>
+<li><p>Upon completion of of <code class="docutils literal notranslate"><span class="pre">Program16_1</span></code>, the LCD will display an option to transmit the data stored in the buffers, as illustrated below.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/Lab16_TxBuffer.png"><img alt="../_images/Lab16_TxBuffer.png" class="align-center" src="../_images/Lab16_TxBuffer.png" style="width: 300px;" /></a>
 <br>
 <ul class="simple">
-<li><p>Press the left switch to select Y (yes), but do not press a bump switch yet.</p></li>
-<li><p>Connect the USB cable to the robot and open the serial terminal as we did in <a class="reference internal" href="lab11.html#lab11-uart"><span class="std std-ref">Lab 11</span></a>.</p></li>
-<li><p>Press a bump switch to start transmitting data to the serial terminal. The data will be transmitted as shown below.</p></li>
+<li><p>Press the left switch to select “Y” (yes), but do not press any bump switch yet.</p></li>
+<li><p>Connect the USB cable to the robot and open a serial terminal, following the steps outlined in <a class="reference internal" href="lab11.html#lab11-uart"><span class="std std-ref">Lab 11</span></a>.</p></li>
+<li><p>When you’re ready to transmit data to the serial terminal, press one of the bump switches. The data will be transmitted as shown below.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/Lab16_SerialTerminal.gif"><img alt="../_images/Lab16_SerialTerminal.gif" class="align-center" src="../_images/Lab16_SerialTerminal.gif" style="width: 700px;" /></a>
 <br>
 <ul class="simple">
-<li><p>Once the data transmission is complete, the LCD will display <code class="docutils literal notranslate"><span class="pre">TX</span> <span class="pre">is</span> <span class="pre">Done</span></code>.</p></li>
-<li><p>Select the entire data in the serial terminal except the header, <code class="docutils literal notranslate"><span class="pre">***Receiving</span> <span class="pre">buffer</span> <span class="pre">data***</span></code>.</p></li>
-<li><p>Copy the data into a text file and save it as a text file (.txt extension) or a comma-separated value file (.csv extension).</p></li>
-<li><p>Use a software tool of your choice to plot the duty cycle, the timer periods, and the actual speeds in rpm using the values from the <code class="docutils literal notranslate"><span class="pre">PeriodBuffer</span></code>, <code class="docutils literal notranslate"><span class="pre">SpeedBuffer</span></code> and <code class="docutils literal notranslate"><span class="pre">DutyBuffer</span></code> arrays.  Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook.  You can also use this Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/stanbaek/ece382/blob/main/files/ECE382_Plots.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<li><p>Once the data transmission is finished, the LCD will indicate <code class="docutils literal notranslate"><span class="pre">TX</span> <span class="pre">is</span> <span class="pre">Done</span></code>.</p></li>
+<li><p>In the serial terminal, select the entire data, excluding the header, which reads <em><strong>Receiving buffer data</strong></em>.</p></li>
+<li><p>Copy the selected data and save it as a text file with a .txt extension or as a comma-separated value (CSV) file with a .csv extension.</p></li>
+<li><p>Use a software tool of your choice to create plots for the duty cycle, timer periods, and actual speeds in rpm, using data from the <code class="docutils literal notranslate"><span class="pre">PeriodBuffer</span></code>, <code class="docutils literal notranslate"><span class="pre">SpeedBuffer</span></code>, and <code class="docutils literal notranslate"><span class="pre">DutyBuffer</span></code> arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab used for Lab 15<a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <ul>
 <li><p>The first column of the data is time in 10 milliseconds - 1 means 10ms and 2 means 20ms.</p></li>
 <li><p>The axes must have labels and units, e.g., <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(sec)</span></code>. You must use the standard units, such as sec, ms, and us - 10ms is not a standard unit. So, you must convert the time data into seconds - You know how to convert the data in 10 ms into the values in sec.</p></li>
@@ -694,7 +686,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-in-ta3inputcapture-c">Complete functions in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program16-1">Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-duty-cycle-versus-actual-speed">Graph duty cycle versus actual speed.</a></li>

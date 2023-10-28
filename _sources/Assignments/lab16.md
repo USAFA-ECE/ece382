@@ -18,43 +18,41 @@ In this lab, we will develop a software module that measures the speeds of motor
 :align: center
 ```
 
-The first goal of this lab is to write `Timer_A` software that can measure periods from the two encoders. The counter of `Timer_A` is 16-bit wide, so the period measurement will have a _precision_ of 16 bits. This means you can measure about 65536 different periods. The _resolution_ is the smallest change in the period the measurement can distinguish. The resolution in input capture mode is equal to the period of the selected clock. If you choose the SMCLK at 12 MHz, a prescale of 1, and an input divider of 1/8, the period measurement resolution will be 2/3 us. The maximum period that can be measured is the precision in alternatives times the resolution. At this clock and prescale, the **maximum** period that can be measured is about 43 ms.
+Our first objective in this lab is to develop `Timer_A` software capable of measuring periods from two encoders. The counter of `Timer_A`` is 16 bits wide, which means our period measurements will have a precision of 16 bits, allowing us to measure 65,536 different periods.
 
-The second goal is to use the period to determine wheel speed. Since there are 360 pulses per rotation, this 43 ms maximum means the slowest wheel speed that can be measured will be about 3.81 rpm. If $n$ is the period in 2/3 us units, then the angular speed of the wheel, $\omega$, in rpm can be calculated as
-\begin{equation}
-\omega = \frac{1\text{ pulse}}{2/3\cdot10^{-6}~s} \frac{1^\circ}{ n~\text{pulses} }\frac{1~\text{rev}}{360^\circ}\frac{60\text{ sec}}{1\text{ min}} 
+The term `resolution` here refers to the smallest period that our measurement system can distinguish. When operating in input capture mode, this resolution is determined by the period of the selected clock. For example, if we choose the SMCLK clock running at 12 MHz, with a prescale of 1 and an input divider of 1/8, the period measurement resolution will be 2/3 microseconds. This means that the system can detect periods as small as 2/3 microseconds. With this configuration, the maximum measurable period is determined by the product of precision and resolution, which equals roughly 43 milliseconds (65,536 $\times$ 2/3 $\mu s \approx$ 43 ms).
+
+The second objective of this lab is to utilize the measured periods to determine the wheel speed. Given that there are 360 pulses per rotation, the 43 ms maximum measurement period corresponds to the slowest wheel speed we can accurately measure, which is about 3.81 revolutions per minute (rpm).
+
+We can calculate the angular speed of the wheel, denoted as $\omega$ in rpm, using the following formula:
+$$
+\omega = \frac{1\text{ pulse}}{2/3\cdot10^{-6}~\text{ sec}} \times\frac{1^\circ}{ n~\text{pulses}} \times \frac{1~\text{rev}}{360^\circ} \times \frac{60\text{ sec}}{1\text{ min}} 
 = \frac{250,000}{n} \text{rpm}
-\end{equation}
+$$
+where $n$ is the period in units of 2/3 microseconds. This formula allows us to convert the measured periods into angular speed in rpm.
 
-The third goal is to use the second input of the encoder to determine which direction the motor is spinning. You will write software that counts the number of pulses observed on each wheel as the robot moves. You will add to a counter as the robot moves forward and subtract from a counter as the robot moves backward. Then, the counter will be used to calculate the distance the wheel travels.
-
+The third objective involves utilizing the second input of the encoder to determine the direction of the motor's rotation. This entails developing software that keeps track of the number of pulses detected on each wheel as the robot advances. As the robot moves forward, these pulses will be added to a counter, and as it moves backward, pulses will be subtracted from the counter. Subsequently, this counter will play a crucial role in determining the distance traveled. 
 
 ## 💻 Procedure
 
-### Setup
-
-- Go to ECE382 Teams > General > Files > Class Materials > SourceFiles.
-- Download `Lab16_Tachmain.c` from the Teams folder into your `/workspace/Lab16_Tach` folder using Windows File Explorer (not Code Composer Studio). **Caution**: It must be in the `Lab16_Tach` folder not in the `inc` folder.
-- Download `Tachometer.c`, `Tachometer.h`, and `TA3InputCapture.c` into your workspace/inc folder using Windows File Explorer (not Code Composer Studio). **Caution**: It must be in the `inc` folder not in the `Lab16_Tach` folder.
-- Right-click on your `Lab16_Tach` project in CCS and select "Add Files...". Browse to your `inc` folder and select `UART0.c`. Click Open. Ensure "Link to file" is selected and create a link to the "PROJECT\_LOC". 
 
 ### Complete functions in `TA3InputCapture.c`.
 
 - **This is part of Homework 16** 
-- Complete `TimerA3Capture_Init`, `TA3_0_IRQHandler()`, and `TA3_N_IRQHandler()` in `TA3InputCapture.c`.
-- Follow the instructions inside `TA3InputCapture.c` to complete it.
-- Copy and paste the code in Gradescope to submit your Homework 16.
+- Complete `TimerA3Capture_Init()`, `TA3_0_IRQHandler()`, and `TA3_N_IRQHandler()` in the `TA3InputCapture.c` file.
+- Carefully follow the provided instructions within `TA3InputCapture.c` to ensure your code is accurate.
+- After completing the tasks, submit your Homework 16 by copying and pasting your code into Gradescope.
 
-Before starting this lab, check the solutions posted in Gradescope to ensure you have the correct code.  If the solution is not published in Gradescope, go through your code with your instructor.
+Before starting this lab, review the solutions available in Gradescope to confirm that you have the correct code.  If the solutions are not published in Gradescope, go through your code with your instructor.
 
 ### Demo `Program16_1()`
 
 
-:::{important}
-You should understand the main code provided in every module. No such code will be provided for your final project, and you must write your main.c from scratch.  
-:::
+```{important}
+You should understand the code inside the `main()` function in every module. For your final project, you will be required to create your `main.c` file entirely from scratch, as no pre-written code will be provided 
+```
 
-- Complete LCDSpeed() in `Lab16_Tachmain.c`. The LCD should display the left and right tachometer periods and the speeds of both wheels in RPM as shown below.
+- Complete `LCDSpeed()` in the `Lab16_Tachmain.c` file. The LCD should display the left and right tachometer periods and the speeds of both wheels in RPM as shown below.
 
 ```{image} ./figures/Lab16_Tachometer.png
 :width: 300
@@ -62,7 +60,7 @@ You should understand the main code provided in every module. No such code will 
 ```
 <br>
 
-- Demo `Program16_1()` running at the speeds from 25\%, 50\%, 75\%, 100\%, and back to 25\% as shown below.  
+- Demo `Program16_1()` running at the speeds of 25\%, 50\%, 75\%, 100\%, and then return to 25\% as shown below.  
 
 
 <center>
@@ -70,11 +68,9 @@ You should understand the main code provided in every module. No such code will 
 </center>
 <br>
 
-
-
 ### Graph duty cycle versus actual speed.
 
-- `Program16_1()` stores the speed of each motor and the assigned duty cycles in the following buffers. 
+- `Program16_1()` stores the speed of each motor and their corresponding duty cycles in the following buffers. 
 
 ```C
 uint16_t PeriodBufferR[BUFFER_SIZE];    // to store right period
@@ -84,7 +80,7 @@ uint16_t SpeedBufferL[BUFFER_SIZE];     // to store left speed
 uint16_t DutyBuffer[BUFFER_SIZE];       // to store duty cycles
 ```
 
-- At the end of `Program16_1`, the LCD will display whether you want to transmit the data in the buffers, as shown below.
+- Upon completion of of `Program16_1`, the LCD will display an option to transmit the data stored in the buffers, as illustrated below.
 
 ```{image} ./figures/Lab16_TxBuffer.png
 :width: 300
@@ -92,9 +88,9 @@ uint16_t DutyBuffer[BUFFER_SIZE];       // to store duty cycles
 ```
 <br>
 
-- Press the left switch to select Y (yes), but do not press a bump switch yet.
-- Connect the USB cable to the robot and open the serial terminal as we did in [Lab 11](lab11-uart).
-- Press a bump switch to start transmitting data to the serial terminal. The data will be transmitted as shown below. 
+- Press the left switch to select "Y" (yes), but do not press any bump switch yet.
+- Connect the USB cable to the robot and open a serial terminal, following the steps outlined in [Lab 11](lab11-uart).
+- When you're ready to transmit data to the serial terminal, press one of the bump switches. The data will be transmitted as shown below. 
 
 ```{image} ./figures/Lab16_SerialTerminal.gif
 :width: 700
@@ -102,10 +98,13 @@ uint16_t DutyBuffer[BUFFER_SIZE];       // to store duty cycles
 ```
 <br>
 
-- Once the data transmission is complete, the LCD will display `TX is Done`.
-- Select the entire data in the serial terminal except the header, `***Receiving buffer data***`.
-- Copy the data into a text file and save it as a text file (.txt extension) or a comma-separated value file (.csv extension).
-- Use a software tool of your choice to plot the duty cycle, the timer periods, and the actual speeds in rpm using the values from the `PeriodBuffer`, `SpeedBuffer` and `DutyBuffer` arrays.  Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook.  You can also use this Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/stanbaek/ece382/blob/main/files/ECE382_Plots.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a>
+- Once the data transmission is finished, the LCD will indicate `TX is Done`.
+- In the serial terminal, select the entire data, excluding the header, which reads ***Receiving buffer data***.
+- Copy the selected data and save it as a text file with a .txt extension or as a comma-separated value (CSV) file with a .csv extension.
+- Use a software tool of your choice to create plots for the duty cycle, timer periods, and actual speeds in rpm, using data from the `PeriodBuffer`, `SpeedBuffer`, and `DutyBuffer` arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab used for Lab 15<a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a> 
+
+
+
     - The first column of the data is time in 10 milliseconds - 1 means 10ms and 2 means 20ms.
     - The axes must have labels and units, e.g., `time (sec)`. You must use the standard units, such as sec, ms, and us - 10ms is not a standard unit. So, you must convert the time data into seconds - You know how to convert the data in 10 ms into the values in sec.     
     - The duty cycle must be in percentage, not permyriad.
