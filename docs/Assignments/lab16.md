@@ -18,17 +18,19 @@ In this lab, we will develop a software module that measures the speeds of motor
 :align: center
 ```
 
-Our first objective in this lab is to develop `Timer_A` software capable of measuring periods from two encoders. The counter of `Timer_A`` is 16 bits wide, which means our period measurements will have a precision of 16 bits, allowing us to measure 65,536 different periods.
+Our first objective in this lab is to develop `Timer_A` software capable of measuring periods from two encoders. The counter of `Timer_A` is 16 bits wide, which means our period measurements will have a precision of 16 bits, allowing us to measure 65,536 different periods.
 
 The term `resolution` here refers to the smallest period that our measurement system can distinguish. When operating in input capture mode, this resolution is determined by the period of the selected clock. For example, if we choose the SMCLK clock running at 12 MHz, with a prescale of 1 and an input divider of 1/8, the period measurement resolution will be 2/3 microseconds. This means that the system can detect periods as small as 2/3 microseconds. With this configuration, the maximum measurable period is determined by the product of precision and resolution, which equals roughly 43 milliseconds (65,536 $\times$ 2/3 $\mu s \approx$ 43 ms).
 
 The second objective of this lab is to utilize the measured periods to determine the wheel speed. Given that there are 360 pulses per rotation, the 43 ms maximum measurement period corresponds to the slowest wheel speed we can accurately measure, which is about 3.81 revolutions per minute (rpm).
 
 We can calculate the angular speed of the wheel, denoted as $\omega$ in rpm, using the following formula:
+
 $$
 \omega = \frac{1\text{ pulse}}{2/3\cdot10^{-6}~\text{ sec}} \times\frac{1^\circ}{ n~\text{pulses}} \times \frac{1~\text{rev}}{360^\circ} \times \frac{60\text{ sec}}{1\text{ min}} 
 = \frac{250,000}{n} \text{rpm}
 $$
+
 where $n$ is the period in units of 2/3 microseconds. This formula allows us to convert the measured periods into angular speed in rpm.
 
 The third objective involves utilizing the second input of the encoder to determine the direction of the motor's rotation. This entails developing software that keeps track of the number of pulses detected on each wheel as the robot advances. As the robot moves forward, these pulses will be added to a counter, and as it moves backward, pulses will be subtracted from the counter. Subsequently, this counter will play a crucial role in determining the distance traveled. 
@@ -108,7 +110,7 @@ uint16_t DutyBuffer[BUFFER_SIZE];       // to store duty cycles
 It is crucial to emphasize that data-driven analyses play a vital role in engineering and scientific endeavors. While videos and images may be useful for showcasing, they should not replace essential elements in engineering experiments. Gathering measurements, creating informative plots, and conducting thorough analyses will be integral to your final presentations and reports
 
 ```{caution}
-Full credit will only be awarded if the figures have **_correct labels and units_**."
+Full credit will only be awarded if the figures have **_correct labels and units_**.
 ```
 - Ensure that the first column of the data represents time in **10-millisecond intervals**; "1" signifies 10ms, and "2" signifies 20ms.
 - Label your axes with appropriate units, e.g., `time (seconds)`. Convert the time data from 10ms to seconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.
