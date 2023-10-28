@@ -101,7 +101,7 @@ uint16_t DutyBuffer[BUFFER_SIZE];       // to store duty cycles
 - Once the data transmission is finished, the LCD will indicate `TX is Done`.
 - In the serial terminal, select the entire data, excluding the header, which reads ***Receiving buffer data***.
 - Copy the selected data and save it as a text file with a .txt extension or as a comma-separated value (CSV) file with a .csv extension.
-- Use a software tool of your choice to create plots for the duty cycle, timer periods, and actual speeds in rpm, using data from the `PeriodBuffer`, `SpeedBuffer`, and `DutyBuffer` arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a> used for Lab 15 
+- Use a software tool of your choice to create plots for the duty cycle in percent, timer periods, and actual speeds in rpm, using data from the `PeriodBuffer`, `SpeedBuffer`, and `DutyBuffer` arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a> used for Lab 15 
 
 <br>
 
@@ -111,15 +111,32 @@ It is crucial to emphasize that data-driven analyses play a vital role in engine
 Full credit will only be awarded if the figures have **_correct labels and units_**."
 ```
 - Ensure that the first column of the data represents time in **10-millisecond intervals**; "1" signifies 10ms, and "2" signifies 20ms.
-- Label your axes with appropriate units, e.g., `time (seconds)`. Convert the time data from 10ms to seconds. You have to use standard units, such as seconds (sec),milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.
+- Label your axes with appropriate units, e.g., `time (seconds)`. Convert the time data from 10ms to seconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.
 - Represent the duty cycle in `percentage` rather than `permyriad`.
 - Express the speed in rpm, radians per second (RPM), or degrees per second (deg/sec), and include the relevant units in your plots.
+- Examples of incorrectly labeled plots include, but are not limited to, the following.
+
+```{image} ./figures/Lab16_plot_duty_incorrect.png
+:width: 360
+:align: center
+```
 <br>
 
+- The y-axis is incorrect in this plot; it lacks units, and the standard unit for duty cycle is percent.
 
+<br>
 
+```{image} ./figures/Lab16_plot_time_incorrect.png
+:width: 360
+:align: center
+```
+<br>
 
-- The component block diagram of this part is shown below. 
+- The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed in 50 milliseconds.
+
+<br>
+
+The component block diagram of this part is shown below. 
 
 ```{image} ./figures/Lab16_ComponentBlockDiagram1.png
 :width: 760
@@ -134,23 +151,21 @@ Full credit will only be awarded if the figures have **_correct labels and units
 
 ### Complete functions for `Program16_2`.
 
-- Read `Tachometer.c` and `Tachometer.h` thoroughly.  
-- Read the following functions thoroughly.  You need to understand how the semaphore, `IsControllerEnabled`, is used in multiple functions.
-
-- `average()`
-    - You will average a specific number of the latest tachometer readings stored in an array. 
-    - The `average()` function will be used to calculate the average over an array.
+- Thoroughly review the `Tachometer.c` and `Tachometer.h` files.
+- Examine the following functions closely. It's crucial to understand how the semaphore, `IsControllerEnabled`, is utilized across multiple functions:
+- `average()`:
+    - This function calculates the average of a specific number of recent tachometer readings stored in an array.
     - This function is already implemented for you.
-    
-- Complete the `UpdateParameters()` function in `Program16_2`.
-    - Use the two switches to increment the desired speed of each wheel by 10 rpm (sw1 - right and sw2 - left) and roll over if the maximum value is reached. 
-    - Use the comments to complete the code inside the `while` loop.
-    
-- Complete the `Controller()` function in `Program16_2`.
-    - Create a basic controller that will increase/decrease the speed of the wheels accordingly to get close to the desired speed.
-    - Use the comments to complete the code.
-        
-- Demo `Program16_2()` that you can increase the desired speed of the wheels with the switches and display the actual and desired speeds and the distance traveled on the LCD. Show that both wheels are running at 50 rpm followed by 100 rpm. Slightly hold a wheel to add friction to the wheel and show that the speed controller maintains the desired speed. You also need to show that the desired speeds roll over if you reach the maximum value.
+- Complete the `UpdateParameters()` function:
+    - Use the two switches to increment the desired speed of each wheel by 10 rpm (sw1 - right and sw2 - left), rolling over if the maximum value is reached. 
+    - Utilize the provided comments to complete the code inside the while loop.
+- Complete the `Controller()` function:
+    - Create a basic controller that adjusts the speed of the wheels to get closer to the desired speed. 
+    - Refer to the comments for guidance.
+- Demo `Program16_2` to showcase the following:
+    - The ability to increase the desired speed of the wheels using the switches and display both the actual and desired speeds as well as the distance traveled on the LCD.
+    - Show that both wheels run at 50 rpm and then increase to 100 rpm. Introduce slight friction to one wheel to demonstrate that the speed controller maintains the desired speed.
+    - Show that the desired speeds roll over when the maximum value is reached.
 
 The component block diagram of this part is shown below.
 
@@ -165,18 +180,23 @@ The component block diagram of this part is shown below.
 </center>
 <br>
 
-### Make your robot drive in a square.
+### Drive the robot in a square (3 Bonus Point).
+
+```{note}
+Although this part is not required for Lab 16, it will be part of the final project. This part is basically an Early-Bird bonus for the final project.
+```
 
 - Complete `Program16_3` to drive the robot in the maze.
-- You may need to adjust your drive-straight wheel speed values if one wheel is going faster/slower than the other.
-- The robot must start anywhere behind the start line shown in the figure below.
+- Adjust wheel speeds as needed to ensure both wheels travel at the same speed.
+- Start the robot anywhere behind the start line, as indicated in the figure below.
 - You are not allowed to intentionally bump into the walls to decide when to turn (cannot do the bump-n-turn algorithm).  
-- You have to base your decision to turn on the distance traveled only. 
-- Your robot must stop before hitting the wall at the goal.
-- Demo `Program16_3` driving the robot in a maze.
+- Your turning decision should depend solely on the distance traveled.
+- Ensure the robot stops before reaching the wall at the goal.
+- Demo `Program16_3` to showcase the robot's maze navigation.
+
 
 ```{image} ./figures/Lab14_DriveInMaze.png
-:width: 560
+:width: 460
 :align: center
 ```
 <br>
@@ -186,21 +206,23 @@ The component block diagram of this part is shown below.
 </center>
 <br>
 
-
-
 ## 🚚 Deliverables
 
 ### Deliverable 1 
-- **[10 Points]** Demo `Program16_1()` running increasing speed from 25\%, 50\%, 75\%, 100\%, and back to 25\%  **Comment your code** and push it to your repository. 
+- **[5 Points]** Demo `Program16_1()` running at the speeds of 25\%, 50\%, 75\%, 100\%, and then return to 25\%.   
 
 ### Deliverable 2 
-- **[10 points]** Submit your three plots in Gradescope.
+- **[5 points]** Use a software tool of your choice to create plots for the `duty cycle in percent`, `timer periods (unitless)`, and `actual speeds in rpm`. Submit your three plots in Gradescope.
 
 ### Deliverable 3 
-- **[15 Points]** Demo `Program16_2()` with operational switches and LCD. The actual wheel speeds must reach the desired wheel speeds.  **Comment your code** and push it to your repository.
+- **[5 Points]** Demo `Program16_2()` with operational switches and LCD. The actual wheel speeds must reach the desired wheel speeds.  
 
 ### Deliverable 4 
-- **[15 Points]**  Demo `Program16_3()` driving the robot in the maze. **Comment your code** and push it to your repository.
+- **[3 Bonus Points]**  Demo `Program16_3()` driving the robot in the maze. 
+
+### Deliverable 5 
+- **[4.5 Points]** Ensure that you provide comments in your code for clarity and push your code to your repository using git.
+
 
 This lab has been adapted from the TI RSLK: [The Solderless Maze Edition curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum)
 
