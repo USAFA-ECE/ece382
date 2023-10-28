@@ -431,15 +431,16 @@ document.write(`
 <h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
 <p>In this lab, we will develop a software module that measures the speeds of motors and the displacement of the robot. The key element for measuring the speed and displacement of our robot is a Hall-effect sensor, a semiconductor device that produces a voltage proportional to the magnetic field. As shown in the figure below, a Hall-effect sensor can measure the magnetic field intensity of two magnets attached to a rotating plate.</p>
 <a class="reference internal image-reference" href="../_images/Hall_sensor_tach.gif"><img alt="../_images/Hall_sensor_tach.gif" class="align-center" src="../_images/Hall_sensor_tach.gif" style="width: 400px;" /></a>
-<p>Our first objective in this lab is to develop <code class="docutils literal notranslate"><span class="pre">Timer_A</span></code> software capable of measuring periods from two encoders. The counter of `Timer_A`` is 16 bits wide, which means our period measurements will have a precision of 16 bits, allowing us to measure 65,536 different periods.</p>
+<p>Our first objective in this lab is to develop <code class="docutils literal notranslate"><span class="pre">Timer_A</span></code> software capable of measuring periods from two encoders. The counter of <code class="docutils literal notranslate"><span class="pre">Timer_A</span></code> is 16 bits wide, which means our period measurements will have a precision of 16 bits, allowing us to measure 65,536 different periods.</p>
 <p>The term <code class="docutils literal notranslate"><span class="pre">resolution</span></code> here refers to the smallest period that our measurement system can distinguish. When operating in input capture mode, this resolution is determined by the period of the selected clock. For example, if we choose the SMCLK clock running at 12 MHz, with a prescale of 1 and an input divider of 1/8, the period measurement resolution will be 2/3 microseconds. This means that the system can detect periods as small as 2/3 microseconds. With this configuration, the maximum measurable period is determined by the product of precision and resolution, which equals roughly 43 milliseconds (65,536 <span class="math notranslate nohighlight">\(\times\)</span> 2/3 <span class="math notranslate nohighlight">\(\mu s \approx\)</span> 43 ms).</p>
 <p>The second objective of this lab is to utilize the measured periods to determine the wheel speed. Given that there are 360 pulses per rotation, the 43 ms maximum measurement period corresponds to the slowest wheel speed we can accurately measure, which is about 3.81 revolutions per minute (rpm).</p>
-<p>We can calculate the angular speed of the wheel, denoted as <span class="math notranslate nohighlight">\(\omega\)</span> in rpm, using the following formula:
-$<span class="math notranslate nohighlight">\(
+<p>We can calculate the angular speed of the wheel, denoted as <span class="math notranslate nohighlight">\(\omega\)</span> in rpm, using the following formula:</p>
+<div class="math notranslate nohighlight">
+\[
 \omega = \frac{1\text{ pulse}}{2/3\cdot10^{-6}~\text{ sec}} \times\frac{1^\circ}{ n~\text{pulses}} \times \frac{1~\text{rev}}{360^\circ} \times \frac{60\text{ sec}}{1\text{ min}} 
 = \frac{250,000}{n} \text{rpm}
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>n$ is the period in units of 2/3 microseconds. This formula allows us to convert the measured periods into angular speed in rpm.</p>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the period in units of 2/3 microseconds. This formula allows us to convert the measured periods into angular speed in rpm.</p>
 <p>The third objective involves utilizing the second input of the encoder to determine the direction of the motor’s rotation. This entails developing software that keeps track of the number of pulses detected on each wheel as the robot advances. As the robot moves forward, these pulses will be added to a counter, and as it moves backward, pulses will be subtracted from the counter. Subsequently, this counter will play a crucial role in determining the distance traveled.</p>
 </section>
 <section id="procedure">
@@ -507,7 +508,7 @@ where \)</span>n$ is the period in units of 2/3 microseconds. This formula allow
 <p>It is crucial to emphasize that data-driven analyses play a vital role in engineering and scientific endeavors. While videos and images may be useful for showcasing, they should not replace essential elements in engineering experiments. Gathering measurements, creating informative plots, and conducting thorough analyses will be integral to your final presentations and reports</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Full credit will only be awarded if the figures have <strong><em>correct labels and units</em></strong>.”</p>
+<p>Full credit will only be awarded if the figures have <strong><em>correct labels and units</em></strong>.</p>
 </div>
 <ul class="simple">
 <li><p>Ensure that the first column of the data represents time in <strong>10-millisecond intervals</strong>; “1” signifies 10ms, and “2” signifies 20ms.</p></li>
