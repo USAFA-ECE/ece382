@@ -29,13 +29,6 @@ Control systems are a rich and complex field within engineering spanning: electr
 
 ## 💻 Procedure
 
-### Setup
-
-- Go to ECE382 Teams > General > Files > Class Materials > SourceFiles.
-- Download `Program17_1.c`, `Program17_2.c`, and `Program17_3.c` from the Teams folder into your `/workspace/Lab17_Control` folder using Windows File Explorer (not Code Composer Studio). **Caution**: It must be in the `Lab17_Control` folder not in the `inc` folder.
-- Download `TimerA2.c` into your workspace/inc folder using Windows File Explorer (not Code Composer Studio). You need to overwrite the existing `TimerA2.c`. **Caution**: It must be in the `inc` folder not in the `Lab17_Control` folder.
-- Right-click on your `Lab17_Control` project in CCS and select "Add Files...". Browse to your `inc` folder and select `TimerA2.c`. Click Open. Ensure "Link to file" is selected and create a link to the "PROJECT\_LOC". 
-
 ### Implement a proportional controller in `Program17_1`
 
 - **This is part of Homework 17** 
