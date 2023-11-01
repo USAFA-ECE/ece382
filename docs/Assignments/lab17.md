@@ -2,9 +2,10 @@
 
 ## 📌 Objectives
 
-- Students should be able to combine input capture measurements from Timer A3 and PWM outputs with Timer A0.
-- Students should be able to develop a system to control the speed of the two motors.
-- Students should be able to evaluate the performance of the control system.
+- Students should be able to integrate input capture measurements from Timer A3 and PWM outputs using Timer A0.
+- Students should be able to design a speed control system for the two motors.
+- Students should be able to assess the effectiveness of the control system's performance.
+- Students should be able to implement proportional-integral (PI) controllers that control a wall-following robot.
 
 ```{note}
 If debugging is the process of removing software bugs, then programming must be the process of putting them in. -Edsger Dijkstra
@@ -12,10 +13,9 @@ If debugging is the process of removing software bugs, then programming must be 
 
 ## 📜 Synopsis
 
-Armed with the previous labs, we now have the means to drive the robot and measure the speed of the robot, the distance traveled, the position of the robot from the line, and the distance to the walls.  In this lab, we will implement automatic controllers that cause the robot to perform the motions, such as following a line and driving between the walls. The control methods that we will use fall into the class called **proportional-integral-derivative (PID) control** systems.   
+Equipped with the knowledge gained from previous labs, we now have the tools to both drive the robot and gather data on various parameters, including the robot's speed, distance traveled, and the distance to nearby walls. In this lab, our focus will be on implementing automatic controllers that enable the robot to perform specific tasks, such as driving between walls. These control methods belong to the category known as **proportional-integral-derivative (PID) control** systems.
 
-If the controller does **not** use a measure of the system output in computing the control action to take, the system is called **open-loop control**.  An example is the drive-in-maze exercise in Lab14.  If the system output is measured and fed back for use in the controller computation, the system is called a **closed-loop** or **feedback control** system. Shown in the figure below are open-loop control (top) and  closed-loop control (bottom).
-
+If the controller does not utilize feedback from the system's output to compute the control action, it is referred to as an open-loop control system. Conversely, when the system's output is measured and used as feedback in the controller's computation, it is termed a closed-loop or feedback control system. The diagram below illustrates both open-loop control (top) and closed-loop control (bottom) systems.
 
 ```{image} ./figures/Lab17_Feedback_Control.png
 :width: 500
@@ -33,10 +33,12 @@ Control systems are a rich and complex field within engineering spanning: electr
 
 - **This is part of Homework 17** 
 - Read the entire code in `Program17_1.c`. 
-- Complete the `Controller` function in `Program17_1.c`.
-- Follow the instructions inside `Program17_1.c` to complete it.
+- Complete the `Controller` function in `Program17_1.c` according to the provided instructions.
 - Do **not** implement a proportional-integral (PI) controller for this homework. 
-- Copy and paste the code you wrote inside `Controller()` in Gradescope to submit your Homework 17.
+- Copy and paste your `Controller()` code into Gradescope for Homework 17 submission.
+
+
+
 
 ### Implement a proportional-integral controller in `Program17_1`
 
