@@ -396,10 +396,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1">Deliverable 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2">Deliverable 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4">Deliverable 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1-4-points">Deliverable 1 <strong>[4 Points]</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2-8-points">Deliverable 2  <strong>[8 Points]</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3-4-points">Deliverable 3 <strong>[4 Points]</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4-8-points">Deliverable 4 <strong>[8 Points]</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-5">Deliverable 5</a></li>
 </ul>
 </li>
@@ -518,40 +518,39 @@ document.write(`
 <section id="evaluate-controller-performance-in-program17-3">
 <h3>Evaluate controller performance in <code class="docutils literal notranslate"><span class="pre">Program17_3()</span></code><a class="headerlink" href="#evaluate-controller-performance-in-program17-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Collect data via the USB/UART port to evaluate the controller’s performance.</p></li>
-<li><p>Provide the step response of the wall-following robot.</p></li>
-<li><p>Provide the input signals (PWM duty cycles) applied to the robot.</p></li>
-<li><p>Utilize software of your choice, such as MATLAB or MS Excel, for generating figures. Ensure that your plots feature labels, units, and legends when necessary. Provide a step response for each <span class="math notranslate nohighlight">\(K_p\)</span> value and report the values used for these plots.</p></li>
-<li><p>Assess the controller’s performance, considering factors like response time, overshoot, and steady-state error.</p></li>
+<li><p>Collect data via the USB/UART port to assess the controller’s performance.</p></li>
+<li><p>Provide the <span class="math notranslate nohighlight">\(K_p\)</span> values recorded in the previous section.</p></li>
+<li><p>Provide the best step response from Deliverable 3, along with the input signal (PWM duty cycles) applied to the robot. Report the corresponding <span class="math notranslate nohighlight">\(K_p\)</span> value.</p></li>
+<li><p>Utilize software of your choice, such as MATLAB or MS Excel, for generating figures. Ensure that your plots feature labels, units, and legends when necessary. - Assess the controller’s performance, considering factors like response time, overshoot, and steady-state error.</p></li>
 </ul>
 </section>
 </section>
 <section id="deliverables">
 <h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
-<section id="deliverable-1">
-<h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
+<section id="deliverable-1-4-points">
+<h3>Deliverable 1 <strong>[4 Points]</strong><a class="headerlink" href="#deliverable-1-4-points" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[4 Points]</strong>  Demonstrate the functionality of <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code> which showcases a proportional-integral controller responsible for regulating wheel speeds at 50 rpm and 100 rpm in the presence of external disturbance. Make sure to apply the disturbance only after the desired speed has settled.</p></li>
+<li><p>Demonstrate the functionality of <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code> which showcases a proportional-integral controller responsible for regulating wheel speeds at 50 rpm and 100 rpm in the presence of external disturbance. Make sure to apply the disturbance only after the desired speed has settled.</p></li>
 </ul>
 </section>
-<section id="deliverable-2">
-<h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
+<section id="deliverable-2-8-points">
+<h3>Deliverable 2  <strong>[8 Points]</strong><a class="headerlink" href="#deliverable-2-8-points" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[8 Points]</strong>  Collect the UART data to discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code>.  Provide a step response of the speed controller with disturbance, which is applied after the speed settles at the desired speed. Your plots must include labels, units, and legends whenever required.</p></li>
+<li><p>Provide a step response of the speed controller with disturbance, which is applied after the speed settles at the desired speed. Your plots must include labels, units, and legends whenever required.</p></li>
 <li><p>Discuss the controller’s performance, taking into consideration factors like response time, overshoot, and steady-state error.  Report the <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_i\)</span> values you used for these plots.</p></li>
 <li><p>Execute <code class="docutils literal notranslate"><span class="pre">Program16_2()</span></code> and after the speed is settled, gently holding one of the wheels to introduce a disturbance. Then, run <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code> with the PI controller you have implemented and repeat the same procedure. Determine which one performs better and provide an explanation for your findings.</p></li>
 </ul>
 </section>
-<section id="deliverable-3">
-<h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
+<section id="deliverable-3-4-points">
+<h3>Deliverable 3 <strong>[4 Points]</strong><a class="headerlink" href="#deliverable-3-4-points" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[4 Points]</strong>  - Demo <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code> using the three different <span class="math notranslate nohighlight">\(K_p\)</span> values. <strong>Important Note</strong>: Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line. Your demo must include three step responses - one for a slow response, another for a fast response with a slight overshoot (or no overshoot), and the third for a very fast response with significant overshoot. Report their <span class="math notranslate nohighlight">\(K_p\)</span> values.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code> using the three different <span class="math notranslate nohighlight">\(K_p\)</span> values. <strong>Important Note</strong>: Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line. Your demo must include three step responses - one for a slow response, another for a fast response with a slight overshoot (or no overshoot), and the third for a very fast response with significant overshoot. Report their <span class="math notranslate nohighlight">\(K_p\)</span> values.</p></li>
 </ul>
 </section>
-<section id="deliverable-4">
-<h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this heading">#</a></h3>
+<section id="deliverable-4-8-points">
+<h3>Deliverable 4 <strong>[8 Points]</strong><a class="headerlink" href="#deliverable-4-8-points" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[8 Points]</strong>  Collect data via the USB/UART port to evaluate the controller’s performance. Provide the step response of the wall-following robot and the input signals (PWM duty cycles) applied to the robot. Provide a step response for each <span class="math notranslate nohighlight">\(K_p\)</span> value and report the values used for these plots. Assess the controller’s performance, considering factors like response time, overshoot, and steady-state error.</p></li>
+<li><p>Collect data via the USB/UART port to assess the controller’s performance. Provide the <span class="math notranslate nohighlight">\(K_p\)</span> values recorded in the previous section. Provide the best step response from Deliverable 3, along with the input signal (PWM duty cycles) applied to the robot. Report the corresponding <span class="math notranslate nohighlight">\(K_p\)</span> value. Assess the controller’s performance, considering factors like response time, overshoot, and steady-state error.</p></li>
 </ul>
 </section>
 <section id="deliverable-5">
@@ -641,10 +640,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1">Deliverable 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2">Deliverable 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4">Deliverable 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1-4-points">Deliverable 1 <strong>[4 Points]</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2-8-points">Deliverable 2  <strong>[8 Points]</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3-4-points">Deliverable 3 <strong>[4 Points]</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4-8-points">Deliverable 4 <strong>[8 Points]</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-5">Deliverable 5</a></li>
 </ul>
 </li>
