@@ -388,23 +388,19 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-proportional-controller-in-program17-1">Implement a proportional controller in <code class="docutils literal notranslate"><span class="pre">Program17_1</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-proportional-integral-controller-in-program17-1">Implement a proportional-integral controller in <code class="docutils literal notranslate"><span class="pre">Program17_1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program17-1">Demo <code class="docutils literal notranslate"><span class="pre">Program17_1</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discuss-the-performance-of-your-controller-in-program17-1">Discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-controller-to-follow-a-line-in-program17-2">Implement a controller to follow a line in <code class="docutils literal notranslate"><span class="pre">Program17_2()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discuss-the-performance-of-your-controller-in-program17-2">Discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_2()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-controller-to-stay-between-two-walls-in-program17-3">Create a controller to stay between two walls in <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discuss-the-performance-of-your-controller-in-program17-3">Discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_3()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-wall-following-controller-in-program17-3">Implement a Wall-Following controller in <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-controller-performance-in-program17-3">Evaluate controller performance in <code class="docutils literal notranslate"><span class="pre">Program17_3()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables-50-10-bonus-points-5-early-bird-points">🚚 Deliverables (50 + 10 Bonus Points + 5 Early Bird Points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1">Deliverable 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2">Deliverable 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4">Deliverable 4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-5">Deliverable 5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-6">Deliverable 6</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#happy-holiday-bonus">Happy Holiday Bonus</a></li>
 </ul>
 </li>
 </ul>
@@ -423,9 +419,10 @@ document.write(`
 <section id="objectives">
 <h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Students should be able to combine input capture measurements from Timer A3 and PWM outputs with Timer A0.</p></li>
-<li><p>Students should be able to develop a system to control the speed of the two motors.</p></li>
-<li><p>Students should be able to evaluate the performance of the control system.</p></li>
+<li><p>Students should be able to integrate input capture measurements from Timer A3 and PWM outputs using Timer A0.</p></li>
+<li><p>Students should be able to design a speed control system for the two motors.</p></li>
+<li><p>Students should be able to assess the effectiveness of the control system’s performance.</p></li>
+<li><p>Students should be able to implement proportional-integral (PI) controllers that control a wall-following robot.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -434,8 +431,8 @@ document.write(`
 </section>
 <section id="synopsis">
 <h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
-<p>Armed with the previous labs, we now have the means to drive the robot and measure the speed of the robot, the distance traveled, the position of the robot from the line, and the distance to the walls.  In this lab, we will implement automatic controllers that cause the robot to perform the motions, such as following a line and driving between the walls. The control methods that we will use fall into the class called <strong>proportional-integral-derivative (PID) control</strong> systems.</p>
-<p>If the controller does <strong>not</strong> use a measure of the system output in computing the control action to take, the system is called <strong>open-loop control</strong>.  An example is the drive-in-maze exercise in Lab14.  If the system output is measured and fed back for use in the controller computation, the system is called a <strong>closed-loop</strong> or <strong>feedback control</strong> system. Shown in the figure below are open-loop control (top) and  closed-loop control (bottom).</p>
+<p>Equipped with the knowledge gained from previous labs, we now have the tools to both drive the robot and gather data on various parameters, including the robot’s speed, distance traveled, and the distance to nearby walls. In this lab, our focus will be on implementing automatic controllers that enable the robot to perform specific tasks, such as driving between walls. These control methods belong to the category known as <strong>proportional-integral-derivative (PID) control</strong> systems.</p>
+<p>If the controller does not utilize feedback from the system’s output to compute the control action, it is referred to as an open-loop control system. Conversely, when the system’s output is measured and used as feedback in the controller’s computation, it is termed a closed-loop or feedback control system. The diagram below illustrates both open-loop control (top) and closed-loop control (bottom) systems.</p>
 <a class="reference internal image-reference" href="../_images/Lab17_Feedback_Control.png"><img alt="../_images/Lab17_Feedback_Control.png" class="align-center" src="../_images/Lab17_Feedback_Control.png" style="width: 500px;" /></a>
 <br>
 <div class="admonition note">
@@ -445,26 +442,23 @@ document.write(`
 </section>
 <section id="procedure">
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
-<section id="implement-a-proportional-controller-in-program17-1">
-<h3>Implement a proportional controller in <code class="docutils literal notranslate"><span class="pre">Program17_1</span></code><a class="headerlink" href="#implement-a-proportional-controller-in-program17-1" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>This is part of Homework 17</strong></p></li>
-<li><p>Read the entire code in <code class="docutils literal notranslate"><span class="pre">Program17_1.c</span></code>.</p></li>
-<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Controller</span></code> function in <code class="docutils literal notranslate"><span class="pre">Program17_1.c</span></code>.</p></li>
-<li><p>Follow the instructions inside <code class="docutils literal notranslate"><span class="pre">Program17_1.c</span></code> to complete it.</p></li>
-<li><p>Do <strong>not</strong> implement a proportional-integral (PI) controller for this homework.</p></li>
-<li><p>Copy and paste the code you wrote inside <code class="docutils literal notranslate"><span class="pre">Controller()</span></code> in Gradescope to submit your Homework 17.</p></li>
-</ul>
-</section>
 <section id="implement-a-proportional-integral-controller-in-program17-1">
 <h3>Implement a proportional-integral controller in <code class="docutils literal notranslate"><span class="pre">Program17_1</span></code><a class="headerlink" href="#implement-a-proportional-integral-controller-in-program17-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Controller()</span></code> function in <code class="docutils literal notranslate"><span class="pre">Program17_1.c</span></code></p></li>
-<li><p>Create a proportional-integral controller to drive both motors at the desired speed.</p></li>
-<li><p>Experimentally determine the best <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_i\)</span> constants to create a stable system.</p></li>
-<li><p>You can change <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_i\)</span> at line 80 inside <code class="docutils literal notranslate"><span class="pre">Program17_1</span></code>.  You can also change them on the fly using the bump switches for fine tuning.</p></li>
+<li><p><strong>This is part of Homework 17</strong></p></li>
+<li><p>Read the entire code in <code class="docutils literal notranslate"><span class="pre">Program17_1.c</span></code>.</p></li>
+<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Controller()</span></code> function in <code class="docutils literal notranslate"><span class="pre">Program17_1.c</span></code> according to the provided instructions.</p></li>
+<li><p>For this homework, implement a proportional-integral controller to drive both motors at the desired speed.</p></li>
+<li><p>Copy and paste your <code class="docutils literal notranslate"><span class="pre">Controller()</span></code> code into Gradescope for Homework 17 submission.</p></li>
+</ul>
+</section>
+<section id="demo-program17-1">
+<h3>Demo <code class="docutils literal notranslate"><span class="pre">Program17_1</span></code><a class="headerlink" href="#demo-program17-1" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Experimentally determine the best <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_i\)</span> in order to establish a stable system.</p></li>
+<li><p>You can change <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_i\)</span> at line 80 in the <code class="docutils literal notranslate"><span class="pre">Program17_1</span></code> file.  You can also fine-tune these values in real-time using the bump switches.</p></li>
 <li><p>Record the <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_i\)</span> values and report them in the following section.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code> showing a proportional-integral controller that regulates the wheel speeds of 50 rpm and 100 rpm in the presence of external disturbance.  You should apply disturbance after the speed settles at the desired speed.</p></li>
+<li><p>Demonstrate the functionality of <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code> which showcases a proportional-integral controller responsible for regulating wheel speeds at 50 rpm and 100 rpm in the presence of external disturbance. Make sure to apply the disturbance only after the desired speed has settled.</p></li>
 </ul>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OveTuwviGjA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -474,126 +468,96 @@ document.write(`
 <section id="discuss-the-performance-of-your-controller-in-program17-1">
 <h3>Discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code><a class="headerlink" href="#discuss-the-performance-of-your-controller-in-program17-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Collect the data for the wheel speed of 100 rpm via the USB/UART port and discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code>.</p></li>
-<li><p>You may need to change the Serial Terminal buffer size.  The default is 1000 lines.  If you need more than 1000 lines, you need to change it. The instruction is <a class="reference internal" href="../faq.html#faq-ccs-terminalbuffer"><span class="std std-ref">here</span></a>.</p></li>
-<li><p>Provide the step response of the speed controller with/without the disturbance, which is applied after the speed settles at the desired speed.</p></li>
-<li><p>Provide the input signals (PWM duty cycles) to the robot.</p></li>
-<li><p>You can use any software you like - MATLAB, MS Excel, etc. for figures. Your plots must include labels, units, and legends whenever required. You should plot the region of interest.  Use the axis limit functions such as <code class="docutils literal notranslate"><span class="pre">plt.ylim</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.xlim</span></code>.</p></li>
-<li><p>Discuss the performance of your controller based on the response time, overshoot, and steady-state error.  Report the <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_i\)</span> values you used for these plots.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program16_2()</span></code> and slightly hold one of the wheels to apply disturbance.  Run <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code> with a PI controller and do the same. Which one performs better? Explain why or why not.</p></li>
+<li><p>Gather data on wheel speed at 100 rpm through the USB/UART port and evaluate the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code>.</p></li>
+<li><p>You may find it necessary to adjust the Serial Terminal buffer size, which defaults to 1000 lines. If you require more than 1000 lines, refer to the instructions <a class="reference internal" href="../faq.html#faq-ccs-terminalbuffer"><span class="std std-ref">here</span></a>.</p></li>
+<li><p>Provide the step response of the speed controller with an external disturbance, ensuring that disturbance is applied <strong>after the speed has settled at the desired speed</strong>.</p></li>
+<li><p>Provide the input signals (PWM duty cycles) applied to the robot.</p></li>
+<li><p>Feel free to use any software of your choice, such as MATLAB or MS Excel, for generating figures. Ensure that your plots include labels, units, and legends as needed. Make sure to focus on the region of interest and utilize axis limit functions like <code class="docutils literal notranslate"><span class="pre">plt.ylim</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.xlim</span></code>.</p></li>
+<li><p>Discuss the controller’s performance, taking into consideration factors like response time, overshoot, and steady-state error.  Report the <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_i\)</span> values you used for these plots.</p></li>
+<li><p>Execute <code class="docutils literal notranslate"><span class="pre">Program16_2()</span></code> and after the speed is settled, gently holding one of the wheels to introduce a disturbance. Then, run <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code> with the PI controller you have implemented and repeat the same procedure. Determine which one performs better and provide an explanation for your findings.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Take this part very seriously. The crucial part of your final report will be system performance analysis. Scientific analysis is primarily based on the information collected, often using figures.</p>
+<p>Take this part very seriously. The critical component of your final report will involve analyzing the system’s performance. Scientific analysis predominantly relies on the data gathered, frequently presented through figures.</p>
 </div>
-</section>
-<section id="implement-a-controller-to-follow-a-line-in-program17-2">
-<h3>Implement a controller to follow a line in <code class="docutils literal notranslate"><span class="pre">Program17_2()</span></code><a class="headerlink" href="#implement-a-controller-to-follow-a-line-in-program17-2" title="Permalink to this heading">#</a></h3>
+<p><strong>The points allocated to this analysis section are twice as many as those assigned to the demonstration.</strong>  If you have any doubts about the plots you’ve created, don’t hesitate to seek guidance from one of the instructors.</p>
 <ul class="simple">
-<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Controller()</span></code> function in <code class="docutils literal notranslate"><span class="pre">Program17_2.c</span></code></p></li>
-<li><p>Write a proportional controller to drive the robot using the line following.</p></li>
-<li><p>Experimentally determine the best proportional constant and swing values to create a stable system.</p></li>
-<li><p>Record the <span class="math notranslate nohighlight">\(K_p\)</span> value and report it in the following section.</p></li>
-<li><p>Your robot must follow the white line in the maze. You are not allowed to change <code class="docutils literal notranslate"><span class="pre">reflectance.c</span></code>. If you change it, your other projects that used to work on a black line will fail.  There is a very simple method to make it work on white lines without modifying <code class="docutils literal notranslate"><span class="pre">reflectance.c</span></code>.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program17_2</span></code> with the robot following the white line in the maze at any speed.</p></li>
-<li><p>You must place your robot at least <strong>1 inch off the line</strong> as shown in the figure below. Otherwise, you will not be able to measure the step response.</p></li>
+<li><p>Examples of plots that may not receive full credit include, but are not limited to, the following.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/Lab17_Demo2_Setup.jpg"><img alt="../_images/Lab17_Demo2_Setup.jpg" class="align-center" src="../_images/Lab17_Demo2_Setup.jpg" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/Lab17_BadPlotExample1.png"><img alt="../_images/Lab17_BadPlotExample1.png" class="align-center" src="../_images/Lab17_BadPlotExample1.png" style="width: 420px;" /></a>
 <br>
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CvwBSGg3UGo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-<br>
-</section>
-<section id="discuss-the-performance-of-your-controller-in-program17-2">
-<h3>Discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_2()</span></code><a class="headerlink" href="#discuss-the-performance-of-your-controller-in-program17-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Collect the data via the USB/UART port to discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_2()</span></code>.</p></li>
-<li><p>Provide the step response of the line-following robot.</p></li>
-<li><p>Provide the input signals (PWM duty cycles) to the robot.</p></li>
-<li><p>You can use any software you like - MATLAB, MS Excel, etc. for figures. Your plots must include labels, units, and legends whenever required. You should plot the region of interest.  Use the axis limit functions such as <code class="docutils literal notranslate"><span class="pre">plt.ylim</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.xlim</span></code>.  Report the <span class="math notranslate nohighlight">\(K_p\)</span> value you used for these plots</p></li>
-<li><p>Discuss the performance of your controller based on the response time, overshoot, and steady-state error.</p></li>
+<li><p>This plot has no step response.  The initial motor speeds must be 0.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab17_BadPlotExample2.png"><img alt="../_images/Lab17_BadPlotExample2.png" class="align-center" src="../_images/Lab17_BadPlotExample2.png" style="width: 420px;" /></a>
+<br>
+<ul class="simple">
+<li><p>The x-axis is off by at least an order of magnitude. The whees cannot react at the speed shown in the plot.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/Lab17_BadPlotExample3.png"><img alt="../_images/Lab17_BadPlotExample3.png" class="align-center" src="../_images/Lab17_BadPlotExample3.png" style="width: 420px;" /></a>
+<br>
+<ul class="simple">
+<li><p>The x-axis unit should be in seconds (s) or milliseconds (ms), not 10 ms or 20 ms. The standard time units in engineering are s, ms, us, ns, and so on.</p></li>
 </ul>
 </section>
-<section id="create-a-controller-to-stay-between-two-walls-in-program17-3">
-<h3>Create a controller to stay between two walls in <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code><a class="headerlink" href="#create-a-controller-to-stay-between-two-walls-in-program17-3" title="Permalink to this heading">#</a></h3>
+<section id="implement-a-wall-following-controller-in-program17-3">
+<h3>Implement a Wall-Following controller in <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code><a class="headerlink" href="#implement-a-wall-following-controller-in-program17-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Controller()</span></code> function in <code class="docutils literal notranslate"><span class="pre">Program17_3.c</span></code></p></li>
-<li><p>Create a proportional controller to drive between two walls using IR sensors.</p></li>
-<li><p>Experimentally determine the best proportional constant and swing values to create a stable system.</p></li>
-<li><p>Find three  <span class="math notranslate nohighlight">\(K_p\)</span> values: one for a slow response, another for a fast response with a slight overshoot, and the other for a very fast response with a significant overshoot.</p></li>
-<li><p>Record the <span class="math notranslate nohighlight">\(K_p\)</span> values and report them in the following section.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code> with the three  <span class="math notranslate nohighlight">\(K_p\)</span> values.</p></li>
-<li><p>You must place your robot at least <strong>3 inches off the line</strong>.</p></li>
+<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Controller()</span></code> function in Program17_3.c.</p></li>
+<li><p>Develop a proportional controller that guides the robot between two walls using IR sensors.</p></li>
+<li><p>Empirically determine the optimal proportional constant and swing values to establish a stable system.</p></li>
+<li><p>Determine three distinct <span class="math notranslate nohighlight">\(K_p\)</span> values: one for a slow response, another for a fast response with a slight overshoot (or no overshoot), and the third for a very fast response with significant overshoot.</p></li>
+<li><p>Document the <span class="math notranslate nohighlight">\(K_p\)</span> values and provide them in the subsequent section.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code> using the three different <span class="math notranslate nohighlight">\(K_p\)</span> values. <strong>Important Note</strong>: Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line.</p></li>
 </ul>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7S8QNVCjVyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <br>
 </section>
-<section id="discuss-the-performance-of-your-controller-in-program17-3">
-<h3>Discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_3()</span></code><a class="headerlink" href="#discuss-the-performance-of-your-controller-in-program17-3" title="Permalink to this heading">#</a></h3>
+<section id="evaluate-controller-performance-in-program17-3">
+<h3>Evaluate controller performance in <code class="docutils literal notranslate"><span class="pre">Program17_3()</span></code><a class="headerlink" href="#evaluate-controller-performance-in-program17-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Collect the data via the USB/UART port to discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_3()</span></code>.</p></li>
+<li><p>Collect data via the USB/UART port to evaluate the controller’s performance.</p></li>
 <li><p>Provide the step response of the wall-following robot.</p></li>
-<li><p>Provide the input signals (PWM duty cycles) to the robot.</p></li>
-<li><p>You can use any software you like - MATLAB, MS Excel, etc. for figures. Your plots must include labels, units, and legends whenever required. You must provide a step response for each <span class="math notranslate nohighlight">\(Kp\)</span> value.  Report the <span class="math notranslate nohighlight">\(K_p\)</span> values you used for these plots.</p></li>
-<li><p>Discuss the performance of your controller based on the response time, overshoot, and steady-state error.</p></li>
+<li><p>Provide the input signals (PWM duty cycles) applied to the robot.</p></li>
+<li><p>Utilize software of your choice, such as MATLAB or MS Excel, for generating figures. Ensure that your plots feature labels, units, and legends when necessary. Provide a step response for each <span class="math notranslate nohighlight">\(K_p\)</span> value and report the values used for these plots.</p></li>
+<li><p>Assess the controller’s performance, considering factors like response time, overshoot, and steady-state error.</p></li>
 </ul>
 </section>
 </section>
-<section id="deliverables-50-10-bonus-points-5-early-bird-points">
-<h2>🚚 Deliverables (50 + 10 Bonus Points + 5 Early Bird Points)<a class="headerlink" href="#deliverables-50-10-bonus-points-5-early-bird-points" title="Permalink to this heading">#</a></h2>
-<p>All deliverables are due on</p>
-<ul class="simple">
-<li><p>T36 (Tue 29 Nov) 0700 - M-day sections</p></li>
-<li><p>M37 (Wed 30 Nov) 0700 - T-day sections</p></li>
-</ul>
+<section id="deliverables">
+<h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
 <section id="deliverable-1">
 <h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[8 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code> showing a proportional-integral controller that regulates the wheel speeds of 50 rpm and 120 rpm in the presence of external disturbance.  You should apply disturbance after the speed settles at the desired speed.</p></li>
+<li><p><strong>[4 Points]</strong>  Demonstrate the functionality of <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code> which showcases a proportional-integral controller responsible for regulating wheel speeds at 50 rpm and 100 rpm in the presence of external disturbance. Make sure to apply the disturbance only after the desired speed has settled.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
 <h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[10 Points]</strong>  Collect the UART data to discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code>.  Provide a step response of the speed controller with disturbance, which is applied after the speed settles at the desired speed. Your plots must include labels, units, and legends whenever required.</p></li>
-<li><p>Discuss the performance of your controller based on the response time, overshoot, and steady-state error.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program16_2()</span></code> and slightly hold one of the wheels to apply disturbance.  Run <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code> with a PI controller and do the same. Which one performs better? Briefly explain why or why not.</p></li>
+<li><p><strong>[8 Points]</strong>  Collect the UART data to discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code>.  Provide a step response of the speed controller with disturbance, which is applied after the speed settles at the desired speed. Your plots must include labels, units, and legends whenever required.</p></li>
+<li><p>Discuss the controller’s performance, taking into consideration factors like response time, overshoot, and steady-state error.  Report the <span class="math notranslate nohighlight">\(K_p\)</span> and <span class="math notranslate nohighlight">\(K_i\)</span> values you used for these plots.</p></li>
+<li><p>Execute <code class="docutils literal notranslate"><span class="pre">Program16_2()</span></code> and after the speed is settled, gently holding one of the wheels to introduce a disturbance. Then, run <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code> with the PI controller you have implemented and repeat the same procedure. Determine which one performs better and provide an explanation for your findings.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
 <h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[10 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program17_2()</span></code> showing a proportional controller that follows the white line in the first straight section of the maze. Your robot must start 1.5 inches (or 4 cm) off the line to evaluate the step response.</p></li>
+<li><p><strong>[4 Points]</strong>  - Demo <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code> using the three different <span class="math notranslate nohighlight">\(K_p\)</span> values. <strong>Important Note</strong>: Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line. Your demo must include three step responses - one for a slow response, another for a fast response with a slight overshoot (or no overshoot), and the third for a very fast response with significant overshoot. Report their <span class="math notranslate nohighlight">\(K_p\)</span> values.</p></li>
 </ul>
 </section>
 <section id="deliverable-4">
 <h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[10 Points]</strong>  Collect the UART data to discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_2()</span></code>. Provide a step response of the line-following robot. Your plots must include labels, units, and legends whenever required.</p></li>
-<li><p>Discuss the performance of your controller based on the response time, overshoot, and steady-state error.</p></li>
+<li><p><strong>[8 Points]</strong>  Collect data via the USB/UART port to evaluate the controller’s performance. Provide the step response of the wall-following robot and the input signals (PWM duty cycles) applied to the robot. Provide a step response for each <span class="math notranslate nohighlight">\(K_p\)</span> value and report the values used for these plots. Assess the controller’s performance, considering factors like response time, overshoot, and steady-state error.</p></li>
 </ul>
 </section>
 <section id="deliverable-5">
 <h3>Deliverable 5<a class="headerlink" href="#deliverable-5" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[10 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program17_3()</span></code> showing a proportional controller that follows the wall in the first straight section of the maze. Your robot must start 3 inches (or 7.5 cm) off the line to evaluate the step response.</p></li>
-<li><p>Your demo must include three step responses - slow response, fast response with no overshoot, and fast response with overshoot. Report their <span class="math notranslate nohighlight">\(K_p\)</span> values.</p></li>
-</ul>
-</section>
-<section id="deliverable-6">
-<h3>Deliverable 6<a class="headerlink" href="#deliverable-6" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>[12 Points]</strong>  Collect the UART data to discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_3()</span></code>. Provide the step responses of the wall-following robot for the <span class="math notranslate nohighlight">\(K_p\)</span> values you used. Your plots must include labels, units, and legends whenever required.</p></li>
-<li><p>Use the step responses to discuss the performance of your controller with three <span class="math notranslate nohighlight">\(K_p\)</span> values based on the response time, overshoot, and steady-state error.</p></li>
-</ul>
-</section>
-<section id="happy-holiday-bonus">
-<h3>Happy Holiday Bonus<a class="headerlink" href="#happy-holiday-bonus" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>[5 Points]</strong>  Complete Deliverables 1, 3, &amp; 5 before the Thanksgiving break and enjoy the holiday. Your successful demo should be submitted by Wed 23 Nov 2359.</p></li>
+<li><p><strong>[5.5 Points]</strong> Ensure that you provide comments in your code for clarity and push your code to your repository using git.</p></li>
 </ul>
 </section>
 </section>
@@ -669,23 +633,19 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-proportional-controller-in-program17-1">Implement a proportional controller in <code class="docutils literal notranslate"><span class="pre">Program17_1</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-proportional-integral-controller-in-program17-1">Implement a proportional-integral controller in <code class="docutils literal notranslate"><span class="pre">Program17_1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program17-1">Demo <code class="docutils literal notranslate"><span class="pre">Program17_1</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discuss-the-performance-of-your-controller-in-program17-1">Discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_1()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-controller-to-follow-a-line-in-program17-2">Implement a controller to follow a line in <code class="docutils literal notranslate"><span class="pre">Program17_2()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discuss-the-performance-of-your-controller-in-program17-2">Discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_2()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-controller-to-stay-between-two-walls-in-program17-3">Create a controller to stay between two walls in <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discuss-the-performance-of-your-controller-in-program17-3">Discuss the performance of your controller in <code class="docutils literal notranslate"><span class="pre">Program17_3()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-wall-following-controller-in-program17-3">Implement a Wall-Following controller in <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-controller-performance-in-program17-3">Evaluate controller performance in <code class="docutils literal notranslate"><span class="pre">Program17_3()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables-50-10-bonus-points-5-early-bird-points">🚚 Deliverables (50 + 10 Bonus Points + 5 Early Bird Points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1">Deliverable 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2">Deliverable 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4">Deliverable 4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-5">Deliverable 5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-6">Deliverable 6</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#happy-holiday-bonus">Happy Holiday Bonus</a></li>
 </ul>
 </li>
 </ul>
