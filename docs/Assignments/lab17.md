@@ -111,28 +111,27 @@ Take this part very seriously. The critical component of your final report will 
 
 ### Evaluate controller performance in `Program17_3()`
 
-- Collect data via the USB/UART port to evaluate the controller's performance.
-- Provide the step response of the wall-following robot.
-- Provide the input signals (PWM duty cycles) applied to the robot.
-- Utilize software of your choice, such as MATLAB or MS Excel, for generating figures. Ensure that your plots feature labels, units, and legends when necessary. Provide a step response for each $K_p$ value and report the values used for these plots.
-- Assess the controller's performance, considering factors like response time, overshoot, and steady-state error.
+- Collect data via the USB/UART port to assess the controller's performance.
+- Provide the $K_p$ values recorded in the previous section.
+- Provide the best step response from Deliverable 3, along with the input signal (PWM duty cycles) applied to the robot. Report the corresponding $K_p$ value. 
+- Utilize software of your choice, such as MATLAB or MS Excel, for generating figures. Ensure that your plots feature labels, units, and legends when necessary. - Assess the controller's performance, considering factors like response time, overshoot, and steady-state error.
 
 ## 🚚 Deliverables
 
-### Deliverable 1 
-- **[4 Points]**  Demonstrate the functionality of `Program17_1()` which showcases a proportional-integral controller responsible for regulating wheel speeds at 50 rpm and 100 rpm in the presence of external disturbance. Make sure to apply the disturbance only after the desired speed has settled.
+### Deliverable 1 **[4 Points]**  
+- Demonstrate the functionality of `Program17_1()` which showcases a proportional-integral controller responsible for regulating wheel speeds at 50 rpm and 100 rpm in the presence of external disturbance. Make sure to apply the disturbance only after the desired speed has settled.
 
 
-### Deliverable 2 
-- **[8 Points]**  Collect the UART data to discuss the performance of your controller in `Program17_1()`.  Provide a step response of the speed controller with disturbance, which is applied after the speed settles at the desired speed. Your plots must include labels, units, and legends whenever required. 
+### Deliverable 2  **[8 Points]**  
+- Provide a step response of the speed controller with disturbance, which is applied after the speed settles at the desired speed. Your plots must include labels, units, and legends whenever required. 
 - Discuss the controller's performance, taking into consideration factors like response time, overshoot, and steady-state error.  Report the $K_p$ and $K_i$ values you used for these plots.
 - Execute `Program16_2()` and after the speed is settled, gently holding one of the wheels to introduce a disturbance. Then, run `Program17_1()` with the PI controller you have implemented and repeat the same procedure. Determine which one performs better and provide an explanation for your findings.
 
-### Deliverable 3 
-- **[4 Points]**  - Demo `Program17_3` using the three different $K_p$ values. **Important Note**: Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line. Your demo must include three step responses - one for a slow response, another for a fast response with a slight overshoot (or no overshoot), and the third for a very fast response with significant overshoot. Report their $K_p$ values. 
+### Deliverable 3 **[4 Points]**  
+- Demo `Program17_3` using the three different $K_p$ values. **Important Note**: Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line. Your demo must include three step responses - one for a slow response, another for a fast response with a slight overshoot (or no overshoot), and the third for a very fast response with significant overshoot. Report their $K_p$ values. 
 
-### Deliverable 4 
-- **[8 Points]**  Collect data via the USB/UART port to evaluate the controller's performance. Provide the step response of the wall-following robot and the input signals (PWM duty cycles) applied to the robot. Provide a step response for each $K_p$ value and report the values used for these plots. Assess the controller's performance, considering factors like response time, overshoot, and steady-state error.
+### Deliverable 4 **[8 Points]**  
+- Collect data via the USB/UART port to assess the controller's performance. Provide the $K_p$ values recorded in the previous section. Provide the best step response from Deliverable 3, along with the input signal (PWM duty cycles) applied to the robot. Report the corresponding $K_p$ value. Assess the controller's performance, considering factors like response time, overshoot, and steady-state error.
 
 ### Deliverable 5 
 - **[5.5 Points]** Ensure that you provide comments in your code for clarity and push your code to your repository using git.
