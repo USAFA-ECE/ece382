@@ -93,9 +93,11 @@ Take this part very seriously. The critical component of your final report will 
 
 - The x-axis unit should be in seconds (s) or milliseconds (ms), not 10 ms or 20 ms. The standard time units in engineering are s, ms, us, ns, and so on.
 
-
 ### Implement a Wall-Following controller in `Program17_3`
 
+
+- Go to ECE382 Teams > General > Files > Class Materials > SourceFiles.
+- Download `TimerA2.c` into your workspace/inc folder using Windows File Explorer (not Code Composer Studio). You should overwrite the existing `TimerA2.c`. **Caution**: It must be in the `inc` folder not in the `Lab17_Control` folder.
 - Complete the `Controller()` function in Program17_3.c.
 - Develop a proportional controller that guides the robot between two walls using IR sensors.
 - Empirically determine the optimal proportional constant and swing values to establish a stable system.
