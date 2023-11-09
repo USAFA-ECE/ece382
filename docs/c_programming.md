@@ -26,11 +26,12 @@ You can find the precedence order in the textbook on page 111 or below:
  
 **_Are there different versions of C?_**
 
-Indeed, there exist various versions or dialects of the C programming language standard. These include C79, C89, C99, C11, and C17, among others. You can find more information about these versions on this Wikipedia page: https://en.wikipedia.org/wiki/C_(programming_language)#History
- 
-The most recent standard is C17, but the most widely adopted versions are likely C89 (also known as ANSI C) and C79 (K&R C). CCS provides support for K&R, C89, C99, and C11. 
+Indeed, there are several versions or variations of the C programming language standard. These versions include C79, C89, C99, C11, and C17, among others. You can find more detailed information about these different versions on this Wikipedia page: https://en.wikipedia.org/wiki/C_(programming_language)#History
 
-If you wish to switch between these dialects, you can do so by navigating to project properties, then CCS Build > Advanced Options > Language Options, and select your desired dialect, as illustrated in the image below:
+
+The most recent standard is C17, but the most widely used versions are likely C89 (also known as ANSI C) and C79 (K&R C). CCS offers support for K&R, C89, C99, and C11.
+
+If you want to switch between these variations, you can do so by going to project properties, then navigating to CCS Build > Advanced Options > Language Options, and selecting your preferred variation, as shown in the image below:
 
 ![C Dialect](./figures/C_Dialect.png)
 
@@ -83,13 +84,11 @@ Reference: B. Kernighan & D. Ritchie, "The C Programming Language," 2nd ed, pp. 
 
 ### _What is the _static_ qualifier?_
 
-The functions inside C files are by default *global* functions.  Although they are not declared in the associated .h files, the functions can be seen (and even called - I don't want to show you how because it is not good practice) by other files. So, you will have a compile error if you have two functions with the same name in two C files.  
- 
-Then, how can you make the function invisible to other files?  Use the *static* qualifier.  It makes your functions private in the C file they are defined. 
- 
-Variables declared outside functions are also global variables, and other files can see them.  They can also be static to make them private (again invisible by other files) - this is different from the static variables inside a function. 
+The functions within C files are inherently global functions. Even if they are not declared in the associated .h files, these functions can be accessed by other files, potentially leading to a compilation error if two functions with the same name exist in separate C files.
 
+So, how can you restrict a function's visibility to only the file it's defined in? You can achieve this by using the **_static_** qualifier. This makes the functions private, ensuring that they remain within the scope of the C file in which they are defined.
 
+Similarly, variables declared outside of functions are global variables, and like functions, they are accessible to other files. These variables can also be made static to restrict their visibility, effectively making them private and hidden from other files. It's worth noting that this is different from the concept of static variables inside a function.
 
 ## C Programming Language, 2nd Ed.  by Kernighan and Ritche
 
