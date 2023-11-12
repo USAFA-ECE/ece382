@@ -1,8 +1,8 @@
 # 🚀 Final Project
 
-:::{attention}
+```{attention}
 - Read this page thoroughly before you start working on this final project.   
-:::
+```
 
 ## 📌 Objectives
 
@@ -48,6 +48,20 @@ First, solve the problem. Then, write the code.
 
 ## 💻 Procedure
 
+### Timeline
+
+- L36 0700: Design Presentation slides (Gradescope and Instructors)
+    - All cadets must submit their presentation files to their instructors NLT L36 0700. 
+    - **_No grace days_** can be used for the powerpoint slides.
+- L36/37: Design Presentations
+- L39 0700: Demos Due 
+    - Early bird **[3 Bonus Points]** Finish any one level by T37 (Thu 30 Nov Dec) 2359
+    - Late Demos: You can use grace days, but all products must be submitted NLT T40 2359 (by the Dean's policy). 
+    - No grace days can be used for early bird demos. 
+- L39: Race (during your section)
+- T40 2359: Final report & Code
+    - No grace days can be used. All products must be submitted by T40 at midnight. 
+
 ### Requirements for all levels
 
 - Do not use hard-coded numbers. Use `#define` and `const`.  For example, do not use
@@ -68,14 +82,14 @@ but use
 - There must be no delays in your Interrupt Service Routines (ISRs). No loops, waits, sleeps, etc. 5 points per level will be taken off if delays or loops exist in ISR, for example
 
 ```C
-void Controller(void){  // called every 1 ms
+void Controller(void){          // called every 1 ms
   Motor_TurnRight(3000, 3000);  // for 180 deg turn
-  Clock_Delay1ms(100);  // BAD
+  Clock_Delay1ms(100);          // BAD
 }
 
-void Controller(void){// called every 1 ms
+void Controller(void){          // called every 1 ms
   Motor_TurnRight(3000, 3000);  // for 180 deg turn
-  while(LeftSteps_deg < 180) {   // BAD
+  while(LeftSteps_deg < 180) {  // BAD
       Tachometer_GetSteps(&LeftSteps_deg, &RightSteps_deg);
   }
 }
@@ -98,21 +112,18 @@ void main(void)
 ```
 <br>
 
+### Level 1 Demo (50 Points): Returning Home
 
-### Level 1 Demo: Basic line following - there and back
-
-Your robot must utilize the line and bump sensors to follow a line through a maze.
+Use the tachometers and bump sensors to navigate the maze and return home.
 
 **Requirements:**
-- Your robot must be able to follow the white line on the left of the maze shown in the figure below. 
-- When it gets to the end of the line, it will bump into a wall, move backward at least 5cm, and turn around.
-- No IR distance sensors are allowed to use.
-- It will then return to the start.
-- When it hits the start, it will alternately flash the red and blue LEDs (forever).
-- Your robot can run at any speed.
-- When the robot moves backward and turns around, you must use the distance at least one of the wheels travels. Do not use the time elapsed.   
-- You **must** use a finite state machine to control the state transitions (following line > moving backward > turning around > following line > blinking).
-- **[3 Bonus Points]** Demo three round trips and flash the red and blue LEDs at the end of the third trip. You can still earn this bonus points on top of your early bird bonus points, but your early bird demo should be complete by the early bird due date. 
+- Utilize the tachometers and bump switches for maze navigation; however, the use of IR distance sensors is strictly prohibited.
+- When the robot reaches the designated `home` area, identified by three lines, it should come to a complete stop before making any contact with the wall.
+- Upon successfully reaching home, your robot is expected to exhibit alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.
+- Your robot is free to navigate the maze at any speed.
+- Your robot begins the exploration without prior knowledge of the maze. 
+- Home is identified at the origin (0,0), and the starting position is fixed at (340, 0) in millimeters. Your robot knows the coordinates of Home and the starting position.
+- **[3 Bonus Points]** Upon successfully reaching home, your robot now knows way back to the starting point. Return to the the starting point. 
 
 ```{image} ./figures/Proj_Maze.jpg
 :width: 660
@@ -121,41 +132,19 @@ Your robot must utilize the line and bump sensors to follow a line through a maz
 <br>
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/c8-lUruprA8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br>
-Video Credit: C22 Catherine Grebe
-</center>
-<br>
-
-### Level 2 Demo: Complex line following - search for treasure
-
-Your robot must utilize the line and bump sensors to follow a line through a maze.
-
-**Requirements:**
-- Your robot must be able to follow the white line on the right of the maze. 
-- Your robot can use the reflectance sensors and bump switches to explore the maze. No IR distance sensors are allowed to use.
-- When the robot gets to the goal, it must detect a tape pattern (e.g., 10101010) and stop before hitting the wall.
-- When it reaches the goal, it will flash the red and blue LEDs alternately.
-- Your robot can run at any speed.
-- Your robot must explore all the white lines. 
-- Your robot does not know the maze ahead of time.
-- **[3 Bonus Points]** Return to the start without hitting the walls. 
-
-
-<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Hq8rBYZTQrg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 Video Credit: C22 Allison Burba
 </center>
 <br>
 
-### Level 3 Demo: Maze exploration
+### Level 2 Demo (50 Points): Maze exploration
 
-Your robot must utilize distance sensors to explore a maze.
+Use the distance sensors to explore a maze.
 
 **Requirements:**
 - Your robot must be able to explore the maze using distance sensors.
-- Your robot must reach the goal and stop before hitting the wall. _You may use the reflectance sensors to detect the goal._
+- Your robot must reach the goal and stop before hitting the wall. 
 - No bump switches are allowed to use to explore the maze.
 - You **must** use the Classifier.c file to determine the state of the robot.
 - **You can assume your robot knows the maze ahead of time.**
@@ -167,10 +156,47 @@ Your robot must utilize distance sensors to explore a maze.
 </center>
 <br>
 
+### Design Presentation (50 Points)
 
-### Report
+- Send your presentation file (**pptx**) to your instructor NLT L36 0700. 
+- Export your Powerpoint file to a **pdf** file and submit it in Gradescope NLT L36 0700.
+- Provide a **5-minute** presentation that discusses the following topics:
+- Figures/tables/graphs are more helpful than words.
+
+
+- **[5 Points]** Purpose: Briefly describe the following
+    - Describe the problem.
+    - Discuss the requirements.
+    - What assumptions did you make going into the project?
+- **[20 Points]** Design: Briefly describe the following
+    - Discuss design choices for each level (e.g., values for PWM_AVERAGE, Kp, Ki).
+    - Include a component diagram that matches your code for each level. Points will be taken off if you don't include a subsystem that is in your code or if you include a subsystem (like TimerA2) that is not in your code. **Ensure your component diagrams are large enough to read.**
+    - What timers did you use, what did they do, and at what frequencies? 
+    - Discuss the design of your controller.
+- **[20 Points]** Debugging and testing
+    - How would you perform high-level debugging such as misclassification, being traped at a corner, etc?
+    - When your robot performs something unexpected in the maze, how would you find the problems?
+    - Do not discuss compile-time debugging, such as syntax errors.
+    - How would your methods help you debug and test your code?
+    - You must discuss the details of debugging and testing methods.
+- **[5 Points]** Questions: 
+    - Be prepared to answer questions about the code that you have written.
+    - Be prepared to answer questions about how you would implement additional functionality to your project.
+    - The question component will be an additional 2 minutes.
+- **Timing**:
+    - You will lose points for going over the 5-minute limit and your presentation will be halted at 6 minutes and you will not get credit for the parts you don't discuss.
+
+```{Attention}
+Send your presentation file (**pptx**) to your instructor NLT L39 0700. Export your Powerpoint file to a **pdf** file and submit it in Gradescope NLT L39 0700. **Select questions and pages to indicate where your responses are located. You will lose points if you do not.** 
+```
+
+
+### Report (100 Points)
 
 Reference the example report, `ECE382_Project Report Template.docx` in Teams under Files > Class Materials, for details on report content. Use `Component Block Diagram.pptx` to help you create your component diagrams for each of the three levels.
+
+    - Even though you do not have successful demos (whether you use grace days or not), you still need to discuss all three levels based on what you have.
+
 
 
 - **[10 Points]** Introduction/Purpose
@@ -189,7 +215,9 @@ Reference the example report, `ECE382_Project Report Template.docx` in Teams und
     - Do not discuss compile-time debugging, such as syntax errors.
     - How did your methods help you debug and test your code?
     - You must discuss the details of debugging and testing methods.
-- **[40 Points]** Analysis and Results
+- **[50 Points]** Analysis and Results
+    - Discuss any issues and problems you encountered. How did you overcome these?
+
     - This is the most essential part of the final project.
     - Discuss your results for each level. You must include measurements - plots.
     - Discuss how long it takes for your robot to complete the task. Attach Table 1 in the template. 
@@ -197,80 +225,25 @@ Reference the example report, `ECE382_Project Report Template.docx` in Teams und
     - If you had unresolved issues, discuss how you would fix them if you had more time.
     - Discussed what unique things you did to make your robot better than others.
     - What levels were you unable to accomplish and why?    
+
+    - What levels were you unable to accomplish and why?
+    - What issues still exist in your robot?
+    - Did you do anything unique to make your robot better than others?
+
 - **[10 Points]** Conclusion
     - Conclude your work
     - Concisely summarize the results. 
     - Emphasize the overall result of the project.
 
-:::{Attention}
+```{attention}
 Submit your report in Gradescope. **Select questions and pages to indicate where your responses are located as shown below. You will lose points if you do not.** 
-:::
+```
 
 ```{image} ./figures/Proj_GradescopeSubmission.gif
 :width: 740
 :align: center
 ```
 <br>
-
-
-### Presentation
-
-- Provide a **7-minute** presentation that discusses the following topics:
-- Figures/tables/graphs are more helpful than words.
-
-- **[10 Points]** Purpose: Briefly describe the following
-    - Describe the problem.
-    - Discuss the requirements.
-    - What assumptions did you make going into the project?
-- **[25 Points]** Design: Briefly describe the following
-    - Discuss the design of your controller.
-    - Discuss any issues and problems you encountered. How did you overcome these?
-- **[40 Points]** Analysis and Results
-    - This is the most essential part of the final project.
-    - Discuss your results for each level. You must include measurements - plots.
-    - What levels were you unable to accomplish and why?
-    - What issues still exist in your robot?
-    - Did you do anything unique to make your robot better than others?
-- **[10 Points]** Conclusion
-    - Conclude your work
-- **[10 Points]** Questions: 
-    - Be prepared to answer questions about the code that you have written.
-    - Be prepared to answer questions about how you would implement additional functionality to your project.
-    - The question component will be an additional 2 minutes.
-- **[5 Points]** Timing
-    - You will lose points for going over the 7-minute limit.
-
-:::{Attention}
-Send your presentation file (**pptx**) to your instructor NLT L39 0700. Export your Powerpoint file to a **pdf** file and submit it in Gradescope NLT L39 0700. **Select questions and pages to indicate where your responses are located. You will lose points if you do not.** 
-:::
-
-### Timeline
-
-- Turn-in Requirements:
-    - L39 0700: Demo.
-    - L39 0700: Powerpoint slides
-    - L39/40: Final presentaion
-    - T40 2359: Final report & Code
-
-- Demo: due L39 0700
-    - Early bird **[5 Bonus Points]** Finish any one level by <strike>M37 (Wed 30 Nov) 2359</strike> <font color='red'>T38 (Thu 1 Dec) 2359</font>
-
-    - Early bird **[5 Bonus Points]** Finish any two levels by M38 (Fri 2 Dec)  <strike>0700</strike> <font color='red'>2359</font>
-    - Late Demos: You can use grace days, but all products must be submitted NLT T40 2359 (by the Dean's policy). You may still lose points on your final presentation (See the Final Presentation section).
-    - No grace days can be used for early bird demos. 
-    
-- Final Presentation: L39 and L40
-    - All cadets must submit their presentation files to their instructors NLT L39 0700. 
-        - M-day sections: M39 0700.
-        - T-day sections: T39 0700.
-    - Send your presentation file (**pptx**) to your instructor NLT L39 0700. 
-    - Export your Powerpoint file to a **pdf** file and submit it in Gradescope NLT L39 0700.
-    - Even though you do not have successful demos (whether you use grace days or not), you still need to discuss all three levels based on what you have.
-    - You won't lose any points for late demos if you use grace days. However, you may lose points on your final presentation if the analysis parts of the demos are insufficient. 
-    - No grace days can be used for the presentation.
-
-- Report: T40 2359.
-    - No grace days can be used. All products must be submitted by T40 at midnight. 
 
 ## 🚚 Deliverables
 
@@ -303,9 +276,19 @@ Send your presentation file (**pptx**) to your instructor NLT L39 0700. Export y
 - **[-20 Points]** Up to 20 points will be deducted if your robot has any loose parts. 
 
 ## 🏇 Final Race
-- TBD
+- 1st place: 20 bonus points and your name will be on the plaque in the lab.
+- 2nd place: 15 bonus points
+- 3rd and 4th places: 10 bonus points
+- Same as Level 3 - Your robot must reach the goal and stop before hitting the wall.
+- You can change any code you want.
+- You will be given 2 minutes - You can re-flash your program multiple times within 2 minutes, but I would not do it.  Instead, I would change the P values and PWM_AVERAGE using the LCD and switches.
 
-
+- Last year's results:
+    - 1st place: Roger Moomaw - 10.56 sec
+    - 2nd place: Joe Cates-Beier - 10.62 sec
+    - 3rd place: Lizzie Kim - 32.63 sec
+    - The rest did not finish. so we had another round for the 4th place
+        - 4th place: Ryan Lilly - 10.77
 
 
 
