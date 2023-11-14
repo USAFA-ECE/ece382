@@ -503,6 +503,8 @@ document.write(`
 <section id="implement-a-wall-following-controller-in-program17-3">
 <h3>Implement a Wall-Following controller in <code class="docutils literal notranslate"><span class="pre">Program17_3</span></code><a class="headerlink" href="#implement-a-wall-following-controller-in-program17-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
+<li><p>Go to ECE382 Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
+<li><p>Download <code class="docutils literal notranslate"><span class="pre">TimerA2.c</span></code> into your workspace/inc folder using Windows File Explorer (not Code Composer Studio). You should overwrite the existing <code class="docutils literal notranslate"><span class="pre">TimerA2.c</span></code>. <strong>Caution</strong>: It must be in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder not in the <code class="docutils literal notranslate"><span class="pre">Lab17_Control</span></code> folder.</p></li>
 <li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Controller()</span></code> function in Program17_3.c.</p></li>
 <li><p>Develop a proportional controller that guides the robot between two walls using IR sensors.</p></li>
 <li><p>Empirically determine the optimal proportional constant and swing values to establish a stable system.</p></li>
@@ -519,8 +521,9 @@ document.write(`
 <h3>Evaluate controller performance in <code class="docutils literal notranslate"><span class="pre">Program17_3()</span></code><a class="headerlink" href="#evaluate-controller-performance-in-program17-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Collect data via the USB/UART port to assess the controller’s performance.</p></li>
-<li><p>Provide the <span class="math notranslate nohighlight">\(K_p\)</span> values recorded in the previous section.</p></li>
-<li><p>Provide the best step response from Deliverable 3, along with the input signal (PWM duty cycles) applied to the robot. Report the corresponding <span class="math notranslate nohighlight">\(K_p\)</span> value.</p></li>
+<li><p>Provide the step response of the closed-loop system that exhibited a fast response with a slight overshoot (or no overshoot) as identified in Deliverable 3. The step response should depict the system’s output, which is the distance from the center.</p></li>
+<li><p>Provide a plot of the input signal associated with this step response. The input signal applied to the system is the PWM duty cycles in percent.</p></li>
+<li><p>Report the <span class="math notranslate nohighlight">\(K_p\)</span> value associate with these plots.</p></li>
 <li><p>Utilize software of your choice, such as MATLAB or MS Excel, for generating figures. Ensure that your plots feature labels, units, and legends when necessary. - Assess the controller’s performance, considering factors like response time, overshoot, and steady-state error.</p></li>
 </ul>
 </section>

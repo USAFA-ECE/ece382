@@ -93,9 +93,11 @@ Take this part very seriously. The critical component of your final report will 
 
 - The x-axis unit should be in seconds (s) or milliseconds (ms), not 10 ms or 20 ms. The standard time units in engineering are s, ms, us, ns, and so on.
 
-
 ### Implement a Wall-Following controller in `Program17_3`
 
+
+- Go to ECE382 Teams > General > Files > Class Materials > SourceFiles.
+- Download `TimerA2.c` into your workspace/inc folder using Windows File Explorer (not Code Composer Studio). You should overwrite the existing `TimerA2.c`. **Caution**: It must be in the `inc` folder not in the `Lab17_Control` folder.
 - Complete the `Controller()` function in Program17_3.c.
 - Develop a proportional controller that guides the robot between two walls using IR sensors.
 - Empirically determine the optimal proportional constant and swing values to establish a stable system.
@@ -112,8 +114,9 @@ Take this part very seriously. The critical component of your final report will 
 ### Evaluate controller performance in `Program17_3()`
 
 - Collect data via the USB/UART port to assess the controller's performance.
-- Provide the $K_p$ values recorded in the previous section.
-- Provide the best step response from Deliverable 3, along with the input signal (PWM duty cycles) applied to the robot. Report the corresponding $K_p$ value. 
+- Provide the step response of the closed-loop system that exhibited a fast response with a slight overshoot (or no overshoot) as identified in Deliverable 3. The step response should depict the system's output, which is the distance from the center. 
+- Provide a plot of the input signal associated with this step response. The input signal applied to the system is the PWM duty cycles in percent.
+- Report the $K_p$ value associate with these plots.
 - Utilize software of your choice, such as MATLAB or MS Excel, for generating figures. Ensure that your plots feature labels, units, and legends when necessary. - Assess the controller's performance, considering factors like response time, overshoot, and steady-state error.
 
 ## 🚚 Deliverables

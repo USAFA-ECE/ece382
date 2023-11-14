@@ -421,9 +421,9 @@ document.write(`
 <p>You can find the precedence order in the textbook on page 111 or below:</p>
 <p><img alt="Operator Precedence" src="_images/OperatorPrecedence.png" /></p>
 <p><strong><em>Are there different versions of C?</em></strong></p>
-<p>Indeed, there exist various versions or dialects of the C programming language standard. These include C79, C89, C99, C11, and C17, among others. You can find more information about these versions on this Wikipedia page: <a class="reference external" href="https://en.wikipedia.org/wiki/C_(programming_language)#History">https://en.wikipedia.org/wiki/C_(programming_language)#History</a></p>
-<p>The most recent standard is C17, but the most widely adopted versions are likely C89 (also known as ANSI C) and C79 (K&amp;R C). CCS provides support for K&amp;R, C89, C99, and C11.</p>
-<p>If you wish to switch between these dialects, you can do so by navigating to project properties, then CCS Build &gt; Advanced Options &gt; Language Options, and select your desired dialect, as illustrated in the image below:</p>
+<p>Indeed, there are several versions or variations of the C programming language standard. These versions include C79, C89, C99, C11, and C17, among others. You can find more detailed information about these different versions on this Wikipedia page: <a class="reference external" href="https://en.wikipedia.org/wiki/C_(programming_language)#History">https://en.wikipedia.org/wiki/C_(programming_language)#History</a></p>
+<p>The most recent standard is C17, but the most widely used versions are likely C89 (also known as ANSI C) and C79 (K&amp;R C). CCS offers support for K&amp;R, C89, C99, and C11.</p>
+<p>If you want to switch between these variations, you can do so by going to project properties, then navigating to CCS Build &gt; Advanced Options &gt; Language Options, and selecting your preferred variation, as shown in the image below:</p>
 <p><img alt="C Dialect" src="_images/C_Dialect.png" /></p>
 <p>It’s worth noting that the default dialect in CCS is C89, but ECE382 employs C11 to facilitate features like variable declaration within for-loops, as seen in the example: <code class="docutils literal notranslate"><span class="pre">(int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">...</span> <span class="pre">)</span></code>.</p>
 </section>
@@ -470,9 +470,9 @@ document.write(`
 </section>
 <section id="what-is-the-static-qualifier">
 <h3><em>What is the <em>static</em> qualifier?</em><a class="headerlink" href="#what-is-the-static-qualifier" title="Permalink to this heading">#</a></h3>
-<p>The functions inside C files are by default <em>global</em> functions.  Although they are not declared in the associated .h files, the functions can be seen (and even called - I don’t want to show you how because it is not good practice) by other files. So, you will have a compile error if you have two functions with the same name in two C files.</p>
-<p>Then, how can you make the function invisible to other files?  Use the <em>static</em> qualifier.  It makes your functions private in the C file they are defined.</p>
-<p>Variables declared outside functions are also global variables, and other files can see them.  They can also be static to make them private (again invisible by other files) - this is different from the static variables inside a function.</p>
+<p>The functions within C files are inherently global functions. Even if they are not declared in the associated .h files, these functions can be accessed by other files, potentially leading to a compilation error if two functions with the same name exist in separate C files.</p>
+<p>So, how can you restrict a function’s visibility to only the file it’s defined in? You can achieve this by using the <strong><em>static</em></strong> qualifier. This makes the functions private, ensuring that they remain within the scope of the C file in which they are defined.</p>
+<p>Similarly, variables declared outside of functions are global variables, and like functions, they are accessible to other files. These variables can also be made static to restrict their visibility, effectively making them private and hidden from other files. It’s worth noting that this is different from the concept of static variables inside a function.</p>
 </section>
 </section>
 <section id="c-programming-language-2nd-ed-by-kernighan-and-ritche">
