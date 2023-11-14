@@ -114,8 +114,8 @@ Take this part very seriously. The critical component of your final report will 
 ### Evaluate controller performance in `Program17_3()`
 
 - Collect data via the USB/UART port to assess the controller's performance.
-- Provide the step response of the closed-loop system that exibited a fast response with a slight overshoot (or no overshoot) as identified in Deliverable 3. The step response should depict the system's output, which is the distance from the center. 
-- Provide a plot the input signal associated with this step response. The input signal applied to the system is the PWM duty cycles in percent.
+- Provide the step response of the closed-loop system that exhibited a fast response with a slight overshoot (or no overshoot) as identified in Deliverable 3. The step response should depict the system's output, which is the distance from the center. 
+- Provide a plot of the input signal associated with this step response. The input signal applied to the system is the PWM duty cycles in percent.
 - Report the $K_p$ value associate with these plots.
 - Utilize software of your choice, such as MATLAB or MS Excel, for generating figures. Ensure that your plots feature labels, units, and legends when necessary. - Assess the controller's performance, considering factors like response time, overshoot, and steady-state error.
 

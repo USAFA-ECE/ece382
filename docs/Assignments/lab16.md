@@ -115,7 +115,7 @@ Full credit will only be awarded if the figures have **_correct labels and units
 - Ensure that the first column of the data represents time in **10-millisecond intervals**; "1" signifies 10ms, and "2" signifies 20ms.
 - Label your axes with appropriate units, e.g., `time (seconds)`. Convert the time data from 10ms to seconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.
 - Represent the duty cycle in `percentage` rather than `permyriad`.
-- Express the speed in rpm, radians per second (RPM), or degrees per second (deg/sec), and include the relevant units in your plots.
+- Express the speed in rpm, radians per second (RPM) and include the relevant units in your plots.
 - Examples of incorrectly labeled plots include, but are not limited to, the following.
 
 ```{image} ./figures/Lab16_plot_duty_incorrect.png
@@ -214,7 +214,7 @@ Although this part is not required for Lab 16, it will be part of the final proj
 - **[5 Points]** Demo `Program16_1()` running at the speeds of 25\%, 50\%, 75\%, 100\%, and then return to 25\%.   
 
 ### Deliverable 2 
-- **[5 points]** Use a software tool of your choice to create plots for the `duty cycle in percent`, `timer periods (unitless)`, and `actual speeds in rpm`. Submit your three plots in Gradescope.
+- **[5 points]** Use a software tool of your choice to create plots for the `duty cycle in percent`, `timer periods in microsecond`, and `actual speeds in rpm`. Submit your three plots in Gradescope.
 
 ### Deliverable 3 
 - **[5 Points]** Demo `Program16_2()` with operational switches and LCD. The actual wheel speeds must reach the desired wheel speeds.  
