@@ -308,3 +308,9 @@ Submit your report on Gradescope. Be sure to select questions and pages to indic
 - Return your robot in person to Mr. Hall or Ms. Rosario by Tuesday 12 Dec 1500.
 - Ensure no loose parts; tighten all the screws before returning your robot.
 - **[-10 Points]** Up to 10 points deducted for loose parts. 
+
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/A05248fm4Xs?si=_VQ_G8BYoUMMyS7Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+<br>
