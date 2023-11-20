@@ -123,11 +123,11 @@ void main(void)
 
 ### Level 1 (40 + 5 Points): Maze Exploration
 
-Use the tachometers and bump sensors to navigate the maze and return home.
+Use the tachometers and bump sensors to navigate the maze and return home. Imagine you are in uncharted territory with a compass and a GPS receiver, tasked with reaching a designated coordinate.
 
 **Requirements:**
 - Utilize the tachometers and bump switches for maze navigation; however, the use of IR distance sensors is strictly prohibited.
-- When the robot reaches the designated `home` area, identified by three lines, it should come to a complete stop before making any contact with the wall.
+- When the robot reaches the designated `home` area, identified by the orange line, it should come to a complete stop before making any contact with the wall.
 - Upon successfully reaching home, your robot is expected to exhibit alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.
 - Your robot is free to navigate the maze at any speed.
 - Your robot begins the exploration without prior knowledge of the maze. 
