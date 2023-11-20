@@ -142,14 +142,6 @@ You have the flexibility to modify these coordinates as needed.
 ```
 <br>
 
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Hq8rBYZTQrg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br>
-Video Credit: C22 Allison Burba
-</center>
-<br>
-
-
 ### Level 2 (15 Points): Advanced Control
 
 In Lab 17, we implemented a simple heading controller for a wall-following robot. Now, for this level, we aim to enhance the heading control by integrating a speed regulator. This addition ensures the maintenance of a constant speed, unaffected by variations in battery power or external disturbances, such as increased friction while turning.
