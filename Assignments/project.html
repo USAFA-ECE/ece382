@@ -63,6 +63,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Assignments/project';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -384,24 +386,28 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">📜 Agenda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project-gamesmanship">🎮 Final project gamesmanship</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project-gamesmanship">🎮 Final Project Gamesmanship</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timeline">Timeline</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-for-all-levels">Requirements for all levels</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-1-demo-50-points-returning-home">Level 1 Demo (50 Points): Returning Home</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-demo-50-points-maze-exploration">Level 2 Demo (50 Points): Maze exploration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-presentation-50-points">Design Presentation (50 Points)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report-100-points">Report (100 Points)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deductions">Deductions</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrations">🎬 Demonstrations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-1-40-5-points-maze-exploration">Level 1 (40 + 5 Points): Maze Exploration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-15-points-advanced-control">Level 2 (15 Points): Advanced Control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-3-45-5-points-wall-following">Level 3 (45 + 5 Points): Wall Following</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-presentation-50-points">👩‍🏫 Design Presentation (50 Points)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-report-100-points">📈 Final Report (100 Points)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1-100-26-bonus-points-demo-and-code">Deliverable 1: [100 + 26 Bonus Points] Demo and Code.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2-100-points-presentation">Deliverable 2: [100 Points] Presentation.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3-100-points-report">Deliverable 3: [100 Points] Report</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1-50-points-design-presentation">Deliverable 1: [50 Points] Design Presentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2-100-15-bonus-points-race-points-demo-and-code">Deliverable 2: [100 + 15 Bonus Points + Race Points] Demo and Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3-100-points-alpha-report">Deliverable 3: [100 Points + <span class="math notranslate nohighlight">\(\alpha\)</span>] Report</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4-0-points-return-your-robot">Deliverable 4: [0 Points] Return your robot</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-race">🏇 Final Race</a></li>
 </ul>
             </nav>
         </div>
@@ -424,8 +430,9 @@ document.write(`
 <section id="objectives">
 <h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Students should be able to combine previous modules into a system that solves a complex task.</p></li>
-<li><p>Students should be able to build on and utilize almost all modules throughout the course.</p></li>
+<li><p>Students should be able to integrate concepts from previous modules to develop a comprehensive system that effectively tackles complex tasks.</p></li>
+<li><p>Students should be able to implement embedded systems, showcasing proficiency in creating systems dedicated to specific operations by embedding computers within machines.</p></li>
+<li><p>Students should be able to apply and build upon the knowledge acquired in nearly all course modules to successfully complete the final project.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -434,53 +441,45 @@ document.write(`
 </section>
 <section id="agenda">
 <h2>📜 Agenda<a class="headerlink" href="#agenda" title="Permalink to this heading">#</a></h2>
+<p>The final project serves as an integration of prior modules, culminating in the development of a comprehensive system designed to address a complex task. This project aligns with the concept of embedded systems, characterized by a computer embedded within a machine to perform a dedicated operation. Students will leverage and apply nearly all the modules covered throughout the course in the construction of this integrated system.</p>
+<p>Challenge Levels:</p>
 <ul class="simple">
-<li><p>Culmination of embedded systems: A system that performs a specifically dedicated operation where the computer is embedded inside the machine.</p></li>
-<li><p>Allows you to perform duties typical of the engineering profession:</p>
-<ul>
-<li><p>Given a system that works (hopefully), how can you build on it?</p></li>
-<li><p>How can we combine multiple systems that work to build a more complex system?</p></li>
-</ul>
-</li>
-<li><p>Challenge Levels:</p>
-<ul>
-<li><p>Level 1: Basic line follow - there and back.</p></li>
-<li><p>Level 2: Complex line follow - search for treasure.</p></li>
-<li><p>Level 3: Maze exploration.</p></li>
-</ul>
-</li>
+<li><p>Level 1: Maze exploration.</p></li>
+<li><p>Level 2: Advance Control Method</p></li>
+<li><p>Level 3: Wall Following.</p></li>
 </ul>
 </section>
 <section id="final-project-gamesmanship">
-<h2>🎮 Final project gamesmanship<a class="headerlink" href="#final-project-gamesmanship" title="Permalink to this heading">#</a></h2>
+<h2>🎮 Final Project Gamesmanship<a class="headerlink" href="#final-project-gamesmanship" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Demo and coding</p>
 <ul>
 <li><p>Read the presentation and final report requirements before you start coding.</p></li>
-<li><p>Start early – earn early-bird bonus points. If you don’t start early, you may be unable to finish it on time.</p></li>
-<li><p>Use the code from Lab17.</p></li>
-<li><p>Extensively use LCD/UART to debug high-level behaviors.</p></li>
-<li><p>Change tuning parameters such as Kp during run-time, not compile-time.  Use the LCD, bump sensors, and switches.</p></li>
-<li><p><strong>Cease work for presentation and report</strong></p>
+<li><p>Start early to earn early-bird bonus points; delay may jeopardize timely completion.</p></li>
+<li><p>Use the code from Lab 17 as a foundation.</p></li>
+<li><p>Employ LCD/UART extensively for debugging high-level behaviors.</p></li>
+<li><p>Adjust tuning parameters like <span class="math notranslate nohighlight">\(k_p\)</span> during run-time using LCD, bump sensors, and switches.</p></li>
+<li><p><strong>Cease work for the final report</strong></p>
 <ul>
-<li><p>If your robot completes only the halfway point for Level 1 (one way) and can’t return to the start, you will probably lose about 5 points.</p></li>
-<li><p>Your analysis in the presentation/report is much more important than completing the maze.</p></li>
-<li><p>Do not spend too much time on the bonus points. You don’t want to lose 30 points on your report to earn 20 bonus points.</p></li>
+<li><p>If your robot reaches only halfway to the Level 1 goal point, the deduction will be approximately 5-10 points.</p></li>
+<li><p>Your analysis in the report is much more important than completing the maze.</p></li>
+<li><p>Balance time spent on bonus points; don’t sacrifice report quality for bonus points. Don’t lose 30 points on the report to earn 15 bonus points.</p></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>Presentation</p>
 <ul>
-<li><p>Use visual aids a lot! Figures, tables, and graphs are more helpful than words.</p></li>
-<li><p>Ensure you discuss everything in the Presentation section.</p></li>
-<li><p>Timing is important – 7 minutes –&gt; Practice!</p></li>
+<li><p>Utilize visual aids a lot! Figures, tables, and graphs are more helpful than words.</p></li>
+<li><p>Ensure you <strong>discuss everything</strong> in the presentation section.</p></li>
+<li><p>Adhere to the 7-minute time limit; practice for effective delivery. Your talk will be stopped at the 8-minute mark, and credit will not be given for parts not discussed.</p></li>
 </ul>
 </li>
 <li><p>Report</p>
 <ul>
-<li><p>Read the template carefully and do not miss anything there.</p></li>
+<li><p>Throughly Read the template and <strong>do not miss anything in the template</strong>.</p></li>
 <li><p>Use figures and tables to support your analysis and results.</p></li>
+<li><p>While in-person demos are accepted, ensure submission of video demos aligned with the plots in your report.</p></li>
 </ul>
 </li>
 </ul>
@@ -492,79 +491,94 @@ document.write(`
 <ul class="simple">
 <li><p>L36 0700: Design Presentation slides (Gradescope and Instructors)</p>
 <ul>
-<li><p>All cadets must submit their presentation files to their instructors NLT L36 0700.</p></li>
-<li><p><strong><em>No grace days</em></strong> can be used for the powerpoint slides.</p></li>
+<li><p>Submit your <code class="docutils literal notranslate"><span class="pre">MS</span> <span class="pre">PowerPoint</span> <span class="pre">pptx</span></code> file to your instructor NLT L36 0700. Your slides will be played on your instructor’s PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.</p></li>
+<li><p>Additionally, submit the PDF version of your presentation file on Gradescope no later than L36 0700.</p></li>
+<li><p><strong><em>No grace days</em></strong> can be used for the PowerPoint slides.</p></li>
 </ul>
 </li>
 <li><p>L36/37: Design Presentations</p></li>
-<li><p>L39 0700: Demos Due</p>
+<li><p>L39 0700: Level 1 &amp; 2 Demos Due</p>
 <ul>
-<li><p>Early bird <strong>[3 Bonus Points]</strong> Finish any one level by T37 (Thu 30 Nov Dec) 2359</p></li>
+<li><p>Early bird <strong>[5 Bonus Points]</strong>: Complete Level 1 or Level 2 by T37 (Thu 30 Nov Dec) 2359</p></li>
 <li><p>Late Demos: You can use grace days, but all products must be submitted NLT T40 2359 (by the Dean’s policy).</p></li>
 <li><p>No grace days can be used for early bird demos.</p></li>
 </ul>
 </li>
-<li><p>L39: Race (during your section)</p></li>
+<li><p>L39 during your section:</p>
+<ul>
+<li><p>Live demo for Level 3.</p></li>
+</ul>
+</li>
 <li><p>T40 2359: Final report &amp; Code</p>
 <ul>
-<li><p>No grace days can be used. All products must be submitted by T40 at midnight.</p></li>
+<li><p>No grace days can be used. All products must be submitted by midnight on T40.</p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section id="requirements-for-all-levels">
 <h3>Requirements for all levels<a class="headerlink" href="#requirements-for-all-levels" title="Permalink to this heading">#</a></h3>
+<p><em><strong>We have been reinforcing these coding practices throughout the semester, but it is still valuable to remind you.</strong></em></p>
 <ul class="simple">
-<li><p>Do not use hard-coded numbers. Use <code class="docutils literal notranslate"><span class="pre">#define</span></code> and <code class="docutils literal notranslate"><span class="pre">const</span></code>.  For example, do not use</p></li>
+<li><p>Avoid hard-coded numbers. Instead, utilize <code class="docutils literal notranslate"><span class="pre">#define</span></code> and <code class="docutils literal notranslate"><span class="pre">const</span></code>.  For instance, replace:</p></li>
 </ul>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">TimerA1_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Controller</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span><span class="w"> </span>
 </pre></div>
 </div>
-<p>but use</p>
+<p>with:</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c1">// user TimerA1 to run the controller at 1000 Hz</span>
 <span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">period_2us</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span><span class="w">        </span><span class="c1">// T = 1ms</span>
 <span class="w">    </span><span class="n">TimerA1_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Controller</span><span class="p">,</span><span class="w"> </span><span class="n">period_2us</span><span class="p">);</span><span class="w">  </span><span class="c1">// f = 1000 Hz controller loop</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Add comments.  A lot of comments!</p></li>
-<li><p>Turns must be accomplished using the tachometers for Levels 1 &amp; 2, with no delays.</p></li>
-<li><p>You can demo in person, but you still need to submit video demos associated with the plots in your report.</p></li>
-<li><p>There must be no delays in your Interrupt Service Routines (ISRs). No loops, waits, sleeps, etc. 5 points per level will be taken off if delays or loops exist in ISR, for example</p></li>
+<li><p>Add comprehensive comments throughout your code. Emphasize the importance of thorough commenting.</p></li>
+<li><p>Execute turns using tachometers for Level 1 without introducing delays or loops.</p></li>
+<li><p>Strictly avoid delays, loops, waits, or sleeps in your Interrupt Service Routines (ISRs). A deduction of 5 points per level will be applied if such delays or loops are present. For example:</p></li>
 </ul>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">Controller</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span><span class="w">          </span><span class="c1">// called every 1 ms</span>
 <span class="w">  </span><span class="n">Motor_TurnRight</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span><span class="w"> </span><span class="mi">3000</span><span class="p">);</span><span class="w">  </span><span class="c1">// for 180 deg turn</span>
-<span class="w">  </span><span class="n">Clock_Delay1ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w">          </span><span class="c1">// BAD</span>
+<span class="w">  </span><span class="n">Clock_Delay1ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w">          </span><span class="c1">// AVOID</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">Controller</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span><span class="w">          </span><span class="c1">// called every 1 ms</span>
 <span class="w">  </span><span class="n">Motor_TurnRight</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span><span class="w"> </span><span class="mi">3000</span><span class="p">);</span><span class="w">  </span><span class="c1">// for 180 deg turn</span>
-<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="n">LeftSteps_deg</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">180</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// BAD</span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="n">LeftSteps_deg</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">180</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// AVOID</span>
 <span class="w">      </span><span class="n">Tachometer_GetSteps</span><span class="p">(</span><span class="o">&amp;</span><span class="n">LeftSteps_deg</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">RightSteps_deg</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>All controller code must go in the ISR. 5 points per level will be taken off if the controller code is in main instead of an ISR.</p></li>
+<li><p>Place all controller code within the ISR. A penalty of 5 points per level will be incurred if the controller code is found in the main function instead of an ISR. For example:</p></li>
 </ul>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="w">  </span><span class="o">:</span>
-<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w">   </span><span class="c1">// no time-critical operations such as </span>
+<span class="w">  </span><span class="o">:</span><span class="w">  </span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w">   </span><span class="c1">// Avoid time-critical operations inside this while loop.  </span>
 <span class="w">    </span><span class="n">LCDOut</span><span class="p">();</span><span class="w"> </span><span class="c1">// can be interrupted at any time</span>
 <span class="w">    </span><span class="c1">// No state transition</span>
 <span class="w">    </span><span class="c1">// No motor control or sensing</span>
 <span class="w">    </span><span class="c1">// If you remove everything inside this while-loop,</span>
 <span class="w">    </span><span class="c1">// your robot should still be able to complete the level.</span>
-<span class="w">    </span><span class="c1">// For example, Program17_x.c</span>
-<span class="w">  </span><span class="p">}</span>
+<span class="w">    </span><span class="o">:</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<br>
 </section>
-<section id="level-1-demo-50-points-returning-home">
-<h3>Level 1 Demo (50 Points): Returning Home<a class="headerlink" href="#level-1-demo-50-points-returning-home" title="Permalink to this heading">#</a></h3>
+<section id="deductions">
+<h3>Deductions<a class="headerlink" href="#deductions" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A deduction of 5 points per level will be applied if delays or loops exist within the ISR.</p></li>
+<li><p>A penalty of 5 points per level will be incurred if the controller code is found in the main function instead of an ISR.</p></li>
+<li><p>A penalty of 5 points per level will be incurred for poor coding practices, such as inadequate comments or the use of hard-coded numbers instead of variables or enumerated types.</p></li>
+</ul>
+</section>
+</section>
+<section id="demonstrations">
+<h2>🎬 Demonstrations<a class="headerlink" href="#demonstrations" title="Permalink to this heading">#</a></h2>
+<section id="level-1-40-5-points-maze-exploration">
+<h3>Level 1 (40 + 5 Points): Maze Exploration<a class="headerlink" href="#level-1-40-5-points-maze-exploration" title="Permalink to this heading">#</a></h3>
 <p>Use the tachometers and bump sensors to navigate the maze and return home.</p>
 <p><strong>Requirements:</strong></p>
 <ul class="simple">
@@ -573,8 +587,10 @@ document.write(`
 <li><p>Upon successfully reaching home, your robot is expected to exhibit alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.</p></li>
 <li><p>Your robot is free to navigate the maze at any speed.</p></li>
 <li><p>Your robot begins the exploration without prior knowledge of the maze.</p></li>
-<li><p>Home is identified at the origin (0,0), and the starting position is fixed at (340, 0) in millimeters. Your robot knows the coordinates of Home and the starting position.</p></li>
-<li><p><strong>[3 Bonus Points]</strong> Upon successfully reaching home, your robot now knows way back to the starting point. Return to the the starting point.</p></li>
+<li><p>The coordinates of Home are identified at the origin (0,0), with the starting position fixed at (340, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
+You have the flexibility to modify these coordinates as needed.</p></li>
+<li><p>Include a plot of both wheels’ displacements over time in your final report. Additionally, submit a video demo corrresponding to this plot.</p></li>
+<li><p><strong>[5 Bonus Points]</strong> Upon successfully reaching home, your robot now knows way back to the starting position. Return to the the starting position.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/Proj_Maze.jpg"><img alt="../_images/Proj_Maze.jpg" class="align-center" src="../_images/Proj_Maze.jpg" style="width: 660px;" /></a>
 <br>
@@ -585,117 +601,132 @@ Video Credit: C22 Allison Burba
 </center>
 <br>
 </section>
-<section id="level-2-demo-50-points-maze-exploration">
-<h3>Level 2 Demo (50 Points): Maze exploration<a class="headerlink" href="#level-2-demo-50-points-maze-exploration" title="Permalink to this heading">#</a></h3>
-<p>Use the distance sensors to explore a maze.</p>
+<section id="level-2-15-points-advanced-control">
+<h3>Level 2 (15 Points): Advanced Control<a class="headerlink" href="#level-2-15-points-advanced-control" title="Permalink to this heading">#</a></h3>
+<p>In Lab 17, we implemented a simple heading controller for a wall-following robot. Now, for this level, we aim to enhance the heading control by integrating a speed regulator. This addition ensures the maintenance of a constant speed, unaffected by variations in battery power or external disturbances, such as increased friction while turning.</p>
+<a class="reference internal image-reference" href="../_images/Project_AdvControl.png"><img alt="../_images/Project_AdvControl.png" class="align-center" src="../_images/Project_AdvControl.png" style="width: 520px;" /></a>
 <p><strong>Requirements:</strong></p>
 <ul class="simple">
-<li><p>Your robot must be able to explore the maze using distance sensors.</p></li>
-<li><p>Your robot must reach the goal and stop before hitting the wall.</p></li>
-<li><p>No bump switches are allowed to use to explore the maze.</p></li>
-<li><p>You <strong>must</strong> use the Classifier.c file to determine the state of the robot.</p></li>
-<li><p><strong>You can assume your robot knows the maze ahead of time.</strong></p></li>
+<li><p>Select three distict speeds with visually noticeable differences.</p></li>
+<li><p>Adjust heading control parameters as necessary for each speed.</p></li>
+<li><p>Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line.</p></li>
+<li><p>In your final report, include step responses for both speed and heading for each speed you have chosen. Provide the control parameters in the report and submit associated videos for each speed.</p></li>
+</ul>
+</section>
+<section id="level-3-45-5-points-wall-following">
+<h3>Level 3 (45 + 5 Points): Wall Following<a class="headerlink" href="#level-3-45-5-points-wall-following" title="Permalink to this heading">#</a></h3>
+<p>Explore the maze using the distance sensors. While integrating Level 2 is encouraged, completing this level does not require it.</p>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Your robot must effectively explore the maze using distance sensors.</p></li>
+<li><p>Ensure that your robot reaches the goal and halts before colliding with the wall.</p></li>
+<li><p>Your robot should display alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.</p></li>
+<li><p>Your robot can operate at any speed.</p></li>
+<li><p>No bump switches are allowed to use.</p></li>
+<li><p>You should use <code class="docutils literal notranslate"><span class="pre">Classifier</span></code> to determine road intersections.</p></li>
+<li><p><strong>Assume your robot has prior knowledge of the maze layout.</strong></p></li>
 <li><p><strong>[5 Bonus Points]</strong> Arrive at the goal within 11.0 seconds.</p></li>
-<li><p><strong>[5 Bonus Points]</strong> Return to the start and stop before hitting the wall.</p></li>
+<li><p>A live demo during L39 is mandatory. Ensure your robot’s robustness for a live demo within 3 minutes. In the event of a live demo failure, you may use a video demo submitted before your section on L39, but a deduction of 5 points will be applied.</p></li>
 </ul>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2m8tce8ZYoI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <br>
 </section>
+</section>
 <section id="design-presentation-50-points">
-<h3>Design Presentation (50 Points)<a class="headerlink" href="#design-presentation-50-points" title="Permalink to this heading">#</a></h3>
+<h2>👩‍🏫 Design Presentation (50 Points)<a class="headerlink" href="#design-presentation-50-points" title="Permalink to this heading">#</a></h2>
+<p>Provide a <strong>7-minute</strong> presentation followed by approximately 2 minutes for Q&amp;A, covering the following topics:</p>
 <ul class="simple">
-<li><p>Send your presentation file (<strong>pptx</strong>) to your instructor NLT L36 0700.</p></li>
-<li><p>Export your Powerpoint file to a <strong>pdf</strong> file and submit it in Gradescope NLT L36 0700.</p></li>
-<li><p>Provide a <strong>5-minute</strong> presentation that discusses the following topics:</p></li>
-<li><p>Figures/tables/graphs are more helpful than words.</p></li>
-<li><p><strong>[5 Points]</strong> Purpose: Briefly describe the following</p>
+<li><p><strong>[5 Points]</strong> Purpose:</p>
 <ul>
-<li><p>Describe the problem.</p></li>
-<li><p>Discuss the requirements.</p></li>
-<li><p>What assumptions did you make going into the project?</p></li>
+<li><p>Briefly describe the problem.</p></li>
+<li><p>Discuss the project requirements.</p></li>
 </ul>
 </li>
-<li><p><strong>[20 Points]</strong> Design: Briefly describe the following</p>
+<li><p><strong>[20 Points]</strong> Design:</p>
 <ul>
-<li><p>Discuss design choices for each level (e.g., values for PWM_AVERAGE, Kp, Ki).</p></li>
-<li><p>Include a component diagram that matches your code for each level. Points will be taken off if you don’t include a subsystem that is in your code or if you include a subsystem (like TimerA2) that is not in your code. <strong>Ensure your component diagrams are large enough to read.</strong></p></li>
-<li><p>What timers did you use, what did they do, and at what frequencies?</p></li>
-<li><p>Discuss the design of your controller.</p></li>
+<li><p>Discuss the design of your controllers.</p></li>
+<li><p>Include clearly legible component diagrams for each level. <strong>Ensure that your component diagrams are sufficiently sized for readability.</strong> Utilize <code class="docutils literal notranslate"><span class="pre">Component</span> <span class="pre">Block</span> <span class="pre">Diagram.pptx</span></code> to assist in creating component diagrams for each of the three levels.</p></li>
+<li><p>Specify the timers you plan to use, their intended purposes, and the operating frequencies.</p></li>
+<li><p>Outline the data you intend to collect for experiment analysis and explain your data collection method.</p></li>
 </ul>
 </li>
-<li><p><strong>[20 Points]</strong> Debugging and testing</p>
+<li><p><strong>[20 Points]</strong> Debugging and testing:</p>
 <ul>
-<li><p>How would you perform high-level debugging such as misclassification, being traped at a corner, etc?</p></li>
-<li><p>When your robot performs something unexpected in the maze, how would you find the problems?</p></li>
-<li><p>Do not discuss compile-time debugging, such as syntax errors.</p></li>
-<li><p>How would your methods help you debug and test your code?</p></li>
-<li><p>You must discuss the details of debugging and testing methods.</p></li>
+<li><p>Provide detailed information on debugging and testing methods. Explain how your methods enhance debugging and testing efficiency.</p></li>
+<li><p>Describe high-level debugging strategies for unexpected robot behavior in the maze, including identification and resolution of issues like misclassification or getting trapped at a corner.</p></li>
+<li><p>Exclude discussions related to compile-time debugging, such as syntax errors and register configurations.</p></li>
 </ul>
 </li>
 <li><p><strong>[5 Points]</strong> Questions:</p>
 <ul>
-<li><p>Be prepared to answer questions about the code that you have written.</p></li>
-<li><p>Be prepared to answer questions about how you would implement additional functionality to your project.</p></li>
-<li><p>The question component will be an additional 2 minutes.</p></li>
+<li><p>Prepare to answer questions about your design choices.</p></li>
+<li><p>Be ready to address inquiries regarding implementation of additional functionality in your project.</p></li>
+<li><p>Note that the question component extends beyond the 7-minute presentation by an additional 2 minutes.</p></li>
 </ul>
 </li>
 <li><p><strong>Timing</strong>:</p>
 <ul>
-<li><p>You will lose points for going over the 5-minute limit and your presentation will be halted at 6 minutes and you will not get credit for the parts you don’t discuss.</p></li>
+<li><p>Points will be deducted for exceeding the 7-minute limit.</p></li>
+<li><p><strong>The presentation will be halted at the 8-minute mark, and credit will not be given for parts not discussed.</strong>  Therefore, practice!</p></li>
+<li><p>Emphasize the importance of professional timing in a presentation, considering its impact on the audience and subsequent speakers.</p></li>
+</ul>
+</li>
+<li><p><strong>Submission</strong>:</p>
+<ul>
+<li><p>Submit your <code class="docutils literal notranslate"><span class="pre">MS</span> <span class="pre">PowerPoint</span> <span class="pre">pptx</span></code> file to your instructor NLT L36 0700. Your slides will be played on your instructor’s PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.</p></li>
+<li><p>Additionally, export your PowerPoint file to a <strong>pdf</strong> file and submit it on Gradescope by L36 0700. <strong>Be sure to select questions and pages to indicate where your responses are located. Failure to do so will result in point deductions.</strong> Refer to the intruction gif inside the Final Report section for guidance.</p></li>
+<li><p><strong><em>No grace days</em></strong> can be used for the PowerPoint slides.</p></li>
 </ul>
 </li>
 </ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Send your presentation file (<strong>pptx</strong>) to your instructor NLT L39 0700. Export your Powerpoint file to a <strong>pdf</strong> file and submit it in Gradescope NLT L39 0700. <strong>Select questions and pages to indicate where your responses are located. You will lose points if you do not.</strong></p>
+<p>Submit your MS PowerPoint pptx file to your instructor. Additionally, export your PowerPoint file to a pdf file and submit it on Gradescope. Select questions and pages to indicate the locations of your response.</p>
 </div>
 </section>
-<section id="report-100-points">
-<h3>Report (100 Points)<a class="headerlink" href="#report-100-points" title="Permalink to this heading">#</a></h3>
-<p>Reference the example report, <code class="docutils literal notranslate"><span class="pre">ECE382_Project</span> <span class="pre">Report</span> <span class="pre">Template.docx</span></code> in Teams under Files &gt; Class Materials, for details on report content. Use <code class="docutils literal notranslate"><span class="pre">Component</span> <span class="pre">Block</span> <span class="pre">Diagram.pptx</span></code> to help you create your component diagrams for each of the three levels.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Even though you do not have successful demos (whether you use grace days or not), you still need to discuss all three levels based on what you have.
-</pre></div>
+<section id="final-report-100-points">
+<h2>📈 Final Report (100 Points)<a class="headerlink" href="#final-report-100-points" title="Permalink to this heading">#</a></h2>
+<p>Refer to the example report, <code class="docutils literal notranslate"><span class="pre">ECE382_Project</span> <span class="pre">Report</span> <span class="pre">Template.docx</span></code>, available in Teams under Files &gt; Class Materials, for detailed guidance on report content.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even if your demos are not successful, whether you use grace days or not, ensure you discuss all three levels based on the progress you have made.</p>
 </div>
 <ul class="simple">
-<li><p><strong>[10 Points]</strong> Introduction/Purpose</p>
+<li><p><strong>[10 Points]</strong> Introduction/Purpose:</p>
 <ul>
 <li><p>Describe the problem.</p></li>
 <li><p>Discuss the requirements.</p></li>
-<li><p>What assumptions did you make going into the project?</p></li>
+<li><p>Outline any assumptions made at the project’s outset.</p></li>
 </ul>
 </li>
-<li><p><strong>[20 Points]</strong> Design</p>
+<li><p><strong>[20 Points]</strong> Design:</p>
 <ul>
-<li><p>Discuss design choices for each level (e.g., values for PWM_AVERAGE, Kp, Ki).</p></li>
-<li><p>Include a component diagram that matches your code for each level. Points will be taken off if you don’t include a subsystem that is in your code or if you include a subsystem (like TimerA2) that is not in your code. <strong>Ensure your component diagrams are large enough to read.</strong></p></li>
-<li><p>What timers did you use, what did they do, and at what frequencies?</p></li>
-<li><p>Discuss the design of your controller.</p></li>
-<li><p>Discuss any issues and problems you encountered. How did you overcome these?</p></li>
+<li><p>Discuss design choices for each level, including values for PWM_AVERAGE, <span class="math notranslate nohighlight">\(k_p\)</span>, and <span class="math notranslate nohighlight">\(k_i\)</span>.</p></li>
+<li><p>Include a component diagram matching your code for each level. Ensure all relevant subsystems are appropriately represented. <strong>Ensure that your component diagrams are sufficiently sized for readability.</strong> Utilize <code class="docutils literal notranslate"><span class="pre">Component</span> <span class="pre">Block</span> <span class="pre">Diagram.pptx</span></code> to assist in creating component diagrams for each of the three levels.</p></li>
+<li><p>Specify the timers used, their purposes, and the operating frequencies.</p></li>
+<li><p>Explain the data collected for experiment analysis and detail your data collection method.</p></li>
 </ul>
 </li>
-<li><p><strong>[20 Points]</strong> Debugging and testing</p>
+<li><p><strong>[20 Points]</strong> Debugging and testing:</p>
 <ul>
-<li><p>How did you debug your program during run-time?</p></li>
-<li><p>When your robot performed something unexpected in the maze, how did you find the problems?</p></li>
-<li><p>Do not discuss compile-time debugging, such as syntax errors.</p></li>
-<li><p>How did your methods help you debug and test your code?</p></li>
-<li><p>You must discuss the details of debugging and testing methods.</p></li>
+<li><p>Provide comprehensive details on debugging and testing methods.</p></li>
+<li><p>Explain how your methods enhance debugging and testing efficiency.</p></li>
+<li><p>Describe how you identified and resolved unexpected robot behaviors.</p></li>
+<li><p>Exclude discussions related to compile-time debugging, such as syntax errors.</p></li>
 </ul>
 </li>
-<li><p><strong>[50 Points]</strong> Analysis and Results</p>
+<li><p><strong>[50 Points]</strong> Analysis and Results:</p>
 <ul>
-<li><p>Discuss any issues and problems you encountered. How did you overcome these?</p></li>
-<li><p>This is the most essential part of the final project.</p></li>
-<li><p>Discuss your results for each level. You must include measurements - plots.</p></li>
-<li><p>Discuss how long it takes for your robot to complete the task. Attach Table 1 in the template.</p></li>
-<li><p>Discuss the performance of the robot using step responses.</p></li>
-<li><p>If you had unresolved issues, discuss how you would fix them if you had more time.</p></li>
-<li><p>Discussed what unique things you did to make your robot better than others.</p></li>
-<li><p>What levels were you unable to accomplish and why?</p></li>
-<li><p>What levels were you unable to accomplish and why?</p></li>
-<li><p>What issues still exist in your robot?</p></li>
+<li><p><em><strong>This is the most essential part of the final project. You are expected to provide high-quality engineering analysis.</strong></em></p></li>
+<li><p>Your analysis should be based on collected data, utilizing figures and tables. For example, evaluate the robot’s performance in Level 2 by employing step responses. Base your analysis on data and avoid relying on visual observations.</p></li>
+<li><p>Discuss results for each level, including measurements and plots.</p></li>
+<li><p>Evaluate the time taken for your robot to complete tasks.</p></li>
+<li><p>If unresolved issues exist, discuss potential solutions with more time.</p></li>
+<li><p>Highlight any unique features that make your robot stand out.</p></li>
+<li><p>Which levels were you unable to complete, and what were the reasons for the inability?</p></li>
+<li><p>Discuss ongoing issues and problems and how you addressed them.</p></li>
 <li><p>Did you do anything unique to make your robot better than others?</p></li>
 </ul>
 </li>
@@ -709,80 +740,73 @@ Video Credit: C22 Allison Burba
 </ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Submit your report in Gradescope. <strong>Select questions and pages to indicate where your responses are located as shown below. You will lose points if you do not.</strong></p>
+<p>Submit your report on Gradescope. Be sure to select questions and pages to indicate where your responses are located. Failure to do so will result in point deductions.</p>
 </div>
 <a class="reference internal image-reference" href="../_images/Proj_GradescopeSubmission.gif"><img alt="../_images/Proj_GradescopeSubmission.gif" class="align-center" src="../_images/Proj_GradescopeSubmission.gif" style="width: 740px;" /></a>
 <br>
 </section>
-</section>
 <section id="deliverables">
 <h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
-<section id="deliverable-1-100-26-bonus-points-demo-and-code">
-<h3>Deliverable 1: [100 + 26 Bonus Points] Demo and Code.<a class="headerlink" href="#deliverable-1-100-26-bonus-points-demo-and-code" title="Permalink to this heading">#</a></h3>
+<section id="deliverable-1-50-points-design-presentation">
+<h3>Deliverable 1: [50 Points] Design Presentation<a class="headerlink" href="#deliverable-1-50-points-design-presentation" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[55 Points]</strong> Demo.</p></li>
-<li><p><strong>[45 Points]</strong> Code</p>
+<li><p><strong>[5 Points]</strong> Purpose</p></li>
+<li><p><strong>[20 Points]</strong> Design</p></li>
+<li><p><strong>[20 Points]</strong> Debugging and testing</p></li>
+<li><p><strong>[5 Points]</strong> Questions</p></li>
+</ul>
+</section>
+<section id="deliverable-2-100-15-bonus-points-race-points-demo-and-code">
+<h3>Deliverable 2: [100 + 15 Bonus Points + Race Points] Demo and Code<a class="headerlink" href="#deliverable-2-100-15-bonus-points-race-points-demo-and-code" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>[40 + 5 Points]</strong> Level 1: Maze Exploration</p></li>
+<li><p><strong>[15 Points]</strong> Level 2: Advanced Control</p></li>
+<li><p><strong>[45 + 5 Points]</strong> Level 3: Wall Following</p></li>
+<li><p><strong>[5 Bonus Points]</strong>: Early bird</p></li>
+<li><p><strong>Code:</strong></p>
 <ul>
-<li><p><strong>[15 Points]</strong> 5 points per level are taken off if delays or loops exist in ISR.</p></li>
-<li><p><strong>[15 Points]</strong> 5 points per level are taken off if the controller code is in the main instead of an ISR.</p></li>
-<li><p><strong>[15 Points]</strong> At most, 5 points per level are taken off for bad coding practices (e.g., poor comments or using hard-coded numbers instead of variables or enumerated types.)</p></li>
+<li><p><strong>[-15 Points]</strong> 5 points per level deducted for delays or loops in ISR.</p></li>
+<li><p><strong>[-15 Points]</strong> 5 points per level deducted for controller code in main instead of ISR.</p></li>
+<li><p><strong>[-15 Points]</strong> Up to 5 points per level deducted for bad coding practices (e.g., poor comments, hard-coded numbers).</p></li>
+<li><p>Uncompilable code results in a grade of 0 for the level.</p></li>
 </ul>
 </li>
-<li><p><strong>[0 Points]</strong> Uncompilable code. If your Level 1 demo works but your Level 2 code is not compilable, you will still get a grade of 0 for the entire Deliverable 1. Always submit compilable code!</p></li>
+<li><p>🏇 <strong>Final Race</strong></p>
+<ul>
+<li><p>L39 during your section. We will measure completion time for Level 3 demo.</p></li>
+<li><p>Same requirements as Level 3 - reach goal and stop before hitting the wall.</p></li>
+<li><p>Code changes allowed within a 3-minute timeframe. While you can reflash your program multiple times within 3 minutes, using LCD and switches for adjustments is highly recommended.</p></li>
+<li><p>Prizes:</p>
+<ul>
+<li><p>1st place: 15 bonus points and name on the lab plaque.</p></li>
+<li><p>2nd place: 12 bonus points</p></li>
+<li><p>3rd and 4th places: 10 bonus points</p></li>
+<li><p>1st place in each section if not in the 1st - 4th places in class: 10 bonus points</p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </section>
-<section id="deliverable-2-100-points-presentation">
-<h3>Deliverable 2: [100 Points] Presentation.<a class="headerlink" href="#deliverable-2-100-points-presentation" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>[10 Points]</strong> Purpose</p></li>
-<li><p><strong>[25 Points]</strong> Design</p></li>
-<li><p><strong>[40 Points]</strong> Analysis and Results</p></li>
-<li><p><strong>[10 Points]</strong> Conclusion</p></li>
-<li><p><strong>[10 Points]</strong> Questions</p></li>
-<li><p><strong>[5 Points]</strong> Timing</p></li>
-</ul>
-</section>
-<section id="deliverable-3-100-points-report">
-<h3>Deliverable 3: [100 Points] Report<a class="headerlink" href="#deliverable-3-100-points-report" title="Permalink to this heading">#</a></h3>
+<section id="deliverable-3-100-points-alpha-report">
+<h3>Deliverable 3: [100 Points + <span class="math notranslate nohighlight">\(\alpha\)</span>] Report<a class="headerlink" href="#deliverable-3-100-points-alpha-report" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>[10 Points]</strong> Introduction</p></li>
 <li><p><strong>[20 Points]</strong> Design</p></li>
 <li><p><strong>[20 Points]</strong> Debugging and testing</p></li>
 <li><p><strong>[40 Points]</strong> Analysis and Results</p></li>
 <li><p><strong>[10 Points]</strong> Conclusion</p></li>
+<li><p><strong>[IP Points]</strong> Extra points for the best paper in class!</p></li>
 </ul>
 </section>
 <section id="deliverable-4-0-points-return-your-robot">
 <h3>Deliverable 4: [0 Points] Return your robot<a class="headerlink" href="#deliverable-4-0-points-return-your-robot" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>You must return your robot to your instructor <strong>in person</strong> by Tuesday 13 Dec 1600.</p></li>
-<li><p>Ensure your robot has no loose parts. Tighten all the screws before returning your robots.</p></li>
-<li><p><strong>[-20 Points]</strong> Up to 20 points will be deducted if your robot has any loose parts.</p></li>
+<li><p>Return your robot in person to Mr. Hall or Ms. Rosario by Tuesday 12 Dec 1500.</p></li>
+<li><p>Ensure no loose parts; tighten all the screws before returning your robot.</p></li>
+<li><p><strong>[-10 Points]</strong> Up to 10 points deducted for loose parts.</p></li>
 </ul>
 </section>
-</section>
-<section id="final-race">
-<h2>🏇 Final Race<a class="headerlink" href="#final-race" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>1st place: 20 bonus points and your name will be on the plaque in the lab.</p></li>
-<li><p>2nd place: 15 bonus points</p></li>
-<li><p>3rd and 4th places: 10 bonus points</p></li>
-<li><p>Same as Level 3 - Your robot must reach the goal and stop before hitting the wall.</p></li>
-<li><p>You can change any code you want.</p></li>
-<li><p>You will be given 2 minutes - You can re-flash your program multiple times within 2 minutes, but I would not do it.  Instead, I would change the P values and PWM_AVERAGE using the LCD and switches.</p></li>
-<li><p>Last year’s results:</p>
-<ul>
-<li><p>1st place: Roger Moomaw - 10.56 sec</p></li>
-<li><p>2nd place: Joe Cates-Beier - 10.62 sec</p></li>
-<li><p>3rd place: Lizzie Kim - 32.63 sec</p></li>
-<li><p>The rest did not finish. so we had another round for the 4th place</p>
-<ul>
-<li><p>4th place: Ryan Lilly - 10.77</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 </section>
 </section>
 
@@ -846,24 +870,28 @@ Video Credit: C22 Allison Burba
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">📜 Agenda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project-gamesmanship">🎮 Final project gamesmanship</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project-gamesmanship">🎮 Final Project Gamesmanship</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timeline">Timeline</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-for-all-levels">Requirements for all levels</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-1-demo-50-points-returning-home">Level 1 Demo (50 Points): Returning Home</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-demo-50-points-maze-exploration">Level 2 Demo (50 Points): Maze exploration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-presentation-50-points">Design Presentation (50 Points)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report-100-points">Report (100 Points)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deductions">Deductions</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrations">🎬 Demonstrations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-1-40-5-points-maze-exploration">Level 1 (40 + 5 Points): Maze Exploration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-15-points-advanced-control">Level 2 (15 Points): Advanced Control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-3-45-5-points-wall-following">Level 3 (45 + 5 Points): Wall Following</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-presentation-50-points">👩‍🏫 Design Presentation (50 Points)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-report-100-points">📈 Final Report (100 Points)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1-100-26-bonus-points-demo-and-code">Deliverable 1: [100 + 26 Bonus Points] Demo and Code.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2-100-points-presentation">Deliverable 2: [100 Points] Presentation.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3-100-points-report">Deliverable 3: [100 Points] Report</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-1-50-points-design-presentation">Deliverable 1: [50 Points] Design Presentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2-100-15-bonus-points-race-points-demo-and-code">Deliverable 2: [100 + 15 Bonus Points + Race Points] Demo and Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3-100-points-alpha-report">Deliverable 3: [100 Points + <span class="math notranslate nohighlight">\(\alpha\)</span>] Report</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4-0-points-return-your-robot">Deliverable 4: [0 Points] Return your robot</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-race">🏇 Final Race</a></li>
 </ul>
   </nav></div>
 
