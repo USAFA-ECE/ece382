@@ -123,15 +123,15 @@ void main(void)
 
 ### Level 1 (40 + 5 Points): Maze Exploration
 
-Use the tachometers and bump sensors to navigate the maze and return home. Imagine you are in uncharted territory with a compass and a GPS receiver, tasked with reaching a designated coordinate.
+Use the tachometers and bump sensors to navigate the maze and return home.
 
 **Requirements:**
 - Utilize the tachometers and bump switches for maze navigation; however, the use of IR distance sensors is strictly prohibited.
-- When the robot reaches the designated `home` area, identified by the orange line, it should come to a complete stop before making any contact with the wall.
+- When the robot reaches the designated `home` area, identified by three lines, it should come to a complete stop before making any contact with the wall.
 - Upon successfully reaching home, your robot is expected to exhibit alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.
 - Your robot is free to navigate the maze at any speed.
 - Your robot begins the exploration without prior knowledge of the maze. 
-- The coordinates of Home are identified at the origin (0,0), with the starting position fixed at (340, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
+- The coordinates of Home are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
 You have the flexibility to modify these coordinates as needed.
 - Include a plot of both wheels' displacements over time in your final report. Additionally, submit a video demo corrresponding to this plot.  
 - **[5 Bonus Points]** Upon successfully reaching home, your robot now knows way back to the starting position. Return to the the starting position. 
@@ -141,6 +141,14 @@ You have the flexibility to modify these coordinates as needed.
 :align: center
 ```
 <br>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hq8rBYZTQrg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+Video Credit: C22 Allison Burba
+</center>
+<br>
+
 
 ### Level 2 (15 Points): Advanced Control
 
