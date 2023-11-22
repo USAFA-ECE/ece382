@@ -131,7 +131,7 @@ Use the tachometers and bump sensors to navigate the maze and return home.
 - Upon successfully reaching home, your robot is expected to exhibit alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.
 - Your robot is free to navigate the maze at any speed.
 - Your robot begins the exploration without prior knowledge of the maze. 
-- The coordinates of Home are identified at the origin (0,0), with the starting position fixed at (340, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
+- The coordinates of Home are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
 You have the flexibility to modify these coordinates as needed.
 - Include a plot of both wheels' displacements over time in your final report. Additionally, submit a video demo corrresponding to this plot.  
 - **[5 Bonus Points]** Upon successfully reaching home, your robot now knows way back to the starting position. Return to the the starting position. 
