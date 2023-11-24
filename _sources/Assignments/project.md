@@ -126,12 +126,15 @@ void main(void)
 Use the tachometers and bump sensors to navigate the maze and return home.
 
 **Requirements:**
+- <span style="color:blue"> Implement your code in the `Level1.c` file within the `FinalProject` project. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span>  
 - Utilize the tachometers and bump switches for maze navigation; however, the use of IR distance sensors is strictly prohibited.
-- When the robot reaches the designated `home` area, identified by three lines, it should come to a complete stop before making any contact with the wall.
+- <span style="color:blue">The designated `Home` is identified by the three while lines, and the `home area` is marked by the orage line. (Updated on 24 Nov 2023) </span>  
+- <span style="color:blue"> If both wheels are touching or inside the orange line, the robot is considered to be in the home area. (Updated on 24 Nov 2023) </span>
+- When the robot reaches the designated `home area`, it should come to a complete stop before making any contact with the wall.
 - Upon successfully reaching home, your robot is expected to exhibit alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.
 - Your robot is free to navigate the maze at any speed.
 - Your robot begins the exploration without prior knowledge of the maze. 
-- The coordinates of Home are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
+- The coordinates of `Home` are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
 You have the flexibility to modify these coordinates as needed.
 - Include a plot of both wheels' displacements over time in your final report. Additionally, submit a video demo corrresponding to this plot.  
 - **[5 Bonus Points]** Upon successfully reaching home, your robot now knows way back to the starting position. Return to the the starting position. 
@@ -160,6 +163,7 @@ In Lab 17, we implemented a simple heading controller for a wall-following robot
 ```
 
 **Requirements:**
+- <span style="color:blue"> Implement your code in `Level2.c`. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span>  
 - Select three distict speeds with visually noticeable differences. 
 - Adjust heading control parameters as necessary for each speed.
 - Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line. 
@@ -172,6 +176,7 @@ Explore the maze using the distance sensors. While integrating Level 2 is encour
 
 **Requirements:**
 
+- <span style="color:blue"> Implement your code in `Level2.3`. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span> 
 - Your robot must effectively explore the maze using distance sensors.
 - Ensure that your robot reaches the goal and halts before colliding with the wall.
 - Your robot should display alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.

@@ -582,12 +582,15 @@ document.write(`
 <p>Use the tachometers and bump sensors to navigate the maze and return home.</p>
 <p><strong>Requirements:</strong></p>
 <ul class="simple">
+<li><p><span style="color:blue"> Implement your code in the <code class="docutils literal notranslate"><span class="pre">Level1.c</span></code> file within the <code class="docutils literal notranslate"><span class="pre">FinalProject</span></code> project. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span></p></li>
 <li><p>Utilize the tachometers and bump switches for maze navigation; however, the use of IR distance sensors is strictly prohibited.</p></li>
-<li><p>When the robot reaches the designated <code class="docutils literal notranslate"><span class="pre">home</span></code> area, identified by three lines, it should come to a complete stop before making any contact with the wall.</p></li>
+<li><p><span style="color:blue">The designated <code class="docutils literal notranslate"><span class="pre">Home</span></code> is identified by the three while lines, and the <code class="docutils literal notranslate"><span class="pre">home</span> <span class="pre">area</span></code> is marked by the orage line. (Updated on 24 Nov 2023) </span></p></li>
+<li><p><span style="color:blue"> If both wheels are touching or inside the orange line, the robot is considered to be in the home area. (Updated on 24 Nov 2023) </span></p></li>
+<li><p>When the robot reaches the designated <code class="docutils literal notranslate"><span class="pre">home</span> <span class="pre">area</span></code>, it should come to a complete stop before making any contact with the wall.</p></li>
 <li><p>Upon successfully reaching home, your robot is expected to exhibit alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.</p></li>
 <li><p>Your robot is free to navigate the maze at any speed.</p></li>
 <li><p>Your robot begins the exploration without prior knowledge of the maze.</p></li>
-<li><p>The coordinates of Home are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
+<li><p>The coordinates of <code class="docutils literal notranslate"><span class="pre">Home</span></code> are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
 You have the flexibility to modify these coordinates as needed.</p></li>
 <li><p>Include a plot of both wheels’ displacements over time in your final report. Additionally, submit a video demo corrresponding to this plot.</p></li>
 <li><p><strong>[5 Bonus Points]</strong> Upon successfully reaching home, your robot now knows way back to the starting position. Return to the the starting position.</p></li>
@@ -607,6 +610,7 @@ Video Credit: C22 Allison Burba
 <a class="reference internal image-reference" href="../_images/Project_AdvControl.png"><img alt="../_images/Project_AdvControl.png" class="align-center" src="../_images/Project_AdvControl.png" style="width: 520px;" /></a>
 <p><strong>Requirements:</strong></p>
 <ul class="simple">
+<li><p><span style="color:blue"> Implement your code in <code class="docutils literal notranslate"><span class="pre">Level2.c</span></code>. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span></p></li>
 <li><p>Select three distict speeds with visually noticeable differences.</p></li>
 <li><p>Adjust heading control parameters as necessary for each speed.</p></li>
 <li><p>Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line.</p></li>
@@ -618,6 +622,7 @@ Video Credit: C22 Allison Burba
 <p>Explore the maze using the distance sensors. While integrating Level 2 is encouraged, completing this level does not require it.</p>
 <p><strong>Requirements:</strong></p>
 <ul class="simple">
+<li><p><span style="color:blue"> Implement your code in <code class="docutils literal notranslate"><span class="pre">Level2.3</span></code>. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span></p></li>
 <li><p>Your robot must effectively explore the maze using distance sensors.</p></li>
 <li><p>Ensure that your robot reaches the goal and halts before colliding with the wall.</p></li>
 <li><p>Your robot should display alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.</p></li>
