@@ -28,9 +28,10 @@ Challenge Levels:
 - Demo and coding
     - Read the presentation and final report requirements before you start coding.
     - Start early to earn early-bird bonus points; delay may jeopardize timely completion.
-    - Use the code from Lab 17 as a foundation.
+    - Use the code from Lab 17 as a foundation, <span style="color:blue"> but avoid implementing your final project in the Lab 17 files. Instructors will review the code inside the `FinalProject` folder. (Updated on 24 Nov 2023) </span>
     - Employ LCD/UART extensively for debugging high-level behaviors. 
     - Adjust tuning parameters like $k_p$ during run-time using LCD, bump sensors, and switches. 
+    -  <span style="color:blue"> Consider completing `Level 2` first for the early bird bonus, as it is likely the easiest. This will enhance your chances of receiving the bonus.   (Updated on 24 Nov 2023) </span> 
     - **Cease work for the final report**
         - If your robot reaches only halfway to the Level 1 goal point, the deduction will be approximately 5-10 points.
         - Your analysis in the report is much more important than completing the maze. 
@@ -126,15 +127,18 @@ void main(void)
 Use the tachometers and bump sensors to navigate the maze and return home.
 
 **Requirements:**
+- <span style="color:blue"> Implement your code in the `Level1.c` file within the `FinalProject` project. Avoid implementing your final project in the Lab 17 files. Instructors will review the code inside the `FinalProject` folder. (Updated on 24 Nov 2023) </span>  
 - Utilize the tachometers and bump switches for maze navigation; however, the use of IR distance sensors is strictly prohibited.
-- When the robot reaches the designated `home` area, identified by three lines, it should come to a complete stop before making any contact with the wall.
+- <span style="color:blue">The designated `Home` is identified by the three white lines, and the `home area` is marked by the orange line. (Updated on 24 Nov 2023) </span>  
+- <span style="color:blue"> If both wheels are touching or inside the orange line, the robot is considered to be in the home area. (Updated on 24 Nov 2023) </span>
+- When the robot reaches the designated `home area`, it should come to a complete stop before making any contact with the wall.
 - Upon successfully reaching home, your robot is expected to exhibit alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.
 - Your robot is free to navigate the maze at any speed.
 - Your robot begins the exploration without prior knowledge of the maze. 
-- The coordinates of Home are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
+- The coordinates of `Home` are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
 You have the flexibility to modify these coordinates as needed.
 - Include a plot of both wheels' displacements over time in your final report. Additionally, submit a video demo corrresponding to this plot.  
-- **[5 Bonus Points]** Upon successfully reaching home, your robot now knows way back to the starting position. Return to the the starting position. 
+- **[5 Bonus Points]** Upon successfully reaching home, your robot now knows its way back to the starting position. Return to the starting position. 
 
 ```{image} ./figures/Proj_Maze.jpg
 :width: 660
@@ -160,6 +164,7 @@ In Lab 17, we implemented a simple heading controller for a wall-following robot
 ```
 
 **Requirements:**
+- <span style="color:blue"> Implement your code in `Level2.c`. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span>  
 - Select three distict speeds with visually noticeable differences. 
 - Adjust heading control parameters as necessary for each speed.
 - Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line. 
@@ -172,6 +177,7 @@ Explore the maze using the distance sensors. While integrating Level 2 is encour
 
 **Requirements:**
 
+- <span style="color:blue"> Implement your code in `Level2.3`. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span> 
 - Your robot must effectively explore the maze using distance sensors.
 - Ensure that your robot reaches the goal and halts before colliding with the wall.
 - Your robot should display alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.
