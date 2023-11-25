@@ -152,6 +152,14 @@ You have the flexibility to modify these coordinates as needed.
 </center>
 <br>
 
+All the runs in the following video qualify for a full credit demo.
+<br>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0spBif9H1Ww?si=ps63pTxYVmqJ4G5L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<br>
+</center>
+<br>
 
 ### Level 2 (15 Points): Advanced Control
 
@@ -164,7 +172,7 @@ In Lab 17, we implemented a simple heading controller for a wall-following robot
 
 **Requirements:**
 - <span style="color:blue"> Implement your code in `Level2.c`. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span>  
-- Select three distict speeds with visually noticeable differences. 
+- Select three distict speeds with visually noticeable differences. For instance, choose 100 rpm, 200 rpm, and 300 rpm.
 - Adjust heading control parameters as necessary for each speed.
 - Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line. 
 - In your final report, include step responses for both speed and heading for each speed you have chosen. Provide the control parameters in the report and submit associated videos for each speed.
