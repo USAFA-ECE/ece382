@@ -147,9 +147,8 @@ You have the flexibility to modify these coordinates as needed.
 <br>
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Hq8rBYZTQrg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ePD-K6T7ABI?si=2QEEgU2tTNVQFA5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <br>
-Video Credit: C22 Allison Burba
 </center>
 <br>
 
