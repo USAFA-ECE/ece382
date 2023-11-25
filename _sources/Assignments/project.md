@@ -138,7 +138,7 @@ Use the tachometers and bump sensors to navigate the maze and return home.
 - The coordinates of `Home` are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
 You have the flexibility to modify these coordinates as needed.
 - Include a plot of both wheels' displacements over time in your final report. Additionally, submit a video demo corrresponding to this plot.  
-- **[5 Bonus Points]** Upon successfully reaching home, your robot now knows its way back to the starting position. Return to the starting position. The robot should turn around and run toward the starting position by itself. 
+- **[5 Bonus Points]** Upon successfully reaching home, your robot now knows its way back to the starting position. Make your robot autonomously turn around and return to the starting position. 
 
 ```{image} ./figures/Project_Level1_Maze.png
 :width: 360
