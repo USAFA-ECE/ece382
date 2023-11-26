@@ -82,7 +82,7 @@ with:
 
 - Add comprehensive comments throughout your code. Emphasize the importance of thorough commenting.
 - Execute turns using tachometers for Level 1 without introducing delays or loops.
-- Strictly avoid delays, loops, waits, or sleeps in your Interrupt Service Routines (ISRs). A deduction of 5 points per level will be applied if such delays or loops are present. For example:
+- Strictly avoid delays, loops, waits, or sleeps in your Interrupt Service Routines (ISRs). Deductions of 5 points per level will apply if delays or loops exist within the ISR. For example:
 
 ```C
 void Controller(void){          // called every 1 ms
@@ -115,8 +115,8 @@ void main(void)
 ```
 
 ### Deductions
-- A deduction of 5 points per level will be applied if delays or loops exist within the ISR.
-- A penalty of 5 points per level will be incurred if the controller code is found in the main function instead of an ISR. 
+- Deductions of 5 points per level will apply if delays or loops exist within the ISR.
+- A penalty of 5 points per level will be incurred if the controller code is found in the main function instead of an ISR.
 - A penalty of 5 points per level will be incurred for poor coding practices, such as inadequate comments or the use of hard-coded numbers instead of variables or enumerated types.
 
 
