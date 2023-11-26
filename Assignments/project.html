@@ -535,7 +535,7 @@ document.write(`
 <ul class="simple">
 <li><p>Add comprehensive comments throughout your code. Emphasize the importance of thorough commenting.</p></li>
 <li><p>Execute turns using tachometers for Level 1 without introducing delays or loops.</p></li>
-<li><p>Strictly avoid delays, loops, waits, or sleeps in your Interrupt Service Routines (ISRs). A deduction of 5 points per level will be applied if such delays or loops are present. For example:</p></li>
+<li><p>Strictly avoid delays, loops, waits, or sleeps in your Interrupt Service Routines (ISRs). Deductions of 5 points per level will apply if delays or loops exist within the ISR. For example:</p></li>
 </ul>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">Controller</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span><span class="w">          </span><span class="c1">// called every 1 ms</span>
 <span class="w">  </span><span class="n">Motor_TurnRight</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span><span class="w"> </span><span class="mi">3000</span><span class="p">);</span><span class="w">  </span><span class="c1">// for 180 deg turn</span>
@@ -570,7 +570,7 @@ document.write(`
 <section id="deductions">
 <h3>Deductions<a class="headerlink" href="#deductions" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>A deduction of 5 points per level will be applied if delays or loops exist within the ISR.</p></li>
+<li><p>Deductions of 5 points per level will apply if delays or loops exist within the ISR.</p></li>
 <li><p>A penalty of 5 points per level will be incurred if the controller code is found in the main function instead of an ISR.</p></li>
 <li><p>A penalty of 5 points per level will be incurred for poor coding practices, such as inadequate comments or the use of hard-coded numbers instead of variables or enumerated types.</p></li>
 </ul>
