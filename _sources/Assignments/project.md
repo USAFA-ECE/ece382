@@ -200,6 +200,12 @@ In Lab 17, we implemented a simple heading controller for a wall-following robot
 - In your final report, include step responses for both speed and heading for each speed you have chosen. Provide the control parameters in the report and submit associated videos for each speed.
 
 
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pXxThhx4R4g?si=qcGjUYJav6CQJTol" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+<br>
+
+
 ### Level 3 (45 + 5 Points): Wall Following
 
 Explore the maze using the distance sensors. While integrating Level 2 is encouraged, completing this level does not require it.
