@@ -124,7 +124,8 @@ void main(void)
 
 ### Level 1 (40 + 5 Points): Maze Exploration
 
-Use the tachometers and bump sensors to navigate the maze and return home.
+Use the tachometers and bump sensors to navigate the maze and return home.  Imagine you are in uncharted territory with a compass and a GPS receiver, tasked with reaching a designated coordinate.
+
 
 **Requirements:**
 - <span style="color:blue"> Implement your code in the `Level1.c` file within the `FinalProject` project. Avoid implementing your final project in the Lab 17 files. Instructors will review the code inside the `FinalProject` folder. (Updated on 24 Nov 2023) </span>  
