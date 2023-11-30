@@ -57,7 +57,7 @@ Challenge Levels:
     - **_No grace days_** can be used for the PowerPoint slides.
 - L36/37: Design Presentations
 - L39 0700: Level 1 & 2 Demos Due 
-    - Early bird **[5 Bonus Points]**: Complete Level 1 or Level 2 by T37 (Thu 30 Nov Dec) 2359
+    - Early bird **[5 Bonus Points]**: Complete Level 1 or Level 2 by <s>T37 (Thu 30 Nov) 2359</s> <span style="color:red"> M38 (Fri 1 Dec) 0700 (Updated on 30 Nov 2023) </span>
     - Late Demos: You can use grace days, but all products must be submitted NLT T40 2359 (by the Dean's policy). 
     - No grace days can be used for early bird demos. 
 - L39 during your section:  
