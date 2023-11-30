@@ -96,6 +96,22 @@ Yes, it is, and please use it extensively.  You can easily avoid compile errors.
 :align: center
 ```
 
+### _How to add a source file to a CCS project?_
+
+- Right-click on the project in CCS and select "Add Files...". Browse to your `inc` folder and select the .c file you would like to add. Click Open. Ensure `Link to file` is selected and create a link to the `PROJECT\_LOC`. 
+
+```{image} ./figures/AddFileToProject1.png
+:width: 340
+:align: center
+```
+
+<br>
+
+```{image} ./figures/AddFileToProject2.png
+:width: 420
+:align: center
+```
+
 ### _How can I rename a variable/function name in the entire project without finding them?_
 
 It is called *refactoring*.  Sometimes you want to rename identifiers for code symbols, such as local variables, functions, properties, and types. In such cases, you want to rename something safely without having to find all instances and copy/paste the new name. Here is how you do it:
