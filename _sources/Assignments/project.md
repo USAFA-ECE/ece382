@@ -197,7 +197,7 @@ In Lab 17, we implemented a simple heading controller for a wall-following robot
 - Select three distict speeds with visually noticeable differences. For instance, choose 100 rpm, 200 rpm, and 300 rpm.
 - Adjust heading control parameters as necessary for each speed.
 - Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line. 
-- <s>Your robot should stabilize to the steady state within 1.5 seconds.</s>  <span style="color:blue">Your robot should reach the stable state at the highest speed within 2.0 seconds </span>  
+- <s>Your robot should stabilize to the steady state within 1.5 seconds.</s>  <span style="color:blue">Your robot should reach the stable state for only the highest speed within 2.0 seconds. The other two slower speeds can exceed 2.0 seconds. </span>  
 
 - In your final report, include step responses for both speed and heading for each speed you have chosen. Provide the control parameters in the report and submit associated videos for each speed.
 
