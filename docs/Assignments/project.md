@@ -138,7 +138,10 @@ Use the tachometers and bump sensors to navigate the maze and return home.  Imag
 - Your robot begins the exploration without prior knowledge of the maze. 
 - The coordinates of `Home` are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates.
 You have the flexibility to modify these coordinates as needed.
-- Include a plot of both wheels' displacements over time in your final report. Additionally, submit a video demo corrresponding to this plot.  
+- <s> Include a plot of both wheels' displacements over time in your final report.</s>  <span style="color:blue"> Include a plot illustrating the x- and y-coordinates of your robot's movement over time in the final report. It is a common and effective way to visually represent the movement or trajectory of a robot. This can provide valuable insights into the robot's behavior and performance. (Updated on 1 Dec 2023) </span> Additionally, submit a video demo corresponding to this plot.This combination of a visual representation and a practical demonstration will provide a comprehensive overview of the robot's behavior and performance, enhancing the clarity and impact of your findings. Ensure that the plot is appropriately labeled with all necessary information for interpretation.
+
+
+Additionally, submit a video demo corresponding to this plot.  
 - **[5 Bonus Points]** Upon successfully reaching home, your robot now knows its way back to the starting position. Make your robot autonomously turn around and return to the starting position. 
 
 ```{image} ./figures/Project_Level1_Maze.png
