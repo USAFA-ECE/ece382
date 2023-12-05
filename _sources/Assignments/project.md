@@ -338,6 +338,7 @@ Submit your report on Gradescope. Be sure to select questions and pages to indic
     - You will have two rounds: 2 minutes for the first round and 1 minute for the second round.
     - A run is considered valid as long as it starts within the given timeframe.
     - Code changes are allowed within the 3-minute timeframe. While you can reflash your program multiple times within the 3 minutes, it is highly recommended to use LCD and switches for adjustments.
+    - If you are next in line, you need to stand by on the deck. There won't be any wait time once the previous turn is complete.
     - Prizes:
         - 1st place: 15 bonus points and name on the lab plaque.
         - 2nd place: 12 bonus points
