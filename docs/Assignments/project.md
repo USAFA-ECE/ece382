@@ -150,7 +150,7 @@ Additionally, submit a video demo corresponding to this plot.
 ```
 <br>
 
-- <span style="color:blue"> Partal Credit Points (Updated on 24 Nov 2023) </span>
+- <span style="color:blue"> Partial Credit Points (Updated on 24 Nov 2023) </span>
     - Deduction of 2 points if the robot reaches home but does not come to a complete stop.
     - Deduction of 3 points if the robot makes a 90-degree turn toward the home area at the T-joint but reaches only any point between the T-joint and Home.
     - Deduction of 5 points if the robot reaches any point between the third turn and the T-joint.
@@ -197,7 +197,7 @@ In Lab 17, we implemented a simple heading controller for a wall-following robot
 
 **Requirements:**
 - <span style="color:blue"> Implement your code in `Level2.c`. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span>  
-- Select three distict speeds with visually noticeable differences. For instance, choose 100 rpm, 200 rpm, and 300 rpm.
+- Select three distinct speeds with visually noticeable differences. For instance, choose 50 rpm, 100 rpm, and 150 rpm.
 - Adjust heading control parameters as necessary for each speed.
 - Ensure that your robot is initially positioned at least 3 inches (or 7.5 cm) away from the center line. 
 - <s>Your robot should stabilize to the steady state within 1.5 seconds.</s>  <span style="color:blue">Your robot should reach the stable state for only the highest speed within 2.0 seconds. The other two slower speeds can exceed 2.0 seconds. </span>  
@@ -259,7 +259,7 @@ Provide a **7-minute** presentation followed by approximately 2 minutes for Q&A,
     - Emphasize the importance of professional timing in a presentation, considering its impact on the audience and subsequent speakers.
 - **Submission**:
     - Submit your `MS PowerPoint pptx` file to your instructor NLT L36 0700. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.
-    - Additionally, export your PowerPoint file to a **pdf** file and submit it on Gradescope by L36 0700. **Be sure to select questions and pages to indicate where your responses are located. Failure to do so will result in point deductions.** Refer to the intruction gif inside the Final Report section for guidance. 
+    - Additionally, export your PowerPoint file to a **pdf** file and submit it on Gradescope by L36 0700. **Be sure to select questions and pages to indicate where your responses are located. Failure to do so will result in point deductions.** Refer to the instruction gif inside the Final Report section for guidance. 
     - **_No grace days_** can be used for the PowerPoint slides.
 
 
@@ -333,9 +333,12 @@ Submit your report on Gradescope. Be sure to select questions and pages to indic
     - **[-15 Points]** Up to 5 points per level deducted for bad coding practices (e.g., poor comments, hard-coded numbers).
     - Uncompilable code results in a grade of 0 for the level. 
 - 🏇 **Final Race**
-    - L39 during your section. We will measure completion time for Level 3 demo.  
-    - Same requirements as Level 3 - reach goal and stop before hitting the wall.
-    - Code changes allowed within a 3-minute timeframe. While you can reflash your program multiple times within 3 minutes, using LCD and switches for adjustments is highly recommended.
+    - L39 during your section. We will measure completion time for the Level 3 demo.  
+    - Same requirements as Level 3 apply: reach the goal and stop before hitting the wall.
+    - You will have two rounds: 2 minutes for the first round and 1 minute for the second round.
+    - A run is considered valid as long as it starts within the given timeframe.
+    - Code changes are allowed within the 3-minute timeframe. While you can reflash your program multiple times within the 3 minutes, it is highly recommended to use LCD and switches for adjustments.
+    - If you are next in line, you need to stand by on the deck. There won't be any wait time once the previous turn is complete.
     - Prizes:
         - 1st place: 15 bonus points and name on the lab plaque.
         - 2nd place: 12 bonus points
