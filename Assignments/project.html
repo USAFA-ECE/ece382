@@ -394,9 +394,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrations">🎬 Demonstrations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-1-40-5-points-maze-exploration">Level 1 (40 + 5 Points): Maze Exploration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-15-points-advanced-control">Level 2 (15 Points): Advanced Control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-3-45-5-points-wall-following">Level 3 (45 + 5 Points): Wall Following</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-1-maze-exploration">Level 1: Maze Exploration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-advanced-control">Level 2: Advanced Control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-3-wall-following">Level 3: Wall Following</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-presentation-50-points">👩‍🏫 Design Presentation (50 Points)</a></li>
@@ -500,6 +500,7 @@ document.write(`
 <li><p>L36/37: Design Presentations</p></li>
 <li><p>L39 0700: Level 1 &amp; 2 Demos Due</p>
 <ul>
+<li><p><span style="color:red"> 24-hour extension: M-Days - 6 Dec 0700, T-Days - 7 Dec 0700 </span></p></li>
 <li><p>Early bird <strong>[5 Bonus Points]</strong>: Complete Level 1 or Level 2 by <s>T37 (Thu 30 Nov) 2359</s> <span style="color:red"> M38 (Fri 1 Dec) 0700 (Updated on 30 Nov 2023) </span></p></li>
 <li><p>Late Demos: You can use grace days, but all products must be submitted NLT T40 2359 (by the Dean’s policy).</p></li>
 <li><p>No grace days can be used for early bird demos.</p></li>
@@ -578,8 +579,8 @@ document.write(`
 </section>
 <section id="demonstrations">
 <h2>🎬 Demonstrations<a class="headerlink" href="#demonstrations" title="Permalink to this heading">#</a></h2>
-<section id="level-1-40-5-points-maze-exploration">
-<h3>Level 1 (40 + 5 Points): Maze Exploration<a class="headerlink" href="#level-1-40-5-points-maze-exploration" title="Permalink to this heading">#</a></h3>
+<section id="level-1-maze-exploration">
+<h3>Level 1: Maze Exploration<a class="headerlink" href="#level-1-maze-exploration" title="Permalink to this heading">#</a></h3>
 <p>Use the tachometers and bump sensors to navigate the maze and return home.  Imagine you are in uncharted territory with a compass and a GPS receiver, tasked with reaching a designated coordinate.</p>
 <p><strong>Requirements:</strong></p>
 <ul class="simple">
@@ -629,8 +630,8 @@ All the runs in the following video qualify for a full credit demo.
 </center>
 <br>
 </section>
-<section id="level-2-15-points-advanced-control">
-<h3>Level 2 (15 Points): Advanced Control<a class="headerlink" href="#level-2-15-points-advanced-control" title="Permalink to this heading">#</a></h3>
+<section id="level-2-advanced-control">
+<h3>Level 2: Advanced Control<a class="headerlink" href="#level-2-advanced-control" title="Permalink to this heading">#</a></h3>
 <p>In Lab 17, we implemented a simple heading controller for a wall-following robot. Now, for this level, we aim to enhance the heading control by integrating a speed regulator. This addition ensures the maintenance of a constant speed, unaffected by variations in battery power or external disturbances, such as increased friction while turning.</p>
 <a class="reference internal image-reference" href="../_images/Project_AdvControl.png"><img alt="../_images/Project_AdvControl.png" class="align-center" src="../_images/Project_AdvControl.png" style="width: 520px;" /></a>
 <p><strong>Requirements:</strong></p>
@@ -647,12 +648,12 @@ All the runs in the following video qualify for a full credit demo.
 </center>
 <br>
 </section>
-<section id="level-3-45-5-points-wall-following">
-<h3>Level 3 (45 + 5 Points): Wall Following<a class="headerlink" href="#level-3-45-5-points-wall-following" title="Permalink to this heading">#</a></h3>
+<section id="level-3-wall-following">
+<h3>Level 3: Wall Following<a class="headerlink" href="#level-3-wall-following" title="Permalink to this heading">#</a></h3>
 <p>Explore the maze using the distance sensors. While integrating Level 2 is encouraged, completing this level does not require it.</p>
 <p><strong>Requirements:</strong></p>
 <ul class="simple">
-<li><p><span style="color:blue"> Implement your code in <code class="docutils literal notranslate"><span class="pre">Level2.3</span></code>. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span></p></li>
+<li><p><span style="color:blue"> Implement your code in <code class="docutils literal notranslate"><span class="pre">Level3</span></code>. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span></p></li>
 <li><p>Your robot must effectively explore the maze using distance sensors.</p></li>
 <li><p>Ensure that your robot reaches the goal and halts before colliding with the wall.</p></li>
 <li><p>Your robot should display alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.</p></li>
@@ -661,7 +662,7 @@ All the runs in the following video qualify for a full credit demo.
 <li><p>You should use <code class="docutils literal notranslate"><span class="pre">Classifier</span></code> to determine road intersections.</p></li>
 <li><p><strong>Assume your robot has prior knowledge of the maze layout.</strong></p></li>
 <li><p><strong>[5 Bonus Points]</strong> Arrive at the goal within 11.0 seconds.</p></li>
-<li><p>A live demo during L39 is mandatory. Ensure your robot’s robustness for a live demo within 3 minutes. In the event of a live demo failure, you may use a video demo submitted before your section on L39, but a deduction of 5 points will be applied.</p></li>
+<li><p>A live demo during L39 is mandatory. Ensure your robot’s robustness for a live demo within 3 minutes. In the event of a live demo failure, you may use a video demo submitted before your section on L39, but deductions of <s> 5 points</s> <span style="color:blue"> 3 points </span> will be applied.</p></li>
 </ul>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2m8tce8ZYoI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -794,15 +795,15 @@ All the runs in the following video qualify for a full credit demo.
 <section id="deliverable-2-100-15-bonus-points-race-points-demo-and-code">
 <h3>Deliverable 2: [100 + 15 Bonus Points + Race Points] Demo and Code<a class="headerlink" href="#deliverable-2-100-15-bonus-points-race-points-demo-and-code" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[40 + 5 Points]</strong> Level 1: Maze Exploration</p></li>
-<li><p><strong>[15 Points]</strong> Level 2: Advanced Control</p></li>
-<li><p><strong>[45 + 5 Points]</strong> Level 3: Wall Following</p></li>
+<li><p><span style="color:red"> Complete one level to earn up to <strong>60 Points</strong></span></p></li>
+<li><p><span style="color:red"> Complete two levels to earn up to <strong>90 Points</strong></span></p></li>
+<li><p><span style="color:red"> Complete all three levels to earn up to <strong>100 Points</strong></span></p></li>
 <li><p><strong>[5 Bonus Points]</strong>: Early bird</p></li>
-<li><p><strong>Code:</strong></p>
+<li><p><strong>Deductions:</strong></p>
 <ul>
-<li><p><strong>[-15 Points]</strong> 5 points per level deducted for delays or loops in ISR.</p></li>
-<li><p><strong>[-15 Points]</strong> 5 points per level deducted for controller code in main instead of ISR.</p></li>
-<li><p><strong>[-15 Points]</strong> Up to 5 points per level deducted for bad coding practices (e.g., poor comments, hard-coded numbers).</p></li>
+<li><p><strong>[-15 Points]:</strong> 5 points per level deducted for delays or loops in ISR.</p></li>
+<li><p><strong>[-15 Points]:</strong> 5 points per level deducted for controller code in main instead of ISR.</p></li>
+<li><p><strong>[-15 Points]:</strong> Up to 5 points per level deducted for bad coding practices (e.g., poor comments, hard-coded numbers).</p></li>
 <li><p>Uncompilable code results in a grade of 0 for the level.</p></li>
 </ul>
 </li>
@@ -922,9 +923,9 @@ All the runs in the following video qualify for a full credit demo.
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrations">🎬 Demonstrations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-1-40-5-points-maze-exploration">Level 1 (40 + 5 Points): Maze Exploration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-15-points-advanced-control">Level 2 (15 Points): Advanced Control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-3-45-5-points-wall-following">Level 3 (45 + 5 Points): Wall Following</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-1-maze-exploration">Level 1: Maze Exploration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-advanced-control">Level 2: Advanced Control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-3-wall-following">Level 3: Wall Following</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-presentation-50-points">👩‍🏫 Design Presentation (50 Points)</a></li>

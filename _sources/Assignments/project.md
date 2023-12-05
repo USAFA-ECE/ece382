@@ -57,6 +57,7 @@ Challenge Levels:
     - **_No grace days_** can be used for the PowerPoint slides.
 - L36/37: Design Presentations
 - L39 0700: Level 1 & 2 Demos Due 
+    - <span style="color:red"> 24-hour extension: M-Days - 6 Dec 0700, T-Days - 7 Dec 0700 </span>    
     - Early bird **[5 Bonus Points]**: Complete Level 1 or Level 2 by <s>T37 (Thu 30 Nov) 2359</s> <span style="color:red"> M38 (Fri 1 Dec) 0700 (Updated on 30 Nov 2023) </span>
     - Late Demos: You can use grace days, but all products must be submitted NLT T40 2359 (by the Dean's policy). 
     - No grace days can be used for early bird demos. 
@@ -122,7 +123,7 @@ void main(void)
 
 ## 🎬 Demonstrations
 
-### Level 1 (40 + 5 Points): Maze Exploration
+### Level 1: Maze Exploration
 
 Use the tachometers and bump sensors to navigate the maze and return home.  Imagine you are in uncharted territory with a compass and a GPS receiver, tasked with reaching a designated coordinate.
 
@@ -186,7 +187,7 @@ All the runs in the following video qualify for a full credit demo.
 </center>
 <br>
 
-### Level 2 (15 Points): Advanced Control
+### Level 2: Advanced Control
 
 In Lab 17, we implemented a simple heading controller for a wall-following robot. Now, for this level, we aim to enhance the heading control by integrating a speed regulator. This addition ensures the maintenance of a constant speed, unaffected by variations in battery power or external disturbances, such as increased friction while turning.
 
@@ -211,13 +212,13 @@ In Lab 17, we implemented a simple heading controller for a wall-following robot
 <br>
 
 
-### Level 3 (45 + 5 Points): Wall Following
+### Level 3: Wall Following
 
 Explore the maze using the distance sensors. While integrating Level 2 is encouraged, completing this level does not require it.
 
 **Requirements:**
 
-- <span style="color:blue"> Implement your code in `Level2.3`. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span> 
+- <span style="color:blue"> Implement your code in `Level3`. Avoid implementing your final project in the Lab 17 files. (Updated on 24 Nov 2023) </span> 
 - Your robot must effectively explore the maze using distance sensors.
 - Ensure that your robot reaches the goal and halts before colliding with the wall.
 - Your robot should display alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.
@@ -226,7 +227,7 @@ Explore the maze using the distance sensors. While integrating Level 2 is encour
 - You should use `Classifier` to determine road intersections.
 - **Assume your robot has prior knowledge of the maze layout.**
 - **[5 Bonus Points]** Arrive at the goal within 11.0 seconds.
-- A live demo during L39 is mandatory. Ensure your robot's robustness for a live demo within 3 minutes. In the event of a live demo failure, you may use a video demo submitted before your section on L39, but a deduction of 5 points will be applied.
+- A live demo during L39 is mandatory. Ensure your robot's robustness for a live demo within 3 minutes. In the event of a live demo failure, you may use a video demo submitted before your section on L39, but deductions of <s> 5 points</s> <span style="color:blue"> 3 points </span> will be applied.
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2m8tce8ZYoI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -323,14 +324,15 @@ Submit your report on Gradescope. Be sure to select questions and pages to indic
 - **[5 Points]** Questions
 
 ### Deliverable 2: [100 + 15 Bonus Points + Race Points] Demo and Code
-- **[40 + 5 Points]** Level 1: Maze Exploration
-- **[15 Points]** Level 2: Advanced Control
-- **[45 + 5 Points]** Level 3: Wall Following
+- <span style="color:red"> Complete one level to earn up to **60 Points**</span>
+- <span style="color:red"> Complete two levels to earn up to **90 Points**</span>
+- <span style="color:red"> Complete all three levels to earn up to **100 Points**</span>
+
 - **[5 Bonus Points]**: Early bird 
-- **Code:**
-    - **[-15 Points]** 5 points per level deducted for delays or loops in ISR.
-    - **[-15 Points]** 5 points per level deducted for controller code in main instead of ISR.
-    - **[-15 Points]** Up to 5 points per level deducted for bad coding practices (e.g., poor comments, hard-coded numbers).
+- **Deductions:**
+    - **[-15 Points]:** 5 points per level deducted for delays or loops in ISR.
+    - **[-15 Points]:** 5 points per level deducted for controller code in main instead of ISR.
+    - **[-15 Points]:** Up to 5 points per level deducted for bad coding practices (e.g., poor comments, hard-coded numbers).
     - Uncompilable code results in a grade of 0 for the level. 
 - 🏇 **Final Race**
     - L39 during your section. We will measure completion time for the Level 3 demo.  
