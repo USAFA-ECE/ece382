@@ -117,7 +117,7 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 
 - Download `Code Compose Studio 12.4.0` using one of the following methods
     - Go to https://www.ti.com/tool/download/CCSTUDIO/12.4.0 to download `Windows on-demand installer for CCS IDE`. For Mac users, download `macOS on-demand installer for CCS IDE`.  <!--Do not download version 13 since it was recently released and there will be multiple patches next few months. -->
-    - Go Teams > General > Files > Class Materials > Software and download `ccs_setup_12.x.x.xxxxx.exe`.    
+    - Go to Teams > General > Files > Class Materials > Software and download `ccs_setup_12.x.x.xxxxx.exe`.    
 - Run the installer by double-clicking the `ccs_setup_12.x.x.xxxxx.exe` executable.
 - Begin the installation process, by default it will ask you to install under the `C:\ti` folder, which is recommended.
 - Select `Custom Installation` (Recommended)
