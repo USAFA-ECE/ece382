@@ -13,7 +13,7 @@ This schedule is subject to change as appropriate.
 | 16 Aug |                                                  |                      | Skills Review                         (12)|
 | 4      | Lec 3: Memory                                    | 3.2.2, 3.3.2-3, 3.3.9| [Lab2](Assignments/lab2.md)           (20)|
 | 5      | [Lab 3: Memory](Assignments/lab3.md)             |                      | [HW3](Assignments/homework3.md)       (16)|
-| 6      | Lec 4: Assembly Functions                        | 3.3.7-8, 3.4         | [Lab3](Assignments/lab3.md)           (20)|
+| 6      | Lec 4: Subroutines                               | 3.3.7-8, 3.4         | [Lab3](Assignments/lab3.md)           (20)|
 | 7      | [Lab 4: Subroutines](Assignments/lab4.md)        |                      | [HW4](Assignments/homework4.md)       (20)|
 | 8      | Lec 5: Software Design                           | 4.1-4.2.4, 4.3       | [Lab4](Assignments/lab4.md)           (30)|
 | 9      | [Lab 5: Software Design](Assignments/lab5.md)    |                      | HW5                                   (18)|
