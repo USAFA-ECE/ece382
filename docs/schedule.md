@@ -17,25 +17,25 @@ This schedule is subject to change as appropriate.
 | 7      | [Lab 4: Subroutines](Assignments/lab4.md)        |                      | [HW4](Assignments/homework4.md)       (20)|
 | 8      | Lec 5: Software Design                           | 4.1-4.2.4, 4.3       | [Lab4](Assignments/lab4.md)           (30)|
 | 9      | [Lab 5: Software Design](Assignments/lab5.md)    |                      | HW5                                   (18)|
-| 10     | [Lab 5: Software Design](Assignments/lab5.md)    |                      |                                           |
-| 11     | Lec 8: Interfacing IO                            | 6.1-6.3, 8.1-8.4     | [Lab5](Assignments/lab5.md)           (30)|
-| 12     | [Lab 8: Interfacing IO](Assignments/lab8.md)     |                      | HW8                                   (18)|
-| 13     | Lec 10: Multithreading (Interrupts)              | 9.4, 10.1-10.3       | [Lab8](Assignments/lab8.md)           (20)|
-| 14     | [Lab 10: Multithreading](Assignments/lab10.md)   |                      | HW10                                  (18)|
-| 15     | Lec 11: Serial Communication                     | 11.2-11.3, 11.5-11.6 | [Lab10](Assignments/lab10.md)         (20)|
-| 16     | [Lab 11: Serial Comm](Assignments/lab11.md)      |                      | HW11                                  (18)|
-| 17     | Lec 13: Timers                                   | 13.1-13.3            | [Lab11](Assignments/lab11.md)         (25)|
+| 10     | Lec 8: Interfacing IO                            | 6.1-6.3, 8.1-8.4     | [Lab5](Assignments/lab5.md)           (30)|
+| 11     | [Lab 8: Interfacing IO](Assignments/lab8.md)     |                      | HW8                                   (18)|
+| 12     | Lec 10: Multithreading                           | 9.4, 10.1-10.3       | [Lab8](Assignments/lab8.md)           (20)|
+| 13     | [Lab 10: Multithreading](Assignments/lab10.md)   |                      | HW10                                  (18)|
+| 14     | Lec 11: Serial Communication                     | 11.2-11.3, 11.5-11.6 | [Lab10](Assignments/lab10.md)         (20)|
+| 15     | [Lab 11: Serial Comm](Assignments/lab11.md)      |                      | HW11                                  (18)|
+| 16     | Lec 13: Timers & PWM                             | 13.1-13.3            | [Lab11](Assignments/lab11.md)         (25)|
+| 17     | Lec 13: Motors & FSM                             | 12.1, 12.5, 13.3     | HW13A                                     |
 | 18     | GR 1                                             |                      |                                      (100)|
-| 19     | Lec 13: Motors & PWM                             | 12.1, 12.5, 13.3     |                                           |
-| 20     | [Lab 13: Timers & PWM](Assignments/lab13.md)     |                      | HW13                                  (22)|
-| 21     | [Lab 13: Timers & PWM](Assignments/lab13.md)     |                      |                                           |
-| 22     | Lec 14: Real-Time Systems (Edge Interrupts)      | 10.4, 14.2           | [Lab13](Assignments/lab13.md)         (30)|
-| 23     | [Lab 14: Real-Time Systems](Assignments/lab14.md)|                      | HW14                                  (18)|
-| 24     | Lec 15: ADC (Distance   Sensors)                 | 15.3, 15.5, 15.8     | [Lab14](Assignments/lab14.md)         (20)|
-| 25     | [Lab 15: ADC](Assignments/lab15.md)              |                      | HW15                                  (18)|
-| 26     | [Lab 15: ADC](Assignments/lab15.md)              |                      |                                           |
-| 27     | Lec 16: Tachometer (Timer Input Capture)         | 16.1-16.3            | [Lab15](Assignments/lab15.md)         (30)|
-| 28     | [Lab 16: Tachometer](Assignments/lab16.md)       |                      | HW16                                  (18)|
+| 19     | [Lab 13: Timers & PWM](Assignments/lab13.md)     |                      | HW13B                                 (22)|
+| 20     | [Lab 13: Timers & PWM](Assignments/lab13.md)     |                      |                                           |
+| 21     | Lec 14: Real-Time Systems (Edge Interrupts)      | 10.4, 14.2           | [Lab13](Assignments/lab13.md)         (30)|
+| 22     | [Lab 14: Real-Time Systems](Assignments/lab14.md)|                      | HW14                                  (18)|
+| 23     | Lec 15: ADC (Distance   Sensors)                 | 15.3, 15.5, 15.8     | [Lab14](Assignments/lab14.md)         (20)|
+| 24     | [Lab 15: ADC](Assignments/lab15.md)              |                      | HW15                                  (18)|
+| 25     | [Lab 15: ADC](Assignments/lab15.md)              |                      |                                           |
+| 26     | Lec 16: Tachometer (Timer Input Capture)         | 16.1-16.3            | [Lab15](Assignments/lab15.md)         (30)|
+| 27     | [Lab 16: Tachometer](Assignments/lab16.md)       |                      | HW16                                  (18)|
+| 28     | [Lab 16: Tachometer](Assignments/lab16.md)       |                      |                                       (18)|
 | 29     | Lec 17: Control Systems                          | 17.1-17.5            | [Lab16](Assignments/lab16.md)         (25)|
 | 30     | [Lab 17: Control Systems](Assignments/lab17.md)  |                      | HW17                                  (18)|
 | 31     | [Lab 17: Control Systems](Assignments/lab17.md)  |                      |                                           |
