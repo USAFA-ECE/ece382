@@ -53,25 +53,23 @@ The NULL character should not be confused with a null pointer, which is a pointe
 
 
 ```{admonition} Q&A
-Q: For the UCAxBRW problem, when figuring out the value to put in, how does the system handle decimal points? Is there a rounding that should be done?
-<br>
-A: Round to the nearest integer. The tolerance is +/- 5%
-<br>
-<br>
 Q: Did anyone else have the problem where the terminal was showing only high numbers under the "Serial Terminal" option (COM9-COM12)? My app keeps crashing when I try to run the terminal on one of these. I'm getting the right values otherwise and my code works fine.
 <br>
 A: It can be.  It depends on how many serial devices have been connected to your computer.  I once had something like COM24.
 ```
 
 
-### Write UART functions in `UART2.c`
+### Test UART0 with Moku:Go
 
-- Write `UART2_Init()`, `UART2_OutChar()`, and `UART2_OutString()`. They should be very similar to those in `UART0.c`.
-- `UART2_Init()` takes `baudrate` as a function argument. So, users can choose their own baudrates when they initialize UART2 whereas the UART0 baud rate is fixed at 115,200 bps.   
 - Replace _Baek_ in `char Name[] = "Baek"` before `Program11_2` with the first three letters of your last name.  Use your first name if your last name is less than three letters long. 
-- Connect Moku:Gp Logic Analyzer to your LaunchPad.
+
+```{warning}
+Turn off the robot before connecting the logic analyzer to it. Otherwise, you might short-circuit and damage the board!
+```
+
+- Connect Moku:Go Logic Analyzer to your LaunchPad.
     - Connect the 20-pin I/O port to Moku:Go as shown inside the red circle in the figure below.
-    - Connect Pin 1 of the Logic Analyzer to P3.3 of your LaunchPad as shown inside the yellow circle.
+    - Connect Pin 1 of the Logic Analyzer to the TXD port on your LaunchPad as shown inside the yellow circle.
     - Connect a Logic Analyzer's ground pin (black wire) to one of the LaunchPad ground pins as shown in the yellow circle.  
 
 
@@ -102,12 +100,17 @@ A: It can be.  It depends on how many serial devices have been connected to your
 <br>
 
 
-### Write SPI functions in SPI_B1
+### Write SPI functions in SPI_A3 and Test with Moku:Go
 
-- Write `SPIB1_Init()`, `SPIB1_OutChar()`, and `SPIB1_OutString()`. 
+- Write `SPIA3_Init()`, `SPIA3_OutChar()`, and `SPIA3_OutString()`. 
 - Run `Program11_3` and start Moku:Go Logic Analyzer to measure the signal transmitted from the SPI_B1 port of your LaunchPad. 
+
+```{warning}
+Turn off the robot before connecting the logic analyzer to it. Otherwise, you might short-circuit and damage the board!
+```
+
 - Connect Moku:Gp Logic Analyzer to your LaunchPad.
-    - Connect three Logic Analyzer probes to P6.2 (STE), P6.3 (CLK), and P6.4 (MOSI) of your LaunchPad.
+    - Connect three Logic Analyzer probes to P9.4 (STE), P9.5 (CLK), and P9.7 (MOSI) of your LaunchPad.
     - Connect a Logic Analyzer's ground pin (black wire) to one of the LaunchPad ground pins.  
 - Take a screenshot of the signal below and clearly annotate the binary bits of your three letters. 
 - Add your three letters under the corresponding binary signals.
@@ -135,7 +138,7 @@ A: It can be.  It depends on how many serial devices have been connected to your
 
 <br>
 
-This lab has been adapted from [TI-RSLK MAX Solderless
-Maze Edition Curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum)
+This lab was originally adapted from the [TI-RSLK MAX Solderless Maze Edition Curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum) and has since been significantly modified.
+
 
 

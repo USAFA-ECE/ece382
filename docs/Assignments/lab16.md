@@ -225,12 +225,7 @@ Although this part is not required for Lab 16, it will be part of the final proj
 ### Deliverable 5 
 - **[4.5 Points]** Ensure that you provide comments in your code for clarity and push your code to your repository using git.
 
-
-This lab has been adapted from the TI RSLK: [The Solderless Maze Edition curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum)
-
-
-
-
+This lab was originally adapted from the [TI-RSLK MAX Solderless Maze Edition Curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum) and has since been significantly modified.
 
 
 

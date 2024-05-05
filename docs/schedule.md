@@ -23,11 +23,11 @@ This schedule is subject to change as appropriate.
 | 13     | [Lab 10: Multithreading](Assignments/lab10.md)   |                      | HW10                                  (18)|
 | 14     | Lec 11: Serial Communication                     | 11.2-11.3, 11.5-11.6 | [Lab10](Assignments/lab10.md)         (20)|
 | 15     | [Lab 11: Serial Comm](Assignments/lab11.md)      |                      | HW11                                  (18)|
-| 16     | Lec 13: Timers & PWM                             | 13.1-13.3            | [Lab11](Assignments/lab11.md)         (25)|
-| 17     | Lec 13: Motors & FSM                             | 12.1, 12.5, 13.3     | HW13A                                     |
+| 16     | Lec 13: Timers, Motors, & FSM                    | 13.1-13.3            | [Lab11](Assignments/lab11.md)         (25)|
+| 17     | Lec 13: Timers, Motors, & FSM                    | 12.1, 12.5, 13.3     | HW13A                                     |
 | 18     | GR 1                                             |                      |                                      (100)|
-| 19     | [Lab 13: Timers & PWM](Assignments/lab13.md)     |                      | HW13B                                 (22)|
-| 20     | [Lab 13: Timers & PWM](Assignments/lab13.md)     |                      |                                           |
+| 19     | [Lab 13: Timers, Motors, & PWM](Assignments/lab13.md)|                      | HW13B                                 (22)|
+| 20     | [Lab 13: Timers, Motors, & PWM](Assignments/lab13.md)|                      |                                           |
 | 21     | Lec 14: Real-Time Systems (Edge Interrupts)      | 10.4, 14.2           | [Lab13](Assignments/lab13.md)         (30)|
 | 22     | [Lab 14: Real-Time Systems](Assignments/lab14.md)|                      | HW14                                  (18)|
 | 23     | Lec 15: ADC (Distance   Sensors)                 | 15.3, 15.5, 15.8     | [Lab14](Assignments/lab14.md)         (20)|
