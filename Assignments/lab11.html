@@ -387,8 +387,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-uart-functions-in-uart0-c">Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART0.c</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-uart-functions-in-uart2-c">Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART2.c</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-spi-functions-in-spi-b1">Write SPI functions in SPI_B1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-uart0-with-moku-go">Test UART0 with Moku:Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-spi-functions-in-spi-a3-and-test-with-moku-go">Write SPI functions in SPI_A3 and Test with Moku:Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
@@ -472,26 +472,25 @@ document.write(`
 </ul>
 <div class="admonition-q-a admonition">
 <p class="admonition-title">Q&amp;A</p>
-<p>Q: For the UCAxBRW problem, when figuring out the value to put in, how does the system handle decimal points? Is there a rounding that should be done?
-<br>
-A: Round to the nearest integer. The tolerance is +/- 5%
-<br>
-<br>
-Q: Did anyone else have the problem where the terminal was showing only high numbers under the “Serial Terminal” option (COM9-COM12)? My app keeps crashing when I try to run the terminal on one of these. I’m getting the right values otherwise and my code works fine.
+<p>Q: Did anyone else have the problem where the terminal was showing only high numbers under the “Serial Terminal” option (COM9-COM12)? My app keeps crashing when I try to run the terminal on one of these. I’m getting the right values otherwise and my code works fine.
 <br>
 A: It can be.  It depends on how many serial devices have been connected to your computer.  I once had something like COM24.</p>
 </div>
 </section>
-<section id="write-uart-functions-in-uart2-c">
-<h3>Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART2.c</span></code><a class="headerlink" href="#write-uart-functions-in-uart2-c" title="Permalink to this heading">#</a></h3>
+<section id="test-uart0-with-moku-go">
+<h3>Test UART0 with Moku:Go<a class="headerlink" href="#test-uart0-with-moku-go" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Write <code class="docutils literal notranslate"><span class="pre">UART2_Init()</span></code>, <code class="docutils literal notranslate"><span class="pre">UART2_OutChar()</span></code>, and <code class="docutils literal notranslate"><span class="pre">UART2_OutString()</span></code>. They should be very similar to those in <code class="docutils literal notranslate"><span class="pre">UART0.c</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UART2_Init()</span></code> takes <code class="docutils literal notranslate"><span class="pre">baudrate</span></code> as a function argument. So, users can choose their own baudrates when they initialize UART2 whereas the UART0 baud rate is fixed at 115,200 bps.</p></li>
 <li><p>Replace <em>Baek</em> in <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">Name[]</span> <span class="pre">=</span> <span class="pre">&quot;Baek&quot;</span></code> before <code class="docutils literal notranslate"><span class="pre">Program11_2</span></code> with the first three letters of your last name.  Use your first name if your last name is less than three letters long.</p></li>
-<li><p>Connect Moku:Gp Logic Analyzer to your LaunchPad.</p>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Turn off the robot before connecting the logic analyzer to it. Otherwise, you might short-circuit and damage the board!</p>
+</div>
+<ul class="simple">
+<li><p>Connect Moku:Go Logic Analyzer to your LaunchPad.</p>
 <ul>
 <li><p>Connect the 20-pin I/O port to Moku:Go as shown inside the red circle in the figure below.</p></li>
-<li><p>Connect Pin 1 of the Logic Analyzer to P3.3 of your LaunchPad as shown inside the yellow circle.</p></li>
+<li><p>Connect Pin 1 of the Logic Analyzer to the TXD port on your LaunchPad as shown inside the yellow circle.</p></li>
 <li><p>Connect a Logic Analyzer’s ground pin (black wire) to one of the LaunchPad ground pins as shown in the yellow circle.</p></li>
 </ul>
 </li>
@@ -512,14 +511,20 @@ A: It can be.  It depends on how many serial devices have been connected to your
 <a class="reference internal image-reference" href="../_images/Lab11_Moku_UART_Fox.png"><img alt="../_images/Lab11_Moku_UART_Fox.png" class="align-center" src="../_images/Lab11_Moku_UART_Fox.png" style="width: 760px;" /></a>
 <br>
 </section>
-<section id="write-spi-functions-in-spi-b1">
-<h3>Write SPI functions in SPI_B1<a class="headerlink" href="#write-spi-functions-in-spi-b1" title="Permalink to this heading">#</a></h3>
+<section id="write-spi-functions-in-spi-a3-and-test-with-moku-go">
+<h3>Write SPI functions in SPI_A3 and Test with Moku:Go<a class="headerlink" href="#write-spi-functions-in-spi-a3-and-test-with-moku-go" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Write <code class="docutils literal notranslate"><span class="pre">SPIB1_Init()</span></code>, <code class="docutils literal notranslate"><span class="pre">SPIB1_OutChar()</span></code>, and <code class="docutils literal notranslate"><span class="pre">SPIB1_OutString()</span></code>.</p></li>
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">SPIA3_Init()</span></code>, <code class="docutils literal notranslate"><span class="pre">SPIA3_OutChar()</span></code>, and <code class="docutils literal notranslate"><span class="pre">SPIA3_OutString()</span></code>.</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">Program11_3</span></code> and start Moku:Go Logic Analyzer to measure the signal transmitted from the SPI_B1 port of your LaunchPad.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Turn off the robot before connecting the logic analyzer to it. Otherwise, you might short-circuit and damage the board!</p>
+</div>
+<ul class="simple">
 <li><p>Connect Moku:Gp Logic Analyzer to your LaunchPad.</p>
 <ul>
-<li><p>Connect three Logic Analyzer probes to P6.2 (STE), P6.3 (CLK), and P6.4 (MOSI) of your LaunchPad.</p></li>
+<li><p>Connect three Logic Analyzer probes to P9.4 (STE), P9.5 (CLK), and P9.7 (MOSI) of your LaunchPad.</p></li>
 <li><p>Connect a Logic Analyzer’s ground pin (black wire) to one of the LaunchPad ground pins.</p></li>
 </ul>
 </li>
@@ -556,8 +561,7 @@ A: It can be.  It depends on how many serial devices have been connected to your
 <li><p><strong>[6.5 Points]</strong> Push your code to your repository using git. Ensure you comment on your code.</p></li>
 </ul>
 <br>
-<p>This lab has been adapted from <a class="reference external" href="https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum">TI-RSLK MAX Solderless
-Maze Edition Curriculum</a></p>
+<p>This lab was originally adapted from the <a class="reference external" href="https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum">TI-RSLK MAX Solderless Maze Edition Curriculum</a> and has since been significantly modified.</p>
 </section>
 </section>
 </section>
@@ -633,8 +637,8 @@ Maze Edition Curriculum</a></p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-uart-functions-in-uart0-c">Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART0.c</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-uart-functions-in-uart2-c">Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART2.c</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-spi-functions-in-spi-b1">Write SPI functions in SPI_B1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-uart0-with-moku-go">Test UART0 with Moku:Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-spi-functions-in-spi-a3-and-test-with-moku-go">Write SPI functions in SPI_A3 and Test with Moku:Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">

@@ -223,4 +223,4 @@ Choose three distances (100, 300, and 500 mm) for each sensor and use a ruler in
 ### Deliverable 6 
 - **[6.5 Points]**  Ensure that you provide comments in your code for clarity and push your code to your repository using git.
 
-This lab has been adapted from the TI RSLK: [The Solderless Maze Edition curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum)
+This lab was originally adapted from the [TI-RSLK MAX Solderless Maze Edition Curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum) and has since been significantly modified.

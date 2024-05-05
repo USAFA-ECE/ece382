@@ -213,5 +213,4 @@ Demo Program5_4 printing signed/unsigned integers on the LCD.
 ### Deliverable 3 
 - **[9.5 Points]** Please comment your code and push it to your repository. **0.5 bonus pts**: Complete `Nokia5110_OutString` with only 2 lines - one for while and another for Nokia5110_OutChar.
 
-This lab has been adapted from [TI-RSLK MAX Solderless
-Maze Edition Curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum)
+This lab was originally adapted from the [TI-RSLK MAX Solderless Maze Edition Curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum) and has since been significantly modified.

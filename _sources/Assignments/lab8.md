@@ -155,5 +155,4 @@ Your code **must be compilable**.  If your code throws any compile errors, you w
 ```
 
 
-This lab has been adapted from [TI-RSLK MAX Solderless
-Maze Edition Curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum)
+This lab was originally adapted from the [TI-RSLK MAX Solderless Maze Edition Curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum) and has since been significantly modified.
