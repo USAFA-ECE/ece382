@@ -32,11 +32,14 @@ The GIF animations provided on this page are intended to complement the main res
 - Ensure the access level is `Private repository`.
 - Give both your instructor and the course director (Dr. Baek) read access: Click `Invite` and then click `Add members`. Provide them **read access**. The instructors' Bitbucket email addresses are as follows:
 
-    - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)    
+    - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
+    - LtCol Trimble: ![seery](https://img.shields.io/badge/james.trimble@afacademy.af.edu-yellow)
+
+    <!--  
     - Dr. York: ![york](https://img.shields.io/badge/george.york@usafa.edu-green)
-    - Maj Seery: ![seery](https://img.shields.io/badge/michael.seery@afacademy.af.edu-yellow)
     - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
-    
+    -->
+
 <br>
 
 ```{image} ./figures/HW1_GitFork.gif
@@ -115,8 +118,8 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 
 ### Install Code Composer Studio (CCS).
 
-- Download `Code Compose Studio 12.4.0` using one of the following methods
-    - Go to https://www.ti.com/tool/download/CCSTUDIO/12.4.0 to download `Windows on-demand installer for CCS IDE`. For Mac users, download `macOS on-demand installer for CCS IDE`.  <!--Do not download version 13 since it was recently released and there will be multiple patches next few months. -->
+- Download `Code Compose Studio 12.7.x` using one of the following methods
+    - Go to https://www.ti.com/tool/download/CCSTUDIO/12.7.1 to download `Windows on-demand installer for CCS IDE`. For Mac users, download `macOS on-demand installer for CCS IDE`.  <!--Do not download version 13 since it was recently released and there will be multiple patches next few months. -->
     - Go to Teams > General > Files > Class Materials > Software and download `ccs_setup_12.x.x.xxxxx.exe`.    
 - Run the installer by double-clicking the `ccs_setup_12.x.x.xxxxx.exe` executable.
 - Begin the installation process, by default it will ask you to install under the `C:\ti` folder, which is recommended.
@@ -215,7 +218,7 @@ CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other >
 - Click 🙋 FAQ on the left sidebar of this website. If the sidebar is hidden, click the hamburger button (the triple bars ☰). 
 - Go to _How to run the hardware diagnostics tool for hardware issues on my robot?_ section and complete the hardware diagnotics.
 - While you are running the tool, take a picture of your robot. Your picture must show one of the tests on the LCD as shown below. Ensure you have a small AF symbol on each test screen.
-- Submit the picture in Gradescope.
+- Submit the picture on Gradescope.
 
 ```{image} ./figures/HW1_HardwareDiagnostics.jpg
 :width: 640
@@ -253,7 +256,7 @@ Do NOT take pictures of your computer screen using your phone because (i) it can
 
 <br>
 
-- **[-10 Points]** Take a picture of your screen with a mobile device or digital camera and submit it in Gradescope. Yes, I am serious...
+- **[-10 Points]** Take a picture of your screen with a mobile device or digital camera and submit it on Gradescope. Yes, I am serious...
 
 ```{Warning}
 You will receive a grade of -10 everytime you submit a picture of computer screen taken by your phone or mobile device. 

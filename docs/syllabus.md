@@ -25,9 +25,9 @@ The **Grade distribution** for this course is shown below.
 
 |     Prog                  |             |     Final              |             |
 |---------------------------|-------------|------------------------|-------------|
-|     GRs                   |     24.2%   |     GRs                |     20%     |
-|     Labs                  |     38.6%   |     Labs               |     30%     |
-| Homework + Skills Review  |     37.2%   |Homework + Skills Review|     25%     |
+|     GRs                   |     24.2%   |     GRs                |     18%     |
+|     Labs                  |     38.6%   |     Labs               |     32%     |
+|   Homework                |     37.2%   |     Homework           |     25%     |
 |                           |             |     Final Project      |     25%     |
 |                           |             |                        |             |
 |     Total                 |     100%    |     Total              |     100%    |
@@ -116,11 +116,11 @@ When a cadet is absent on the day that an assignment is due, or on the date of a
 
 ## Late Work Policy
 All work is due as shown on Gradescope. If problems arise with graded assignments, see your instructor in advance. 
-- The cutoff for on-time submission is 0700 on the due date. 
-- Late days are counted in 24-hour periods. Submitting between 07:00:01 on the due date and 07:00:00 the next day is one day late, and so on.
+- The cutoff for on-time submission is 0800 on the due date. 
+- Late days are counted in 24-hour periods. Submitting between 08:00:01 on the due date and 08:00:00 the next day is one day late, and so on.
 - You are given 5 grace days (self-granted extensions) which you can use to give yourself extra time without penalty. No more than 2 grace days can used for each assignment.
 - Instructor-granted extensions are only considered after all grace days are used and only given in exceptional situations. Computer problems such as hard-drive reimaging are not considered as exceptional situations and you must use grace days.
-- Late work handed in when you have run out of grace is discounted up to 20% (-3/17 for homework and -4/20 for labs) for the first day late and up to 15% (-2/17 for homework and -3/20 for labs) per day late thereafter.
+- Late work handed in when you have run out of grace is discounted up to 20% for the first day late and up to 15% per day late thereafter.
 - Every assignment has a hard deadline; 4 calendar days past the original due date. 
 - Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published. No late submissions (penalty or not) will be accepted for the assignments right before GRs.
 
@@ -129,7 +129,7 @@ All work is due as shown on Gradescope. If problems arise with graded assignment
 Assignments and due dates are included in Gradescope.
 
 ## Exams and Quizzes  
-GRs are open book exams. Cadets may bring in the following items 
+GRs are open-book exams. Cadets may bring in the following items 
 - Textbook: Embedded Systems: Introduction to Robotics
 - One-page handwritten letter-size note
 - Printed copy of GR Reference Guide (PDF version is located in Teams under Files > Admin) 
@@ -144,7 +144,7 @@ For missed GRs, the following policies are outlined in USAFA FOI 537-3:
 Labs are held in 2E48, but may include a prelab assignment that must be done before coming to class.  The labs tend to be very hardware/software intensive and will probably require debugging to isolate and fix problems.  In-class time is your primary chance to get active help for these problems so the more you prepare outside of class, the more successful you’ll be.  The 53 minutes go by extremely fast - don’t waste them!
 
 ## Final Project
-The final project will be a culmination of the learned material and will include a robot maze and competition. The final project will include a formal laboratory write-up and seven-minute presentation describing your design, solution, and results. The final project is worth 25% of your final grade.
+The final project will be a culmination of the learned material and will include a robot maze and competition. The final project will include a formal laboratory write-up, demos, and seven-minute design presentation. The final project is worth 25% of your final grade.
 
 ## Miscellaneous
 This course is designed to help in your development as an engineer.  Feel free to provide feedback on the lessons and labs at any time.  If you have ideas to improve or enhance the course, please let me know.  The class builds on concepts from the prerequisites, so it is important for you to seek help as soon as you need it.  Procrastination is truly the enemy in a design course.  A little foresight and planning and a lot of effort will result in an extremely rewarding experience serving as the basis for future microprocessor design work.
