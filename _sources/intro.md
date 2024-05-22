@@ -2,9 +2,12 @@
 
 ## 👨‍🏫 Instructors
 - [![baek](https://img.shields.io/badge/Dr.%20Stan%20Baek-2E38-red)](https://stanbaek.github.io)
+- ![trimble](https://img.shields.io/badge/LtCol%20James%20Trimble-2E46C-yellow)
+
+<!--
 - ![york](https://img.shields.io/badge/Dr.%20George%20York-2E44-green)
-- ![seery](https://img.shields.io/badge/Maj%20Michael%20Seery-2F46A-yellow)
 - ![yabrough](https://img.shields.io/badge/Capt%20Brian%20Yabrough-2E46C-blue)
+-->
 
 ## 📝 Course information
 - **Course Goal**: Develop skills to design, implement, test, and debug microcontroller-based systems by developing operational assembly and C language programs that incorporate the built-in microcontroller functions, and by successfully interfacing the microcontroller to the external world.
@@ -24,11 +27,11 @@
 ## ⏰ Late Policy:  
 **If problems arise with graded assignments, see your instructor in advance**
 
-- The cutoff for **on-time submission is 07:00 🕖 a.m.** on the due date. 
-- Late days are counted in 24-hour periods. Submitting between 07:00:01 on the due date and 07:00:00 the next day is one day late, and so on.
+- The cutoff for **on-time submission is 08:00 🕖 a.m.** on the due date. 
+- Late days are counted in 24-hour periods. Submitting between 08:00:01 on the due date and 08:00:00 the next day is one day late, and so on.
 - You are given **5 grace days (self-granted extensions)** which you can use to give yourself extra time without penalty. No more than **2 grace days** (calendar days) can used for each assignment.
 - Instructor-granted extensions are only considered after all grace days are used and only given in exceptional situations. Computer problems such as hard-drive reimaging are **not** considered as exceptional situations and you must use grace days.
-- Late work handed in when you have run out of grace is 💥 **discounted up to 20% (-3/17 for homework and -4/20 for labs) for the first day late and up to 15% (-2/17 for homework and -3/20 for labs) per day late thereafter**.
+- Late work handed in when you have run out of grace is 💥 **discounted up to 20% for the first day late and up to 15% per day late thereafter**.
 - Every assignment has a hard deadline; **4 calendar days** past the original due date. 
 - Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published. No late submissions (penalty or not) will be accepted for the assignments right before GRs.
 
