@@ -6,7 +6,7 @@
 - Learn debugging techniques like single stepping, breakpoints, and watch windows.
 
 ```{note} 
-Be better programmer by mastering debugging!
+Be a better programmer by mastering debugging!
 ```
 
 ## 💻 Procedure
@@ -18,12 +18,12 @@ The GIF animations provided on this page are intended to complement the main res
 
 
 ### Setup
-- Connect the LaunchPad to your computer via the provided USB cable.
+- Connect the LaunchPad (the board mounted on top of your robot) to your computer via the provided USB cable.
 - Open Code Composer Studio (CCS) and select your workspace if prompted.
 - Ensure your `Project Explorer` is open on the left of the CCS screen. If not, select View > Project Explorer.
 
 ```{note} 
-You may be worried about multiple-choice questions where you don’t get partial credit if you make a mistake. However, that’s why there are bonus points in homework, and you can get a grade greater than 16. The points above 16 can be used for other homework assignments. 
+You might be worried about multiple-choice questions where you don’t get partial credit for mistakes. However, that’s why there are bonus points in the homework. You can earn a grade higher than the grade posted [here](../schedule.md), and any points above the posted grades can be applied to other homework assignments where you have not earned the maximum grade. 
 ```
 
 <br>
@@ -34,6 +34,11 @@ You may be worried about multiple-choice questions where you don’t get partial
 - Double-click the `Example02_Addressing` project in the Project Explorer to open it.
 - The project that is currently selected will list **[Active - Debug]** next to it.
 - Double-click the `Ex02_Addressing.asm` file under the `Example02_Addressing` project to open it. Before you compile your project, always ensure it is selected and has **[Active - Debug]** next to it.
+
+```{note}
+It is crucial to ensure that the project you want to compile is selected and has [Active - Debug] next to it. Otherwise, you might compile the wrong project and experience unexpected behaviors. Many cadets have wasted hours before realizing that they had selected the wrong project.
+```
+
 - Observe the main toolbar at the top of the screen. The toolbar shown below presents before entering the debugger.  If you don't have the toolbar, go to the `Window` menu and then click `Appearance` > `Show Toolbar`.  
 
 ```{image} ./figures/HW2_toolbar.png
@@ -50,10 +55,10 @@ Always run `Build` first to ensure you have no compile errors.  Then, you can ru
 
 - Activate the `Debug` tool by pressing the bug and selecting the `Texas Instruments XDS110 USB Debug Probe/CORTEX_M4_0` tool if prompted. If it requests to update the firmware, select `Update`. Ensure the LaunchPad is connected during this process.
 - After the debugger is launched, you should notice a new layout for your screen. This layout is customizable. Different views can be added using the `View` menu at the top.
-- The following GIF animation shows how to build and debug a project.  The project names and files under the project are different than yours.  You should use `Ex02_Addressing.asm` under the `Example02_Addressing` project.
+- The following GIF animation shows how to build and debug a project.  
 
 ```{image} ./figures/HW2_BuildProject.gif
-:width: 760
+:width: 780
 :align: center
 ```
 <br>
@@ -93,11 +98,12 @@ The yellow arrows are for stepping through the **C** code and the green arrows a
 
 <br>
 
-- You can add `Expressions` to observe the values of registers, variables, etc by right-clicking on a register or variable and selecting `Add Watch Expression`. You can also add an expression to the `Expressions` menu by selecting `+ Add new expression`. In the `Expressions` menu, the `Continuous Refresh` button (yellow pause button with two arrows) allows you to continuously update expressions while the program is running.
+- You can add expressions to observe the values of registers, variables, etc by right-clicking on a register or variable in your code and selecting `Add Watch Expression`. You can also add an expression to the `Expressions` menu by selecting `+ Add new expression`. 
+- In the `Expressions` menu, the `Continuous Refresh` button (yellow pause button with two arrows) allows you to continuously update expressions while the program is running.
 
-- Register values can be viewed using the `Registers` tab. The main registers used in assembly code are under the `Core Registers` menu. The values can be set to update continuously using the pause button with two arrows.
+- Register values can be viewed using the `Registers` tab. The main registers used in assembly code are under the `Core Registers` menu.
 
-- The following GIF animation shows how to step through your code. The project names and files under the project are different than yours.  You should use `Ex02_Addressing.asm` under the `Example02_Addressing` project.
+- The following GIF animation shows how to step through your code. 
 
 ```{image} ./figures/HW2_SteppingThrough.gif
 :width: 720
@@ -106,9 +112,13 @@ The yellow arrows are for stepping through the **C** code and the green arrows a
 
 <br>
 
-- You can also add `Memory Browser` in CCS by exploring `View` > `Memory Browser`. Step over until line 83 to find the address of `msg`, which is stored in R0. Enter the value of R0 into Memory Browser to inspect the memory.
+- You can also add `Memory Browser` in CCS by navigating to `View` > `Memory Browser`. Step over until line 83 to find the value of `MsgAddr`, the address of `msg`, which is stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.
 
-- Next, step over until line 102 to find the address of `str`, which is stored in R0. Enter the value of R0 into Memory Browser to inspect the memory.
+- Ensure you select `32-Bit Hex - TI Style` or `32-Bit Hex - C Style` to display `msg` in hexadecimal.
+
+- Use `Assembly Step Into` or `Assembly Step Over` to investigate how the `LDR` instruction is being used. Examine the values of `R1` through `R8` as you step through. You are expected to understand all the instructions in this code.  
+
+- Next, step over to line 102 to find the value of `StrAddr`, the address of `str`, which is stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.
 
 
 ```{image} ./figures/HW2_MemoryBrowser.gif

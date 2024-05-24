@@ -413,7 +413,7 @@ document.write(`
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Be better programmer by mastering debugging!</p>
+<p>Be a better programmer by mastering debugging!</p>
 </div>
 </section>
 <section id="procedure">
@@ -425,13 +425,13 @@ document.write(`
 <section id="setup">
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Connect the LaunchPad to your computer via the provided USB cable.</p></li>
+<li><p>Connect the LaunchPad (the board mounted on top of your robot) to your computer via the provided USB cable.</p></li>
 <li><p>Open Code Composer Studio (CCS) and select your workspace if prompted.</p></li>
 <li><p>Ensure your <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Explorer</span></code> is open on the left of the CCS screen. If not, select View &gt; Project Explorer.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You may be worried about multiple-choice questions where you don’t get partial credit if you make a mistake. However, that’s why there are bonus points in homework, and you can get a grade greater than 16. The points above 16 can be used for other homework assignments.</p>
+<p>You might be worried about multiple-choice questions where you don’t get partial credit for mistakes. However, that’s why there are bonus points in the homework. You can earn a grade higher than the grade posted <a class="reference internal" href="../schedule.html"><span class="doc std std-doc">here</span></a>, and any points above the posted grades can be applied to other homework assignments where you have not earned the maximum grade.</p>
 </div>
 <br>
 </section>
@@ -441,6 +441,12 @@ document.write(`
 <li><p>Double-click the <code class="docutils literal notranslate"><span class="pre">Example02_Addressing</span></code> project in the Project Explorer to open it.</p></li>
 <li><p>The project that is currently selected will list <strong>[Active - Debug]</strong> next to it.</p></li>
 <li><p>Double-click the <code class="docutils literal notranslate"><span class="pre">Ex02_Addressing.asm</span></code> file under the <code class="docutils literal notranslate"><span class="pre">Example02_Addressing</span></code> project to open it. Before you compile your project, always ensure it is selected and has <strong>[Active - Debug]</strong> next to it.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is crucial to ensure that the project you want to compile is selected and has [Active - Debug] next to it. Otherwise, you might compile the wrong project and experience unexpected behaviors. Many cadets have wasted hours before realizing that they had selected the wrong project.</p>
+</div>
+<ul class="simple">
 <li><p>Observe the main toolbar at the top of the screen. The toolbar shown below presents before entering the debugger.  If you don’t have the toolbar, go to the <code class="docutils literal notranslate"><span class="pre">Window</span></code> menu and then click <code class="docutils literal notranslate"><span class="pre">Appearance</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">Toolbar</span></code>.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW2_toolbar.png"><img alt="../_images/HW2_toolbar.png" class="align-center" src="../_images/HW2_toolbar.png" style="width: 540px;" /></a>
@@ -454,9 +460,9 @@ document.write(`
 <ul class="simple">
 <li><p>Activate the <code class="docutils literal notranslate"><span class="pre">Debug</span></code> tool by pressing the bug and selecting the <code class="docutils literal notranslate"><span class="pre">Texas</span> <span class="pre">Instruments</span> <span class="pre">XDS110</span> <span class="pre">USB</span> <span class="pre">Debug</span> <span class="pre">Probe/CORTEX_M4_0</span></code> tool if prompted. If it requests to update the firmware, select <code class="docutils literal notranslate"><span class="pre">Update</span></code>. Ensure the LaunchPad is connected during this process.</p></li>
 <li><p>After the debugger is launched, you should notice a new layout for your screen. This layout is customizable. Different views can be added using the <code class="docutils literal notranslate"><span class="pre">View</span></code> menu at the top.</p></li>
-<li><p>The following GIF animation shows how to build and debug a project.  The project names and files under the project are different than yours.  You should use <code class="docutils literal notranslate"><span class="pre">Ex02_Addressing.asm</span></code> under the <code class="docutils literal notranslate"><span class="pre">Example02_Addressing</span></code> project.</p></li>
+<li><p>The following GIF animation shows how to build and debug a project.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW2_BuildProject.gif"><img alt="../_images/HW2_BuildProject.gif" class="align-center" src="../_images/HW2_BuildProject.gif" style="width: 760px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW2_BuildProject.gif"><img alt="../_images/HW2_BuildProject.gif" class="align-center" src="../_images/HW2_BuildProject.gif" style="width: 780px;" /></a>
 <br>
 <ul class="simple">
 <li><p><strong>Breakpoints</strong>: A breakpoint is used to stop the debugger at a specific line of code and allow you to observe the values of variables or expressions. The debugger will then wait to process any more code until the user tells it. When we start the debugger, it automatically stops at the first line of code in the <code class="docutils literal notranslate"><span class="pre">main</span></code> function. You can add breakpoints by double-clicking the vertical bar next to the line of code you are interested in or right-clicking the line and selecting <code class="docutils literal notranslate"><span class="pre">Breakpoint</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Breakpoint</span></code>. You can observe, turn off, or remove breakpoints using the breakpoint menu.</p></li>
@@ -486,15 +492,18 @@ document.write(`
 </div>
 <br>
 <ul class="simple">
-<li><p>You can add <code class="docutils literal notranslate"><span class="pre">Expressions</span></code> to observe the values of registers, variables, etc by right-clicking on a register or variable and selecting <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Watch</span> <span class="pre">Expression</span></code>. You can also add an expression to the <code class="docutils literal notranslate"><span class="pre">Expressions</span></code> menu by selecting <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">Add</span> <span class="pre">new</span> <span class="pre">expression</span></code>. In the <code class="docutils literal notranslate"><span class="pre">Expressions</span></code> menu, the <code class="docutils literal notranslate"><span class="pre">Continuous</span> <span class="pre">Refresh</span></code> button (yellow pause button with two arrows) allows you to continuously update expressions while the program is running.</p></li>
-<li><p>Register values can be viewed using the <code class="docutils literal notranslate"><span class="pre">Registers</span></code> tab. The main registers used in assembly code are under the <code class="docutils literal notranslate"><span class="pre">Core</span> <span class="pre">Registers</span></code> menu. The values can be set to update continuously using the pause button with two arrows.</p></li>
-<li><p>The following GIF animation shows how to step through your code. The project names and files under the project are different than yours.  You should use <code class="docutils literal notranslate"><span class="pre">Ex02_Addressing.asm</span></code> under the <code class="docutils literal notranslate"><span class="pre">Example02_Addressing</span></code> project.</p></li>
+<li><p>You can add expressions to observe the values of registers, variables, etc by right-clicking on a register or variable in your code and selecting <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Watch</span> <span class="pre">Expression</span></code>. You can also add an expression to the <code class="docutils literal notranslate"><span class="pre">Expressions</span></code> menu by selecting <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">Add</span> <span class="pre">new</span> <span class="pre">expression</span></code>.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">Expressions</span></code> menu, the <code class="docutils literal notranslate"><span class="pre">Continuous</span> <span class="pre">Refresh</span></code> button (yellow pause button with two arrows) allows you to continuously update expressions while the program is running.</p></li>
+<li><p>Register values can be viewed using the <code class="docutils literal notranslate"><span class="pre">Registers</span></code> tab. The main registers used in assembly code are under the <code class="docutils literal notranslate"><span class="pre">Core</span> <span class="pre">Registers</span></code> menu.</p></li>
+<li><p>The following GIF animation shows how to step through your code.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW2_SteppingThrough.gif"><img alt="../_images/HW2_SteppingThrough.gif" class="align-center" src="../_images/HW2_SteppingThrough.gif" style="width: 720px;" /></a>
 <br>
 <ul class="simple">
-<li><p>You can also add <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> in CCS by exploring <code class="docutils literal notranslate"><span class="pre">View</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code>. Step over until line 83 to find the address of <code class="docutils literal notranslate"><span class="pre">msg</span></code>, which is stored in R0. Enter the value of R0 into Memory Browser to inspect the memory.</p></li>
-<li><p>Next, step over until line 102 to find the address of <code class="docutils literal notranslate"><span class="pre">str</span></code>, which is stored in R0. Enter the value of R0 into Memory Browser to inspect the memory.</p></li>
+<li><p>You can also add <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> in CCS by navigating to <code class="docutils literal notranslate"><span class="pre">View</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code>. Step over until line 83 to find the value of <code class="docutils literal notranslate"><span class="pre">MsgAddr</span></code>, the address of <code class="docutils literal notranslate"><span class="pre">msg</span></code>, which is stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.</p></li>
+<li><p>Ensure you select <code class="docutils literal notranslate"><span class="pre">32-Bit</span> <span class="pre">Hex</span> <span class="pre">-</span> <span class="pre">TI</span> <span class="pre">Style</span></code> or <code class="docutils literal notranslate"><span class="pre">32-Bit</span> <span class="pre">Hex</span> <span class="pre">-</span> <span class="pre">C</span> <span class="pre">Style</span></code> to display <code class="docutils literal notranslate"><span class="pre">msg</span></code> in hexadecimal.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">Assembly</span> <span class="pre">Step</span> <span class="pre">Into</span></code> or <code class="docutils literal notranslate"><span class="pre">Assembly</span> <span class="pre">Step</span> <span class="pre">Over</span></code> to investigate how the <code class="docutils literal notranslate"><span class="pre">LDR</span></code> instruction is being used. Examine the values of <code class="docutils literal notranslate"><span class="pre">R1</span></code> through <code class="docutils literal notranslate"><span class="pre">R8</span></code> as you step through. You are expected to understand all the instructions in this code.</p></li>
+<li><p>Next, step over to line 102 to find the value of <code class="docutils literal notranslate"><span class="pre">StrAddr</span></code>, the address of <code class="docutils literal notranslate"><span class="pre">str</span></code>, which is stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW2_MemoryBrowser.gif"><img alt="../_images/HW2_MemoryBrowser.gif" class="align-center" src="../_images/HW2_MemoryBrowser.gif" style="width: 700px;" /></a>
 <ul class="simple">
