@@ -30,7 +30,6 @@ You might be worried about multiple-choice questions where you don’t get parti
 
 ### Build and debug `Example02_Addressing` project
 
-
 - Double-click the `Example02_Addressing` project in the Project Explorer to open it.
 - The project that is currently selected will list **[Active - Debug]** next to it.
 - Double-click the `Ex02_Addressing.asm` file under the `Example02_Addressing` project to open it. Before you compile your project, always ensure it is selected and has **[Active - Debug]** next to it.
@@ -51,7 +50,6 @@ It is crucial to ensure that the project you want to compile is selected and has
 ```{tip}
 Always run `Build` first to ensure you have no compile errors.  Then, you can run `Debug`.  Once your code is built with no errors, CCS will just open Debugger without rebuilding the code. If there are compile errors, you cannot run Debugger anyway.
 ```
-
 
 - Activate the `Debug` tool by pressing the bug and selecting the `Texas Instruments XDS110 USB Debug Probe/CORTEX_M4_0` tool if prompted. If it requests to update the firmware, select `Update`. Ensure the LaunchPad is connected during this process.
 - After the debugger is launched, you should notice a new layout for your screen. This layout is customizable. Different views can be added using the `View` menu at the top.
@@ -120,18 +118,29 @@ The yellow arrows are for stepping through the **C** code and the green arrows a
 
 - Next, step over to line 102 to find the value of `StrAddr`, the address of `str`, which is stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.
 
+- Ensure you select `Character` to display `str` in ASCII character.
+
+```{warning} 
+Remember to choose the correct format when you submit your assignments for the rest of the semester. For instance, you may not receive full credit if you choose hexadecimal for a string variable, or vice versa, because it would be difficult for anyone to understand.
+```
 
 ```{image} ./figures/HW2_MemoryBrowser.gif
 :width: 700
 :align: center
 ```
 
-- Click the `Bug` button to build and debug the project.
+### Build and debug `Example01_StringLength` project
+
+- Double-click the `Example01_StringLength` project in the Project Explorer to open it.
+- The project that is currently selected will list **[Active - Debug]** next to it.
+- Double-click the `strlen.asm` file under the `Example01_StringLength` project to open it. Before you compile your project, always ensure it is selected and has **[Active - Debug]** next to it.
+- Build the project by clicking the `Build` symbol (hammer). 
+- Activate the `Debug` tool by pressing the `Debug` tool (bug). Ensure the LaunchPad is connected during this process.
 - Ensure that the `Registers` and `Memory Browser` tabs are visible.
-- While stepping through the code, carefully examine the `Program Counter (PC)` value and the addresses in `Memory Browser` as shown below.
+- While stepping through the code, carefully examine the `Program Counter (PC)` value and the addresses in the `Memory Browser` as shown below.
 
 ```{note} 
-In the debug mode, the assembly code highlighted (with the blue arrow next to the line number) is the **next** instruction to execute. The instruction has **NOT** been executed yet! For example, if `AND R2, R0, R1` (line 47) is highlighted, it is the **next** instruction to execute. Currently, The PC value is 0x00000544, which is the address of the instruction, `MOV R2, #0`. Remember PC always holds the address of the **next** instruction to execute.   
+In debug mode, the assembly code highlighted (with the blue arrow next to the line number) is the **next** instruction to execute. The instruction has **NOT** been executed yet! For example, if `MOV R2, #0` (line 65) is highlighted, it is the **next** instruction to execute. At this point, the PC value is 0x00000544, which is the address of the instruction, `MOV R2, #0`. Remember the PC always holds the address of the **next** instruction to execute.   
 ```
 
 ```{image} ./figures/HW3_ProgramCounter.gif
@@ -139,6 +148,11 @@ In the debug mode, the assembly code highlighted (with the blue arrow next to th
 :align: center
 ```
 <br>
+
+```{caution} 
+Watching the GIF animation alone is not sufficient to understand how the `Program Counter (PC)` works. Please step through the provide code, especially the loop, to gain a thorough understanding.
+```
+
 
 ### Build and debug `HW02_AssemblyBasic` project
 
