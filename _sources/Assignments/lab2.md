@@ -23,12 +23,12 @@ In this lab, you will write an Assembly program that finds the integer square ro
 - Open the `Lab02_SqaureRoot` project by double-clicking it.
 
 
-### Run main.c
+### Run Lab02_SqrtMain.c
 
 - Open `Lab02_SqrtMain.c` in the `Lab02_SquareRoot` project and carefully read the code. 
 - Build and debug the project.  
 - Ensure the `Variables` tab is visible. If it is not visible, Click View > Variables. 
-- While stepping through the code, carefully examine the variables until _t_ remains unchanged. Ensure you use the **yellow arrows** to step through the C code, not the green arrows.
+- While stepping through the code, carefully examine the variables until `t` remains unchanged. Ensure you use the **yellow arrows** to step through the C code, not the green arrows.
 
 ```{image} ./figures/HW2_debug.png
 :height: 40px
@@ -49,7 +49,7 @@ The yellow arrows are for stepping through the **C** code and the green arrows a
 - Write your code. 
 - Build and debug the project.  
 - Ensure the `Registers` tab is visible. If it is not visible, Click View > Registers. 
-- While stepping through the code, carefully examine the register values until R2 (_t_) remains unchanged. Ensure you use the **green arrows** to step through the assembly code, not the yellow arrows. You can change the number format of a value from the default of Hex to Decimal by right-clicking the value followed by `Number Format` > `Decimal` as shown below.
+- While stepping through the code, carefully examine the register values until R2 (`t`) remains unchanged. Ensure you use the **green arrows** to step through the assembly code, not the yellow arrows. You can change the number format of a value from the default of Hex to Decimal by right-clicking the value followed by `Number Format` > `Decimal` as shown below.
 
 ```{image} ./figures/Lab02_NumberFormat.png
 :width: 460px
@@ -61,7 +61,7 @@ The yellow arrows are for stepping through the **C** code and the green arrows a
 - Take a screenshot of the registers: R0 - R4.
 
 ```{warning}
-Please take a screenshot of the region of interest and ensure that it is legible. If you take a screenshot of the entire display, for example, and your instructor has trouble reading it, you might not get full credit. An example is provided below.
+Please take a screenshot of the `region of interest` and ensure that it is legible. If you take a screenshot of the entire display, for example, and your instructor has trouble reading it, you might not get full credit. An example is provided below.
 ```
 
 ```{image} ./figures/Lab02_BadScreenShot.png

@@ -544,6 +544,19 @@ document.write(`
 <li><p>Ensure the <code class="docutils literal notranslate"><span class="pre">Registers</span></code> and <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> tabs are visible.</p></li>
 <li><p>While stepping through the code, carefully examine the <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">Counter</span> <span class="pre">(PC)</span></code> value and the addresses in <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code>.</p></li>
 </ul>
+<p>A note on code comments: Comments should typically explain <strong>why</strong> you are doing something, rather than <strong>what</strong> the line does. This is especially important in Assembly, where what is stored in a particular register can be easy to lose track of. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p">;</span><span class="w"> </span>A<span class="w"> </span>good<span class="w"> </span>comment
+ADD<span class="w">    </span>R0,<span class="w"> </span><span class="c1">#1    ; i++</span>
+<span class="p">;</span><span class="w"> </span>A<span class="w"> </span>poor<span class="w"> </span>comment
+ADD<span class="w">    </span>RO,<span class="w"> </span><span class="c1">#1    ; R0 = R0 + 1</span>
+
+<span class="p">;</span><span class="w"> </span>A<span class="w"> </span>good<span class="w"> </span>comment
+STRB<span class="w">    </span>R0,<span class="w"> </span><span class="o">[</span>R6<span class="o">]</span>,<span class="w"> </span><span class="c1">#1    ; write x byte to DestAddr and advance</span>
+<span class="p">;</span><span class="w"> </span>A<span class="w"> </span>poor<span class="w"> </span>comment
+STRB<span class="w">    </span>RO,<span class="w"> </span><span class="o">[</span>R6<span class="o">]</span>,<span class="w"> </span><span class="c1">#1    ; R0 -&gt; R6 and R6++</span>
+</pre></div>
+</div>
+<p>The comments for the first couple of assignments are designed to show lexicon for beginners in Assembly programming, so you should not follow that style. Please refer to the later assignments for better comments and use such comment style for your assignments.</p>
 </section>
 </section>
 <section id="deliverables">
