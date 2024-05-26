@@ -162,6 +162,28 @@ Watching the GIF animation alone is not sufficient to understand how the `Progra
 - Ensure the `Registers` and `Memory Browser` tabs are visible.
 - While stepping through the code, carefully examine the `Program Counter (PC)` value and the addresses in `Memory Browser`.
 
+
+
+A note on code comments: Comments should typically explain **why** you are doing something, rather than **what** the line does. This is especially important in Assembly, where what is stored in a particular register can be easy to lose track of. For example:
+
+```bash 
+ ; A good comment
+ADD    R0, #1    ; i++
+; A poor comment
+ADD    RO, #1    ; R0 = R0 + 1
+
+; A good comment
+STRB    R0, [R6], #1    ; write x byte to DestAddr and advance
+; A poor comment
+STRB    RO, [R6], #1    ; R0 -> R6 and R6++
+```
+
+The comments for the first couple of assignments are designed to show lexicon for beginners in Assembly programming, so you should not follow that style. Please refer to the later assignments for better comments and use such comment style for your assignments.  
+
+
+
+
+
 ## 🚚 Deliverables
 Use the debugger and step through the program to answer the questions in Gradescope.
 
