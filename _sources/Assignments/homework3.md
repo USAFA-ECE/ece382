@@ -1,10 +1,8 @@
 # ✏️ HW 3 Memory
 
-## 📜 Agenda
-- Build and debug `Example01_StringLength` project.
-- Build and debug `HW03_MemoryAccess` project.
-- Learn about PC, Data Memory (RAM), Instruction Memory (ROM), and the stack.
-- Learn debugging techniques like single stepping, breakpoints, and watch windows.
+## 📌 Objectives
+- Students should be able to find the address of the next instruction using the Program Counter (PC) register. 
+- Students should be able to identify the location of data in the Data Memory (RAM), the Instruction Memory (ROM), and the Stack.
 
 ```{note}
 The debugger is a programmer's best friend!  Be very familiar with the debugger. It is the key to success in programming courses.
@@ -20,10 +18,10 @@ The debugger is a programmer's best friend!  Be very familiar with the debugger.
 
 ### Build and debug `Example01_StringLength` project.
 
-- Open the `Example01_StringLength` project by double-clicking on it in the `Project Explorer`. When the project is successfully selected, it will be marked as **[Active - Debug]**. 
-- Proceed to build your code and initiate the debugger.
+- Open the `Example01_StringLength` project by double-clicking it in the `Project Explorer`. When the project is successfully selected, it will be marked as **[Active - Debug]**. 
+- Build your code and initiate the debugger.
 - As you navigate through `strlen.asm`, read each comment very carefully to fully comprehend the purpose of every line.
-- Make sure the `Expression`, `Registers`, and `Memory Browser` tabs are visible. It might be helpful to arrange them side by side, as illustrated below.
+- Make sure the `Expressions`, `Registers`, and `Memory Browser` tabs are visible. It might be helpful to arrange them side by side, as illustrated in the GIF animation below.
 
 ```{image} ./figures/HW3_ArrangeTabs.gif
 :width: 640
@@ -36,22 +34,31 @@ In the debug mode, the assembly code highlighted (with the blue arrow next to th
 ```
 <br>
 
-- Before executing `MOV R2, #0` at line 66, add a new expression **StrAddr** in the `Expressions` tab. In the `Value` column, you should find 0x00000570, which corresponds to the address of **StrAddr**. 
-- To find its value, input 0x570 into the `Memory Browser`. This will show 0x00000558, which is the address of the first character of `str`. If you input `0x558` and change the encoding style (number format) to `Character`, you will find the string, "This is a string."  
-- Keep in mind that `StrAddr` holds the address of the first character, 'T', within `str`. The equivalent syntax in C can be given by 
+-- In the `Memory Browser`, type in the hexadecimal value to find the value of `StrAddr`. It should be 0x00000514, which is the address of `str`.  
+
+```{hint}
+You can also type in `str` or `StrAddr` directly in the search box in the `Memory Browser` to find their values stored in the memory.
+```
+
+- Before executing `MOV R2, #0` at line 66, add a new expression **StrAddr** in the `Expressions` tab. In the `Value` column, you should find 0x00000540, which corresponds to the location (address) of **StrAddr**, not the value of `StrAddr`. 
+- To find its value, input 0x540 into the `Memory Browser`. This will show 0x00000514, which is the address of the first character of `str`. 
+- In the `Memory Browser`, type in 0x514 to display the string value located at the address.
+- Change the encoding style (number format) format to `Character` to easily read the string value. Thenm you will find the string, "I find your lack of faith disturbing.", which is Darth Vader's phrase.  
+- Keep in mind that `StrAddr` holds the address of the first character, 'I', within `str`. The equivalent syntax in C can be given by 
+
 ```C
 // The following lines are equivalent.
-char* StrAddr = "This is a string.";
+char* StrAddr = "I find your lack of faith disturbing.";
 // or
-char StrAddr[] = "This is a string.";
+char StrAddr[] = "I find your lack of faith disturbing.";
 // or
-char StrAddr[18] = "This is a string.";  // Must include the space of a '\0'.
+char StrAddr[38] = "I find your lack of faith disturbing.";  // Must include the space of a \0'.
 ```
 
 - A string constant like `StrAddr` is stored as an array of characters containing the characters of the string and terminated with a '\0' (null character, first character of the [ASCII Table](Resources:ASCII_Table)) to mark the end of the string as shown below.
 
 ```
-        {'T','h','i','s',' ','i','s',' ','a',' ','s','t','r','i','n','g','\0'} 
+        {'I',' ','f','i','n','d',' ','y','o','u','r',...,'\0'} 
           ^     
 StrAddr   |     
  +---+    |     
@@ -61,7 +68,7 @@ StrAddr   |
 ```
 
 ```{important}
-It is inaccurate to say that `StrAddr` is the address of the entire string. In fact, `StrAddr` corresponds to the address of the initial character, 'T'. Following this pattern, `StrAddr+1` designates the address of the second character, while `StrAddr+N` signifies the address of the $(N+1)$-th character within the string. To access the $(N+1)$-th character, you can use either *(StrAddr+N) or StrAddr[N].   
+It is inaccurate to say that `StrAddr` is the address of the entire string. In fact, `StrAddr` corresponds to the address of the initial character, 'I'. Following this pattern, `StrAddr+1` designates the address of the second character, while `StrAddr+N` signifies the address of the $(N+1)$-th character within the string. To access the $(N+1)$-th character, you can use either *(StrAddr+N) or StrAddr[N].   
 ```
 
 - After executing `LDR R0, StrAddr` at line 67, examine R0. It should be 0x00000558, which is the value of `StrAddr`. This value agrees with the value we found in the `Memory Broswer`. 
