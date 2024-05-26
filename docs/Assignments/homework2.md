@@ -1,9 +1,7 @@
 # ✏️ HW 2 Assembly Basic
 
-## 📜 Agenda
-- Build and debug `Example02_Addressing` project.
-- Build and debug `Homework02_AssemblyBasic` project.
-- Learn debugging techniques like single stepping, breakpoints, and watch windows.
+## 📌 Objectives
+- Students should be able to use debugging tools like single stepping, breakpoints, and watch windows.
 
 ```{note} 
 Be a better programmer by mastering debugging!

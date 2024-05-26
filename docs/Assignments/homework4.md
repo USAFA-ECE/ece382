@@ -1,7 +1,6 @@
 # ✏️ HW 4 Subroutines
 
 ## 📌 Objectives
-- Build and debug `Example05_Power` project.
 - Students should be able to write assembly procedures (also called subroutines or functions) that comply with the AAPCS.
 - Students should be able to write assembly conditional instructions and arithmetic operations.
 
