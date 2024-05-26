@@ -39,7 +39,7 @@ In the debug mode, the assembly code highlighted (with the blue arrow next to th
 - In the `Memory Browser`, type in the hexadecimal value to find the value of **StrAddr**. It should be 0x514, which is the address of **str**.  
 
 ```{hint}
-You can also type in **str** or **StrAddr** directly in the search box in the `Memory Browser` to find their values stored in the memory.
+Although you can type in **str** or **StrAddr** directly into the search box in the `Memory Browser` to find their values stored in the memory, please follow the instructions provided in this assignment to understand how assembly instructions, registers, and memory work together.
 ```
 
 - Change the encoding style (number format) to `Character` to easily read the string value. You will then find the string, "This is a string."  
