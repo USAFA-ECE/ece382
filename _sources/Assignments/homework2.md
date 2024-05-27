@@ -92,7 +92,7 @@ Always run `Build` first to ensure you have no compile errors.  Then, you can ru
 The yellow arrows are for stepping through the **C** code and the green arrows are for the **Assembly** code.
 ````
 
-<br>
+### Expressions and Registers Tabs
 
 - You can add expressions to observe the values of registers, variables, etc by right-clicking on a register or variable in your code and selecting `Add Watch Expression`. You can also add an expression to the `Expressions` menu by selecting `+ Add new expression`. 
 - In the `Expressions` menu, the `Continuous Refresh` button (yellow pause button with two arrows) allows you to continuously update expressions while the program is running.
@@ -106,9 +106,9 @@ The yellow arrows are for stepping through the **C** code and the green arrows a
 :align: center
 ```
 
-<br>
+### Memory Browser
 
-- You can also add `Memory Browser` in CCS by navigating to `View` > `Memory Browser`. Step over until line 83 to find the value of `MsgAddr`, the address of `msg`, which is stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.
+- You can add the `Memory Browser` in CCS by navigating to `View` > `Memory Browser`. Step over until line 83 to find the value of `MsgAddr`, the address of `msg`, which is stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.
 
 - Ensure you select `32-Bit Hex - TI Style` or `32-Bit Hex - C Style` to display `msg` in hexadecimal.
 
@@ -127,18 +127,14 @@ Remember to choose the correct format when you submit your assignments for the r
 :align: center
 ```
 
-### Build and debug `Example01_StringLength` project
+### Program Counter (PC) 
 
-- Double-click the `Example01_StringLength` project in the Project Explorer to open it.
-- The project that is currently selected will list **[Active - Debug]** next to it.
-- Double-click the `strlen.asm` file under the `Example01_StringLength` project to open it. Before you compile your project, always ensure it is selected and has **[Active - Debug]** next to it.
-- Build the project by clicking the `Build` symbol (hammer). 
-- Activate the `Debug` tool by pressing the `Debug` tool (bug). Ensure the LaunchPad is connected during this process.
+- Reactivate the `Debug` tool by pressing the `Debug` tool (bug). 
 - Ensure that the `Registers` and `Memory Browser` tabs are visible.
 - While stepping through the code, carefully examine the `Program Counter (PC)` value and the addresses in the `Memory Browser` as shown below.
 
 ```{note} 
-In debug mode, the assembly code highlighted (with the blue arrow next to the line number) is the **next** instruction to execute. The instruction has **NOT** been executed yet! For example, if `MOV R2, #0` (line 65) is highlighted, it is the **next** instruction to execute. At this point, the PC value is 0x00000544, which is the address of the instruction, `MOV R2, #0`. Remember the PC always holds the address of the **next** instruction to execute.   
+In debug mode, the assembly code highlighted (with the blue arrow next to the line number) is the **next** instruction to execute. The instruction has **NOT** been executed yet! For example, if `MOV R1, R1` (line 76) is highlighted, it is the **next** instruction to execute. At this point, the PC value is 0x000004D4, which is the address of the instruction, `MOV R1, R0`. Remember the PC always holds the address of the **next** instruction to execute.   
 ```
 
 ```{image} ./figures/HW3_ProgramCounter.gif

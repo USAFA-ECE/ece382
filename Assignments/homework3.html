@@ -389,6 +389,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-debug-example01-stringlength-project">Build and debug <code class="docutils literal notranslate"><span class="pre">Example01_StringLength</span></code> project.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-debug-ex02-addressing-project">Build and debug <code class="docutils literal notranslate"><span class="pre">Ex02_Addressing</span></code> project.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-debug-hw03-memoryaccess-project">Build and debug <code class="docutils literal notranslate"><span class="pre">HW03_MemoryAccess</span></code> project.</a></li>
 </ul>
 </li>
@@ -408,10 +409,10 @@ document.write(`
 <h1>✏️ HW 3 Memory<a class="headerlink" href="#hw-3-memory" title="Permalink to this heading">#</a></h1>
 <section id="objectives">
 <h2>📌 Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p>Students should be able to find the address of the next instruction using the Program Counter (PC) register.</p></li>
 <li><p>Students should be able to identify the location of data in the Data Memory (RAM), the Instruction Memory (ROM), and the Stack.</p></li>
-</ul>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The debugger is a programmer’s best friend!  Be very familiar with the debugger. It is the key to success in programming courses.</p>
@@ -421,20 +422,20 @@ document.write(`
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <section id="setup">
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p>Connect the LaunchPad to your computer via the provided USB cable.</p></li>
 <li><p>Open Code Composer Studio (CCS) and select your workspace if prompted.</p></li>
 <li><p>Ensure your <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Explorer</span></code> is open on the left of the CCS screen. If not, select View &gt; Project Explorer.</p></li>
-</ul>
+</ol>
 </section>
 <section id="build-and-debug-example01-stringlength-project">
 <h3>Build and debug <code class="docutils literal notranslate"><span class="pre">Example01_StringLength</span></code> project.<a class="headerlink" href="#build-and-debug-example01-stringlength-project" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p>Open the <code class="docutils literal notranslate"><span class="pre">Example01_StringLength</span></code> project by double-clicking it in the <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Explorer</span></code>. When the project is successfully selected, it will be marked as <strong>[Active - Debug]</strong>.</p></li>
 <li><p>Build your code and initiate the debugger.</p></li>
 <li><p>As you navigate through <code class="docutils literal notranslate"><span class="pre">strlen.asm</span></code>, read each comment very carefully to fully comprehend the purpose of every line.</p></li>
 <li><p>Make sure the <code class="docutils literal notranslate"><span class="pre">Expressions</span></code>, <code class="docutils literal notranslate"><span class="pre">Registers</span></code>, and <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> tabs are visible. It might be helpful to arrange them side by side, as illustrated in the GIF animation below.</p></li>
-</ul>
+</ol>
 <a class="reference internal image-reference" href="../_images/HW3_ArrangeTabs.gif"><img alt="../_images/HW3_ArrangeTabs.gif" class="align-center" src="../_images/HW3_ArrangeTabs.gif" style="width: 640px;" /></a>
 <br>
 <div class="admonition note">
@@ -442,30 +443,31 @@ document.write(`
 <p>In the debug mode, the assembly code highlighted (with the blue arrow next to the line number) is the <strong>next</strong> instruction to execute. The instruction has <strong>NOT</strong> been executed yet!</p>
 </div>
 <br>
-<p>– In the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code>, type in the hexadecimal value to find the value of <code class="docutils literal notranslate"><span class="pre">StrAddr</span></code>. It should be 0x00000514, which is the address of <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Before executing <code class="docutils literal notranslate"><span class="pre">MOV</span> <span class="pre">R2,</span> <span class="pre">#0</span></code> at line 66, add a new expression <strong>StrAddr</strong> in the <code class="docutils literal notranslate"><span class="pre">Expressions</span></code> tab. In the <code class="docutils literal notranslate"><span class="pre">Value</span></code> column, you should find 0x00000570, which corresponds to the location (address) of <strong>StrAddr</strong>, not the value of <strong>StrAddr</strong>.</p></li>
+<li><p>To find its value, input 0x570 into the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code>. This will show 0x00000514, the value of <strong>StrAddr</strong>, which correspondes to the address of the first character of <strong>str</strong>.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code>, type in the hexadecimal value to find the value of <strong>StrAddr</strong>. It should be 0x514, which is the address of <strong>str</strong>.</p></li>
+</ol>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>You can also type in <code class="docutils literal notranslate"><span class="pre">str</span></code> or <code class="docutils literal notranslate"><span class="pre">StrAddr</span></code> directly in the search box in the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> to find their values stored in the memory.</p>
+<p>Although you can type in <strong>str</strong> or <strong>StrAddr</strong> directly into the search box in the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> to find their values stored in the memory, please follow the instructions provided in this assignment to understand how assembly instructions, registers, and memory work together.</p>
 </div>
-<ul class="simple">
-<li><p>Before executing <code class="docutils literal notranslate"><span class="pre">MOV</span> <span class="pre">R2,</span> <span class="pre">#0</span></code> at line 66, add a new expression <strong>StrAddr</strong> in the <code class="docutils literal notranslate"><span class="pre">Expressions</span></code> tab. In the <code class="docutils literal notranslate"><span class="pre">Value</span></code> column, you should find 0x00000540, which corresponds to the location (address) of <strong>StrAddr</strong>, not the value of <code class="docutils literal notranslate"><span class="pre">StrAddr</span></code>.</p></li>
-<li><p>To find its value, input 0x540 into the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code>. This will show 0x00000514, which is the address of the first character of <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
-<li><p>In the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code>, type in 0x514 to display the string value located at the address.</p></li>
-<li><p>Change the encoding style (number format) format to <code class="docutils literal notranslate"><span class="pre">Character</span></code> to easily read the string value. Thenm you will find the string, “I find your lack of faith disturbing.”, which is Darth Vader’s phrase.</p></li>
+<ol class="arabic simple" start="4">
+<li><p>Change the encoding style (number format) to <code class="docutils literal notranslate"><span class="pre">Character</span></code> to easily read the string value. You will then find the string, “This is a string.”</p></li>
 <li><p>Keep in mind that <code class="docutils literal notranslate"><span class="pre">StrAddr</span></code> holds the address of the first character, ‘I’, within <code class="docutils literal notranslate"><span class="pre">str</span></code>. The equivalent syntax in C can be given by</p></li>
-</ul>
+</ol>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="c1">// The following lines are equivalent.</span>
-<span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">StrAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;I find your lack of faith disturbing.&quot;</span><span class="p">;</span>
+<span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">StrAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This is a string.&quot;</span><span class="p">;</span>
 <span class="c1">// or</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">StrAddr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;I find your lack of faith disturbing.&quot;</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">StrAddr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This is a string.&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">// 17 characters but the array size will be 18.</span>
 <span class="c1">// or</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">StrAddr</span><span class="p">[</span><span class="mi">38</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;I find your lack of faith disturbing.&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// Must include the space of a \0&#39;.</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">StrAddr</span><span class="p">[</span><span class="mi">18</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This is a string.&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// The array must include the space for \0&#39;.</span>
 </pre></div>
 </div>
-<ul class="simple">
+<ol class="arabic simple" start="6">
 <li><p>A string constant like <code class="docutils literal notranslate"><span class="pre">StrAddr</span></code> is stored as an array of characters containing the characters of the string and terminated with a ‘\0’ (null character, first character of the <a class="reference internal" href="../resources.html#resources-ascii-table"><span class="std std-ref">ASCII Table</span></a>) to mark the end of the string as shown below.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="s1">&#39;u&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">}</span> 
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="s1">&#39;t&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">}</span> 
           <span class="o">^</span>     
 <span class="n">StrAddr</span>   <span class="o">|</span>     
  <span class="o">+---+</span>    <span class="o">|</span>     
@@ -478,23 +480,32 @@ document.write(`
 <p class="admonition-title">Important</p>
 <p>It is inaccurate to say that <code class="docutils literal notranslate"><span class="pre">StrAddr</span></code> is the address of the entire string. In fact, <code class="docutils literal notranslate"><span class="pre">StrAddr</span></code> corresponds to the address of the initial character, ‘I’. Following this pattern, <code class="docutils literal notranslate"><span class="pre">StrAddr+1</span></code> designates the address of the second character, while <code class="docutils literal notranslate"><span class="pre">StrAddr+N</span></code> signifies the address of the <span class="math notranslate nohighlight">\((N+1)\)</span>-th character within the string. To access the <span class="math notranslate nohighlight">\((N+1)\)</span>-th character, you can use either *(StrAddr+N) or StrAddr[N].</p>
 </div>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p>After executing <code class="docutils literal notranslate"><span class="pre">LDR</span> <span class="pre">R0,</span> <span class="pre">StrAddr</span></code> at line 67, examine R0. It should be 0x00000558, which is the value of <code class="docutils literal notranslate"><span class="pre">StrAddr</span></code>. This value agrees with the value we found in the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Broswer</span></code>.</p></li>
 <li><p>Execute <code class="docutils literal notranslate"><span class="pre">LDRB</span> <span class="pre">R1,</span> <span class="pre">[R0],</span> <span class="pre">#1</span></code> at line 68 and examine R0 and R1. You will find R0 has been incremented to 0x00000559. You will also find R1 hold the value, 0x54 (84<span class="math notranslate nohighlight">\(_{10}\)</span>) at 0x00000558. It is the <a class="reference internal" href="../resources.html#resources-ascii-table"><span class="std std-ref">ASCII</span></a> value for ‘T’.</p></li>
 <li><p>Put a breakpoint at line 75, <code class="docutils literal notranslate"><span class="pre">STR</span> <span class="pre">R2,</span> <span class="pre">[R0]</span></code> and click <code class="docutils literal notranslate"><span class="pre">Resume</span></code> (or F8). It will stop at line 75. We have executed line 74, <code class="docutils literal notranslate"><span class="pre">LDR</span> <span class="pre">R0,</span> <span class="pre">LAddr</span></code>. You can find R0 holds 0x20000000, which is the address of <code class="docutils literal notranslate"><span class="pre">length</span></code>. Since we put <code class="docutils literal notranslate"><span class="pre">length</span></code> under <code class="docutils literal notranslate"><span class="pre">.data</span></code>, the assembler has reserved a space for <code class="docutils literal notranslate"><span class="pre">length</span></code> in the <strong>Data Memory</strong> block.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Resume</span></code> (or F8) followed by <code class="docutils literal notranslate"><span class="pre">Suspend</span> <span class="pre">(Alt-F8)</span></code>.  It will stay at <code class="docutils literal notranslate"><span class="pre">Stall</span> <span class="pre">B</span> <span class="pre">Stall</span></code> at line 77.</p></li>
 <li><p>Examine the value at 0x20000000 in memory. Change the number format to <code class="docutils literal notranslate"><span class="pre">32-Bit</span> <span class="pre">Signed</span> <span class="pre">Int</span></code>. Did you find the length of the string stored in memory?</p></li>
-</ul>
+</ol>
+</section>
+<section id="build-and-debug-ex02-addressing-project">
+<h3>Build and debug <code class="docutils literal notranslate"><span class="pre">Ex02_Addressing</span></code> project.<a class="headerlink" href="#build-and-debug-ex02-addressing-project" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">Ex02_Addressing</span></code> project by double-clicking it in the <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Explorer</span></code>. The currently selected project will have <strong>[Active - Debug]</strong> next to it.</p></li>
+<li><p>Build your code and run the debugger.</p></li>
+<li><p>Ensure the <code class="docutils literal notranslate"><span class="pre">Expression</span></code>, <code class="docutils literal notranslate"><span class="pre">Registers</span></code>, and <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> tabs are visible.</p></li>
+<li><p>As you carefully step through the code line by line, examine the R0 through R8 registers to learn how the <code class="docutils literal notranslate"><span class="pre">LDR</span></code> and <code class="docutils literal notranslate"><span class="pre">LDRB</span></code> instructions work. Note that you will be asked to find the values of registers in GR1 but you are not permitted to use CCS.</p></li>
+</ol>
 </section>
 <section id="build-and-debug-hw03-memoryaccess-project">
 <h3>Build and debug <code class="docutils literal notranslate"><span class="pre">HW03_MemoryAccess</span></code> project.<a class="headerlink" href="#build-and-debug-hw03-memoryaccess-project" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p>Open the <code class="docutils literal notranslate"><span class="pre">HW03_MemoryAccess</span></code> project by double-clicking it in <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Explorer</span></code>. The project currently selected will list <strong>[Active - Debug]</strong> next to it.</p></li>
 <li><p>Build your code and run the debugger.</p></li>
 <li><p>Ensure the <code class="docutils literal notranslate"><span class="pre">Expression</span></code>, <code class="docutils literal notranslate"><span class="pre">Registers</span></code>, and <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> tabs are visible.</p></li>
 <li><p>As you step through the code, <strong>CAREFULLY READ EVERY COMMENT TO ENSURE WHAT EACH LINE IS DOING!</strong></p></li>
 <li><p>Step through the program to answer the questions in Gradescope.</p></li>
-</ul>
+</ol>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>A solid understanding of memory access and pointers hold significant importance in the realm of computer programming. If you’ve ever believed that certain programming languages like Python, Java, or C# render pointers unnecessary, you’re mistaken - BIG mistake. I encourage you to read <a class="reference internal" href="../NoPointer.html"><span class="doc std std-doc">this</span></a>.</p>
@@ -578,6 +589,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-debug-example01-stringlength-project">Build and debug <code class="docutils literal notranslate"><span class="pre">Example01_StringLength</span></code> project.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-debug-ex02-addressing-project">Build and debug <code class="docutils literal notranslate"><span class="pre">Ex02_Addressing</span></code> project.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-and-debug-hw03-memoryaccess-project">Build and debug <code class="docutils literal notranslate"><span class="pre">HW03_MemoryAccess</span></code> project.</a></li>
 </ul>
 </li>
