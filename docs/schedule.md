@@ -23,8 +23,8 @@ This schedule is subject to change as appropriate.
 | 14     | Lec 11: Serial Communication                     | 11.2-11.3, 11.5-11.6 | [Lab10](Assignments/lab10.md)         (20)|
 | 15     | [Lab 11: Serial Comm](Assignments/lab11.md)      |                      | HW11                                  (19)|
 | 16     | Lec 13: Timers & Motors                          | 13.1-13.3            | [Lab11](Assignments/lab11.md)         (25)|
-| 17     | Lec 13: Timers & Motors                          | 12.1, 12.5, 13.3     | HW13A                                 (12)|
-| 18     | GR 1                                             |                      |                                       (90)|
+| 17     | GR 1                                             |                      |                                       (90)|
+| 18     | Lec 13: Timers & Motors                          | 12.1, 12.5, 13.3     | HW13A                                 (12)|
 | 19     | [Lab 13: Timers & Motors](Assignments/lab13.md)  |                      | HW13B                                 (16)|
 | 20     | [Lab 13: Timers & Motors](Assignments/lab13.md)  |                      |                                           |
 | 21     | Lec 14: Real-Time Systems (Edge Interrupts)      | 10.4, 14.2           | [Lab13](Assignments/lab13.md)         (35)|
@@ -41,8 +41,8 @@ This schedule is subject to change as appropriate.
 | 32     | [Robot Maze](Assignments/project.md)             |                      | [Lab17](Assignments/lab17.md)         (35)|
 | 33     | GR 2                                             |                      |                                       (90)|
 | 34     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)               |
-| 35     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)               |
-| 36     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
+| 35     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
+| 36     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 | 37     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 | 38     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 |        | Thanksgiving break                               |                      |                                           |
