@@ -116,8 +116,8 @@ When a cadet is absent on the day that an assignment is due, or on the date of a
 
 ## Late Work Policy
 All work is due as shown on Gradescope. If problems arise with graded assignments, see your instructor in advance. 
-- The cutoff for on-time submission is 0800 on the due date. 
-- Late days are counted in 24-hour periods. Submitting between 08:00:01 on the due date and 08:00:00 the next day is one day late, and so on.
+- The cutoff for on-time submission is 0700 on the due date. 
+- Late days are counted in 24-hour periods. Submitting between 07:00:01 on the due date and 07:00:00 the next day is one day late, and so on.
 - You are given 5 grace days (self-granted extensions) which you can use to give yourself extra time without penalty. No more than 2 grace days can used for each assignment.
 - Instructor-granted extensions are only considered after all grace days are used and only given in exceptional situations. Computer problems such as hard-drive reimaging are not considered as exceptional situations and you must use grace days.
 - Late work handed in when you have run out of grace is discounted up to 20% for the first day late and up to 15% per day late thereafter.
