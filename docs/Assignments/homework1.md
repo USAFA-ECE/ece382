@@ -23,24 +23,49 @@ The GIF animations provided on this page are intended to complement the main res
 ### Create Bitbucket Repository
 
 - Create a <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> account if you don't have one.
-- Log in <a href="https://bitbucket.org/" target="_blank">Bitbucket</a>.
-- Browse to <a href="https://bitbucket.org/stanbaek2/ece382_wksp/src/master/" target="_blank">https://bitbucket.org/stanbaek2/ece382_wksp/src/master/</a>.
-- Click on the three dots ($\cdots$) on the top of the right-hand navigation for more options. 
-- Select `Fork this repository`. 
-- Enter "ECE382" for `Project`.
-- Name this new repository ECE382_LastName_FirstName.
-- Ensure the access level is `Private repository`.
-- Give your instructor, Capt Yarbrough, and Dr. Baek read access: Click `Invite` and then click `Add members`. Provide them **read access**. The instructors' Bitbucket email addresses are as follows:
+- Ensure you create a workspace as shown below.
 
+```{image} ./figures/HW1_BitBucketWorkspace.png
+:width: 320
+:align: center
+```
+<br>
+
+- Log in <a href="https://bitbucket.org/" target="_blank">Bitbucket</a>.
+- If you already have an account, ensure you have a workspace. If you don't have one, create one by clicking `Your Profile`, then `All workspaces`, and follow the steps on BitBucket.   
+
+```{image} ./figures/HW1_BitBucketWorkspace.gif
+:width: 520
+:align: center
+```
+<br>
+
+- Click the grid in the top left corner to select `Atlassian Home`, and then click `Sign up now`. 
+- Click `Directory` followed by `Invite users` to invite your instructor, Capt Yarbrough, and Dr. Baek. The instructors' Bitbucket email addresses are as follows:
     - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
     - LtCol Trimble: ![trimble](https://img.shields.io/badge/james.trimble@afacademy.af.edu-yellow)
     - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
-
 
     <!--  
     - Dr. York: ![york](https://img.shields.io/badge/george.york@usafa.edu-green)
     - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
     -->
+
+```{image} ./figures/HW1_Atlassian.gif
+:width: 520
+:align: center
+```
+<br>
+
+
+- Browse to <a href="https://bitbucket.org/stanbaek2/ece382_wksp/src/master/" target="_blank">https://bitbucket.org/stanbaek2/ece382_wksp/src/master/</a>.
+- Click on the three dots ($\cdots$) on the top of the right-hand navigation for more options. 
+- Select `Fork this repository`. 
+- Select the workspace you created earlier.
+- Enter "ECE382" for `Project`.
+- Name this new repository ECE382_LastName_FirstName.
+- Ensure the access level is `Private repository`.
+- Give your instructor, Capt Yarbrough, and Dr. Baek **read access**: Click `Invite` and then click `Add members`. Provide them **read access**. 
 
 <br>
 

@@ -44,7 +44,7 @@ This schedule is subject to change as appropriate.
 | 35     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
 | 36     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 | 37     | [Robot Maze](Assignments/project.md)             |                      |                                           |
-| 38     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 |        | Thanksgiving break                               |                      |                                           |
+| 38     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 | 39     | Race                                             |                      | Demo                                 (100)|
-| 40     | Final Report                                     |                      | Final Report                         (100)|
+| 40     | Final Report                                     |                      | Final Report (L40 23:59)             (100)|
