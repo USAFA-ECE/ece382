@@ -33,7 +33,7 @@ The GIF animations provided on this page are intended to complement the main res
 
 - Log in to <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> if you are not already logged in.
 - If you already have an account, ensure you have a workspace. If you don't have one, create one by clicking `Your Profile`, then `All workspaces`.
-- Click 'Create a workspace`.
+- Click `Create a workspace`.
 - Privide a unique name for your workspace, and then click `Agree and creat workspace`.    
 
 ```{image} ./figures/HW1_BitBucketWorkspace.gif
