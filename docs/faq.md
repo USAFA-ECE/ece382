@@ -183,7 +183,7 @@ There are two switches on your robot as shown below. **Keep the slide switch in 
 When you're facing problems with your robot, it's essential to determine whether the root cause lies in your code or hardware. To diagnose hardware-related issues, follow these steps:
 
 ```{note}
-You need 6 AA batteries to run this tool.
+You need six 1.2V rechargeable AA batteries to run this tool. Do not use 1.5V alkaline (non-rechargeable) batteries as they may cause critical damage to the robot.
 ```
 
 **Running the Hardware Diagnostic Tool**
