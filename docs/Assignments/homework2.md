@@ -108,7 +108,19 @@ The yellow arrows are for stepping through the **C** code and the green arrows a
 
 ### Memory Browser
 
-- You can add the `Memory Browser` in CCS by navigating to `View` > `Memory Browser`. Step over until line 83 to find the value of `MsgAddr`, the address of `msg`, which is stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.
+- You can add the `Memory Browser` in CCS by navigating to `View` > `Memory Browser`. Step through the code until line 83 to find the address where the `MsgAddr` variable is stored. Navigate to this address to find the location (address) of msg, which is also stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.
+The variables are stored as shown below.
+
+```
+              MsgAddr   
+   0x000004C8 | 0x20000020 |
+                   :
+                   :
+              msg
+   0x20000020 | 0x0ECE0382 |
+   0x20000024 | 0xFEEDBABE |
+   0x20000028 | 0x0DEFACED |
+```
 
 - Ensure you select `32-Bit Hex - TI Style` or `32-Bit Hex - C Style` to display `msg` in hexadecimal.
 
