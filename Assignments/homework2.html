@@ -505,7 +505,20 @@ document.write(`
 <section id="memory-browser">
 <h3>Memory Browser<a class="headerlink" href="#memory-browser" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>You can add the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> in CCS by navigating to <code class="docutils literal notranslate"><span class="pre">View</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code>. Step over until line 83 to find the value of <code class="docutils literal notranslate"><span class="pre">MsgAddr</span></code>, the address of <code class="docutils literal notranslate"><span class="pre">msg</span></code>, which is stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.</p></li>
+<li><p>You can add the <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code> in CCS by navigating to <code class="docutils literal notranslate"><span class="pre">View</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Memory</span> <span class="pre">Browser</span></code>. Step through the code until line 83 to find the address where the <code class="docutils literal notranslate"><span class="pre">MsgAddr</span></code> variable is stored. Navigate to this address to find the location (address) of msg, which is also stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.
+The variables are stored as shown below.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>              <span class="n">MsgAddr</span>   
+   <span class="mh">0x000004C8</span> <span class="o">|</span> <span class="mh">0x20000020</span> <span class="o">|</span>
+                   <span class="p">:</span>
+                   <span class="p">:</span>
+              <span class="n">msg</span>
+   <span class="mh">0x20000020</span> <span class="o">|</span> <span class="mh">0x0ECE0382</span> <span class="o">|</span>
+   <span class="mh">0x20000024</span> <span class="o">|</span> <span class="mh">0xFEEDBABE</span> <span class="o">|</span>
+   <span class="mh">0x20000028</span> <span class="o">|</span> <span class="mh">0x0DEFACED</span> <span class="o">|</span>
+</pre></div>
+</div>
+<ul class="simple">
 <li><p>Ensure you select <code class="docutils literal notranslate"><span class="pre">32-Bit</span> <span class="pre">Hex</span> <span class="pre">-</span> <span class="pre">TI</span> <span class="pre">Style</span></code> or <code class="docutils literal notranslate"><span class="pre">32-Bit</span> <span class="pre">Hex</span> <span class="pre">-</span> <span class="pre">C</span> <span class="pre">Style</span></code> to display <code class="docutils literal notranslate"><span class="pre">msg</span></code> in hexadecimal.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">Assembly</span> <span class="pre">Step</span> <span class="pre">Into</span></code> or <code class="docutils literal notranslate"><span class="pre">Assembly</span> <span class="pre">Step</span> <span class="pre">Over</span></code> to investigate how the <code class="docutils literal notranslate"><span class="pre">LDR</span></code> instruction is being used. Examine the values of <code class="docutils literal notranslate"><span class="pre">R1</span></code> through <code class="docutils literal notranslate"><span class="pre">R8</span></code> as you step through. You are expected to understand all the instructions in this code.</p></li>
 <li><p>Next, step over to line 102 to find the value of <code class="docutils literal notranslate"><span class="pre">StrAddr</span></code>, the address of <code class="docutils literal notranslate"><span class="pre">str</span></code>, which is stored in R0. Enter the value of R0 into the Memory Browser to inspect the memory.</p></li>
