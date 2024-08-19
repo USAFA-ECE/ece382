@@ -34,16 +34,11 @@ In the debug mode, the assembly code highlighted (with the blue arrow next to th
 ```
 <br>
 
-1. Before executing `MOV R2, #0` at line 66, add a new expression **StrAddr** in the `Expressions` tab. In the `Value` column, you should find 0x00000570, which corresponds to the location (address) of **StrAddr**, not the value of **StrAddr**. 
-1. To find its value, input 0x570 into the `Memory Browser`. This will show 0x00000514, the value of **StrAddr**, which correspondes to the address of the first character of **str**. 
-1. In the `Memory Browser`, type in the hexadecimal value to find the value of **StrAddr**. It should be 0x514, which is the address of **str**.  
-
-```{hint}
-Although you can type in **str** or **StrAddr** directly into the search box in the `Memory Browser` to find their values stored in the memory, please follow the instructions provided in this assignment to understand how assembly instructions, registers, and memory work together.
-```
-
-4. Change the encoding style (number format) to `Character` to easily read the string value. You will then find the string, "This is a string."  
-4. Keep in mind that `StrAddr` holds the address of the first character, 'I', within `str`. The equivalent syntax in C can be given by 
+1. Before executing `MOV R2, #0` at line 66, add a new expression **StrAddr** in the `Expressions` tab. In the `Value` column, you can find a value (e.g., 0x00000570), which represents the location (address) of **StrAddr**, not its actual content. 
+1. To find the actual content, input the address (e.g., 0x570) into the `Memory Browser`. This will display the value stored at **StrAddr** (e.g., 0x00000514), which corresponds to the address of the first character in **str**. Make sure the encoding style (number format) is set to `32-Bit Hex` to easily read the address value.
+1. In the `Memory Browser`, type in the hexadecimal value (e.g., 0x514) to view the characters of **str**.  
+1. Change the encoding style (number format) to `Character` to read the string value more easily. You should then see the string, "This is a string."  
+1. Keep in mind that `StrAddr` holds the address of the first character, 'T', in `str`. The equivalent syntax in C could be represented as: 
 
 ```C
 // The following lines are equivalent.
