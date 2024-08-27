@@ -202,15 +202,16 @@ Your code **must be compilable**.  If your code throws any compile errors, you w
 ```
 
 ### Deliverable 1 
-- **[5 Points]** Complete the `Nokia5110_OutString` function and test it with `Program5_2`. You must use `Nokia5110_OutChar` inside `Nokia5110_OutString`.  Demo your LCD printing "LCD Test", a small AF logo, letters, a hexadecimal number, and a binary number on the LCD. 
+- **[6 Points]** Complete the `Nokia5110_OutString` function and test it with `Program5_2`. You must use `Nokia5110_OutChar` inside `Nokia5110_OutString`.  Demo your LCD printing "LCD Test", a small AF logo, letters, a hexadecimal number, and a binary number on the LCD. 
 
 
 ### Deliverable 2 
-- **[5 Points]** Complete the `Nokia5110_OutUDec` and `Nokia5110_OutSDec` functions and test them with `Program5_3`. Demo `Program5_3` printing signed/unsigned integers on the LCD.  
+- **[7 Points]** Complete the `Nokia5110_OutUDec` and `Nokia5110_OutSDec` functions and test them with `Program5_3`. Demo `Program5_3` printing signed/unsigned integers on the LCD.  
 Demo Program5_4 printing signed/unsigned integers on the LCD.
 
 
 ### Deliverable 3 
-- **[9.5 Points]** Please comment your code and push it to your repository. **0.5 bonus pts**: Complete `Nokia5110_OutString` with only 2 lines - one for while and another for Nokia5110_OutChar.
+- **[11.5 Points]** Please comment your code and push it to your repository. 
+- **[0.5 Bonus Points]** Complete `Nokia5110_OutString` with only 2 lines - one for while and another for Nokia5110_OutChar.
 
 This lab was originally adapted from the [TI-RSLK MAX Solderless Maze Edition Curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum) and has since been significantly modified.
