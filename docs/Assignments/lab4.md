@@ -171,9 +171,6 @@ Your code **must be compilable**.  If your code throws any compile errors, you w
 ```
 
 ### Deliverable 1
-- **[10 Points]** Complete `cryptography.asm` and push your code to your repository. `Lab04_Granger.asm` will use your code to encrypt and decrypt the message in it. **Write comments in your code.**
-
-### Deliverable 2
 - **[10 Points]** Execute `Lab04_Granger.asm` and take screenshots of the following and submit them via Gradescope:
 
     * **[5 Points]** The contents of `enc_msg` after execution of `Lab04_Granger.asm`. Use the Memory Browser and change the format to **32-bit Hex**.
@@ -181,7 +178,8 @@ Your code **must be compilable**.  If your code throws any compile errors, you w
     * **[5 Points]** The contents of `dec_msg` after execution of `Lab04_Granger.asm`. Use Memory Browser and change the encoding style to the **correct** format so that everyone can verify that the code works correctly.
 
 
-### Deliverable 3
+### Deliverable 2
 - **[4.5 Points]** Execute `Lab04_Potter.asm` to decrypt `spell` and provide the screenshot of your Memory Browser showing the decrypted message.
 
-
+### Deliverable 3
+- **[10 Points]** Push your code to your repository. **Write comments in your code.**
