@@ -12,7 +12,9 @@ parts:
     - file: c_programming.md
     - file: faq.md
     - file: resources.md
-    - file: NoPointer
+    - url: https://stanbaek.github.io/NoPointer.html
+      title: No Pointers in Python?
+      
   - caption: Assignments
     chapters:
     - file: Assignments/homework1
