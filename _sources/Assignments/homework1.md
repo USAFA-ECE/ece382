@@ -281,7 +281,7 @@ Do NOT take pictures of your computer screen using your phone because (i) it can
 
 <br>
 
-- **[6 Points]** While you are running the hardware diagnostics tool, take a picture of your robot and submit it in Gradescope.
+- **[6 Points]** While you are running the hardware diagnostics tool, take a picture of your robot and submit it on Gradescope.
 
 <br>
 

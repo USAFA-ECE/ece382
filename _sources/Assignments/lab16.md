@@ -45,7 +45,7 @@ The third objective involves utilizing the second input of the encoder to determ
 - Carefully follow the provided instructions within `TA3InputCapture.c` to ensure your code is accurate.
 - After completing the tasks, submit your Homework 16 by copying and pasting your code into Gradescope.
 
-Before starting this lab, review the solutions available in Gradescope to confirm that you have the correct code.  If the solutions are not published in Gradescope, go through your code with your instructor.
+Before starting this lab, review the solutions available on Gradescope to confirm that you have the correct code.  If the solutions are not published on Gradescope, go through your code with your instructor.
 
 ### Demo `Program16_1()`
 
@@ -146,7 +146,7 @@ The component block diagram of this part is shown below.
 ```
 <br>
 
-- Submit the following plots in Gradescope.
+- Submit the following plots on Gradescope.
     - Periods vs. time
     - Speeds vs. time
     - Duty cycle vs. time

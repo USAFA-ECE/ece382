@@ -108,7 +108,7 @@ We will now utilize Moku:Go Oscilloscope to observe the signal sent over P1.0 to
 
 - To get the frequency of your signal to be 1 Hz (period = 1 sec), you need to adjust your `DELAY` in `LEDs.asm`. No trial and error is needed for this. You can easily find the correct value of `DELAY` using a simple ratio.
 - Click the **Cloud** button (Export Data) and export the screenshot to your local folder.  
-- Submit the screenshot in Gradescope.
+- Submit the screenshot on Gradescope.
 
 ### Implement alarm algorithm in Program8_3()
 

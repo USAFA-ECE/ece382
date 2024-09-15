@@ -191,7 +191,7 @@ The comments for the first couple of assignments are designed to show lexicon fo
 
 
 ## 🚚 Deliverables
-Use the debugger and step through the program to answer the questions in Gradescope.
+Use the debugger and step through the program to answer the questions on Gradescope.
 
 ```{Important} 
 Go to Gradescope to answer homework questions.

@@ -85,18 +85,18 @@ Video Credit: C24 Chanon Mallanoo
     - Start by thoroughly reviewing the `incrementer.asm` code.
     - Ensure that the `Enable_Interrupt()` function inside `Program10_3` is commented out. Uncomment the line `count = Increment();` inside the for-loop to run the Increment function exclusively in the foreground.
     - Run `Program10_3` and take note of the `count` value displayed on the LCD.
-    - Does the displayed value match your expectations? If not, explain in Gradescope.
+    - Does the displayed value match your expectations? If not, explain.
 
 - Examining the Background Thread
     - Ensure that the `Enable_Interrupt()` function inside `Program10_3` is uncommented, and the line `count = Increment();` inside the for-loop is commented out to execute the `Increment` function exclusively in the background.
     - Keep in mind that the background thread operates through `TimerA2`, and the Increment function is invoked every 1 ms.
     - Run `Program10_3` and record the `count` value displayed on the LCD.
-    - Does the displayed value align with your expectations? If not, provide an explanation in Gradescope.
+    - Does the displayed value align with your expectations? If not, provide an explanation on Gradescope.
 
 - Examining Multithreading
     - Make sure both `Enable_Interrupt()` and `count = Increment();` are uncommented to enable concurrent execution of the `Increment` function in both foreground and background threads.
     - Run `Program10_3` and document the `count` value displayed on the LCD.
-    - Does the displayed value match your expectations? If not, explain in Gradescope.
+    - Does the displayed value match your expectations? If not, explain.
 
 - Fixing Race Condition
     - Make adjustments to `Program10_3` to resolve the issue encountered in the previous step, which was attributed to a race condition.

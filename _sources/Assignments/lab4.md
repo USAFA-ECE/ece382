@@ -171,7 +171,7 @@ Your code **must be compilable**.  If your code throws any compile errors, you w
 ```
 
 ### Deliverable 1
-- **[10 Points]** Execute `Lab04_Granger.asm` and take screenshots of the following and submit them via Gradescope:
+- **[10 Points]** Execute `Lab04_Granger.asm` and take screenshots of the following and submit them on Gradescope:
 
     * **[5 Points]** The contents of `enc_msg` after execution of `Lab04_Granger.asm`. Use the Memory Browser and change the format to **32-bit Hex**.
 
