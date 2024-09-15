@@ -70,7 +70,7 @@ As the robot approaches a decision point, we'll need to categorize its situation
 - Refer to the instructions provided within the `ADC14.c` file to guide you through the completion of these functions.
 - Copy and paste the code into Gradescope to submit your Homework 15.
 
-Before starting this lab, review the solutions available in Gradescope to confirm that you have the correct code.  If the solutions are not published in Gradescope, go through your code with your instructor.
+Before starting this lab, review the solutions available on Gradescope to confirm that you have the correct code.  If the solutions are not published on Gradescope, go through your code with your instructor.
 
 - The component block diagram of this lab is shown below. 
 

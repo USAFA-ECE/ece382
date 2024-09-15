@@ -84,7 +84,7 @@ It is inaccurate to say that `StrAddr` is the address of the entire string. In f
 1. Build your code and run the debugger.
 1. Ensure the `Expression`, `Registers`, and `Memory Browser` tabs are visible. 
 1. As you step through the code, **CAREFULLY READ EVERY COMMENT TO ENSURE WHAT EACH LINE IS DOING!**
-1. Step through the program to answer the questions in Gradescope.
+1. Step through the program to answer the questions on Gradescope.
 
 
 ```{important}
@@ -92,4 +92,4 @@ A solid understanding of memory access and pointers hold significant importance 
 ```
 
 ## 🚚 Deliverables
-Step through `HW03_Memory.asm` to answer the questions in Gradescope.
+Step through `HW03_Memory.asm` to answer the questions on Gradescope.

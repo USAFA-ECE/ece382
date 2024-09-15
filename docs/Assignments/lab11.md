@@ -49,7 +49,7 @@ In this lab, our aim is to develop software modules capable of communicating wit
     <br>
 
 1. Take a screenshot of the serial terminal displaying the header strings and a few lines of data in the while-loop.  You can pause your program and use the Snip \& Sketch tool to take a screenshot.  
-1. Submit the screenshot in Gradescope.
+1. Submit the screenshot on Gradescope.
 
 
     ```{admonition} Q&A
@@ -127,7 +127,7 @@ In this lab, our aim is to develop software modules capable of communicating wit
 ## 🚚 Deliverables
 
 ### Deliverable 1 
-- **[6 Points]** Run `Program11_1()` to transmit strings via USB/UART and take a screenshot of the serial terminal displaying the strings. Submit a screenshot of your Serial Terminal in Gradescope.
+- **[6 Points]** Run `Program11_1()` to transmit strings via USB/UART and take a screenshot of the serial terminal displaying the strings. Submit a screenshot of your Serial Terminal on Gradescope.
 
 ### Deliverable 2
 - **[6 Points]** Run `Program11_2()` to transmit your name via UART. Submit a screenshot of Moku:Go Logic Analyzer. **Annotate three letters of your name and their binary values.**

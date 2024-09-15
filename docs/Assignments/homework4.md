@@ -13,7 +13,7 @@ In order to understand recursion, one must first understand recursion.
 
 This homework is an opportunity to learn about subroutines (functions or procedures) in Assembly and to apply that knowledge to two subroutines for calculating factorials.
 
-The first part of this homework is to build and debug the `Example05_Power` project and answer questions in Gradescope. Please read the code and comments carefully as they will help you write the factorial functions in the second part of this homework.
+The first part of this homework is to build and debug the `Example05_Power` project and answer questions on Gradescope. Please read the code and comments carefully as they will help you write the factorial functions in the second part of this homework.
 
 For the second part of this homework, you will write two subroutines calculating **factorials** of _non-negative_ integers. One of them is an iterative function that loops to repeat a block of the code and the other is a recursive function that calls itself to repeat the code.
 
@@ -91,7 +91,7 @@ If you’re not sure whether your code complies with the AAPCS, you can check th
 - Build the code and run the debugger.
 - Ensure the `Expression`, `Registers`, and `Memory Browser` tabs are visible. 
 - As you step through the code, **CAREFULLY READ THE CODE AND ENSURE YOU UNDERSTAND WHAT EACH LINE DOES** as it will help you write two factorial functions in the second part of this homework.
-- Step through the program to answer the questions in Gradescope.
+- Step through the program to answer the questions on Gradescope.
 
 ### Execute `HW04_FactorialMain.c`
 
@@ -121,7 +121,7 @@ Your assembly code must comply with the AAPCS.
 ### Deliverable 1 
 
 - Build and debug the `Example05_Power` project.  
-- Step through the program to answer the questions in Gradescope.
+- Step through the program to answer the questions on Gradescope.
 
 ### Deliverable 2 
 - Execute `HW04_FactorialMain.c` and provide a screenshot showing the contents of `result1` and `result2` in the Expressions tab. You must **expand the array to show the individual values** in the array. 
