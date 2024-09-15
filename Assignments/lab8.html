@@ -511,18 +511,21 @@ The two left bump switches connected to P4.7 and P4.6 are two window sensors, wh
 </section>
 <section id="implement-alarm-algorithm-in-program8-3">
 <h3>Implement alarm algorithm in Program8_3()<a class="headerlink" href="#implement-alarm-algorithm-in-program8-3" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Within Lab08_LED_Switchesmain.c, use <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code> to implement the alarm algorithm discussed in Synopsis and depicted in the block diagram below.</p></li>
-</ul>
-<a class="reference internal image-reference" href="../_images/Lab08_FlowChart.png"><img alt="../_images/Lab08_FlowChart.png" class="align-center" src="../_images/Lab08_FlowChart.png" style="width: 380px;" /></a>
-<br>
-<ul class="simple">
-<li><p>The system starts with the LED off.</p></li>
-<li><p>Wait about 100 ms.</p></li>
-<li><p>Look at the three bump switches; if <code class="docutils literal notranslate"><span class="pre">Activate</span></code> is pressed and one or both <code class="docutils literal notranslate"><span class="pre">Window1</span></code> and <code class="docutils literal notranslate"><span class="pre">Window2</span></code> are not pressed, then toggle the LED else turn the LED off.</p></li>
-<li><p>You must use the functions in <code class="docutils literal notranslate"><span class="pre">LED.asm</span></code>.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code></p></li>
-</ul>
+<p>Implement the alarm algorithm by using <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code> within <code class="docutils literal notranslate"><span class="pre">Lab08_LED_Switchesmain.c</span></code>, as discribed in the Synopsis and shown in the block diagram below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```{image} ./figures/Lab08_FlowChart.png
+:width: 380
+:align: center
+```
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>The system should start with the LED off.</p></li>
+<li><p>Wait for 100 ms.</p></li>
+<li><p>Check the three bump switches: if the <code class="docutils literal notranslate"><span class="pre">Activate</span></code> switch is pressed and one or both of the <code class="docutils literal notranslate"><span class="pre">Window1</span></code> and <code class="docutils literal notranslate"><span class="pre">Window2</span></code> switches are not pressed, toggle the LED; otherwise, keep the LED off.</p></li>
+<li><p>You must use the functions you have implemted in <code class="docutils literal notranslate"><span class="pre">LED.asm</span></code>.</p></li>
+<li><p>Avoid using hard-coded vaules for bit masking. Instead, use <code class="docutils literal notranslate"><span class="pre">BUMP1</span></code> through <code class="docutils literal notranslate"><span class="pre">BUMP6</span></code> defined in <code class="docutils literal notranslate"><span class="pre">bump.h</span></code>.</p></li>
+<li><p>Demo the functionality of <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code></p></li>
+</ol>
 <br>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6tt7-AJcoWE?si=mNi-JQu-J6P_fSlv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

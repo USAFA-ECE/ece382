@@ -112,19 +112,18 @@ We will now utilize Moku:Go Oscilloscope to observe the signal sent over P1.0 to
 
 ### Implement alarm algorithm in Program8_3()
 
-- Within Lab08_LED_Switchesmain.c, use `Program8_3()` to implement the alarm algorithm discussed in Synopsis and depicted in the block diagram below.
+Implement the alarm algorithm by using `Program8_3()` within `Lab08_LED_Switchesmain.c`, as discribed in the Synopsis and shown in the block diagram below.
 
-```{image} ./figures/Lab08_FlowChart.png
-:width: 380
-:align: center
-```
-<br>
-
-- The system starts with the LED off.
-- Wait about 100 ms.
-- Look at the three bump switches; if `Activate` is pressed and one or both `Window1` and `Window2` are not pressed, then toggle the LED else turn the LED off.
-- You must use the functions in `LED.asm`.
-- Demo `Program8_3()`
+    ```{image} ./figures/Lab08_FlowChart.png
+    :width: 380
+    :align: center
+    ```
+1. The system should start with the LED off.
+1. Wait for 100 ms.
+1. Check the three bump switches: if the `Activate` switch is pressed and one or both of the `Window1` and `Window2` switches are not pressed, toggle the LED; otherwise, keep the LED off.
+1. You must use the functions you have implemted in `LED.asm`.
+1. Avoid using hard-coded vaules for bit masking. Instead, use `BUMP1` through `BUMP6` defined in `bump.h`.
+1. Demo the functionality of `Program8_3()`
 
 <br>
 
