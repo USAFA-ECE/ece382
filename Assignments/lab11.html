@@ -430,7 +430,7 @@ document.write(`
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <section id="write-uart-functions-in-uart0-c">
 <span id="lab11-uart"></span><h3>Write UART functions in <code class="docutils literal notranslate"><span class="pre">UART0.c</span></code><a class="headerlink" href="#write-uart-functions-in-uart0-c" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Write <code class="docutils literal notranslate"><span class="pre">UART0_Init()</span></code></p>
 <ul class="simple">
 <li><p>Follow the steps in the code and Appendix 1 from Lecture 11.</p></li>
@@ -449,94 +449,88 @@ document.write(`
 <li><p>The NULL character is 0 (ASCII: 0), not ‘0’ (ASCII: 0x30). You can find the ASCII table on ECE 382 Ref Guide, Valvano pp. 60, or <a class="reference internal" href="../resources.html#resources-ascii-table"><span class="std std-ref">here</span></a>.</p></li>
 <li><p>Transmit one character in the string at a time until you reach the end of the string. Do not transmit the NULL character.  Do not rewrite the code you already wrote.</p></li>
 </ul>
-</li>
-</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The NULL character should not be confused with a null pointer, which is a pointer or reference that points to an invalid object or to nothing. For instance, consider the declaration <code class="docutils literal notranslate"><span class="pre">int*</span> <span class="pre">x;</span></code> where the pointer x initially doesn’t point to any valid address until you assign one to it.</p>
 </div>
-<ul class="simple">
+</li>
 <li><p>Debug (or F11) <code class="docutils literal notranslate"><span class="pre">Program11_1</span></code> but do not click <code class="docutils literal notranslate"><span class="pre">Resume</span></code> (or F8) yet.</p></li>
 <li><p>Open Windows Device Manager and go to Ports.</p></li>
 <li><p>Find the COM port for <code class="docutils literal notranslate"><span class="pre">XDS110</span> <span class="pre">Class</span> <span class="pre">Application/User</span> <span class="pre">UART</span></code></p></li>
 <li><p>Go to CCS and open the <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> tab under the <code class="docutils literal notranslate"><span class="pre">View</span></code> menu.</p></li>
 <li><p>Open a new terminal and select the COM port you found in Device Manager.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Resume</span></code> (or F8) to continue <code class="docutils literal notranslate"><span class="pre">Program11_1</span></code>.</p></li>
-<li><p>It will print strings and numbers in the serial terminal as shown below.</p></li>
-</ul>
+<li><p>It will print strings and numbers in the serial terminal as shown below.</p>
 <a class="reference internal image-reference" href="../_images/Lab11_SerialTerminal.gif"><img alt="../_images/Lab11_SerialTerminal.gif" class="align-center" src="../_images/Lab11_SerialTerminal.gif" style="width: 760px;" /></a>
-<br>
-<ul class="simple">
+ <br>
+</li>
 <li><p>Take a screenshot of the serial terminal displaying the header strings and a few lines of data in the while-loop.  You can pause your program and use the Snip &amp; Sketch tool to take a screenshot.</p></li>
-<li><p>Submit the screenshot in Gradescope.</p></li>
-</ul>
+<li><p>Submit the screenshot in Gradescope.</p>
 <div class="admonition-q-a admonition">
 <p class="admonition-title">Q&amp;A</p>
 <p>Q: Did anyone else have the problem where the terminal was showing only high numbers under the “Serial Terminal” option (COM9-COM12)? My app keeps crashing when I try to run the terminal on one of these. I’m getting the right values otherwise and my code works fine.
 <br>
 A: It can be.  It depends on how many serial devices have been connected to your computer.  I once had something like COM24.</p>
 </div>
+</li>
+</ol>
 </section>
 <section id="test-uart0-with-moku-go">
 <h3>Test UART0 with Moku:Go<a class="headerlink" href="#test-uart0-with-moku-go" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Replace <em>Baek</em> in <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">Name[]</span> <span class="pre">=</span> <span class="pre">&quot;Baek&quot;</span></code> before <code class="docutils literal notranslate"><span class="pre">Program11_2</span></code> with the first three letters of your last name.  Use your first name if your last name is less than three letters long.</p></li>
-</ul>
+<ol class="arabic">
+<li><p>Replace <em>Baek</em> in <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">Name[]</span> <span class="pre">=</span> <span class="pre">&quot;Baek&quot;</span></code> before <code class="docutils literal notranslate"><span class="pre">Program11_2</span></code> with the first three letters of your last name.  Use your first name if your last name is less than three letters long.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Turn off the robot before connecting the logic analyzer to it. Otherwise, you might short-circuit and damage the board!</p>
 </div>
-<ul class="simple">
+</li>
 <li><p>Connect Moku:Go Logic Analyzer to your LaunchPad.</p>
-<ul>
+<ul class="simple">
 <li><p>Connect the 20-pin I/O port to Moku:Go.</p></li>
 <li><p>Connect Pin 1 of the Logic Analyzer to the TXD port on your LaunchPad.</p></li>
 <li><p>Connect a Logic Analyzer’s ground pin (black wire) to one of the LaunchPad ground pins.</p></li>
 </ul>
+<a class="reference internal image-reference" href="../_images/Lab11_MokuConnection.png"><img alt="../_images/Lab11_MokuConnection.png" class="align-center" src="../_images/Lab11_MokuConnection.png" style="width: 460px;" /></a>
 </li>
-</ul>
-<a class="reference internal image-reference" href="../_images/Lab11_MokuConnection.png"><img alt="../_images/Lab11_MokuConnection.png" class="align-center" src="../_images/Lab11_MokuConnection.png" style="width: 760px;" /></a>
-<br>
-<ul class="simple">
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">Program11_2</span></code> and start Moku:Go Logic Analyzer to measure the signal transmitted from the UART2 port of your LaunchPad as shown below.</p></li>
-<li><p>Scroll your mouse wheel up or down to display the entire signal. If you don’t have a scroll wheel, change the <code class="docutils literal notranslate"><span class="pre">Time</span> <span class="pre">span</span></code> value under the <code class="docutils literal notranslate"><span class="pre">Acquisition</span></code> tab.</p></li>
-</ul>
+<li><p>Scroll your mouse wheel up or down to display the entire signal. If you don’t have a scroll wheel, change the <code class="docutils literal notranslate"><span class="pre">Time</span> <span class="pre">span</span></code> value under the <code class="docutils literal notranslate"><span class="pre">Acquisition</span></code> tab.</p>
 <a class="reference internal image-reference" href="../_images/Lab11_LogicAnalyzerMeasure.gif"><img alt="../_images/Lab11_LogicAnalyzerMeasure.gif" class="align-center" src="../_images/Lab11_LogicAnalyzerMeasure.gif" style="width: 760px;" /></a>
-<br>
-<ul class="simple">
+ <br>
+</li>
 <li><p>Take a screenshot and clearly annotate start bits (S), stop bits (E), and the binary bits of your three letters as shown below.</p></li>
 <li><p>Add your three letters under the corresponding binary signals.</p></li>
-<li><p>You can find an ASCII binary table <a class="reference internal" href="../resources.html#resources-ascii-table"><span class="std std-ref">here</span></a>.</p></li>
-</ul>
+<li><p>You can find an ASCII binary table <a class="reference internal" href="../resources.html#resources-ascii-table"><span class="std std-ref">here</span></a>.</p>
 <a class="reference internal image-reference" href="../_images/Lab11_Moku_UART_Fox.png"><img alt="../_images/Lab11_Moku_UART_Fox.png" class="align-center" src="../_images/Lab11_Moku_UART_Fox.png" style="width: 760px;" /></a>
-<br>
+ <br>
+</li>
+</ol>
 </section>
 <section id="write-spi-functions-in-spi-a3-and-test-with-moku-go">
 <h3>Write SPI functions in SPI_A3 and Test with Moku:Go<a class="headerlink" href="#write-spi-functions-in-spi-a3-and-test-with-moku-go" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Write <code class="docutils literal notranslate"><span class="pre">SPIA3_Init()</span></code>, <code class="docutils literal notranslate"><span class="pre">SPIA3_OutChar()</span></code>, and <code class="docutils literal notranslate"><span class="pre">SPIA3_OutString()</span></code>.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program11_3</span></code> and start Moku:Go Logic Analyzer to measure the signal transmitted from the SPI_A3 port of your LaunchPad.</p></li>
-</ul>
+<ol class="arabic">
+<li><p>Implement <code class="docutils literal notranslate"><span class="pre">SPIA3_Init()</span></code>, <code class="docutils literal notranslate"><span class="pre">SPIA3_Wait4Tx()</span></code>,  <code class="docutils literal notranslate"><span class="pre">SPIA3_WriteTxBuffer()</span></code>, <code class="docutils literal notranslate"><span class="pre">SPIA3_OutChar()</span></code>, and <code class="docutils literal notranslate"><span class="pre">SPIA3_OutString()</span></code>. For guidance on how to use these functions, refer to <code class="docutils literal notranslate"><span class="pre">Nokia5110_Init()</span></code>, <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutChar()</span></code>, and <code class="docutils literal notranslate"><span class="pre">datawrite()</span></code> in the <code class="docutils literal notranslate"><span class="pre">Nokia5110.c</span></code> file. <strong>Hint</strong>: <code class="docutils literal notranslate"><span class="pre">SPIA3_OutChar()</span></code> should integrate the operations of <code class="docutils literal notranslate"><span class="pre">SPIA3_Wait4Tx()</span></code> and <code class="docutils literal notranslate"><span class="pre">SPIA3_WriteTxBuffer()</span></code>.  Do not call these functions directly within the <code class="docutils literal notranslate"><span class="pre">SPIA3_OutChar()</span></code>; Instead, incorporate their logic directly into the function.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">Program11_3</span></code> and start Moku:Go Logic Analyzer to measure the signal transmitted from the SPI_A3 port of your LaunchPad.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Turn off the robot before connecting the logic analyzer to it. Otherwise, you might short-circuit and damage the board!</p>
 </div>
-<ul class="simple">
+</li>
 <li><p>Connect Moku:Go Logic Analyzer to your LaunchPad.</p>
-<ul>
+<ul class="simple">
 <li><p>Connect three Logic Analyzer probes to P9.4 (STE), P9.5 (CLK), and P9.7 (MOSI) of your LaunchPad.</p></li>
 <li><p>Connect a Logic Analyzer’s ground pin (black wire) to one of the LaunchPad ground pins.</p></li>
 </ul>
 </li>
 <li><p>Take a screenshot of the signal below and clearly annotate the binary bits of your three letters.</p></li>
-<li><p>Add your three letters under the corresponding binary signals.</p></li>
-</ul>
+<li><p>Add your three letters under the corresponding binary signals.</p>
 <a class="reference internal image-reference" href="../_images/Lab11_Moku_SPI_Fox.png"><img alt="../_images/Lab11_Moku_SPI_Fox.png" class="align-center" src="../_images/Lab11_Moku_SPI_Fox.png" style="width: 760px;" /></a>
-<br>
+ <br>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">Program11_3</span></code> bypasses the Nokia5110 module and directly accesses the SPIA3 serial port, which means the LCD cannot be used for this section.</p>
 </div>
+</li>
+</ol>
 </section>
 </section>
 <section id="deliverables">
