@@ -11,7 +11,7 @@ The best thing about a Boolean is even if you are wrong, you are only off by a b
 
 ## 📜 Synopsis
 
-In this lab, our aim is to develop software modules capable of communicating with external devices connected by the most commonly-available serial communication interfaces.  Specifically, we will establish communication between the MSP432 and the Nokia 5110 using a Serial Peripheral Interface (SPI), and we will connect your PC's USB port to the MSP432 using a Universal Asynchronous Receiver-Transmitter (UART).
+In this lab, our aim is to develop software modules capable of communicating with external devices connected by the most commonly-available serial communication interfaces.  Specifically, we will establish communication between the MSP432 and the Nokia 5110 using a Serial Peripheral Interface (SPI), and we will connect our PC's USB port to the MSP432 using a Universal Asynchronous Receiver-Transmitter (UART).
 
 
 ## 💻 Procedure
@@ -20,7 +20,7 @@ In this lab, our aim is to develop software modules capable of communicating wit
 ### Write UART functions in `UART0.c`
 
 1. Write `UART0_Init()`
-    - Follow the steps in the code and Appendix 1 in Lecture 11.
+    - Follow the steps in the code and Appendix 1 from Lecture 11.
 2. Write `UART0_OutChar()`
     - Wait for TXBUF to be empty (UCxTXIFG)
     - Send data using TXBUF
@@ -68,9 +68,9 @@ Turn off the robot before connecting the logic analyzer to it. Otherwise, you mi
 ```
 
 - Connect Moku:Go Logic Analyzer to your LaunchPad.
-    - Connect the 20-pin I/O port to Moku:Go as shown inside the red circle in the figure below.
-    - Connect Pin 1 of the Logic Analyzer to the TXD port on your LaunchPad as shown inside the yellow circle.
-    - Connect a Logic Analyzer's ground pin (black wire) to one of the LaunchPad ground pins as shown in the yellow circle.  
+    - Connect the 20-pin I/O port to Moku:Go.
+    - Connect Pin 1 of the Logic Analyzer to the TXD port on your LaunchPad.
+    - Connect a Logic Analyzer's ground pin (black wire) to one of the LaunchPad ground pins.  
 
 
 ```{image} ./figures/Lab11_MokuConnection.png
@@ -103,13 +103,13 @@ Turn off the robot before connecting the logic analyzer to it. Otherwise, you mi
 ### Write SPI functions in SPI_A3 and Test with Moku:Go
 
 - Write `SPIA3_Init()`, `SPIA3_OutChar()`, and `SPIA3_OutString()`. 
-- Run `Program11_3` and start Moku:Go Logic Analyzer to measure the signal transmitted from the SPI_B1 port of your LaunchPad. 
+- Run `Program11_3` and start Moku:Go Logic Analyzer to measure the signal transmitted from the SPI_A3 port of your LaunchPad. 
 
 ```{warning}
 Turn off the robot before connecting the logic analyzer to it. Otherwise, you might short-circuit and damage the board!
 ```
 
-- Connect Moku:Gp Logic Analyzer to your LaunchPad.
+- Connect Moku:Go Logic Analyzer to your LaunchPad.
     - Connect three Logic Analyzer probes to P9.4 (STE), P9.5 (CLK), and P9.7 (MOSI) of your LaunchPad.
     - Connect a Logic Analyzer's ground pin (black wire) to one of the LaunchPad ground pins.  
 - Take a screenshot of the signal below and clearly annotate the binary bits of your three letters. 
@@ -120,6 +120,10 @@ Turn off the robot before connecting the logic analyzer to it. Otherwise, you mi
 :align: center
 ```
 <br>
+
+```{note}
+`Program11_3` bypasses the Nokia5110 module and directly accesses the SPIA3 serial port, which means the LCD cannot be used for this section.
+```
 
 
 ## 🚚 Deliverables

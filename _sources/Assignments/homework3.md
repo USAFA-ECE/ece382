@@ -88,7 +88,7 @@ It is inaccurate to say that `StrAddr` is the address of the entire string. In f
 
 
 ```{important}
-A solid understanding of memory access and pointers hold significant importance in the realm of computer programming. If you've ever believed that certain programming languages like Python, Java, or C# render pointers unnecessary, you're mistaken - BIG mistake. I encourage you to read [this](../NoPointer.ipynb).  
+A solid understanding of memory access and pointers hold significant importance in the realm of computer programming. If you've ever believed that certain programming languages like Python, Java, or C# render pointers unnecessary, you're mistaken - BIG mistake. I encourage you to read [this](https://stanbaek.github.io/NoPointer.html).  
 ```
 
 ## 🚚 Deliverables
