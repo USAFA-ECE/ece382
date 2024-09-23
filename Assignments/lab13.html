@@ -427,26 +427,18 @@ document.write(`
 </section>
 <section id="synopsis">
 <h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
-<p>This lab aims to write software that can adjust the applied power to the two motors. You will create PWM outputs on the P2.6 and P2.7 pins connected to the EN pins of the two TI DRV8838 motor drivers. The period of both PWM outputs should be fixed at 20 ms (50 Hz). However, the software should be able to independently set the duty cycle of the EN pin to each motor from 0 to 9,999 (0 to 99.99%). At 50 Hz, the motor will not respond to individual highs and lows; instead, the motors will respond to the average level. More specifically, the delivered power will be:</p>
+<p>This lab aims to write software that can adjust the applied power to the two motors. You will create PWM outputs on the P2.6 and P2.7 pins connected to the EN pins of the two TI DRV8838 motor drivers. The period of both PWM outputs should be fixed at 20 ms (50 Hz). However, the software should be able to independently set the duty cycle of the EN pin to each motor from 0 to 999 (0 to 99.9%). At 50 Hz, the motor will not respond to individual highs and lows; instead, the motors will respond to the average level. More specifically, the delivered power will be:</p>
 <div class="math notranslate nohighlight">
 \[
 P = VI \frac{d}{100}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(V\)</span> is the voltage, <span class="math notranslate nohighlight">\(I\)</span> is the current, and <span class="math notranslate nohighlight">\(d \in [0, 99.99]\)</span> is the duty cycle in percent (%).</p>
+<p>where <span class="math notranslate nohighlight">\(V\)</span> is the voltage, <span class="math notranslate nohighlight">\(I\)</span> is the current, and <span class="math notranslate nohighlight">\(d \in [0, 99.9]\)</span> is the duty cycle in percent (%).</p>
+<p>Duty cycles are typically expressed as a percentage of <code class="docutils literal notranslate"><span class="pre">ON</span></code> time, which is a real number between 0.0% and 100.0%. However, in microcontrollers, it is preferable to avoid floating point numbers and their computations. Therefore, we will use a 16-bit integer between 0 and 1,000 to represent a duty cycle between 0.0% and 100.0%. We will use the unit permille, which means one out of every one thousand (mille). Another advantage of using permille is that we can express 1,000 different values using a 16-bit integer, whereas we can only have 100 different integer values if we use a percentage.</p>
 </section>
 <section id="procedure">
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
 <section id="setup">
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Navigate to Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles.</p></li>
-<li><p>Download <code class="docutils literal notranslate"><span class="pre">SPIA3.c</span></code> and <code class="docutils literal notranslate"><span class="pre">SPIA3.h</span></code> and move them into your <code class="docutils literal notranslate"><span class="pre">workspace/inc</span></code> folder using <strong>Windows File Explorer</strong> (not Code Composer Studio).</p></li>
-<li><p>Ensure you overwrite the existing <code class="docutils literal notranslate"><span class="pre">SPIA3.c</span></code> and <code class="docutils literal notranslate"><span class="pre">SPIA3.h</span></code>.</p></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>It must be in the <strong>inc</strong> folder, NOT in the Lab 13 project folder.</p>
-</div>
 <p>Before proceeding, review the solution for <code class="docutils literal notranslate"><span class="pre">TimerA1_Init</span></code> posted on Gradescope to confirm you have the accurate code. If the solution isn’t available on Gradescope, consult your instructor to go over your code.</p>
 </section>
 <section id="write-timer-functions-in-timera1-c">
@@ -474,7 +466,7 @@ Video Credit: C24 Chanon Mallanoo
 <ul class="simple">
 <li><p>Thoroughly review the documentation provided in <code class="docutils literal notranslate"><span class="pre">PWM.h</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> to understand the functions you will be implementing.</p></li>
 <li><p>Note that the PWM period for both motors is set at 20 ms (50 Hz). When calling <code class="docutils literal notranslate"><span class="pre">PWM_Init34</span></code> from <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>, you should use a period value of 15,000, corresponding to the <em>PWM period</em> of 20 ms. It is not the Timer period, as explained in Lecture 13 Slide 17.</p></li>
-<li><p>Keep in mind that the duty cycles passed into <code class="docutils literal notranslate"><span class="pre">PWM_DutyRight</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM_DutyLeft</span></code> are in <em>permyriad</em>.  The code handles the conversion to the Timer period, so you don’t need to perform this calculation when calling these functions in Motor.c. However, when passing duty cycles to <code class="docutils literal notranslate"><span class="pre">PWM_Init34</span></code>, they should be in the range of 0-14,999.</p></li>
+<li><p>Keep in mind that the duty cycles passed into <code class="docutils literal notranslate"><span class="pre">PWM_DutyRight</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM_DutyLeft</span></code> are in <em>permille</em>.  The code handles the conversion to the Timer period, so you don’t need to perform this calculation when calling these functions in Motor.c. However, when passing duty cycles to <code class="docutils literal notranslate"><span class="pre">PWM_Init34</span></code>, they should be in the range of 0-14,999.</p></li>
 <li><p>Read <code class="docutils literal notranslate"><span class="pre">Motor.h</span></code> and <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> thoroughly.</p></li>
 <li><p>We will be replacing the suite of software functions developed in Lab 12 with functions that use <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> to generate the two PWM outputs. These functions will control the robot’s two wheels. The PWM signals to both motors will operate at 50 Hz (20 ms) when active with independent duty cycles.</p></li>
 <li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code> as shown in the video below. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to maneuver the robot.Activate the next motor function using a bump switch, ensuring you run at least one iteration in the while loop. Please note that the bump switches won’t halt the motors.</p></li>

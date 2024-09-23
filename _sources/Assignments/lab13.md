@@ -13,26 +13,19 @@ Make it work, make it right, make it fast. – Kent Beck
 
 ## 📜 Synopsis
 
-This lab aims to write software that can adjust the applied power to the two motors. You will create PWM outputs on the P2.6 and P2.7 pins connected to the EN pins of the two TI DRV8838 motor drivers. The period of both PWM outputs should be fixed at 20 ms (50 Hz). However, the software should be able to independently set the duty cycle of the EN pin to each motor from 0 to 9,999 (0 to 99.99%). At 50 Hz, the motor will not respond to individual highs and lows; instead, the motors will respond to the average level. More specifically, the delivered power will be:
+This lab aims to write software that can adjust the applied power to the two motors. You will create PWM outputs on the P2.6 and P2.7 pins connected to the EN pins of the two TI DRV8838 motor drivers. The period of both PWM outputs should be fixed at 20 ms (50 Hz). However, the software should be able to independently set the duty cycle of the EN pin to each motor from 0 to 999 (0 to 99.9%). At 50 Hz, the motor will not respond to individual highs and lows; instead, the motors will respond to the average level. More specifically, the delivered power will be:
 
 $$
 P = VI \frac{d}{100}
 $$
-where $V$ is the voltage, $I$ is the current, and $d \in [0, 99.99]$ is the duty cycle in percent (%).
+where $V$ is the voltage, $I$ is the current, and $d \in [0, 99.9]$ is the duty cycle in percent (%).
 
+Duty cycles are typically expressed as a percentage of `ON` time, which is a real number between 0.0% and 100.0%. However, in microcontrollers, it is preferable to avoid floating point numbers and their computations. Therefore, we will use a 16-bit integer between 0 and 1,000 to represent a duty cycle between 0.0% and 100.0%. We will use the unit permille, which means one out of every one thousand (mille). Another advantage of using permille is that we can express 1,000 different values using a 16-bit integer, whereas we can only have 100 different integer values if we use a percentage. 
 
 
 ## 💻 Procedure
 
 ### Setup
-- Navigate to Teams > General > Files > Class Materials > SourceFiles.
-- Download `SPIA3.c` and `SPIA3.h` and move them into your `workspace/inc` folder using **Windows File Explorer** (not Code Composer Studio). 
-- Ensure you overwrite the existing `SPIA3.c` and `SPIA3.h`.
-
-```{warning}
-It must be in the **inc** folder, NOT in the Lab 13 project folder.
-```
-
 Before proceeding, review the solution for `TimerA1_Init` posted on Gradescope to confirm you have the accurate code. If the solution isn't available on Gradescope, consult your instructor to go over your code.
 
 ### Write Timer functions in `TimerA1.c`.
@@ -61,7 +54,7 @@ We want to enable interrupt service routines to execute a range of user-defined 
 
 - Thoroughly review the documentation provided in `PWM.h` and `PWM.c` to understand the functions you will be implementing.  
 - Note that the PWM period for both motors is set at 20 ms (50 Hz). When calling `PWM_Init34` from `Motor.c`, you should use a period value of 15,000, corresponding to the _PWM period_ of 20 ms. It is not the Timer period, as explained in Lecture 13 Slide 17. 
-- Keep in mind that the duty cycles passed into `PWM_DutyRight` and `PWM_DutyLeft` are in _permyriad_.  The code handles the conversion to the Timer period, so you don't need to perform this calculation when calling these functions in Motor.c. However, when passing duty cycles to `PWM_Init34`, they should be in the range of 0-14,999.
+- Keep in mind that the duty cycles passed into `PWM_DutyRight` and `PWM_DutyLeft` are in _permille_.  The code handles the conversion to the Timer period, so you don't need to perform this calculation when calling these functions in Motor.c. However, when passing duty cycles to `PWM_Init34`, they should be in the range of 0-14,999.
  - Read `Motor.h` and `Motor.c` thoroughly.
 - We will be replacing the suite of software functions developed in Lab 12 with functions that use `PWM.c` to generate the two PWM outputs. These functions will control the robot's two wheels. The PWM signals to both motors will operate at 50 Hz (20 ms) when active with independent duty cycles. 
 - Demo `Program13_2` as shown in the video below. Use motor functions defined in `Motor.c` to maneuver the robot.Activate the next motor function using a bump switch, ensuring you run at least one iteration in the while loop. Please note that the bump switches won't halt the motors.
