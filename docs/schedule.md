@@ -24,8 +24,8 @@ This schedule is subject to change as appropriate.
 | 15     | [Lab 11: Serial Comm](Assignments/lab11.md)      |                      | HW11                                  (19)|
 | 16     | Lec 13: Timers & Motors                          | 13.1-13.3            | [Lab11](Assignments/lab11.md)         (25)|
 | 17     | GR 1                                             |                      |                                       (90)|
-| 18     | Lec 13: Timers & Motors                          | 12.1, 12.5, 13.3     | HW13A                                 (12)|
-| 19     | [Lab 13: Timers & Motors](Assignments/lab13.md)  |                      | HW13B                                 (16)|
+| 18     | Lec 13: Timers & Motors                          | 12.1, 12.5, 13.3     | HW13A                                 (16)|
+| 19     | [Lab 13: Timers & Motors](Assignments/lab13.md)  |                      | HW13B                                 (12)|
 | 20     | [Lab 13: Timers & Motors](Assignments/lab13.md)  |                      |                                           |
 | 21     | Lec 14: Real-Time Systems (Edge Interrupts)      | 10.4, 14.2           | [Lab13](Assignments/lab13.md)         (35)|
 | 22     | [Lab 14: Real-Time Systems](Assignments/lab14.md)|                      | HW14                                  (18)|
