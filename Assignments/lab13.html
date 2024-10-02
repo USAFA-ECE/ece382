@@ -443,12 +443,12 @@ P = VI \frac{d}{100}
 </section>
 <section id="write-timer-functions-in-timera1-c">
 <h3>Write Timer functions in <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code>.<a class="headerlink" href="#write-timer-functions-in-timera1-c" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">TimerA1.h</span></code> and <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code> and read them thoroughly.</p></li>
 <li><p>Take a close look at <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> to grasp (i) how <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> is initialized and (ii) how the semaphore is employed to coordinate between the foreground and background threads.</p></li>
 <li><p>Proceed to write the <code class="docutils literal notranslate"><span class="pre">TimerA1_Stop()</span></code> and <code class="docutils literal notranslate"><span class="pre">TA1_0_IRQHandler()</span></code> functions, which were discussed in Lecture 13 and can be found in Valvano’s textbook.</p></li>
 <li><p>Demonstrate <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> as shown in the video below.  Make sure to showcase the red LED blinking at 5 Hz, the blue LED blinking at 2.5 Hz, and the LCD updating the elapsed time at a rate of 5 Hz.</p></li>
-</ul>
+</ol>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ySVa26xwUzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
@@ -463,31 +463,32 @@ Video Credit: C24 Chanon Mallanoo
 </section>
 <section id="write-functions-in-pwm-c-and-motor-c">
 <h3>Write functions in <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> and <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>.<a class="headerlink" href="#write-functions-in-pwm-c-and-motor-c" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Thoroughly review the documentation provided in <code class="docutils literal notranslate"><span class="pre">PWM.h</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> to understand the functions you will be implementing.</p></li>
+<ol class="arabic">
+<li><p>Thoroughly review the documentation provided in <code class="docutils literal notranslate"><span class="pre">PWM.h</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> to understand the functions you will implement.</p></li>
 <li><p>Note that the PWM period for both motors is set at 20 ms (50 Hz). When calling <code class="docutils literal notranslate"><span class="pre">PWM_Init34</span></code> from <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>, you should use a period value of 15,000, corresponding to the <em>PWM period</em> of 20 ms. It is not the Timer period, as explained in Lecture 13 Slide 17.</p></li>
-<li><p>Keep in mind that the duty cycles passed into <code class="docutils literal notranslate"><span class="pre">PWM_DutyRight</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM_DutyLeft</span></code> are in <em>permille</em>.  The code handles the conversion to the Timer period, so you don’t need to perform this calculation when calling these functions in Motor.c. However, when passing duty cycles to <code class="docutils literal notranslate"><span class="pre">PWM_Init34</span></code>, they should be in the range of 0-14,999.</p></li>
+<li><p>Keep in mind that the duty cycles passed into <code class="docutils literal notranslate"><span class="pre">PWM_DutyRight</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM_DutyLeft</span></code> are in <em>permille</em>.  The code handles the conversion to the Timer period, so you don’t need to perform this calculation when calling these functions in Motor.c.</p></li>
 <li><p>Read <code class="docutils literal notranslate"><span class="pre">Motor.h</span></code> and <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> thoroughly.</p></li>
-<li><p>We will be replacing the suite of software functions developed in Lab 12 with functions that use <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> to generate the two PWM outputs. These functions will control the robot’s two wheels. The PWM signals to both motors will operate at 50 Hz (20 ms) when active with independent duty cycles.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code> as shown in the video below. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to maneuver the robot.Activate the next motor function using a bump switch, ensuring you run at least one iteration in the while loop. Please note that the bump switches won’t halt the motors.</p></li>
-</ul>
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jMpPHZ5NVKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-<br>
+<li><p>Implement the functions in <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> to generate two PWM outputs controlling the robot’s wheels. Both PWM signals operate at 50 Hz (20 ms).</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code> as shown in the video below. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to maneuver the robot and ensure you run at least one iteration in the while loop. Note: Unlike in the video, this year you don’t need to press the bump sensors to transition to the next motor function.</p>
+ <center>
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/jMpPHZ5NVKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ </center>
+ <br>
+</li>
+</ol>
 </section>
 <section id="write-functions-in-lab13-timersmain-c">
 <h3>Write functions in Lab13_Timersmain.c<a class="headerlink" href="#write-functions-in-lab13-timersmain-c" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Write <code class="docutils literal notranslate"><span class="pre">CheckBumper()</span></code> and <code class="docutils literal notranslate"><span class="pre">Program13_3()</span></code>.</p></li>
-<li><p>Combine the <code class="docutils literal notranslate"><span class="pre">PWM</span></code> and <code class="docutils literal notranslate"><span class="pre">Timer_A1</span></code> periodic interrupt functionality into one software system that runs the robot like <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">13.2</span></code>, but uses the periodic interrupt to check the bump switches, stopping the robot on a collision.  The robot will run for 3 seconds unless a bump switch is pressed, and the robot will not skip the next functions in the while loop as it did in Lab 12.</p></li>
-<li><p>As shown in the component block diagram below, <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> is not exposed to <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code>.  It is hidden under <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> and <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code> will only access the functions in Motor.c to control the motors.</p></li>
-</ul>
+<ol class="arabic">
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">Program13_3()</span></code>.</p></li>
+<li><p>Combine the <code class="docutils literal notranslate"><span class="pre">PWM</span></code> and <code class="docutils literal notranslate"><span class="pre">Timer_A1</span></code> periodic interrupt functionality into one software system that controls the robot like <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">13.2</span></code>, but uses the periodic interrupt to track the time elapsed.</p></li>
+<li><p>While the Timer interrupt runs in the background, the foreground thread will display the motor functions on the LCD.</p></li>
+<li><p>As shown in the component block diagram below, <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> is not directly accessible to <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code>; It is encapsulated in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>.  <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code> will only use the functions in Motor.c to control the motors.</p>
 <a class="reference internal image-reference" href="../_images/Lab13_ComponentBlockDiagram.png"><img alt="../_images/Lab13_ComponentBlockDiagram.png" class="align-center" src="../_images/Lab13_ComponentBlockDiagram.png" style="width: 460px;" /></a>
-<br>
-<ul class="simple">
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code> as shown in the video below.  Your robot should stop on a collision.</p></li>
-</ul>
+ <br>
+</li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code> as shown in the video below. Note: Unlike in the video, the motors will not stop for the bump sensors this year.</p></li>
+</ol>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DqtfwLTfbmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
@@ -505,13 +506,13 @@ Video Credit: C24 Chanon Mallanoo
 <section id="deliverable-2">
 <h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_2()</span></code>. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to move the robot. Use a bump switch  to start the next motor function. You must run at least one iteration in the while loop. Note: The bump switches cannot stop the motors.</p></li>
+<li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_2()</span></code>. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to move the robot. You must run at least one iteration in the while loop.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
 <h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_3()</span></code>. Use PWM to move the robot like <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code>, but use <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> to periodically check the bump switches, stopping the robot on a collision. You must run the robot on the ground for at least one iteration in the while loop without hitting any bump switch. You should show how the robot responds when you hit a bumper switch in each motor function.</p></li>
+<li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code> as shown in the video below. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to maneuver the robot and ensure you run at least one iteration in the while loop.</p></li>
 </ul>
 </section>
 <section id="deliverable-4">
