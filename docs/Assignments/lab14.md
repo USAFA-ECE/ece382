@@ -90,7 +90,7 @@ You know $f(g(x))$ is the same as $y=g(x)$ followed by $f(y)$.
 - Complete `Program14_3()`.
 - Test `Program14_3()` without edge-triggered interrupts from the bump sensors. The robot should run the three commands indefinitely.  
 - Implement Collision and test your bump sensors. Hitting a bump switch must stop the robot and restart the three commands from the beginning, which is `Motor_Backward`.
-- Demo `Program14_3` running a simple set of commands - `Motor_Backward`, `Motor_TurnRight`, and `Motor_Forward`. On a collision, the robot must stop and restart the set of commands.
+- Demo `Program14_3` running a simple set of commands - `Motor_Backward`, `Motor_TurnRight`, `Motor_Forward`, and `Motor_TurnLeft`. On a collision, the robot must stop and restart the set of commands.
 
 
 <center>
@@ -109,7 +109,7 @@ Video Credit: C25 Kaitlyn Grimm
 
 
 ### Deliverable 2 
-- **[6 Points]** Demo `Program14_3()` running a simple set of commands - `Motor_Backward()`, `Motor_TurnRight()`, and `Motor_Forward()`. On a collision, the robot must stop and restart the set of commands. 
+- **[6 Points]** Demo `Program14_3()` running a simple set of commands - `Motor_Backward()`, `Motor_TurnRight()`,  `Motor_Forward()`, and `Motor_TurnLeft`. On a collision, the robot must stop and restart the set of commands. 
 
 ### Deliverable 3 
 - **[7.5 Points]** Push your code to your repository using git. Write comments in your code.
