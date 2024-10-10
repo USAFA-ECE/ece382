@@ -85,12 +85,11 @@ Collision3(x);
 You know $f(g(x))$ is the same as $y=g(x)$ followed by $f(y)$. 
 :::
 
-
-- Inside `Lab14_RealTimeSystemsMain.c`, implement the `Controller3` function. You should **not** have a while- or for-loop inside `Controller3`.  Remember that the `Controller3` function will be called every 1 ms. If you have a loop or a delay inside an ISR, you are most likely doing something terribly wrong. 
-- Complete `Program14_3()`.
-- Test `Program14_3()` without edge-triggered interrupts from the bump sensors. The robot should run the three commands indefinitely.  
-- Implement Collision and test your bump sensors. Hitting a bump switch must stop the robot and restart the three commands from the beginning, which is `Motor_Backward`.
-- Demo `Program14_3` running a simple set of commands - `Motor_Backward`, `Motor_TurnRight`, `Motor_Forward`, and `Motor_TurnLeft`. On a collision, the robot must stop and restart the set of commands.
+1. Inside `Lab14_RealTimeSystemsMain.c`, implement the `Controller3` function. Ensure that you do not include any while or for loops inside Controller3, as the function is called every 1 ms. Including loops or delays inside an ISR is highly inefficient and should be avoided.
+1. Complete the implementation of `Program14_3()`.
+1. Initial Test (without Bump Sensor Interrupts): Test `Program14_3()` without enabling the bump sensor edge-triggered interrupts. The robot should cycle through the three motor commands indefinitely.
+1. Implement Collision Handling: Next, implement the `Collision` function and test the bump sensors. When a bump sensor is triggered, the robot must stop and restart the set of commands, beginning with `Motor_Backward`.
+1. Final Demo: For the final demonstration, ensure `Program14_3` runs the following sequence of commands: `Motor_Backward`, `Motor_TurnRight`, `Motor_Forward`, and `Motor_TurnLeft`. Upon detecting a collision, the robot should stop and restart the sequence from the beginning.
 
 
 <center>
