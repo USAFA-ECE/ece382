@@ -204,21 +204,21 @@ Please note that `Program15_2` focuses on testing corner cases. In the context o
 ## 🚚 Deliverables (2 extra points)
 
 ### Deliverable 1 
-- **[5 Points]** Demo `Program15_1()` to display raw ADC data on the LCD. Note that the distance values on the LCD are not valid at this stage.
+- **[6 Points]** Demo `Program15_1()` to display raw ADC data on the LCD. Note that the distance values on the LCD are not valid at this stage.
 
 ### Deliverable 2 
-- **[5 Points]** Calibrate your sensors. Submit three plots for your right, center, and left sensors. 
+- **[6 Points]** Calibrate your sensors. Submit three plots for your right, center, and left sensors. 
 
 ### Deliverable 3 
-- **[5 Points]** Demo `Program15_1()` with accurate distances on the LCD. 
+- **[6 Points]** Demo `Program15_1()` with accurate distances on the LCD. 
 Choose three distances (100, 300, and 500 mm) for each sensor and use a ruler in the lab for measurement. You can do a live demo, which is preferred, or provide a video demo. If you choose a video demo, ensure that you **include your voice to clearly state the distances you are testing**.
 
 ### Deliverable 4 
-- **[5 Points]** Provide a screenshot of the Expressions tab after running `Program15_2()`. Ensure that `left`, `center`, `right`, `result`, `truth`, and `errors` are visible in the Expressions tab. 
+- **[6 Points]** Provide a screenshot of the Expressions tab after running `Program15_2()`. Ensure that `left`, `center`, `right`, `result`, `truth`, and `errors` are visible in the Expressions tab. 
 - Note that providing a screenshot before running the program will result in a grade of 0.
 
 ### Deliverable 5 
-- **[5 Points]** Demo `Program15_4()` to display the classifications on the LCD. Ensure you show at least three error cases (enum scenario <= 7) and at least five non-error cases (enum scenario > 7). You can do a live demo, which is preferred, or provide a video demo. If you choose a video demo, **include your voice to clearly state the classifications you are testing**. 
+- **[6 Points]** Demo `Program15_4()` to display the classifications on the LCD. Ensure you show at least three error cases (enum scenario <= 7) and at least five non-error cases (enum scenario > 7). You can do a live demo, which is preferred, or provide a video demo. If you choose a video demo, **include your voice to clearly state the classifications you are testing**. 
 
 ### Deliverable 6 
 - **[6.5 Points]**  Ensure that you provide comments in your code for clarity and push your code to your repository using git.
