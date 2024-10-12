@@ -57,7 +57,7 @@ We want to enable interrupt service routines to execute a range of user-defined 
 1. Keep in mind that the duty cycles passed into `PWM_DutyRight` and `PWM_DutyLeft` are in _permille_.  The code handles the conversion to the Timer period, so you don't need to perform this calculation when calling these functions in Motor.c. 
 1. Read `Motor.h` and `Motor.c` thoroughly.
 1. Implement the functions in `PWM.c` to generate two PWM outputs controlling the robot's wheels. Both PWM signals operate at 50 Hz (20 ms). 
-1. Demo `Program13_2` as shown in the video below. Use motor functions defined in `Motor.c` to maneuver the robot and ensure you run at least one iteration in the while loop. Note: Unlike in the video, this year you don't need to press the bump sensors to transition to the next motor function. 
+1. Demo `Program13_2` as shown in the video below. Use motor functions defined in `Motor.c` to maneuver the robot and ensure you run at least one iteration in the while loop. 
 
     <center>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/qjLGzcN1ncY?si=OrHY9CHkix2kSkfF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
