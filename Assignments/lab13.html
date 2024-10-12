@@ -445,9 +445,9 @@ P = VI \frac{d}{100}
 <h3>Write Timer functions in <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code>.<a class="headerlink" href="#write-timer-functions-in-timera1-c" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">TimerA1.h</span></code> and <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code> and read them thoroughly.</p></li>
-<li><p>Take a close look at <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> to grasp (i) how <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> is initialized and (ii) how the semaphore is employed to coordinate between the foreground and background threads.</p></li>
-<li><p>Proceed to write the <code class="docutils literal notranslate"><span class="pre">TimerA1_Stop()</span></code> and <code class="docutils literal notranslate"><span class="pre">TA1_0_IRQHandler()</span></code> functions, which were discussed in Lecture 13 and can be found in Valvano’s textbook.</p></li>
-<li><p>Demonstrate <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> as shown in the video below.  Make sure to showcase the red LED blinking at 5 Hz, the blue LED blinking at 2.5 Hz, and the LCD updating the elapsed time at a rate of 5 Hz.</p></li>
+<li><p>Carefully examine <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> to understand (i) how <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> is initialized and (ii) how the semaphore is employed to coordinate between the foreground and background threads.</p></li>
+<li><p>Write the <code class="docutils literal notranslate"><span class="pre">TimerA1_Stop()</span></code> and <code class="docutils literal notranslate"><span class="pre">TA1_0_IRQHandler()</span></code> functions, as discussed in Lecture 13 and referenced in Valvano’s textbook.</p></li>
+<li><p>Demonstrate <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> as shown in the video below. Ensure that the red LED blins at 5 Hz, the blue LED blinks at 2.5 Hz, and the LCD updates the elapsed time at a rate of 5 Hz. Your demo should also show the timer interrupt being enabled by pressing a switch and disabled by pressing a bump sensor.</p></li>
 </ol>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ySVa26xwUzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -487,12 +487,14 @@ Video Credit: C24 Chanon Mallanoo
 <a class="reference internal image-reference" href="../_images/Lab13_ComponentBlockDiagram.png"><img alt="../_images/Lab13_ComponentBlockDiagram.png" class="align-center" src="../_images/Lab13_ComponentBlockDiagram.png" style="width: 460px;" /></a>
  <br>
 </li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code> as shown in the video below. Note: Unlike in the video, the motors will not stop for the bump sensors this year.</p></li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code> as shown in the video below.</p>
+ <center>
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/8QVZNDuu69k?si=qY90STCOwS66JcOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+ Video Credit: C26 Peter Choi, Royal Military College of Canada
+ </center>
+ <br>
+</li>
 </ol>
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DqtfwLTfbmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-<br>
 </section>
 </section>
 <section id="deliverables">
@@ -500,19 +502,20 @@ Video Credit: C24 Chanon Mallanoo
 <section id="deliverable-1">
 <h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[6 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_1()</span></code>. Use <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> to blink the red LED at 5 Hz while the blue LED blinks at 2.5 Hz and the LCD updates the elapsed time at 5 Hz.</p></li>
+<li><p><strong>[6 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_1()</span></code>. Use <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> to blink the red LED at 5 Hz while the blue LED blinks at 2.5 Hz and the LCD updates the elapsed time at 5 Hz.
+Your demo should also show the timer interrupt being enabled by pressing a switch and disabled by pressing a bump sensor. During the demo, explain what you are demonstrating.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
 <h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_2()</span></code>. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to move the robot. You must run at least one iteration in the while loop.</p></li>
+<li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_2()</span></code>. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to move the robot. You must run <strong>at least two iterations</strong> in the while loop. During the demo, explain what you are demonstrating.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
 <h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code> as shown in the video below. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to maneuver the robot and ensure you run at least one iteration in the while loop.</p></li>
+<li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code> as shown in the video below. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to maneuver the robot and ensure you run <strong>at least two iterations</strong> in the while loop. During the demo, explain what you are demonstrating.</p></li>
 </ul>
 </section>
 <section id="deliverable-4">

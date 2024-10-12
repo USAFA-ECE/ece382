@@ -31,9 +31,9 @@ Before proceeding, review the solution for `TimerA1_Init` posted on Gradescope t
 ### Write Timer functions in `TimerA1.c`.
 
 1. Open `TimerA1.h` and `TimerA1.c` and read them thoroughly.
-1. Take a close look at `Program13_1` to grasp (i) how `TimerA1` is initialized and (ii) how the semaphore is employed to coordinate between the foreground and background threads. 
-1. Proceed to write the `TimerA1_Stop()` and `TA1_0_IRQHandler()` functions, which were discussed in Lecture 13 and can be found in Valvano's textbook. 
-1. Demonstrate `Program13_1` as shown in the video below.  Make sure to showcase the red LED blinking at 5 Hz, the blue LED blinking at 2.5 Hz, and the LCD updating the elapsed time at a rate of 5 Hz.
+1. Carefully examine `Program13_1` to understand (i) how `TimerA1` is initialized and (ii) how the semaphore is employed to coordinate between the foreground and background threads. 
+1. Write the `TimerA1_Stop()` and `TA1_0_IRQHandler()` functions, as discussed in Lecture 13 and referenced in Valvano's textbook. 
+1. Demonstrate `Program13_1` as shown in the video below. Ensure that the red LED blins at 5 Hz, the blue LED blinks at 2.5 Hz, and the LCD updates the elapsed time at a rate of 5 Hz. Your demo should also show the timer interrupt being enabled by pressing a switch and disabled by pressing a bump sensor. 
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ySVa26xwUzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -79,24 +79,27 @@ We want to enable interrupt service routines to execute a range of user-defined 
     ```
     <br>
 
-1. Demo `Program13_3` as shown in the video below. Note: Unlike in the video, the motors will not stop for the bump sensors this year.
+1. Demo `Program13_3` as shown in the video below. 
 
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DqtfwLTfbmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-<br>
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/8QVZNDuu69k?si=qY90STCOwS66JcOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    Video Credit: C26 Peter Choi, Royal Military College of Canada
+    </center>
+    <br>
 
 
 ## 🚚 Deliverables
 
 ### Deliverable 1 
 - **[6 Points]**  Demo `Program13_1()`. Use `TimerA1` to blink the red LED at 5 Hz while the blue LED blinks at 2.5 Hz and the LCD updates the elapsed time at 5 Hz. 
+Your demo should also show the timer interrupt being enabled by pressing a switch and disabled by pressing a bump sensor. During the demo, explain what you are demonstrating. 
 
 ### Deliverable 2 
-- **[7 Points]**  Demo `Program13_2()`. Use motor functions defined in `Motor.c` to move the robot. You must run at least one iteration in the while loop. 
+- **[7 Points]**  Demo `Program13_2()`. Use motor functions defined in `Motor.c` to move the robot. You must run **at least two iterations** in the while loop. During the demo, explain what you are demonstrating. 
+
 
 ### Deliverable 3 
-- **[7 Points]**  Demo `Program13_2` as shown in the video below. Use motor functions defined in `Motor.c` to maneuver the robot and ensure you run at least one iteration in the while loop. 
+- **[7 Points]**  Demo `Program13_2` as shown in the video below. Use motor functions defined in `Motor.c` to maneuver the robot and ensure you run **at least two iterations** in the while loop. During the demo, explain what you are demonstrating. 
 
 ### Deliverable 4 
 - **[9.5 Points]**  Push your code to your repository using git. Write comments in your code.
