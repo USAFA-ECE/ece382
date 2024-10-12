@@ -204,14 +204,14 @@ Please note that `Program15_2` focuses on testing corner cases. In the context o
 ## 🚚 Deliverables (2 extra points)
 
 ### Deliverable 1 
-- **[6 Points]** Demo `Program15_1()` to display raw ADC data on the LCD. Note that the distance values on the LCD are not valid at this stage.
+- **[6 Points]** Demo `Program15_1()` to display raw ADC data on the LCD. Note that the distance values on the LCD are not valid at this stage. During the demo, explain what you are demonstrating. 
 
 ### Deliverable 2 
 - **[6 Points]** Calibrate your sensors. Submit three plots for your right, center, and left sensors. 
 
 ### Deliverable 3 
 - **[6 Points]** Demo `Program15_1()` with accurate distances on the LCD. 
-Choose three distances (100, 300, and 500 mm) for each sensor and use a ruler in the lab for measurement. You can do a live demo, which is preferred, or provide a video demo. If you choose a video demo, ensure that you **include your voice to clearly state the distances you are testing**.
+Choose three distances (100, 200, and 300 mm) for each sensor and use a ruler in the lab for measurement. You can do a live demo, which is preferred, or provide a video demo. If you choose a video demo, ensure that you **include your voice to clearly state the distances you are testing**.
 
 ### Deliverable 4 
 - **[6 Points]** Provide a screenshot of the Expressions tab after running `Program15_2()`. Ensure that `left`, `center`, `right`, `result`, `truth`, and `errors` are visible in the Expressions tab. 
