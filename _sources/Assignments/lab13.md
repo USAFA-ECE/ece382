@@ -61,6 +61,7 @@ We want to enable interrupt service routines to execute a range of user-defined 
 
     <center>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/qjLGzcN1ncY?si=OrHY9CHkix2kSkfF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br>
     Video Credit: C26 Peter Choi, Royal Military College of Canada
     </center>
     <br>
@@ -82,6 +83,7 @@ We want to enable interrupt service routines to execute a range of user-defined 
 
     <center>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/8QVZNDuu69k?si=qY90STCOwS66JcOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br>
     Video Credit: C26 Peter Choi, Royal Military College of Canada
     </center>
     <br>
