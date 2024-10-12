@@ -60,11 +60,10 @@ We want to enable interrupt service routines to execute a range of user-defined 
 1. Demo `Program13_2` as shown in the video below. Use motor functions defined in `Motor.c` to maneuver the robot and ensure you run at least one iteration in the while loop. Note: Unlike in the video, this year you don't need to press the bump sensors to transition to the next motor function. 
 
     <center>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/jMpPHZ5NVKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/qjLGzcN1ncY?si=OrHY9CHkix2kSkfF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    Video Credit: C26 Peter Choi, Royal Military College of Canada
     </center>
     <br>
-
-
 
 ### Write functions in Lab13_Timersmain.c
 
