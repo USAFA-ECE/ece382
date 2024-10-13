@@ -89,7 +89,7 @@ You know $f(g(x))$ is the same as $y=g(x)$ followed by $f(y)$.
 1. Complete the implementation of `Program14_3()`.
 1. Initial Test (without Bump Sensor Interrupts): Test `Program14_3()` without enabling the bump sensor edge-triggered interrupts. The robot should cycle through the three motor commands indefinitely.
 1. Implement Collision Handling: Next, implement the `Collision` function and test the bump sensors. When a bump sensor is triggered, the robot must stop and restart the set of commands, beginning with `Motor_Backward`.
-1. Final Demo: For the final demonstration, ensure `Program14_3` runs the following sequence of commands: `Motor_Backward`, `Motor_TurnRight`, `Motor_Forward`, and `Motor_TurnLeft`. Upon detecting a collision, the robot should stop and restart the sequence from the beginning.
+1. Final Demo: For the final demonstration, ensure `Program14_3` runs the following sequence of commands: `Motor_Backward`, `Motor_TurnRight`, `Motor_Forward`, and `Motor_TurnLeft`. Upon detecting a collision, the robot should stop and restart the sequence from the beginning. During the demo, explain what you are demonstrating. 
 
 
 <center>
@@ -108,7 +108,7 @@ Video Credit: C25 Kaitlyn Grimm
 
 
 ### Deliverable 2 
-- **[6 Points]** Demo `Program14_3()` running a simple set of commands - `Motor_Backward()`, `Motor_TurnRight()`,  `Motor_Forward()`, and `Motor_TurnLeft`. On a collision, the robot must stop and restart the set of commands. 
+- **[6 Points]** Demo `Program14_3()` running a simple set of commands - `Motor_Backward()`, `Motor_TurnRight()`,  `Motor_Forward()`, and `Motor_TurnLeft`. On a collision, the robot must stop and restart the set of commands. During the demo, explain what you are demonstrating.  
 
 ### Deliverable 3 
 - **[7.5 Points]** Push your code to your repository using git. Write comments in your code.
