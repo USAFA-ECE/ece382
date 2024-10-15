@@ -37,6 +37,10 @@ The third objective involves utilizing the second input of the encoder to determ
 
 ## 💻 Procedure
 
+### Setup
+1. If you haven't already, download `TimerA2.c` from Teams > General > Files > Class Materials > SourceFiles. Move it to the `inc` folder to replace the existing file with the same name.
+1. Download `Lab16_Tachmain.c` from the same location. Move it to the `Lab16_Tach` folder to replace the existing file.
+
 
 ### Complete functions in `TA3InputCapture.c`.
 
@@ -72,81 +76,68 @@ You should understand the code inside the `main()` function in every module. For
 
 ### Graph duty cycle versus actual speed.
 
-- `Program16_1()` stores the speed of each motor and their corresponding duty cycles in the following buffers. 
+1. `Program16_1()` stores the speed of each motor and their corresponding duty cycles in the following buffers. 
 
-```C
-uint16_t PeriodBufferR[BUFFER_SIZE];    // to store right period
-uint16_t PeriodBufferL[BUFFER_SIZE];    // to store left period
-uint16_t SpeedBufferR[BUFFER_SIZE];     // to store right speed
-uint16_t SpeedBufferL[BUFFER_SIZE];     // to store left speed
-uint16_t DutyBuffer[BUFFER_SIZE];       // to store duty cycles
-```
+    ```C
+    uint16_t SpeedBufferL[BUFFER_SIZE];     // Buffer to store left motor speed data
+    uint16_t SpeedBufferR[BUFFER_SIZE];     // Buffer to store right motor speed data
+    uint16_t DistanceBufferL[BUFFER_SIZE];  // Buffer to store left motor distance data
+    uint16_t DistanceBufferR[BUFFER_SIZE];  // Buffer to store right motor distance data
+    uint16_t DutyBuffer[BUFFER_SIZE];       // Buffer to store duty cycle values
+    ```
 
-- Upon completion of of `Program16_1`, the LCD will display an option to transmit the data stored in the buffers, as illustrated below.
+1. Upon completion of of `Program16_1`, the LCD will display an option to transmit the data stored in the buffers, as illustrated below.
 
-```{image} ./figures/Lab16_TxBuffer.png
-:width: 300
-:align: center
-```
+    ```{image} ./figures/Lab16_TxBuffer.png
+    :width: 300
+    :align: center
+    ```
+    <br>
+
+1. Press the left switch to select "Y" (yes), but do not press any bump switch yet.
+1. Connect the USB cable to the robot and open a serial terminal, following the steps outlined in [Lab 11](lab11-uart).
+1. When you're ready to transmit data to the serial terminal, press one of the bump switches. The data will be transmitted as shown below. 
+
+    ```{image} ./figures/Lab16_SerialTerminal.gif
+    :width: 700
+    :align: center
+    ```
+    <br>
+
+1. Once the data transmission is finished, the LCD will indicate `TX is Done`.
+1. In the serial terminal, select the entire data, excluding the header, which reads ***Receiving buffer data***.
+1. Copy the selected data and save it as a text file with a .txt extension or as a comma-separated value (CSV) file with a .csv extension.
+1. Use a software tool of your choice to create plots for the duty cycle in percent, timer periods, and actual speeds in rpm, using data from the `PeriodBuffer`, `SpeedBuffer`, and `DutyBuffer` arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a> used for Lab 15 
+
 <br>
 
-- Press the left switch to select "Y" (yes), but do not press any bump switch yet.
-- Connect the USB cable to the robot and open a serial terminal, following the steps outlined in [Lab 11](lab11-uart).
-- When you're ready to transmit data to the serial terminal, press one of the bump switches. The data will be transmitted as shown below. 
-
-```{image} ./figures/Lab16_SerialTerminal.gif
-:width: 700
-:align: center
-```
-<br>
-
-- Once the data transmission is finished, the LCD will indicate `TX is Done`.
-- In the serial terminal, select the entire data, excluding the header, which reads ***Receiving buffer data***.
-- Copy the selected data and save it as a text file with a .txt extension or as a comma-separated value (CSV) file with a .csv extension.
-- Use a software tool of your choice to create plots for the duty cycle in percent, timer periods, and actual speeds in rpm, using data from the `PeriodBuffer`, `SpeedBuffer`, and `DutyBuffer` arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a> used for Lab 15 
-
-<br>
-
-It is crucial to emphasize that data-driven analyses play a vital role in engineering and scientific endeavors. While videos and images may be useful for showcasing, they should not replace essential elements in engineering experiments. Gathering measurements, creating informative plots, and conducting thorough analyses will be integral to your final presentations and reports
+It is crucial to emphasize that data-driven analyses are fundamental in engineering and scientific endeavors. While videos and images can be helpful for showcasing work, they should never replace the core elements of engineering experiments. Collecting accurate measurements, creating informative plots, and conducting comprehensive analyses will be essential to your final presentations and reports.
 
 ```{caution}
-Full credit will only be awarded if the figures have **_correct labels and units_**.
+**_Full credit will only be awarded if the figures include correct labels and units_**. You must use standard units. Units such as permille or 10 ms are not considered standard, whereas RPM, percent, and milliseconds are acceptable.
 ```
-- Ensure that the first column of the data represents time in **10-millisecond intervals**; "1" signifies 10ms, and "2" signifies 20ms.
-- Label your axes with appropriate units, e.g., `time (seconds)`. Convert the time data from 10ms to seconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.
-- Represent the duty cycle in `percentage` rather than `permyriad`.
-- Express the speed in rpm, radians per second (RPM) and include the relevant units in your plots.
-- Examples of incorrectly labeled plots include, but are not limited to, the following.
 
-```{image} ./figures/Lab16_plot_duty_incorrect.png
-:width: 360
-:align: center
-```
-<br>
+1. Ensure that the first column of the data represents time in **10-millisecond intervals**; "1" signifies 10ms, and "2" signifies 20ms.
+1. Label your axes with appropriate units, e.g., `time (seconds)`. Convert the time data from 10ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.
+1. Represent the duty cycle in `percentage` rather than `permille`.
+1. Express the speed in rpm, radians per second (RPM) and include the relevant units in your plots.
+1. Examples of incorrectly labeled plots include, but are not limited to, the following.
 
-- The y-axis is incorrect in this plot; it lacks units, and the standard unit for duty cycle is percent.
+    ```{image} ./figures/Lab16_plot_duty_incorrect.png
+    :width: 360
+    :align: center
+    ```
+    <br>
 
-<br>
+1. The y-axis in this plot is incorrect; it lacks units, and the correct standard unit for the duty cycle is percent.
 
-```{image} ./figures/Lab16_plot_time_incorrect.png
-:width: 360
-:align: center
-```
-<br>
-
-- The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed in 50 milliseconds.
-
-<br>
-
-The component block diagram of this part is shown below. 
-
-```{image} ./figures/Lab16_ComponentBlockDiagram1.png
-:width: 760
-:align: center
-```
-<br>
-
-- Submit the following plots on Gradescope.
+    ```{image} ./figures/Lab16_plot_time_incorrect.png
+    :width: 360
+    :align: center
+    ```
+    <br>
+1. The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering. 
+1. Submit the following plots on Gradescope.
     - Periods vs. time
     - Speeds vs. time
     - Duty cycle vs. time
@@ -182,10 +173,10 @@ The component block diagram of this part is shown below.
 </center>
 <br>
 
-### Drive the robot in a square (3 Bonus Point).
+### Finite State Machine
 
 ```{note}
-Although this part is not required for Lab 16, it will be part of the final project. This part is basically an Early-Bird bonus for the final project.
+This part is the foundation of Deliverable 1 of the final project.
 ```
 
 - Complete `Program16_3` to drive the robot in the maze.
