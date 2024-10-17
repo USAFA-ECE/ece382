@@ -387,11 +387,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-in-ta3inputcapture-c">Complete functions in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program16-1">Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-duty-cycle-versus-actual-speed">Graph duty cycle versus actual speed.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-for-program16-2">Complete functions for <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code>.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drive-the-robot-in-a-square-3-bonus-point">Drive the robot in a square (3 Bonus Point).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-state-machine">Finite State Machine</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
@@ -444,6 +445,13 @@ document.write(`
 </section>
 <section id="procedure">
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>If you haven’t already, download <code class="docutils literal notranslate"><span class="pre">TimerA2.c</span></code> from Teams &gt; General &gt; Files &gt; Class Materials &gt; SourceFiles. Move it to the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder to replace the existing file with the same name.</p></li>
+<li><p>Download <code class="docutils literal notranslate"><span class="pre">Lab16_Tachmain.c</span></code> from the same location. Move it to the <code class="docutils literal notranslate"><span class="pre">Lab16_Tach</span></code> folder to replace the existing file.</p></li>
+</ol>
+</section>
 <section id="complete-functions-in-ta3inputcapture-c">
 <h3>Complete functions in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.<a class="headerlink" href="#complete-functions-in-ta3inputcapture-c" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
@@ -475,71 +483,59 @@ document.write(`
 </section>
 <section id="graph-duty-cycle-versus-actual-speed">
 <h3>Graph duty cycle versus actual speed.<a class="headerlink" href="#graph-duty-cycle-versus-actual-speed" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> stores the speed of each motor and their corresponding duty cycles in the following buffers.</p></li>
-</ul>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">PeriodBufferR</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">    </span><span class="c1">// to store right period</span>
-<span class="kt">uint16_t</span><span class="w"> </span><span class="n">PeriodBufferL</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">    </span><span class="c1">// to store left period</span>
-<span class="kt">uint16_t</span><span class="w"> </span><span class="n">SpeedBufferR</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">     </span><span class="c1">// to store right speed</span>
-<span class="kt">uint16_t</span><span class="w"> </span><span class="n">SpeedBufferL</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">     </span><span class="c1">// to store left speed</span>
-<span class="kt">uint16_t</span><span class="w"> </span><span class="n">DutyBuffer</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">       </span><span class="c1">// to store duty cycles</span>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> stores the speed of each motor and their corresponding duty cycles in the following buffers.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">SpeedBufferL</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">     </span><span class="c1">// Buffer to store left motor speed data</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">SpeedBufferR</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">     </span><span class="c1">// Buffer to store right motor speed data</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">DistanceBufferL</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">  </span><span class="c1">// Buffer to store left motor distance data</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">DistanceBufferR</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">  </span><span class="c1">// Buffer to store right motor distance data</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">DutyBuffer</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span><span class="w">       </span><span class="c1">// Buffer to store duty cycle values</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Upon completion of of <code class="docutils literal notranslate"><span class="pre">Program16_1</span></code>, the LCD will display an option to transmit the data stored in the buffers, as illustrated below.</p></li>
-</ul>
+</li>
+<li><p>Upon completion of of <code class="docutils literal notranslate"><span class="pre">Program16_1</span></code>, the LCD will display an option to transmit the data stored in the buffers, as illustrated below.</p>
 <a class="reference internal image-reference" href="../_images/Lab16_TxBuffer.png"><img alt="../_images/Lab16_TxBuffer.png" class="align-center" src="../_images/Lab16_TxBuffer.png" style="width: 300px;" /></a>
-<br>
-<ul class="simple">
+ <br>
+</li>
 <li><p>Press the left switch to select “Y” (yes), but do not press any bump switch yet.</p></li>
 <li><p>Connect the USB cable to the robot and open a serial terminal, following the steps outlined in <a class="reference internal" href="lab11.html#lab11-uart"><span class="std std-ref">Lab 11</span></a>.</p></li>
-<li><p>When you’re ready to transmit data to the serial terminal, press one of the bump switches. The data will be transmitted as shown below.</p></li>
-</ul>
+<li><p>When you’re ready to transmit data to the serial terminal, press one of the bump switches. The data will be transmitted as shown below.</p>
 <a class="reference internal image-reference" href="../_images/Lab16_SerialTerminal.gif"><img alt="../_images/Lab16_SerialTerminal.gif" class="align-center" src="../_images/Lab16_SerialTerminal.gif" style="width: 700px;" /></a>
-<br>
-<ul class="simple">
+ <br>
+</li>
 <li><p>Once the data transmission is finished, the LCD will indicate <code class="docutils literal notranslate"><span class="pre">TX</span> <span class="pre">is</span> <span class="pre">Done</span></code>.</p></li>
 <li><p>In the serial terminal, select the entire data, excluding the header, which reads <em><strong>Receiving buffer data</strong></em>.</p></li>
 <li><p>Copy the selected data and save it as a text file with a .txt extension or as a comma-separated value (CSV) file with a .csv extension.</p></li>
 <li><p>Use a software tool of your choice to create plots for the duty cycle in percent, timer periods, and actual speeds in rpm, using data from the <code class="docutils literal notranslate"><span class="pre">PeriodBuffer</span></code>, <code class="docutils literal notranslate"><span class="pre">SpeedBuffer</span></code>, and <code class="docutils literal notranslate"><span class="pre">DutyBuffer</span></code> arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a> used for Lab 15</p></li>
-</ul>
+</ol>
 <br>
-<p>It is crucial to emphasize that data-driven analyses play a vital role in engineering and scientific endeavors. While videos and images may be useful for showcasing, they should not replace essential elements in engineering experiments. Gathering measurements, creating informative plots, and conducting thorough analyses will be integral to your final presentations and reports</p>
+<p>It is crucial to emphasize that data-driven analyses are fundamental in engineering and scientific endeavors. While videos and images can be helpful for showcasing work, they should never replace the core elements of engineering experiments. Collecting accurate measurements, creating informative plots, and conducting comprehensive analyses will be essential to your final presentations and reports.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Full credit will only be awarded if the figures have <strong><em>correct labels and units</em></strong>.</p>
+<p><strong><em>Full credit will only be awarded if the figures include correct labels and units</em></strong>. You must use standard units. Units such as permille or 10 ms are not considered standard, whereas RPM, percent, and milliseconds are acceptable.</p>
 </div>
-<ul class="simple">
+<ol class="arabic">
 <li><p>Ensure that the first column of the data represents time in <strong>10-millisecond intervals</strong>; “1” signifies 10ms, and “2” signifies 20ms.</p></li>
-<li><p>Label your axes with appropriate units, e.g., <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(seconds)</span></code>. Convert the time data from 10ms to seconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.</p></li>
-<li><p>Represent the duty cycle in <code class="docutils literal notranslate"><span class="pre">percentage</span></code> rather than <code class="docutils literal notranslate"><span class="pre">permyriad</span></code>.</p></li>
+<li><p>Label your axes with appropriate units, e.g., <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(seconds)</span></code>. Convert the time data from 10ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.</p></li>
+<li><p>Represent the duty cycle in <code class="docutils literal notranslate"><span class="pre">percentage</span></code> rather than <code class="docutils literal notranslate"><span class="pre">permille</span></code>.</p></li>
 <li><p>Express the speed in rpm, radians per second (RPM) and include the relevant units in your plots.</p></li>
-<li><p>Examples of incorrectly labeled plots include, but are not limited to, the following.</p></li>
-</ul>
+<li><p>Examples of incorrectly labeled plots include, but are not limited to, the following.</p>
 <a class="reference internal image-reference" href="../_images/Lab16_plot_duty_incorrect.png"><img alt="../_images/Lab16_plot_duty_incorrect.png" class="align-center" src="../_images/Lab16_plot_duty_incorrect.png" style="width: 360px;" /></a>
-<br>
-<ul class="simple">
-<li><p>The y-axis is incorrect in this plot; it lacks units, and the standard unit for duty cycle is percent.</p></li>
-</ul>
-<br>
+ <br>
+</li>
+<li><p>The y-axis in this plot is incorrect; it lacks units, and the correct standard unit for the duty cycle is percent.</p>
 <a class="reference internal image-reference" href="../_images/Lab16_plot_time_incorrect.png"><img alt="../_images/Lab16_plot_time_incorrect.png" class="align-center" src="../_images/Lab16_plot_time_incorrect.png" style="width: 360px;" /></a>
-<br>
-<ul class="simple">
-<li><p>The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed in 50 milliseconds.</p></li>
-</ul>
-<br>
-<p>The component block diagram of this part is shown below.</p>
-<a class="reference internal image-reference" href="../_images/Lab16_ComponentBlockDiagram1.png"><img alt="../_images/Lab16_ComponentBlockDiagram1.png" class="align-center" src="../_images/Lab16_ComponentBlockDiagram1.png" style="width: 760px;" /></a>
-<br>
-<ul class="simple">
+ <br>
+</li>
+<li><p>The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering.</p></li>
 <li><p>Submit the following plots on Gradescope.</p>
-<ul>
+<ul class="simple">
 <li><p>Periods vs. time</p></li>
 <li><p>Speeds vs. time</p></li>
 <li><p>Duty cycle vs. time</p></li>
 </ul>
 </li>
-</ul>
+</ol>
 </section>
 <section id="complete-functions-for-program16-2">
 <h3>Complete functions for <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code>.<a class="headerlink" href="#complete-functions-for-program16-2" title="Permalink to this heading">#</a></h3>
@@ -580,11 +576,11 @@ document.write(`
 </center>
 <br>
 </section>
-<section id="drive-the-robot-in-a-square-3-bonus-point">
-<h3>Drive the robot in a square (3 Bonus Point).<a class="headerlink" href="#drive-the-robot-in-a-square-3-bonus-point" title="Permalink to this heading">#</a></h3>
+<section id="finite-state-machine">
+<h3>Finite State Machine<a class="headerlink" href="#finite-state-machine" title="Permalink to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Although this part is not required for Lab 16, it will be part of the final project. This part is basically an Early-Bird bonus for the final project.</p>
+<p>This part is the foundation of Deliverable 1 of the final project.</p>
 </div>
 <ul class="simple">
 <li><p>Complete <code class="docutils literal notranslate"><span class="pre">Program16_3</span></code> to drive the robot in the maze.</p></li>
@@ -709,11 +705,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-in-ta3inputcapture-c">Complete functions in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program16-1">Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-duty-cycle-versus-actual-speed">Graph duty cycle versus actual speed.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-for-program16-2">Complete functions for <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code>.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drive-the-robot-in-a-square-3-bonus-point">Drive the robot in a square (3 Bonus Point).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-state-machine">Finite State Machine</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">🚚 Deliverables</a><ul class="nav section-nav flex-column">
