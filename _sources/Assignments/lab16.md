@@ -188,14 +188,8 @@ This part is the foundation of Deliverable 1 of the final project.
 - Demo `Program16_3` to showcase the robot's maze navigation.
 
 
-```{image} ./figures/Lab14_DriveInMaze.png
-:width: 460
-:align: center
-```
 <br>
-
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9sA1o86J1-w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9AU9-E0leFA?si=xeDwPTWQhSXg2xSZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 <br>
 
