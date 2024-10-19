@@ -156,15 +156,19 @@ This part is the foundation of Deliverable 1 of the final project.
     :align: center
     ```
     <br>
-    - The initial state is **Forward**. 
-    - If **Bump3** or **Bump4** is triggered, move backward by 700 mm, make a 90$^\circ$ left turn, and then move forward. 
-    - If **Bump1** is triggered, make a 30° left turn, then move forward. 
-    - If **Bump2** is triggered, make a 60° left turn, then move forward. 
-    - If **Bump5** is triggered, make a 60° right turn, then move forward. 
-    - If **Bump6** is triggered, make a 30° right turn, then move forward. 
-    - If no bump is triggered while in the Forward state, move forward for 700 mm and then stop. 
-    - If any bump is triggered in a state other than **Forward*, ignore it.
+    
+    - FRWD_DIST = 700 mm.
+    - BKWD_DIST = 90 mm.
+    - TR_DIST refers to the displacement for a 30$^\circ$, 60$^\circ$, or 90$^\circ$ turn depending on the bump switch triggered. 
 
+1. Start in the **Forward** state. 
+1. If **Bump3** or **Bump4** is triggered, move backward 700 mm, make a 90$^\circ$ left turn, and then move forward. 
+1. If **Bump1** is triggered, make a 30° left turn, then move forward. 
+1. If **Bump2** is triggered, make a 60° left turn, then move forward. 
+1. If **Bump5** is triggered, make a 60° right turn, then move forward. 
+1. If **Bump6** is triggered, make a 30° right turn, then move forward. 
+1. If no bump switch is triggered while in the **Forward** state, move forward for 700 mm and then stop. 
+1. Ignore any bump triggers in states other than **Forward**, 
 1. Demo `Program16_3` to showcase the finite state machine by running your robot on the floor. 
 
 <br>

@@ -545,15 +545,20 @@ document.write(`
 <li><p>Complete <code class="docutils literal notranslate"><span class="pre">Controller3</span></code> to impletement the finite state machine as shown below.</p>
 <a class="reference internal image-reference" href="../_images/Lab16_FSM.png"><img alt="../_images/Lab16_FSM.png" class="align-center" src="../_images/Lab16_FSM.png" style="width: 380px;" /></a>
  <br>
- - The initial state is **Forward**. 
- - If **Bump3** or **Bump4** is triggered, move backward by 700 mm, make a 90$^\circ$ left turn, and then move forward. 
- - If **Bump1** is triggered, make a 30° left turn, then move forward. 
- - If **Bump2** is triggered, make a 60° left turn, then move forward. 
- - If **Bump5** is triggered, make a 60° right turn, then move forward. 
- - If **Bump6** is triggered, make a 30° right turn, then move forward. 
- - If no bump is triggered while in the Forward state, move forward for 700 mm and then stop. 
- - If any bump is triggered in a state other than **Forward*, ignore it.
+<ul class="simple">
+<li><p>FRWD_DIST = 700 mm.</p></li>
+<li><p>BKWD_DIST = 90 mm.</p></li>
+<li><p>TR_DIST refers to the displacement for a 30<span class="math notranslate nohighlight">\(^\circ\)</span>, 60<span class="math notranslate nohighlight">\(^\circ\)</span>, or 90<span class="math notranslate nohighlight">\(^\circ\)</span> turn depending on the bump switch triggered.</p></li>
+</ul>
 </li>
+<li><p>Start in the <strong>Forward</strong> state.</p></li>
+<li><p>If <strong>Bump3</strong> or <strong>Bump4</strong> is triggered, move backward 700 mm, make a 90<span class="math notranslate nohighlight">\(^\circ\)</span> left turn, and then move forward.</p></li>
+<li><p>If <strong>Bump1</strong> is triggered, make a 30° left turn, then move forward.</p></li>
+<li><p>If <strong>Bump2</strong> is triggered, make a 60° left turn, then move forward.</p></li>
+<li><p>If <strong>Bump5</strong> is triggered, make a 60° right turn, then move forward.</p></li>
+<li><p>If <strong>Bump6</strong> is triggered, make a 30° right turn, then move forward.</p></li>
+<li><p>If no bump switch is triggered while in the <strong>Forward</strong> state, move forward for 700 mm and then stop.</p></li>
+<li><p>Ignore any bump triggers in states other than <strong>Forward</strong>,</p></li>
 <li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program16_3</span></code> to showcase the finite state machine by running your robot on the floor.</p></li>
 </ol>
 <br>
