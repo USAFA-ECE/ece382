@@ -391,7 +391,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-in-ta3inputcapture-c">Complete functions in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program16-1">Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-duty-cycle-versus-actual-speed">Graph duty cycle versus actual speed.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-for-program16-2">Complete functions for <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-state-machine">Finite State Machine</a></li>
 </ul>
 </li>
@@ -400,7 +399,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2">Deliverable 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4">Deliverable 4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-5">Deliverable 5</a></li>
 </ul>
 </li>
 </ul>
@@ -537,61 +535,29 @@ document.write(`
 </li>
 </ol>
 </section>
-<section id="complete-functions-for-program16-2">
-<h3>Complete functions for <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code>.<a class="headerlink" href="#complete-functions-for-program16-2" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Thoroughly review the <code class="docutils literal notranslate"><span class="pre">Tachometer.c</span></code> and <code class="docutils literal notranslate"><span class="pre">Tachometer.h</span></code> files.</p></li>
-<li><p>Examine the following functions closely. It’s crucial to understand how the semaphore, <code class="docutils literal notranslate"><span class="pre">IsControllerEnabled</span></code>, is utilized across multiple functions:</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">average()</span></code>:</p>
-<ul>
-<li><p>This function calculates the average of a specific number of recent tachometer readings stored in an array.</p></li>
-<li><p>This function is already implemented for you.</p></li>
-</ul>
-</li>
-<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">UpdateParameters()</span></code> function:</p>
-<ul>
-<li><p>Use the two switches to increment the desired speed of each wheel by 10 rpm (sw1 - right and sw2 - left), rolling over if the maximum value is reached.</p></li>
-<li><p>Utilize the provided comments to complete the code inside the while loop.</p></li>
-</ul>
-</li>
-<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Controller()</span></code> function:</p>
-<ul>
-<li><p>Create a basic controller that adjusts the speed of the wheels to get closer to the desired speed.</p></li>
-<li><p>Refer to the comments for guidance.</p></li>
-</ul>
-</li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code> to showcase the following:</p>
-<ul>
-<li><p>The ability to increase the desired speed of the wheels using the switches and display both the actual and desired speeds as well as the distance traveled on the LCD.</p></li>
-<li><p>Show that both wheels run at 50 rpm and then increase to 100 rpm. Introduce slight friction to one wheel to demonstrate that the speed controller maintains the desired speed.</p></li>
-<li><p>Show that the desired speeds roll over when the maximum value is reached.</p></li>
-</ul>
-</li>
-</ul>
-<p>The component block diagram of this part is shown below.</p>
-<a class="reference internal image-reference" href="../_images/Lab16_ComponentBlockDiagram2.png"><img alt="../_images/Lab16_ComponentBlockDiagram2.png" class="align-center" src="../_images/Lab16_ComponentBlockDiagram2.png" style="width: 760px;" /></a>
-<br>
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RfeW7urILWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-<br>
-</section>
 <section id="finite-state-machine">
 <h3>Finite State Machine<a class="headerlink" href="#finite-state-machine" title="Permalink to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This part is the foundation of Deliverable 1 of the final project.</p>
 </div>
-<ul class="simple">
-<li><p>Complete <code class="docutils literal notranslate"><span class="pre">Program16_3</span></code> to drive the robot in the maze.</p></li>
-<li><p>Adjust wheel speeds as needed to ensure both wheels travel at the same speed.</p></li>
-<li><p>Start the robot anywhere behind the start line, as indicated in the figure below.</p></li>
-<li><p>You are not allowed to intentionally bump into the walls to decide when to turn (cannot do the bump-n-turn algorithm).</p></li>
-<li><p>Your turning decision should depend solely on the distance traveled.</p></li>
-<li><p>Ensure the robot stops before reaching the wall at the goal.</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program16_3</span></code> to showcase the robot’s maze navigation.</p></li>
-</ul>
+<ol class="arabic">
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">Controller3</span></code> to impletement the finite state machine as shown below.</p>
+<a class="reference internal image-reference" href="../_images/Lab16_FSM.png"><img alt="../_images/Lab16_FSM.png" class="align-center" src="../_images/Lab16_FSM.png" style="width: 380px;" /></a>
+ <br>
+ - The initial state is **Forward**. 
+ - If **Bump3** or **Bump4** is triggered, move backward by 700 mm, make a 90$^\circ$ left turn, and then move forward. 
+ - If **Bump1** is triggered, make a 30° left turn, then move forward. 
+ - If **Bump2** is triggered, make a 60° left turn, then move forward. 
+ - If **Bump5** is triggered, make a 60° right turn, then move forward. 
+ - If **Bump6** is triggered, make a 30° right turn, then move forward. 
+ - If no bump is triggered while in the Forward state, move forward for 700 mm and then stop. 
+ - If any bump is triggered in a state other than **Forward*, ignore it.
+</li>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program16_3</span></code> to showcase the finite state machine by running your robot on the floor.</p></li>
+</ol>
 <br>
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9AU9-E0leFA?si=xeDwPTWQhSXg2xSZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 <br>
@@ -602,31 +568,25 @@ document.write(`
 <section id="deliverable-1">
 <h3>Deliverable 1<a class="headerlink" href="#deliverable-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[5 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> running at the speeds of 25%, 50%, 75%, 100%, and then return to 25%.</p></li>
+<li><p><strong>[9 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> running at the speeds of 25%, 50%, 75%, 100%, and then return to 25%.</p></li>
 </ul>
 </section>
 <section id="deliverable-2">
 <h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[5 points]</strong> Use a software tool of your choice to create plots for the <code class="docutils literal notranslate"><span class="pre">duty</span> <span class="pre">cycle</span> <span class="pre">in</span> <span class="pre">percent</span></code>, <code class="docutils literal notranslate"><span class="pre">timer</span> <span class="pre">periods</span> <span class="pre">in</span> <span class="pre">microsecond</span></code>, and <code class="docutils literal notranslate"><span class="pre">actual</span> <span class="pre">speeds</span> <span class="pre">in</span> <span class="pre">rpm</span></code>. Submit your three plots in Gradescope.</p></li>
+<li><p><strong>[8 points]</strong> Use a software tool of your choice to create plots for the <code class="docutils literal notranslate"><span class="pre">duty</span> <span class="pre">cycle</span> <span class="pre">in</span> <span class="pre">percent</span></code>, <code class="docutils literal notranslate"><span class="pre">timer</span> <span class="pre">periods</span> <span class="pre">in</span> <span class="pre">microsecond</span></code>, and <code class="docutils literal notranslate"><span class="pre">actual</span> <span class="pre">speeds</span> <span class="pre">in</span> <span class="pre">rpm</span></code>. Submit your three plots in Gradescope.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">
 <h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[5 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program16_2()</span></code> with operational switches and LCD. The actual wheel speeds must reach the desired wheel speeds.</p></li>
+<li><p><strong>[9 Points]</strong> Demo <code class="docutils literal notranslate"><span class="pre">Program16_3()</span></code> to showcase the finite state machine by running your robot on the floor.</p></li>
 </ul>
 </section>
 <section id="deliverable-4">
 <h3>Deliverable 4<a class="headerlink" href="#deliverable-4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[3 Bonus Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program16_3()</span></code> driving the robot in the maze.</p></li>
-</ul>
-</section>
-<section id="deliverable-5">
-<h3>Deliverable 5<a class="headerlink" href="#deliverable-5" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>[4.5 Points]</strong> Ensure that you provide comments in your code for clarity and push your code to your repository using git.</p></li>
+<li><p><strong>[8.5 Points]</strong> Ensure that you provide comments in your code for clarity and push your code to your repository using git.</p></li>
 </ul>
 <p>This lab was originally adapted from the <a class="reference external" href="https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum">TI-RSLK MAX Solderless Maze Edition Curriculum</a> and has since been significantly modified.</p>
 </section>
@@ -707,7 +667,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-in-ta3inputcapture-c">Complete functions in <code class="docutils literal notranslate"><span class="pre">TA3InputCapture.c</span></code>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-program16-1">Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-duty-cycle-versus-actual-speed">Graph duty cycle versus actual speed.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-functions-for-program16-2">Complete functions for <code class="docutils literal notranslate"><span class="pre">Program16_2</span></code>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-state-machine">Finite State Machine</a></li>
 </ul>
 </li>
@@ -716,7 +675,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-2">Deliverable 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-3">Deliverable 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-4">Deliverable 4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverable-5">Deliverable 5</a></li>
 </ul>
 </li>
 </ul>

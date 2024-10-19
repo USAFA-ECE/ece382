@@ -142,36 +142,6 @@ It is crucial to emphasize that data-driven analyses are fundamental in engineer
     - Speeds vs. time
     - Duty cycle vs. time
 
-### Complete functions for `Program16_2`.
-
-- Thoroughly review the `Tachometer.c` and `Tachometer.h` files.
-- Examine the following functions closely. It's crucial to understand how the semaphore, `IsControllerEnabled`, is utilized across multiple functions:
-- `average()`:
-    - This function calculates the average of a specific number of recent tachometer readings stored in an array.
-    - This function is already implemented for you.
-- Complete the `UpdateParameters()` function:
-    - Use the two switches to increment the desired speed of each wheel by 10 rpm (sw1 - right and sw2 - left), rolling over if the maximum value is reached. 
-    - Utilize the provided comments to complete the code inside the while loop.
-- Complete the `Controller()` function:
-    - Create a basic controller that adjusts the speed of the wheels to get closer to the desired speed. 
-    - Refer to the comments for guidance.
-- Demo `Program16_2` to showcase the following:
-    - The ability to increase the desired speed of the wheels using the switches and display both the actual and desired speeds as well as the distance traveled on the LCD.
-    - Show that both wheels run at 50 rpm and then increase to 100 rpm. Introduce slight friction to one wheel to demonstrate that the speed controller maintains the desired speed.
-    - Show that the desired speeds roll over when the maximum value is reached.
-
-The component block diagram of this part is shown below.
-
-```{image} ./figures/Lab16_ComponentBlockDiagram2.png
-:width: 760
-:align: center
-```
-<br>
-
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RfeW7urILWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-<br>
 
 ### Finite State Machine
 
@@ -179,16 +149,26 @@ The component block diagram of this part is shown below.
 This part is the foundation of Deliverable 1 of the final project.
 ```
 
-- Complete `Program16_3` to drive the robot in the maze.
-- Adjust wheel speeds as needed to ensure both wheels travel at the same speed.
-- Start the robot anywhere behind the start line, as indicated in the figure below.
-- You are not allowed to intentionally bump into the walls to decide when to turn (cannot do the bump-n-turn algorithm).  
-- Your turning decision should depend solely on the distance traveled.
-- Ensure the robot stops before reaching the wall at the goal.
-- Demo `Program16_3` to showcase the robot's maze navigation.
+1. Complete `Controller3` to impletement the finite state machine as shown below.
 
+    ```{image} ./figures/Lab16_FSM.png
+    :width: 380
+    :align: center
+    ```
+    <br>
+    - The initial state is **Forward**. 
+    - If **Bump3** or **Bump4** is triggered, move backward by 700 mm, make a 90$^\circ$ left turn, and then move forward. 
+    - If **Bump1** is triggered, make a 30° left turn, then move forward. 
+    - If **Bump2** is triggered, make a 60° left turn, then move forward. 
+    - If **Bump5** is triggered, make a 60° right turn, then move forward. 
+    - If **Bump6** is triggered, make a 30° right turn, then move forward. 
+    - If no bump is triggered while in the Forward state, move forward for 700 mm and then stop. 
+    - If any bump is triggered in a state other than **Forward*, ignore it.
+
+1. Demo `Program16_3` to showcase the finite state machine by running your robot on the floor. 
 
 <br>
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9AU9-E0leFA?si=xeDwPTWQhSXg2xSZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 <br>
@@ -196,19 +176,16 @@ This part is the foundation of Deliverable 1 of the final project.
 ## 🚚 Deliverables
 
 ### Deliverable 1 
-- **[5 Points]** Demo `Program16_1()` running at the speeds of 25\%, 50\%, 75\%, 100\%, and then return to 25\%.   
+- **[9 Points]** Demo `Program16_1()` running at the speeds of 25\%, 50\%, 75\%, 100\%, and then return to 25\%.   
 
 ### Deliverable 2 
-- **[5 points]** Use a software tool of your choice to create plots for the `duty cycle in percent`, `timer periods in microsecond`, and `actual speeds in rpm`. Submit your three plots in Gradescope.
+- **[8 points]** Use a software tool of your choice to create plots for the `duty cycle in percent`, `timer periods in microsecond`, and `actual speeds in rpm`. Submit your three plots in Gradescope.
 
 ### Deliverable 3 
-- **[5 Points]** Demo `Program16_2()` with operational switches and LCD. The actual wheel speeds must reach the desired wheel speeds.  
+- **[9 Points]** Demo `Program16_3()` to showcase the finite state machine by running your robot on the floor. 
 
 ### Deliverable 4 
-- **[3 Bonus Points]**  Demo `Program16_3()` driving the robot in the maze. 
-
-### Deliverable 5 
-- **[4.5 Points]** Ensure that you provide comments in your code for clarity and push your code to your repository using git.
+- **[8.5 Points]** Ensure that you provide comments in your code for clarity and push your code to your repository using git.
 
 This lab was originally adapted from the [TI-RSLK MAX Solderless Maze Edition Curriculum](https://university.ti.com/en/faculty/ti-robotics-system-learning-kit/ti-rslk-max-edition-curriculum) and has since been significantly modified.
 

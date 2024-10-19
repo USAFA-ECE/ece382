@@ -87,7 +87,7 @@ You should understand the main code provided in every module. No such code will 
 ```
 
 - Finish the implementation of `LCDOut1()` in the `Lab15_ADCmain.c` file. 
-- Demo the functionality of `Program15_1()` by running it with raw digital sensor values as illustrated below. 
+- Demo the functionality of `Program15_1()` by running it with raw digital sensor values as illustrated below. **During the demo, explain what you are demonstrating.**
 - Disregard the distance values displayed on the LCD screen for this particular section.
 - **Note**: The distance sensors are powered by the chassis board.  
 
@@ -98,7 +98,9 @@ You should understand the main code provided in every module. No such code will 
 <br>
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oI-ZincragE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8BnModOwbXk?si=aQE_MIYDz41NCzyx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<br>
+Video Credit: C26 Peter Choi, Royal Military College of Canada
 </center>
 <br>
 
@@ -204,7 +206,7 @@ Please note that `Program15_2` focuses on testing corner cases. In the context o
 ## 🚚 Deliverables (2 extra points)
 
 ### Deliverable 1 
-- **[6 Points]** Demo `Program15_1()` to display raw ADC data on the LCD. Note that the distance values on the LCD are not valid at this stage. During the demo, explain what you are demonstrating. 
+- **[6 Points]** Demo `Program15_1()` to display raw ADC data on the LCD. Note that the distance values on the LCD are not valid at this stage. **During the demo, explain what you are demonstrating.** 
 
 ### Deliverable 2 
 - **[6 Points]** Calibrate your sensors. Submit three plots for your right, center, and left sensors. 
