@@ -200,6 +200,12 @@ Please note that `Program15_2` focuses on testing corner cases. In the context o
 - Complete the `LCDOut4()` function for displaying data on the LCD.
 - Use the maze in the lab to test a combination of seven "too close" cases and eight normal cases.
 - Demo `Program15_4()` displaying the classifications on the LCD. Your demo should include at least three error cases (where `enum scenario` is less than or equal to 7) and at least five non-error cases (where `enum scenario` is greater than 7).
+- Ensure the classifications are displayed in strings, not integers as shown below. You may use the StrScenario array provided in the code.
+
+    ```{image} ./figures/Lab15_Scenario.jpg
+    :width: 360
+    :align: center
+    ```
 - While a live demo is preferred, a video demo is also acceptable. If opting for a video demo, please **include your voice to clearly explain the classifications you are testing**.
 - Ensure that you provide comments in your code for clarity and push your code to your repository using git.
 
