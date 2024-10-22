@@ -113,7 +113,7 @@ For each IR sensor, you will empirically determine the two calibration constants
 ### Complete functions in `IRDistance.c`
 
 - Implement `LeftConvert()`, `RightConvert()`, and `CenterConvert()` in the `IRDistance.c` file.
-- You should have already determined the calibration coefficients, denoted as $n$ and $c, in the previous section.
+- You should have already determined the calibration coefficients, denoted as $m$ and $c$, in the previous section.
 - As discussed in the Synopsis section, these functions should return the actual distance, $L$, from **the center of the robot to the wall**.
 - Ensure that if the ADC value is less than the ADC value for 800 mm (e.g., 2244 as shown in the example on the calibration page), your function should return a distance of 800 mm.
 - Use integer values for all calculations in Code Composer Studio (CCS).
