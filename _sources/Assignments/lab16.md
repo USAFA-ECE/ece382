@@ -40,7 +40,7 @@ The third objective involves utilizing the second input of the encoder to determ
 ### Setup
 1. If you haven't already, download `TimerA2.c` from Teams > General > Files > Class Materials > SourceFiles. Move it to the `inc` folder to replace the existing file with the same name.
 1. Download `Lab16_Tachmain.c` from the same location. Move it to the `Lab16_Tach` folder to replace the existing file.
-
+1. Download `TA3InputCapture.[c,h]` and `Tachometer.[c,h]` from the same location. Move them to the `inc` folder to replace the existing file.
 
 ### Complete functions in `TA3InputCapture.c`.
 
