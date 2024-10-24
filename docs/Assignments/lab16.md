@@ -149,7 +149,7 @@ It is crucial to emphasize that data-driven analyses are fundamental in engineer
 This part is the foundation of Deliverable 1 of the final project.
 ```
 
-1. Complete `Controller3` to impletement the finite state machine as shown below.
+1. Complete `Controller3` to implement the finite state machine as shown below.
 
     ```{image} ./figures/Lab16_FSM.png
     :width: 380
@@ -162,7 +162,7 @@ This part is the foundation of Deliverable 1 of the final project.
     - TR_DIST refers to the displacement for a 30$^\circ$, 60$^\circ$, or 90$^\circ$ turn depending on the bump switch triggered. 
 
 1. Start in the **Forward** state. 
-1. If **Bump3** or **Bump4** is triggered, move backward 700 mm, make a 90$^\circ$ left turn, and then move forward. 
+1. If **Bump3** or **Bump4** is triggered, move backward 90 mm, make a 90$^\circ$ left turn, and then move forward. 
 1. If **Bump1** is triggered, make a 30° left turn, then move forward. 
 1. If **Bump2** is triggered, make a 60° left turn, then move forward. 
 1. If **Bump5** is triggered, make a 60° right turn, then move forward. 
