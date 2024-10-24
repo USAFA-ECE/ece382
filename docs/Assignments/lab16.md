@@ -118,9 +118,9 @@ It is crucial to emphasize that data-driven analyses are fundamental in engineer
 ```
 
 1. Ensure that the first column of the data represents time in **10-millisecond intervals**; "1" signifies 10ms, and "2" signifies 20ms.
-1. Label your axes with appropriate units, e.g., `time (seconds)`. Convert the time data from 10ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.
-1. Represent the duty cycle in `percentage` rather than `permille`.
-1. Express the speed in rpm, radians per second (RPM) and include the relevant units in your plots.
+1. Label your axes with appropriate units, e.g., `time (seconds)` or `time (ms)`. Convert the time data from 10ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). _**Note that 10ms is not a standard unit of time.**_ Therefore, it is essential to convert the time data into seconds (sec) or milliseconds (ms), and you should be familiar with the process of converting from 10ms to seconds (or ms).
+1. Represent the duty cycle in `percentage` rather than `permille` since `permille` is not a standard unit.
+1. Express the speed in rpm, radians per second (RPM).
 1. Examples of incorrectly labeled plots include, but are not limited to, the following.
 
     ```{image} ./figures/Lab16_plot_duty_incorrect.png
@@ -136,7 +136,8 @@ It is crucial to emphasize that data-driven analyses are fundamental in engineer
     :align: center
     ```
     <br>
-1. The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering. 
+1. The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering. You will be very likely to receive no credit for such a plot as it clearly demonstrates a fundamental misunderstanding of what the data represents. It's akin to claiming that the power efficiency in your analysis is 120% or -5% — an obvious and critical error.
+
 1. Submit the following plots on Gradescope.
     - Periods vs. time
     - Speeds vs. time
