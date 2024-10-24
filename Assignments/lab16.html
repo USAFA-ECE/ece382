@@ -515,9 +515,9 @@ document.write(`
 </div>
 <ol class="arabic">
 <li><p>Ensure that the first column of the data represents time in <strong>10-millisecond intervals</strong>; “1” signifies 10ms, and “2” signifies 20ms.</p></li>
-<li><p>Label your axes with appropriate units, e.g., <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(seconds)</span></code>. Convert the time data from 10ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.</p></li>
-<li><p>Represent the duty cycle in <code class="docutils literal notranslate"><span class="pre">percentage</span></code> rather than <code class="docutils literal notranslate"><span class="pre">permille</span></code>.</p></li>
-<li><p>Express the speed in rpm, radians per second (RPM) and include the relevant units in your plots.</p></li>
+<li><p>Label your axes with appropriate units, e.g., <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(seconds)</span></code> or <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(ms)</span></code>. Convert the time data from 10ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). <em><strong>Note that 10ms is not a standard unit of time.</strong></em> Therefore, it is essential to convert the time data into seconds (sec) or milliseconds (ms), and you should be familiar with the process of converting from 10ms to seconds (or ms).</p></li>
+<li><p>Represent the duty cycle in <code class="docutils literal notranslate"><span class="pre">percentage</span></code> rather than <code class="docutils literal notranslate"><span class="pre">permille</span></code> since <code class="docutils literal notranslate"><span class="pre">permille</span></code> is not a standard unit.</p></li>
+<li><p>Express the speed in rpm, radians per second (RPM).</p></li>
 <li><p>Examples of incorrectly labeled plots include, but are not limited to, the following.</p>
 <a class="reference internal image-reference" href="../_images/Lab16_plot_duty_incorrect.png"><img alt="../_images/Lab16_plot_duty_incorrect.png" class="align-center" src="../_images/Lab16_plot_duty_incorrect.png" style="width: 360px;" /></a>
  <br>
@@ -526,7 +526,7 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/Lab16_plot_time_incorrect.png"><img alt="../_images/Lab16_plot_time_incorrect.png" class="align-center" src="../_images/Lab16_plot_time_incorrect.png" style="width: 360px;" /></a>
  <br>
 </li>
-<li><p>The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering.</p></li>
+<li><p>The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering. You will be very likely to receive no credit for such a plot as it clearly demonstrates a fundamental misunderstanding of what the data represents.</p></li>
 <li><p>Submit the following plots on Gradescope.</p>
 <ul class="simple">
 <li><p>Periods vs. time</p></li>
