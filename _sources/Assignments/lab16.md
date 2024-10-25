@@ -109,7 +109,7 @@ Video Credit: C26 Peter Choi, Royal Military College of Canada
 1. Once the data transmission is finished, the LCD will indicate `TX is Done`.
 1. In the serial terminal, select the entire data, excluding the header, which reads ***Receiving buffer data***.
 1. Copy the selected data and save it as a text file with a .txt extension or as a comma-separated value (CSV) file with a .csv extension.
-1. Use a software tool of your choice to create plots for the duty cycle in percent, timer periods, and actual speeds in rpm, using data from the `SpeedBuffer`, `DistanceBuffer`, and `DutyBuffer` arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a> used for Lab 15 
+1. Use a software tool of your choice to create plots for the duty cycle in percent, speeds in rpm, and displacement in mm using data from the `SpeedBuffer`, `DistanceBuffer`, and `DutyBuffer` arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a> used for Lab 15 
 
 <br>
 
