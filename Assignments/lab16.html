@@ -470,15 +470,13 @@ document.write(`
 <ul class="simple">
 <li><p>Complete <code class="docutils literal notranslate"><span class="pre">LCDSpeed()</span></code> in the <code class="docutils literal notranslate"><span class="pre">Lab16_Tachmain.c</span></code> file. The LCD should display the left and right tachometer periods and the speeds of both wheels in RPM as shown below.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/Lab16_Tachometer.jpg"><img alt="../_images/Lab16_Tachometer.jpg" class="align-center" src="../_images/Lab16_Tachometer.jpg" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/Lab16_Tachometer.png"><img alt="../_images/Lab16_Tachometer.png" class="align-center" src="../_images/Lab16_Tachometer.png" style="width: 300px;" /></a>
 <br>
 <ul class="simple">
 <li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program16_1()</span></code> running at the speeds of 25%, 50%, 75%, 100%, and then return to 25% as shown below.</p></li>
 </ul>
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TuTrYB4bgvQ?si=otQ8sUmN4gz24BvW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<br>
-Video Credit: C26 Peter Choi, Royal Military College of Canada
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-YDAwoAS6Sw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <br>
 </section>
@@ -507,7 +505,7 @@ Video Credit: C26 Peter Choi, Royal Military College of Canada
 <li><p>Once the data transmission is finished, the LCD will indicate <code class="docutils literal notranslate"><span class="pre">TX</span> <span class="pre">is</span> <span class="pre">Done</span></code>.</p></li>
 <li><p>In the serial terminal, select the entire data, excluding the header, which reads <em><strong>Receiving buffer data</strong></em>.</p></li>
 <li><p>Copy the selected data and save it as a text file with a .txt extension or as a comma-separated value (CSV) file with a .csv extension.</p></li>
-<li><p>Use a software tool of your choice to create plots for the duty cycle in percent, speeds in rpm, and displacement in mm using data from the <code class="docutils literal notranslate"><span class="pre">SpeedBuffer</span></code>, <code class="docutils literal notranslate"><span class="pre">DistanceBuffer</span></code>, and <code class="docutils literal notranslate"><span class="pre">DutyBuffer</span></code> arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a> used for Lab 15</p></li>
+<li><p>Use a software tool of your choice to create plots for the duty cycle in percent, timer periods, and actual speeds in rpm, using data from the <code class="docutils literal notranslate"><span class="pre">PeriodBuffer</span></code>, <code class="docutils literal notranslate"><span class="pre">SpeedBuffer</span></code>, and <code class="docutils literal notranslate"><span class="pre">DutyBuffer</span></code> arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a> used for Lab 15</p></li>
 </ol>
 <br>
 <p>It is crucial to emphasize that data-driven analyses are fundamental in engineering and scientific endeavors. While videos and images can be helpful for showcasing work, they should never replace the core elements of engineering experiments. Collecting accurate measurements, creating informative plots, and conducting comprehensive analyses will be essential to your final presentations and reports.</p>
@@ -516,10 +514,10 @@ Video Credit: C26 Peter Choi, Royal Military College of Canada
 <p><strong><em>Full credit will only be awarded if the figures include correct labels and units</em></strong>. You must use standard units. Units such as permille or 10 ms are not considered standard, whereas RPM, percent, and milliseconds are acceptable.</p>
 </div>
 <ol class="arabic">
-<li><p>Ensure that the first column of the data represents time in <strong>10-millisecond intervals</strong>; “1” signifies 10 ms, and “2” signifies 20 ms.</p></li>
-<li><p>Label your axes with appropriate units, e.g., <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(seconds)</span></code> or <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(ms)</span></code>. Convert the time data from 10 ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). <em><strong>Note that 10 ms is not a standard unit of time.</strong></em> Therefore, it is essential to convert the time data into seconds (sec) or milliseconds (ms), and you should be familiar with the process of converting from 10 ms to seconds (or ms).</p></li>
-<li><p>Represent the duty cycle in <code class="docutils literal notranslate"><span class="pre">percentage</span></code> rather than <code class="docutils literal notranslate"><span class="pre">permille</span></code> since <code class="docutils literal notranslate"><span class="pre">permille</span></code> is not a standard unit.</p></li>
-<li><p>Express the speed in rpm, radians per second (RPM).</p></li>
+<li><p>Ensure that the first column of the data represents time in <strong>10-millisecond intervals</strong>; “1” signifies 10ms, and “2” signifies 20ms.</p></li>
+<li><p>Label your axes with appropriate units, e.g., <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">(seconds)</span></code>. Convert the time data from 10ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.</p></li>
+<li><p>Represent the duty cycle in <code class="docutils literal notranslate"><span class="pre">percentage</span></code> rather than <code class="docutils literal notranslate"><span class="pre">permille</span></code>.</p></li>
+<li><p>Express the speed in rpm, radians per second (RPM) and include the relevant units in your plots.</p></li>
 <li><p>Examples of incorrectly labeled plots include, but are not limited to, the following.</p>
 <a class="reference internal image-reference" href="../_images/Lab16_plot_duty_incorrect.png"><img alt="../_images/Lab16_plot_duty_incorrect.png" class="align-center" src="../_images/Lab16_plot_duty_incorrect.png" style="width: 360px;" /></a>
  <br>
@@ -528,10 +526,10 @@ Video Credit: C26 Peter Choi, Royal Military College of Canada
 <a class="reference internal image-reference" href="../_images/Lab16_plot_time_incorrect.png"><img alt="../_images/Lab16_plot_time_incorrect.png" class="align-center" src="../_images/Lab16_plot_time_incorrect.png" style="width: 360px;" /></a>
  <br>
 </li>
-<li><p>The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering. You will be very likely to receive no credit for such a plot as it clearly demonstrates a fundamental misunderstanding of what the data represents. It’s akin to claiming that the power efficiency in your analysis is 120% or -5% — an obvious and critical error.</p></li>
+<li><p>The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering.</p></li>
 <li><p>Submit the following plots on Gradescope.</p>
 <ul class="simple">
-<li><p>Distances vs. time</p></li>
+<li><p>Periods vs. time</p></li>
 <li><p>Speeds vs. time</p></li>
 <li><p>Duty cycle vs. time</p></li>
 </ul>
@@ -545,7 +543,7 @@ Video Credit: C26 Peter Choi, Royal Military College of Canada
 <p>This part is the foundation of Deliverable 1 of the final project.</p>
 </div>
 <ol class="arabic">
-<li><p>Complete <code class="docutils literal notranslate"><span class="pre">Controller3</span></code> to implement the finite state machine as shown below.</p>
+<li><p>Complete <code class="docutils literal notranslate"><span class="pre">Controller3</span></code> to impletement the finite state machine as shown below.</p>
 <a class="reference internal image-reference" href="../_images/Lab16_FSM.png"><img alt="../_images/Lab16_FSM.png" class="align-center" src="../_images/Lab16_FSM.png" style="width: 380px;" /></a>
  <br>
 <ul class="simple">
@@ -555,7 +553,7 @@ Video Credit: C26 Peter Choi, Royal Military College of Canada
 </ul>
 </li>
 <li><p>Start in the <strong>Forward</strong> state.</p></li>
-<li><p>If <strong>Bump3</strong> or <strong>Bump4</strong> is triggered, move backward 90 mm, make a 90<span class="math notranslate nohighlight">\(^\circ\)</span> left turn, and then move forward.</p></li>
+<li><p>If <strong>Bump3</strong> or <strong>Bump4</strong> is triggered, move backward 700 mm, make a 90<span class="math notranslate nohighlight">\(^\circ\)</span> left turn, and then move forward.</p></li>
 <li><p>If <strong>Bump1</strong> is triggered, make a 30° left turn, then move forward.</p></li>
 <li><p>If <strong>Bump2</strong> is triggered, make a 60° left turn, then move forward.</p></li>
 <li><p>If <strong>Bump5</strong> is triggered, make a 60° right turn, then move forward.</p></li>
