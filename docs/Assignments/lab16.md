@@ -66,7 +66,7 @@ You should understand the code inside the `main()` function in every module. For
 ```
 <br>
 
-- Demo `Program16_1()` running at the speeds of 25\%, 50\%, 75\%, 100\%, and then return to 25\% as shown below.  
+- Demo `Program16_1()` running at the speeds of 20\%, 40\%, 60\%, 80\%, and then return to 20\% as shown below.  
 
 
 <center>
@@ -183,7 +183,7 @@ This part is the foundation of Deliverable 1 of the final project.
 ## 🚚 Deliverables
 
 ### Deliverable 1 
-- **[9 Points]** Demo `Program16_1()` running at the speeds of 25\%, 50\%, 75\%, 100\%, and then return to 25\%.   
+- **[9 Points]** Demo `Program16_1()` running at the speeds of 20\%, 40\%, 60\%, 80\%, and then return to 20\%.   
 
 ### Deliverable 2 
 - **[8 points]** Use a software tool of your choice to create plots for the `duty cycle in percent`, `timer periods in microsecond`, and `actual speeds in rpm`. Submit your three plots in Gradescope.
