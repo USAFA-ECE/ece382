@@ -60,17 +60,19 @@ You should understand the code inside the `main()` function in every module. For
 
 - Complete `LCDSpeed()` in the `Lab16_Tachmain.c` file. The LCD should display the left and right tachometer periods and the speeds of both wheels in RPM as shown below.
 
-```{image} ./figures/Lab16_Tachometer.png
+```{image} ./figures/Lab16_Tachometer.jpg
 :width: 300
 :align: center
 ```
 <br>
 
-- Demo `Program16_1()` running at the speeds of 25\%, 50\%, 75\%, 100\%, and then return to 25\% as shown below.  
+- Demo `Program16_1()` running at the speeds of 20\%, 40\%, 60\%, 80\%, and then return to 20\% as shown below.  
 
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-YDAwoAS6Sw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TuTrYB4bgvQ?si=otQ8sUmN4gz24BvW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<br>
+Video Credit: C26 Peter Choi, Royal Military College of Canada
 </center>
 <br>
 
@@ -107,7 +109,7 @@ You should understand the code inside the `main()` function in every module. For
 1. Once the data transmission is finished, the LCD will indicate `TX is Done`.
 1. In the serial terminal, select the entire data, excluding the header, which reads ***Receiving buffer data***.
 1. Copy the selected data and save it as a text file with a .txt extension or as a comma-separated value (CSV) file with a .csv extension.
-1. Use a software tool of your choice to create plots for the duty cycle in percent, timer periods, and actual speeds in rpm, using data from the `PeriodBuffer`, `SpeedBuffer`, and `DutyBuffer` arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a> used for Lab 15 
+1. Use a software tool of your choice to create plots for the duty cycle in percent, speeds in rpm, and displacement in mm using data from the `SpeedBuffer`, `DistanceBuffer`, and `DutyBuffer` arrays. Recommended software tools include, but are not limited to, MATLAB, Excel, Python with matplotlib, and Jupyter notebook. You can also utilize the Jupyter notebook in Colab <a target="_blank" rel="noopener noreferrer" href="https://colab.research.google.com/github/USAFA-ECE/ece382/blob/master/docs/Assignments/lab15_calibration.ipynb">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a> used for Lab 15 
 
 <br>
 
@@ -117,10 +119,10 @@ It is crucial to emphasize that data-driven analyses are fundamental in engineer
 **_Full credit will only be awarded if the figures include correct labels and units_**. You must use standard units. Units such as permille or 10 ms are not considered standard, whereas RPM, percent, and milliseconds are acceptable.
 ```
 
-1. Ensure that the first column of the data represents time in **10-millisecond intervals**; "1" signifies 10ms, and "2" signifies 20ms.
-1. Label your axes with appropriate units, e.g., `time (seconds)`. Convert the time data from 10ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). Note that 10ms is not a standard unit of time. Therefore, it is essential to convert the time data into seconds, and you should be familiar with the process of converting from 10ms to seconds.
-1. Represent the duty cycle in `percentage` rather than `permille`.
-1. Express the speed in rpm, radians per second (RPM) and include the relevant units in your plots.
+1. Ensure that the first column of the data represents time in **10-millisecond intervals**; "1" signifies 10 ms, and "2" signifies 20 ms.
+1. Label your axes with appropriate units, e.g., `time (seconds)` or `time (ms)`. Convert the time data from 10 ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). _**Note that 10 ms is not a standard unit of time.**_ Therefore, it is essential to convert the time data into seconds (sec) or milliseconds (ms), and you should be familiar with the process of converting from 10 ms to seconds (or ms).
+1. Represent the duty cycle in `percentage` rather than `permille` since `permille` is not a standard unit.
+1. Express the speed in rpm, radians per second (RPM).
 1. Examples of incorrectly labeled plots include, but are not limited to, the following.
 
     ```{image} ./figures/Lab16_plot_duty_incorrect.png
@@ -136,9 +138,10 @@ It is crucial to emphasize that data-driven analyses are fundamental in engineer
     :align: center
     ```
     <br>
-1. The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering. 
+1. The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering. You will be very likely to receive no credit for such a plot as it clearly demonstrates a fundamental misunderstanding of what the data represents. It's akin to claiming that the power efficiency in your analysis is 120% or -5% — an obvious and critical error.
+
 1. Submit the following plots on Gradescope.
-    - Periods vs. time
+    - Distances vs. time
     - Speeds vs. time
     - Duty cycle vs. time
 
@@ -149,7 +152,7 @@ It is crucial to emphasize that data-driven analyses are fundamental in engineer
 This part is the foundation of Deliverable 1 of the final project.
 ```
 
-1. Complete `Controller3` to impletement the finite state machine as shown below.
+1. Complete `Controller3` to implement the finite state machine as shown below.
 
     ```{image} ./figures/Lab16_FSM.png
     :width: 380
@@ -162,7 +165,7 @@ This part is the foundation of Deliverable 1 of the final project.
     - TR_DIST refers to the displacement for a 30$^\circ$, 60$^\circ$, or 90$^\circ$ turn depending on the bump switch triggered. 
 
 1. Start in the **Forward** state. 
-1. If **Bump3** or **Bump4** is triggered, move backward 700 mm, make a 90$^\circ$ left turn, and then move forward. 
+1. If **Bump3** or **Bump4** is triggered, move backward 90 mm, make a 90$^\circ$ left turn, and then move forward. 
 1. If **Bump1** is triggered, make a 30° left turn, then move forward. 
 1. If **Bump2** is triggered, make a 60° left turn, then move forward. 
 1. If **Bump5** is triggered, make a 60° right turn, then move forward. 
@@ -180,7 +183,7 @@ This part is the foundation of Deliverable 1 of the final project.
 ## 🚚 Deliverables
 
 ### Deliverable 1 
-- **[9 Points]** Demo `Program16_1()` running at the speeds of 25\%, 50\%, 75\%, 100\%, and then return to 25\%.   
+- **[9 Points]** Demo `Program16_1()` running at the speeds of 20\%, 40\%, 60\%, 80\%, and then return to 20\%.   
 
 ### Deliverable 2 
 - **[8 points]** Use a software tool of your choice to create plots for the `duty cycle in percent`, `timer periods in microsecond`, and `actual speeds in rpm`. Submit your three plots in Gradescope.
