@@ -56,7 +56,7 @@ Challenge Levels:
 1. L34/35: Design Presentations
 1. L39 0700: Level 1 Demo Due   
     - Early turkey **[5 Bonus Points]**: Complete Level 1 by L37 (Tue 26 Nov) 2359.
-    - No grace days can be used for early bird demos. 
+    - No grace days can be used for early turkey demo. 
     - Late Demos: You can use grace days, but all products must be submitted NLT T40 2359 (by the Dean's policy). 
 1. L39 during your section: Level 2 live demo.  
     - A live demo during L39 is mandatory. 
