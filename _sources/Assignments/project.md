@@ -69,15 +69,15 @@ Challenge Levels:
 
 _**We have been reinforcing these coding practices throughout the semester, but it is still valuable to remind you.**_
 
-1. Avoid hard-coded numbers. Instead, utilize `#define` and `const`.  For instance, replace:
+1. Avoid hard-coded numbers. Instead, utilize `#define` and `const`. For example use BUMP1, BUMP2, ... BUMP6 which are defined in Bump.h, rather than raw values like 0b00000001, 0b0000010, etc. Similiarly, replace:
     ```C
-        TimerA1_Init(&Controller, 500); 
+    TimerA1_Init(&Controller, 500); 
     ```
     with:
     ```C
-        // user TimerA1 to run the controller at 1000 Hz
-        uint16_t const period_2us = 500;        // T = 1ms
-        TimerA1_Init(&Controller, period_2us);  // f = 1000 Hz controller loop
+    // user TimerA1 to run the controller at 1000 Hz
+    uint16_t const period_2us = 500;        // T = 1ms
+    TimerA1_Init(&Controller, period_2us);  // f = 1000 Hz controller loop
     ```
 
 1. Add comprehensive comments throughout your code. Emphasize the importance of thorough commenting.
