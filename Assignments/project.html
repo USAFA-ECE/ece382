@@ -445,6 +445,10 @@ document.write(`
 <li><p>Level 1: Maze exploration.</p></li>
 <li><p>Level 2: Wall Following.</p></li>
 </ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If there are any discrepancies in the project description or grading specifications, the order of precedence is as follows: (1) Teams messages from instructors, (2) the Course Web, (3) Gradescope, and finally, (3) the project overview slides. Whenever there are any changes, the Course Web will be updated immediately with the new information, and any outdated descriptions will be crossed out</p>
+</div>
 </section>
 <section id="final-project-gamesmanship">
 <h2>🎮 Final Project Gamesmanship<a class="headerlink" href="#final-project-gamesmanship" title="Permalink to this heading">#</a></h2>
@@ -469,7 +473,8 @@ document.write(`
 <ul class="simple">
 <li><p>Utilize visual aids a lot! Figures, tables, and graphs are more helpful than words.</p></li>
 <li><p>Ensure you <strong>discuss everything</strong> in the presentation section.</p></li>
-<li><p>Adhere to the 7-minute time limit; practice for effective delivery. Your talk will be stopped at the 8-minute mark, and credit will not be given for parts not discussed.</p></li>
+<li><p>Adhere to the 6-minute time limit; practice for effective delivery. Your talk will be stopped at the 7-minute mark, and credit will not be given for parts not discussed. Adhering to the time limit for presentations is a basic etiquette. Even at professional conferences, talks can be cut short if they exceed the allotted time.</p></li>
+<li><p>You are strongly recommended to practice your talk. Students who gave very short presentations to avoid exceeding the time limit often did not discuss enough details and lost even more points. So, practice! Even experienced engineers practice for their conference presentations.</p></li>
 </ul>
 </li>
 <li><p>Report</p>
@@ -587,7 +592,7 @@ document.write(`
 <li><p>When the robot reaches the designated <code class="docutils literal notranslate"><span class="pre">home</span> <span class="pre">area</span></code>, it should come to a complete stop before making any contact with the wall.</p></li>
 <li><p>Upon successfully reaching home, your robot is expected to exhibit alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds. No delays or loops are allowed.</p></li>
 <li><p>Your robot is free to navigate the maze at any speed.</p></li>
-<li><p>Your robot begins the exploration without prior knowledge of the maze.</p></li>
+<li><p>Your robot begins the exploration without prior knowledge of the maze, except for knowing the Home and starting coordinates, as well as the initial heading of North.</p></li>
 <li><p>The coordinates of <code class="docutils literal notranslate"><span class="pre">Home</span></code> are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates. You have the flexibility to modify these coordinates as needed.</p>
 <a class="reference internal image-reference" href="../_images/Project_Level1_Maze.png"><img alt="../_images/Project_Level1_Maze.png" class="align-center" src="../_images/Project_Level1_Maze.png" style="width: 360px;" /></a>
  <br>
@@ -648,7 +653,11 @@ document.write(`
 </section>
 <section id="design-presentation-50-points">
 <h2>👩‍🏫 Design Presentation (50 Points)<a class="headerlink" href="#design-presentation-50-points" title="Permalink to this heading">#</a></h2>
-<p>Provide a <strong>7-minute</strong> presentation followed by approximately 2 minutes for Q&amp;A, covering the following topics:</p>
+<p>Provide a <strong>6-minute</strong> presentation followed by approximately 2 minutes for Q&amp;A, covering the following topics:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make extensive use of visual aids, such as a maze picture, flowcharts, and diagrams. Avoid filling slides with excessive text; instead, keep your audience engaged and focused on listening to you.</p>
+</div>
 <ol class="arabic">
 <li><p><strong>[5 Points]</strong> Purpose:</p>
 <ul class="simple">
@@ -658,10 +667,17 @@ document.write(`
 </li>
 <li><p><strong>[25 Points]</strong> Design:</p>
 <ul class="simple">
-<li><p>Discuss the design of your controllers.</p></li>
-<li><p>Include clearly legible finite state machine.</p></li>
-<li><p>Specify the timers you plan to use, their intended purposes, and the operating frequencies.</p></li>
-<li><p>Outline the data you intend to collect for experiment analysis and explain your data collection method.</p></li>
+<li><p>This section accounts for 50% of the presentation grade.</p></li>
+<li><p>Discuss the details of your design. For example,</p>
+<ul>
+<li><p>How to make turn decisions at intersections.</p></li>
+<li><p>How to keep track of the robot’s coordinates.</p></li>
+<li><p>How to handle misclassifications.</p></li>
+<li><p>Specify the timers you plan to use, their intended purposes, and operating frequencies.</p></li>
+<li><p>Include a clearly legible finite state machine.</p></li>
+</ul>
+</li>
+<li><p>Outline the data you intend to collect for experimental analysis and explain your data collection method.</p></li>
 </ul>
 </li>
 <li><p><strong>[15 Points]</strong> Debugging and testing:</p>
@@ -675,13 +691,13 @@ document.write(`
 <ul class="simple">
 <li><p>Prepare to answer questions about your design choices.</p></li>
 <li><p>Be ready to address inquiries regarding implementation of additional functionality in your project.</p></li>
-<li><p>Note that the question component extends beyond the 7-minute presentation by an additional 2 minutes.</p></li>
+<li><p>Note that the question component extends beyond the 6-minute presentation by an additional 2 minutes.</p></li>
 </ul>
 </li>
 <li><p><strong>Timing</strong>:</p>
 <ul class="simple">
-<li><p>Points will be deducted for exceeding the 7-minute limit.</p></li>
-<li><p><strong>The presentation will be halted at the 8-minute mark, and credit will not be given for parts not discussed.</strong>  Therefore, practice!</p></li>
+<li><p>Points will be deducted for exceeding the 6-minute limit.</p></li>
+<li><p><strong>The presentation will be halted at the 7-minute mark, and credit will not be given for parts not discussed.</strong>  Therefore, <strong>practice!</strong></p></li>
 <li><p>Emphasize the importance of professional timing in a presentation, considering its impact on the audience and subsequent speakers.</p></li>
 </ul>
 </li>
@@ -758,6 +774,10 @@ document.write(`
 </section>
 <section id="deliverables">
 <h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike other assignments, any points earned above the total project points (250) can be applied to your final course grade.</p>
+</div>
 <section id="deliverable-1-50-points-design-presentation">
 <h3>Deliverable 1: [50 Points] Design Presentation<a class="headerlink" href="#deliverable-1-50-points-design-presentation" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
@@ -770,7 +790,7 @@ document.write(`
 <section id="deliverable-2-100-points-alpha-demo-and-code">
 <h3>Deliverable 2: [100 points + <span class="math notranslate nohighlight">\(\alpha\)</span>] Demo and Code<a class="headerlink" href="#deliverable-2-100-points-alpha-demo-and-code" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[15 Bonus Points]</strong>: Unlike other assignments, any points earned above the total project points (250) can be applied to your final course grade.</p>
+<li><p><strong>[15 Bonus Points]</strong>:</p>
 <ul>
 <li><p><strong>[5 Points]</strong> Early turkey</p></li>
 <li><p><strong>[10 Points]</strong> 5 points for each level</p></li>

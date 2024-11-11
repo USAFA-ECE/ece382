@@ -131,7 +131,7 @@ Control systems are a rich, complex field within engineering, spanning electrica
 
 ### Deliverable 2  **[9 Points]**  
 - Provide a step response of the speed controller with a disturbance, applied after the speed settles at the desired speed. Include plots with labels, units, and legends as needed. 
-- Discuss the controller's performance, considering response time, overshoot, and steady-state error.  Report the $K_p$ and $K_i$ values used.
+- Provide the input signals (PWM duty cycles) applied to the robot. 
 - Discuss the controller's performance in terms of response time, overshoot, and steady-state error.  Report the $K_p$ and $K_i$ values used for these plots.
 - Analyze your controller's disturbance rejection using the plots.
 

@@ -22,6 +22,10 @@ Challenge Levels:
 - Level 1: Maze exploration. 
 - Level 2: Wall Following.
 
+```{important}
+If there are any discrepancies in the project description or grading specifications, the order of precedence is as follows: (1) Teams messages from instructors, (2) the Course Web, (3) Gradescope, and finally, (3) the project overview slides. Whenever there are any changes, the Course Web will be updated immediately with the new information, and any outdated descriptions will be crossed out
+```
+
 ## 🎮 Final Project Gamesmanship
 
 1. Demo and coding
@@ -38,7 +42,8 @@ Challenge Levels:
 1. Presentation
     - Utilize visual aids a lot! Figures, tables, and graphs are more helpful than words.
     - Ensure you **discuss everything** in the presentation section.
-    - Adhere to the 7-minute time limit; practice for effective delivery. Your talk will be stopped at the 8-minute mark, and credit will not be given for parts not discussed.
+    - Adhere to the 6-minute time limit; practice for effective delivery. Your talk will be stopped at the 7-minute mark, and credit will not be given for parts not discussed. Adhering to the time limit for presentations is a basic etiquette. Even at professional conferences, talks can be cut short if they exceed the allotted time.
+    - You are strongly recommended to practice your talk. Students who gave very short presentations to avoid exceeding the time limit often did not discuss enough details and lost even more points. So, practice! Even experienced engineers practice for their conference presentations.
 
 1. Report
     - Throughly Read the template and **do not miss anything in the template**.
@@ -134,7 +139,7 @@ Use the tachometers and bump sensors to navigate the maze and return home.  Imag
 1. When the robot reaches the designated `home area`, it should come to a complete stop before making any contact with the wall.
 1. Upon successfully reaching home, your robot is expected to exhibit alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds. No delays or loops are allowed. 
 1. Your robot is free to navigate the maze at any speed.
-1. Your robot begins the exploration without prior knowledge of the maze. 
+1. Your robot begins the exploration without prior knowledge of the maze, except for knowing the Home and starting coordinates, as well as the initial heading of North.
 1. The coordinates of `Home` are identified at the origin (0,0), with the starting position fixed at (360, 0) in millimeters. Your robot is aware of both Home and starting position coordinates. You have the flexibility to modify these coordinates as needed.
 
     ```{image} ./figures/Project_Level1_Maze.png
@@ -205,16 +210,24 @@ Explore the maze using the distance sensors.
 
 ## 👩‍🏫 Design Presentation (50 Points)
 
-Provide a **7-minute** presentation followed by approximately 2 minutes for Q&A, covering the following topics:
+Provide a **6-minute** presentation followed by approximately 2 minutes for Q&A, covering the following topics:
+
+```{note}
+Make extensive use of visual aids, such as a maze picture, flowcharts, and diagrams. Avoid filling slides with excessive text; instead, keep your audience engaged and focused on listening to you.
+```
 
 1. **[5 Points]** Purpose: 
     - Briefly describe the problem.
     - Discuss the project requirements.
 1. **[25 Points]** Design:
-    - Discuss the design of your controllers.
-    - Include clearly legible finite state machine. 
-    - Specify the timers you plan to use, their intended purposes, and the operating frequencies.
-    - Outline the data you intend to collect for experiment analysis and explain your data collection method.
+    - This section accounts for 50% of the presentation grade.
+    - Discuss the details of your design. For example,
+        - How to make turn decisions at intersections.
+        - How to keep track of the robot's coordinates.
+        - How to handle misclassifications.
+        - Specify the timers you plan to use, their intended purposes, and operating frequencies.
+        - Include a clearly legible finite state machine.
+    - Outline the data you intend to collect for experimental analysis and explain your data collection method.
 1. **[15 Points]** Debugging and testing:
     - Provide detailed information on debugging and testing methods. Explain how your methods enhance debugging and testing efficiency.
     - Describe high-level debugging strategies for unexpected robot behavior in the maze, including identification and resolution of issues like misclassification or getting trapped at a corner.
@@ -222,10 +235,10 @@ Provide a **7-minute** presentation followed by approximately 2 minutes for Q&A,
 1. **[5 Points]** Questions: 
     - Prepare to answer questions about your design choices.
     - Be ready to address inquiries regarding implementation of additional functionality in your project.
-    - Note that the question component extends beyond the 7-minute presentation by an additional 2 minutes.
+    - Note that the question component extends beyond the 6-minute presentation by an additional 2 minutes.
 1. **Timing**:
-    - Points will be deducted for exceeding the 7-minute limit.
-    - **The presentation will be halted at the 8-minute mark, and credit will not be given for parts not discussed.**  Therefore, practice!
+    - Points will be deducted for exceeding the 6-minute limit.
+    - **The presentation will be halted at the 7-minute mark, and credit will not be given for parts not discussed.**  Therefore, **practice!**
     - Emphasize the importance of professional timing in a presentation, considering its impact on the audience and subsequent speakers.
 1. **Submission**:
     - Submit your `MS PowerPoint pptx` file to your instructor **NLT L34 0700**. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.
@@ -285,6 +298,10 @@ Submit your report on Gradescope. Be sure to select questions and pages to indic
 
 ## 🚚 Deliverables
 
+```{note}
+Unlike other assignments, any points earned above the total project points (250) can be applied to your final course grade.
+```
+
 ### Deliverable 1: [50 Points] Design Presentation
 - **[5 Points]** Purpose
 - **[25 Points]** Design
@@ -292,7 +309,7 @@ Submit your report on Gradescope. Be sure to select questions and pages to indic
 - **[5 Points]** Questions
 
 ### Deliverable 2: [100 points + $\alpha$] Demo and Code
-- **[15 Bonus Points]**: Unlike other assignments, any points earned above the total project points (250) can be applied to your final course grade.
+- **[15 Bonus Points]**: 
     - **[5 Points]** Early turkey
     - **[10 Points]** 5 points for each level
     - **[5-15 points]** Final Race
