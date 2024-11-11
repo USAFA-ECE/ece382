@@ -23,7 +23,7 @@ Challenge Levels:
 - Level 2: Wall Following.
 
 ```{important}
-If there are any discrepancies in the project description or grading specifications, the order of precedence is as follows: (1) Teams messages from instructors, (2) the Course Web, (3) Gradescope, and finally, (3) the project overview slides. Whenever there are any changes, the Course Web will be updated immediately with the new information, and any outdated descriptions will be crossed out
+If there are any discrepancies in the project description or grading specifications, the order of precedence is as follows: (1) Teams messages from instructors, (2) the Course Web, (3) Gradescope, and finally, (4) the project overview slides. Whenever there are any changes, the Course Web will be updated immediately with the new information, and any outdated descriptions will be crossed out
 ```
 
 ## 🎮 Final Project Gamesmanship
