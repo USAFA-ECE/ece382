@@ -117,7 +117,7 @@ Control systems are a rich, complex field within engineering, spanning electrica
 ### Evaluate controller performance in `Program17_3()`
 
 1. Collect data via the USB/UART port to assess the controller's performance.
-1. Provide the step response of the closed-loop system for a fast response with a slight or no overshoot, identified in Deliverable 3. The step response should show the system's output, i.e., distance from the center. 
+1. Provide the step response of the closed-loop system for a fast response with a slight or no overshoot, identified in Deliverable 3. The step response should show the system's **output**, i.e., **distance from the center**. 
 1. Plot the input signal associated with this step response. The input signal applied to the system is the PWM duty cycles in percent.
 1. Report the $K_p$ value associate with these plots.
 1.Utilize software of your choice, such as MATLAB or MS Excel, for generating figures. Ensure that your plots feature labels, units, and legends when necessary. Evaluate controller performance in terms of response time, overshoot, and steady-state error.
