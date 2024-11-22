@@ -154,7 +154,7 @@ Use the tachometers and bump sensors to navigate the maze and return home.  Imag
     - Deduction of 2 points if the robot reaches home but does not come to a complete stop.
     - Deduction of 3 points if the robot makes a 90-degree turn toward the home area at the T-joint but reaches only any point between the T-joint and Home.
     - Deduction of 5 points if the robot reaches any point between the third turn and the T-joint.
-1. **[5 Bonus Points]** Upon successfully reaching home, your robot now knows its way back to the starting position. Make your robot autonomously turn around and return to the starting position. 
+1. **[5 Bonus Points]** Upon successfully reaching home, your robot now knows its way back to the starting position. Make your robot autonomously turn around and return to the starting position. <span style="color:blue"> While your robot may touch the side walls during its return, it is not permitted to use bump sensors to make 90-degree turns. (Updated on 21 Nov) </span>
 
     ```{image} ./figures/Proj_Maze.jpg
     :width: 660
