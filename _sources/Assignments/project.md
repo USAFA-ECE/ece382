@@ -148,13 +148,16 @@ Use the tachometers and bump sensors to navigate the maze and return home.  Imag
     ```
     <br>
 
+1. <span style="color:blue"> While the blue maze is slightly easier, you may use either maze for Level 2. (Updated on 22 Nov) </span>
+
 1. Include a plot illustrating the x- and y-coordinates of your robot's movement over time in the final report. It is a common and effective way to visually represent the movement or trajectory of a robot. This can provide valuable insights into the robot's behavior and performance. Additionally, submit a video demo corresponding to this plot.This combination of a visual representation and a practical demonstration will provide a comprehensive overview of the robot's behavior and performance, enhancing the clarity and impact of your findings. Ensure that the plot is appropriately labeled with all necessary information for interpretation.
 
 1. Partial Credit Points 
     - Deduction of 2 points if the robot reaches home but does not come to a complete stop.
     - Deduction of 3 points if the robot makes a 90-degree turn toward the home area at the T-joint but reaches only any point between the T-joint and Home.
     - Deduction of 5 points if the robot reaches any point between the third turn and the T-joint.
-1. **[5 Bonus Points]** Upon successfully reaching home, your robot now knows its way back to the starting position. Make your robot autonomously turn around and return to the starting position. <span style="color:blue"> While your robot may touch the side walls during its return, it is not permitted to use bump sensors to make 90-degree turns. (Updated on 21 Nov) </span>
+1. **[5 Bonus Points]** Upon successfully reaching home, your robot now knows its way back to the starting position. Make your robot autonomously turn around and return to the starting position.  <span style="color:blue"> While your robot may touch the side walls during its return, it is not permitted to use bump sensors to make 90-degree turns. (Updated on 21 Nov)
+ </span>
 
     ```{image} ./figures/Proj_Maze.jpg
     :width: 660
@@ -202,6 +205,7 @@ Explore the maze using the distance sensors.
 1. **[5 Bonus Points]** Arrive at the goal within 11.0 seconds.
 1. A live demo during L39 is mandatory. Ensure your robot is robustness enough for a live demo within 3 minutes (2 minutes for the first round and 1 minute for the second round). Note that during the 3-minute live demo, there will be no pauses for replacing batteries or reflashing the code - Don't waste your time on these. Once the clock starts, it never stops.
 1. In the event of a live demo failure, you may use a video demo submitted before your section on L39, but deductions of 5 points will be applied.
+1. <span style="color:blue"> The official maze for Level 2 is the gray maze and the live demo must be performed in it. (Updated on 22 Nov) </span>
 
     <center>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/2m8tce8ZYoI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
