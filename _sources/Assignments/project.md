@@ -275,7 +275,7 @@ Even if your demos are not successful, whether you use grace days or not, ensure
     - Explain how your methods enhance debugging and testing efficiency.
     - Describe how you identified and resolved unexpected robot behaviors.
     - Exclude discussions related to compile-time debugging, such as syntax errors.
-- **[50 Points]** Analysis and Results:
+- **[40 Points]** Analysis and Results:
     - _**This is the most essential part of the final project. You are expected to provide high-quality engineering analysis.**_
     - Your analysis should be based on collected data, utilizing figures and tables. For example, evaluate the robot's performance in Level 2 by employing step responses. Base your analysis on data and avoid relying on visual observations.
     - Discuss results for each level, including measurements and plots.
