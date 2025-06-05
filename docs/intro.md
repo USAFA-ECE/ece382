@@ -1,7 +1,7 @@
 # ECE382 Embedded Computer Systems I
 
 ## 👨‍🏫 Instructors
-- ![trimble](https://img.shields.io/badge/LtCol%20James%20Trimble-2E46C-red)
+- ![trimble](https://img.shields.io/badge/LtCol%20James%20Trimble-2E46D-red)
 - ![wyche](https://img.shields.io/badge/LtCol%20Jason%20Wyche-2F10-yellow)
 
 <!--
