@@ -2,7 +2,7 @@
 
 ## 👨‍🏫 Instructors
 - ![trimble](https://img.shields.io/badge/LtCol%20James%20Trimble-2E46C-red)
-- ![wyche](https://img.shields.io/badge/LtCol%20Jason%20Wyche-2E38-yellow)
+- ![wyche](https://img.shields.io/badge/LtCol%20Jason%20Wyche-2F10-yellow)
 
 <!--
 - [![baek](https://img.shields.io/badge/Dr.%20Stan%20Baek-2E38-yellow)](https://stanbaek.github.io)
