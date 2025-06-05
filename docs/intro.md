@@ -22,7 +22,7 @@
 - All lecture 📓 materials will be provided through MS Teams.
 - Laboratory 🔬 work will be posted in this course web.
 - All assignments must be submitted in [Gradescope](https://www.gradecope.com)
-- [Bitbucket](https://www.bitbucket.com) will be used for students to provide their source code 📄 for homework and laboratory assignments.
+- [GitHub](https://github.com) will be used for students to provide their source code 📄 for homework and laboratory assignments.
 
 
 ## ⏰ Late Policy:  
