@@ -1,10 +1,11 @@
 # ECE382 Embedded Computer Systems I
 
 ## 👨‍🏫 Instructors
-- [![baek](https://img.shields.io/badge/Dr.%20Stan%20Baek-2E38-red)](https://stanbaek.github.io)
-- ![trimble](https://img.shields.io/badge/LtCol%20James%20Trimble-2E46C-yellow)
+- ![trimble](https://img.shields.io/badge/LtCol%20James%20Trimble-2E46D-red)
+- ![wyche](https://img.shields.io/badge/LtCol%20Jason%20Wyche-2F10-yellow)
 
 <!--
+- [![baek](https://img.shields.io/badge/Dr.%20Stan%20Baek-2E38-yellow)](https://stanbaek.github.io)
 - ![york](https://img.shields.io/badge/Dr.%20George%20York-2E44-green)
 - ![yabrough](https://img.shields.io/badge/Capt%20Brian%20Yabrough-2E46C-blue)
 -->
@@ -21,23 +22,25 @@
 - All lecture 📓 materials will be provided through MS Teams.
 - Laboratory 🔬 work will be posted in this course web.
 - All assignments must be submitted in [Gradescope](https://www.gradecope.com)
-- [Bitbucket](https://www.bitbucket.com) will be used for students to provide their source code 📄 for homework and laboratory assignments.
+- [GitHub](https://github.com) will be used for students to provide their source code 📄 for homework and laboratory assignments.
 
 
 ## ⏰ Late Policy:  
 **If problems arise with graded assignments, see your instructor in advance**
 
-- The cutoff for **on-time submission is 07:00 🕖 a.m.** on the due date. 
-- Late days are counted in 24-hour periods. Submitting between 07:00:01 on the due date and 07:00:00 the next day is one day late, and so on.
+- The cutoff for **on-time submission is 23:59 🕖** on the due date. 
+- Late days are counted in 24-hour periods. Submitting between 23:59:01 on the due date and 23:59:00 the next day is one day late, and so on.
 - You are given **5 grace days (self-granted extensions)** which you can use to give yourself extra time without penalty. No more than **2 grace days** (calendar days) can used for each assignment.
 - Instructor-granted extensions are only considered after all grace days are used and only given in exceptional situations. Computer problems such as hard-drive reimaging are **not** considered as exceptional situations and you must use grace days.
-- Late work handed in when you have run out of grace is 💥 **discounted up to 20% for the first day late and up to 15% per day late thereafter**.
-- Every assignment has a hard deadline; **4 calendar days** past the original due date. 
+- Late work handed in when you have run out of grace is 💥 **penalized at a rate of up to 10% per day**.
+- Every assignment has a hard deadline; **5 calendar days** past the original due date. 
 - Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published. No late submissions (penalty or not) will be accepted for the assignments right before GRs.
 
 ## 📄 Documentation Requirements
 
-- All help received on work submitted for grading must be documented in accordance with the course documentation policy. 
+- All help received on work submitted for grading must be documented in accordance with the course documentation policy.
+- LLMs may be used for clarifying questions but **not for code**.  All LLM usage must be documented with the full chat transcript.
+- AI-powered coding tools like Co-Pilot, Cursor, etc. are not permitted.
 - Each documentation statement must be specific enough that it explicitly describes what assistance was provided, how it was used in completing the assignment, and who provided the assistance.
 - If no help was received on this assignment, the documentation statement must state “None.”
 - If you checked answers with anyone, you must document with whom on which problems. You must document whether you made any changes or not.  If you did make changes, you must document the problems you changed and the reasons why.

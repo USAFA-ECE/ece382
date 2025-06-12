@@ -1,8 +1,7 @@
 # ✏️ HW 1 Setting up CCS and Git
 
 ## 📜 Agenda
-- Create a Bitbucket repository.
-- Configure git repository.
+- Install Git and fork the repository
 - Install Code Composer Studio.
 - Setup Code Composer Studio (CSS) integrated development environment (IDE).
 - Import CCS project files.
@@ -20,9 +19,9 @@ The GIF animations provided on this page are intended to complement the main res
 ```
 
 
-### Create Bitbucket Repository
+### Fork the GitHub Repository
 
-- Create a <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> account if you don't have one.
+- Create a <a href="https://github.com/" target="_blank">GitHub</a> account if you don't have one.
 - Ensure you create a workspace as shown below.
 
 ```{image} ./figures/HW1_BitBucketWorkspace.png
@@ -31,10 +30,8 @@ The GIF animations provided on this page are intended to complement the main res
 ```
 <br>
 
-- Log in to <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> if you are not already logged in.
-- If you already have an account, ensure you have a workspace. If you don't have one, create one by clicking `Your Profile`, then `All workspaces`.
-- Click `Create a workspace`.
-- Privide a unique name for your workspace, and then click `Agree and creat workspace`.    
+- Log in to <a href="https://github.com/" target="_blank">GitHub</a> if you are not already logged in.
+- Fork the ECE382-Workspace repository.
 
 ```{image} ./figures/HW1_BitBucketWorkspace.gif
 :width: 520
@@ -43,12 +40,12 @@ The GIF animations provided on this page are intended to complement the main res
 <br>
 
 - Click the grid in the top left corner to select `Atlassian Home`, and then click `Sign up now`. 
-- Click `Directory` followed by `Invite users` to invite your instructor, Capt Yarbrough, and Dr. Baek. The instructors' Bitbucket email addresses are as follows:
-    - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
-    - LtCol Trimble: ![trimble](https://img.shields.io/badge/james.trimble@afacademy.af.edu-yellow)
-    - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
+- Click `Directory` followed by `Invite users` to invite your instructor, Lt Col Trimble or Lt Col Wyche. The instructors' GitHub email addresses are as follows:    
+    - LtCol Trimble: ![trimble](https://img.shields.io/badge/james.trimble@afacademy.af.edu-red)
+    - LtCol Wyche: ![wyche](https://img.shields.io/badge/-yellow)
 
-    <!--  
+    <!--
+    - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
     - Dr. York: ![york](https://img.shields.io/badge/george.york@usafa.edu-green)
     - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
     -->

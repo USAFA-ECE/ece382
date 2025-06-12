@@ -386,7 +386,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">📜 Agenda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-bitbucket-repository">Create Bitbucket Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-the-github-repository">Fork the GitHub Repository</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-git">Install Git</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-code-composer-studio-ccs">Install Code Composer Studio (CCS).</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-project-files">Import Project Files.</a></li>
@@ -413,8 +413,7 @@ document.write(`
 <section id="agenda">
 <h2>📜 Agenda<a class="headerlink" href="#agenda" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Create a Bitbucket repository.</p></li>
-<li><p>Configure git repository.</p></li>
+<li><p>Install Git and fork the repository</p></li>
 <li><p>Install Code Composer Studio.</p></li>
 <li><p>Setup Code Composer Studio (CSS) integrated development environment (IDE).</p></li>
 <li><p>Import CCS project files.</p></li>
@@ -430,31 +429,29 @@ document.write(`
 <p class="admonition-title">Warning</p>
 <p>The GIF animations provided on this page are intended to complement the main resources, rather than serve as the main source of information. It’s important to thoroughly read the text instructions in order to understand and follow the guidance. If the instructions are unclear, you can refer to the supplementary GIF animations for further clarity. However, solely relying on the animations without reading the accompanying text may make it difficult to accurately follow the instructions.</p>
 </div>
-<section id="create-bitbucket-repository">
-<h3>Create Bitbucket Repository<a class="headerlink" href="#create-bitbucket-repository" title="Permalink to this heading">#</a></h3>
+<section id="fork-the-github-repository">
+<h3>Fork the GitHub Repository<a class="headerlink" href="#fork-the-github-repository" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Create a <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> account if you don’t have one.</p></li>
+<li><p>Create a <a href="https://github.com/" target="_blank">GitHub</a> account if you don’t have one.</p></li>
 <li><p>Ensure you create a workspace as shown below.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_BitBucketWorkspace.png"><img alt="../_images/HW1_BitBucketWorkspace.png" class="align-center" src="../_images/HW1_BitBucketWorkspace.png" style="width: 320px;" /></a>
+<a class="reference internal image-reference" href="Assignments/figures/HW1_BitBucketWorkspace.png"><img alt="Assignments/figures/HW1_BitBucketWorkspace.png" class="align-center" src="Assignments/figures/HW1_BitBucketWorkspace.png" style="width: 320px;" /></a>
 <br>
 <ul class="simple">
-<li><p>Log in to <a href="https://bitbucket.org/" target="_blank">Bitbucket</a> if you are not already logged in.</p></li>
-<li><p>If you already have an account, ensure you have a workspace. If you don’t have one, create one by clicking <code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">Profile</span></code>, then <code class="docutils literal notranslate"><span class="pre">All</span> <span class="pre">workspaces</span></code>.</p></li>
-<li><p>Click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">workspace</span></code>.</p></li>
-<li><p>Privide a unique name for your workspace, and then click <code class="docutils literal notranslate"><span class="pre">Agree</span> <span class="pre">and</span> <span class="pre">creat</span> <span class="pre">workspace</span></code>.</p></li>
+<li><p>Log in to <a href="https://github.com/" target="_blank">GitHub</a> if you are not already logged in.</p></li>
+<li><p>Fork the ECE382-Workspace repository.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/HW1_BitBucketWorkspace.gif"><img alt="../_images/HW1_BitBucketWorkspace.gif" class="align-center" src="../_images/HW1_BitBucketWorkspace.gif" style="width: 520px;" /></a>
 <br>
 <ul>
 <li><p>Click the grid in the top left corner to select <code class="docutils literal notranslate"><span class="pre">Atlassian</span> <span class="pre">Home</span></code>, and then click <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">up</span> <span class="pre">now</span></code>.</p></li>
-<li><p>Click <code class="docutils literal notranslate"><span class="pre">Directory</span></code> followed by <code class="docutils literal notranslate"><span class="pre">Invite</span> <span class="pre">users</span></code> to invite your instructor, Capt Yarbrough, and Dr. Baek. The instructors’ Bitbucket email addresses are as follows:</p>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Directory</span></code> followed by <code class="docutils literal notranslate"><span class="pre">Invite</span> <span class="pre">users</span></code> to invite your instructor, Lt Col Trimble or Lt Col Wyche. The instructors’ GitHub email addresses are as follows:</p>
 <ul class="simple">
-<li><p>Dr. Baek: <img alt="baek" src="https://img.shields.io/badge/stanley.baek&#64;afacademy.af.edu-red" /></p></li>
-<li><p>LtCol Trimble: <img alt="trimble" src="https://img.shields.io/badge/james.trimble&#64;afacademy.af.edu-yellow" /></p></li>
-<li><p>Capt Yarbrough: <img alt="yarbrough" src="https://img.shields.io/badge/bcynmelk&#64;yahoo.com-blue" /></p></li>
+<li><p>LtCol Trimble: <img alt="trimble" src="https://img.shields.io/badge/james.trimble&#64;afacademy.af.edu-red" /></p></li>
+<li><p>LtCol Wyche: <img alt="wyche" src="https://img.shields.io/badge/-yellow" /></p></li>
 </ul>
-  <!--  
+  <!--
+  - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
   - Dr. York: ![york](https://img.shields.io/badge/george.york@usafa.edu-green)
   - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
   -->
@@ -732,7 +729,7 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">📜 Agenda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-bitbucket-repository">Create Bitbucket Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-the-github-repository">Fork the GitHub Repository</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-git">Install Git</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-code-composer-studio-ccs">Install Code Composer Studio (CCS).</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-project-files">Import Project Files.</a></li>
