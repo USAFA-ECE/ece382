@@ -1,6 +1,9 @@
 # ece382
 ECE382 Course Web
 
+### Automatic build
+- The course website now builds and publishes automatically via GitHub Actions and GitHub Pages.  The rest of the README below pertains to building locally.
+
 ### How to install required Python packages? 
 - Open a terminal.
 - Navigate to the root folder and find requirements.txt
