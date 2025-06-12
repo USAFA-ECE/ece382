@@ -1,7 +1,7 @@
 # ✏️ HW 1 Setting up CCS and Git
 
 ## 📜 Agenda
-- Install Git and fork the repository
+- Install Git and setup the repository
 - Install Code Composer Studio.
 - Setup Code Composer Studio (CSS) integrated development environment (IDE).
 - Import CCS project files.
@@ -22,27 +22,18 @@ The GIF animations provided on this page are intended to complement the main res
 ### Fork the GitHub Repository
 
 - Create a <a href="https://github.com/" target="_blank">GitHub</a> account if you don't have one.
-- Ensure you create a workspace as shown below.
-
-```{image} ./figures/HW1_BitBucketWorkspace.png
-:width: 320
-:align: center
-```
-<br>
-
 - Log in to <a href="https://github.com/" target="_blank">GitHub</a> if you are not already logged in.
-- Fork the ECE382-Workspace repository.
+- Fork the [ECE382_wksp repository](https://github.com/USAFA-ECE/ece382_wksp) by clicking Fork and following the prompts.
 
-```{image} ./figures/HW1_BitBucketWorkspace.gif
+```{image} ./figures/HW1_GitHubFork.gif
 :width: 520
 :align: center
 ```
 <br>
 
-- Click the grid in the top left corner to select `Atlassian Home`, and then click `Sign up now`. 
-- Click `Directory` followed by `Invite users` to invite your instructor, Lt Col Trimble or Lt Col Wyche. The instructors' GitHub email addresses are as follows:    
+- Click `Settings` followed by `Collaborators` and then `Add people` to invite your instructor, Lt Col Trimble or Lt Col Wyche. The instructors' GitHub email addresses are as follows:    
     - LtCol Trimble: ![trimble](https://img.shields.io/badge/james.trimble@afacademy.af.edu-red)
-    - LtCol Wyche: ![wyche](https://img.shields.io/badge/-yellow)
+    - LtCol Wyche: ![wyche](https://img.shields.io/badge/jason.wyche@afacademy.af.edu-yellow)
 
     <!--
     - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
@@ -50,26 +41,25 @@ The GIF animations provided on this page are intended to complement the main res
     - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
     -->
 
-```{image} ./figures/HW1_Atlassian.gif
+```{image} ./figures/HW1_GitHubCollaborators.gif
 :width: 520
 :align: center
 ```
 <br>
 
-
-- Browse to <a href="https://bitbucket.org/stanbaek2/ece382_wksp/src/master/" target="_blank">https://bitbucket.org/stanbaek2/ece382_wksp/src/master/</a>.
-- Click on the three dots ($\cdots$) on the top of the right-hand navigation for more options. 
-- Select `Fork this repository`. 
-- Select the workspace you created earlier.
-- Enter "ECE382" for `Project`.
-- Name this new repository ECE382_LastName_FirstName.
-- Ensure the access level is `Private repository`.
-- Give your instructor, Capt Yarbrough, and Dr. Baek **read access**: Click `Invite` and then click `Add members`. Provide them **read access**. 
+- We'll now detach this fork from the original repository and make it private.
+- Go back to Settings and scroll to the bottom then click `Leave fork network`.
+- Click `I have read and understand these effects`.
+- Type in the name of the repository to confirm and click `Leave fork network`.
+- Wait a few seconds and refresh the page until the `Change visibility` button becomes enabled.
+- Click `Change visibility` then `Change to private`.
+- Click `I want to make this repository private` then click `I have read and understand these effects`.
+- Click `Make this repository private`.
 
 <br>
 
-```{image} ./figures/HW1_GitFork.gif
-:width: 720
+```{image} ./figures/HW1_GitVisibility.gif
+:width: 520
 :align: center
 ```
 <br>
@@ -78,14 +68,9 @@ The GIF animations provided on this page are intended to complement the main res
 Please name your repository as ECE382_LastName_FirstName. This will help instructors find your repository easily.
 ```
 
-- You may need to create a Bitbucket `app password` as follows.
-- Click `Your Profile` on the top of the right-hand navigation and then click `Personal Settings`. 
-- Click `App Passwords` and then click `Create app password`. 
-- Write your preferred label and select permissions as needed.
-- Click `Create`.
-- Save the password as you cannot view it after you create it.
+- Now rename your repository by going to `Settings`, typing in a new name using the format ECE382_LastName_FirstName, then clicking `Rename`.
 
-```{image} ./figures/HW1_BitbucketAppPassword2.gif 
+```{image} ./figures/HW1_GitHubRename.gif 
 :width: 720
 :align: center
 ```

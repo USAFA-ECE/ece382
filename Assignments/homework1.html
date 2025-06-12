@@ -63,8 +63,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Assignments/homework1';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -413,7 +411,7 @@ document.write(`
 <section id="agenda">
 <h2>📜 Agenda<a class="headerlink" href="#agenda" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Install Git and fork the repository</p></li>
+<li><p>Install Git and setup the repository</p></li>
 <li><p>Install Code Composer Studio.</p></li>
 <li><p>Setup Code Composer Studio (CSS) integrated development environment (IDE).</p></li>
 <li><p>Import CCS project files.</p></li>
@@ -433,22 +431,16 @@ document.write(`
 <h3>Fork the GitHub Repository<a class="headerlink" href="#fork-the-github-repository" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Create a <a href="https://github.com/" target="_blank">GitHub</a> account if you don’t have one.</p></li>
-<li><p>Ensure you create a workspace as shown below.</p></li>
-</ul>
-<a class="reference internal image-reference" href="Assignments/figures/HW1_BitBucketWorkspace.png"><img alt="Assignments/figures/HW1_BitBucketWorkspace.png" class="align-center" src="Assignments/figures/HW1_BitBucketWorkspace.png" style="width: 320px;" /></a>
-<br>
-<ul class="simple">
 <li><p>Log in to <a href="https://github.com/" target="_blank">GitHub</a> if you are not already logged in.</p></li>
-<li><p>Fork the ECE382-Workspace repository.</p></li>
+<li><p>Fork the <a class="reference external" href="https://github.com/USAFA-ECE/ece382_wksp">ECE382_wksp repository</a> by clicking Fork and following the prompts.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_BitBucketWorkspace.gif"><img alt="../_images/HW1_BitBucketWorkspace.gif" class="align-center" src="../_images/HW1_BitBucketWorkspace.gif" style="width: 520px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW1_GitHubFork.gif"><img alt="../_images/HW1_GitHubFork.gif" class="align-center" src="../_images/HW1_GitHubFork.gif" style="width: 520px;" /></a>
 <br>
 <ul>
-<li><p>Click the grid in the top left corner to select <code class="docutils literal notranslate"><span class="pre">Atlassian</span> <span class="pre">Home</span></code>, and then click <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">up</span> <span class="pre">now</span></code>.</p></li>
-<li><p>Click <code class="docutils literal notranslate"><span class="pre">Directory</span></code> followed by <code class="docutils literal notranslate"><span class="pre">Invite</span> <span class="pre">users</span></code> to invite your instructor, Lt Col Trimble or Lt Col Wyche. The instructors’ GitHub email addresses are as follows:</p>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Settings</span></code> followed by <code class="docutils literal notranslate"><span class="pre">Collaborators</span></code> and then <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">people</span></code> to invite your instructor, Lt Col Trimble or Lt Col Wyche. The instructors’ GitHub email addresses are as follows:</p>
 <ul class="simple">
 <li><p>LtCol Trimble: <img alt="trimble" src="https://img.shields.io/badge/james.trimble&#64;afacademy.af.edu-red" /></p></li>
-<li><p>LtCol Wyche: <img alt="wyche" src="https://img.shields.io/badge/-yellow" /></p></li>
+<li><p>LtCol Wyche: <img alt="wyche" src="https://img.shields.io/badge/jason.wyche&#64;afacademy.af.edu-yellow" /></p></li>
 </ul>
   <!--
   - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
@@ -457,34 +449,29 @@ document.write(`
   -->
 </li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_Atlassian.gif"><img alt="../_images/HW1_Atlassian.gif" class="align-center" src="../_images/HW1_Atlassian.gif" style="width: 520px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW1_GitHubCollaborators.gif"><img alt="../_images/HW1_GitHubCollaborators.gif" class="align-center" src="../_images/HW1_GitHubCollaborators.gif" style="width: 520px;" /></a>
 <br>
 <ul class="simple">
-<li><p>Browse to <a href="https://bitbucket.org/stanbaek2/ece382_wksp/src/master/" target="_blank">https://bitbucket.org/stanbaek2/ece382_wksp/src/master/</a>.</p></li>
-<li><p>Click on the three dots (<span class="math notranslate nohighlight">\(\cdots\)</span>) on the top of the right-hand navigation for more options.</p></li>
-<li><p>Select <code class="docutils literal notranslate"><span class="pre">Fork</span> <span class="pre">this</span> <span class="pre">repository</span></code>.</p></li>
-<li><p>Select the workspace you created earlier.</p></li>
-<li><p>Enter “ECE382” for <code class="docutils literal notranslate"><span class="pre">Project</span></code>.</p></li>
-<li><p>Name this new repository ECE382_LastName_FirstName.</p></li>
-<li><p>Ensure the access level is <code class="docutils literal notranslate"><span class="pre">Private</span> <span class="pre">repository</span></code>.</p></li>
-<li><p>Give your instructor, Capt Yarbrough, and Dr. Baek <strong>read access</strong>: Click <code class="docutils literal notranslate"><span class="pre">Invite</span></code> and then click <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">members</span></code>. Provide them <strong>read access</strong>.</p></li>
+<li><p>We’ll now detach this fork from the original repository and make it private.</p></li>
+<li><p>Go back to Settings and scroll to the bottom then click <code class="docutils literal notranslate"><span class="pre">Leave</span> <span class="pre">fork</span> <span class="pre">network</span></code>.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">have</span> <span class="pre">read</span> <span class="pre">and</span> <span class="pre">understand</span> <span class="pre">these</span> <span class="pre">effects</span></code>.</p></li>
+<li><p>Type in the name of the repository to confirm and click <code class="docutils literal notranslate"><span class="pre">Leave</span> <span class="pre">fork</span> <span class="pre">network</span></code>.</p></li>
+<li><p>Wait a few seconds and refresh the page until the <code class="docutils literal notranslate"><span class="pre">Change</span> <span class="pre">visibility</span></code> button becomes enabled.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Change</span> <span class="pre">visibility</span></code> then <code class="docutils literal notranslate"><span class="pre">Change</span> <span class="pre">to</span> <span class="pre">private</span></code>.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">make</span> <span class="pre">this</span> <span class="pre">repository</span> <span class="pre">private</span></code> then click <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">have</span> <span class="pre">read</span> <span class="pre">and</span> <span class="pre">understand</span> <span class="pre">these</span> <span class="pre">effects</span></code>.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Make</span> <span class="pre">this</span> <span class="pre">repository</span> <span class="pre">private</span></code>.</p></li>
 </ul>
 <br>
-<a class="reference internal image-reference" href="../_images/HW1_GitFork.gif"><img alt="../_images/HW1_GitFork.gif" class="align-center" src="../_images/HW1_GitFork.gif" style="width: 720px;" /></a>
+<a class="reference internal image-reference" href="Assignments/figures/HW1_GitVisibility.gif"><img alt="Assignments/figures/HW1_GitVisibility.gif" class="align-center" src="Assignments/figures/HW1_GitVisibility.gif" style="width: 520px;" /></a>
 <br>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Please name your repository as ECE382_LastName_FirstName. This will help instructors find your repository easily.</p>
 </div>
 <ul class="simple">
-<li><p>You may need to create a Bitbucket <code class="docutils literal notranslate"><span class="pre">app</span> <span class="pre">password</span></code> as follows.</p></li>
-<li><p>Click <code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">Profile</span></code> on the top of the right-hand navigation and then click <code class="docutils literal notranslate"><span class="pre">Personal</span> <span class="pre">Settings</span></code>.</p></li>
-<li><p>Click <code class="docutils literal notranslate"><span class="pre">App</span> <span class="pre">Passwords</span></code> and then click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">app</span> <span class="pre">password</span></code>.</p></li>
-<li><p>Write your preferred label and select permissions as needed.</p></li>
-<li><p>Click <code class="docutils literal notranslate"><span class="pre">Create</span></code>.</p></li>
-<li><p>Save the password as you cannot view it after you create it.</p></li>
+<li><p>Now rename your repository by going to <code class="docutils literal notranslate"><span class="pre">Settings</span></code>, typing in a new name using the format ECE382_LastName_FirstName, then clicking <code class="docutils literal notranslate"><span class="pre">Rename</span></code>.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_BitbucketAppPassword2.gif"><img alt="../_images/HW1_BitbucketAppPassword2.gif" class="align-center" src="../_images/HW1_BitbucketAppPassword2.gif" style="width: 720px;" /></a>
+<a class="reference internal image-reference" href="../_images/HW1_GitHubRename.gif"><img alt="../_images/HW1_GitHubRename.gif" class="align-center" src="../_images/HW1_GitHubRename.gif" style="width: 720px;" /></a>
 <br>
 </section>
 <section id="install-git">
