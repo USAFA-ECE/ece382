@@ -32,8 +32,8 @@ The GIF animations provided on this page are intended to complement the main res
 <br>
 
 - Click `Settings` followed by `Collaborators` and then `Add people` to invite your instructor, Lt Col Trimble or Lt Col Wyche. The instructors' GitHub email addresses are as follows:    
-    - LtCol Trimble: ![trimble](https://img.shields.io/badge/james.trimble@afacademy.af.edu-red)
-    - LtCol Wyche: ![wyche](https://img.shields.io/badge/jason.wyche@afacademy.af.edu-yellow)
+    - LtCol Trimble: ![trimble](https://img.shields.io/badge/james.trimble@afacademy.af.edu-blue)
+    - LtCol Wyche: ![wyche](https://img.shields.io/badge/jason.wyche@afacademy.af.edu-DADCE0)
 
     <!--
     - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
@@ -58,7 +58,7 @@ The GIF animations provided on this page are intended to complement the main res
 
 <br>
 
-```{image} ./figures/HW1_GitVisibility.gif
+```{image} ./figures/HW1_GitHubVisibility.gif
 :width: 520
 :align: center
 ```
@@ -71,7 +71,7 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 - Now rename your repository by going to `Settings`, typing in a new name using the format ECE382_LastName_FirstName, then clicking `Rename`.
 
 ```{image} ./figures/HW1_GitHubRename.gif 
-:width: 720
+:width: 520
 :align: center
 ```
 <br>
