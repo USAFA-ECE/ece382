@@ -28,8 +28,11 @@ The GIF animations provided on this page are intended to complement the main res
 ```{image} ./figures/HW1_GitHubFork.gif
 :width: 520
 :align: center
+:class: shadow
 ```
-<br>
+<br><br>
+
+### Add Your Instructor
 
 - Click `Settings` followed by `Collaborators` and then `Add people` to invite your instructor, Lt Col Trimble or Lt Col Wyche. The instructors' GitHub email addresses are as follows:    
     - LtCol Trimble: ![trimble](https://img.shields.io/badge/james.trimble@afacademy.af.edu-blue)
@@ -44,8 +47,11 @@ The GIF animations provided on this page are intended to complement the main res
 ```{image} ./figures/HW1_GitHubCollaborators.gif
 :width: 520
 :align: center
+:class: shadow
 ```
-<br>
+<br><br>
+
+### Make the Repository Private
 
 - We'll now detach this fork from the original repository and make it private.
 - Go back to Settings and scroll to the bottom then click `Leave fork network`.
@@ -56,13 +62,14 @@ The GIF animations provided on this page are intended to complement the main res
 - Click `I want to make this repository private` then click `I have read and understand these effects`.
 - Click `Make this repository private`.
 
-<br>
-
 ```{image} ./figures/HW1_GitHubVisibility.gif
 :width: 520
 :align: center
+:class: shadow
 ```
-<br>
+<br><br>
+
+### Rename the GitHub Repository
 
 ```{important}
 Please name your repository as ECE382_LastName_FirstName. This will help instructors find your repository easily.
@@ -73,8 +80,9 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 ```{image} ./figures/HW1_GitHubRename.gif 
 :width: 520
 :align: center
+:class: shadow
 ```
-<br>
+<br><br>
 
 ### Install Git
 
