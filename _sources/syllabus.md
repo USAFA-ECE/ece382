@@ -74,6 +74,9 @@ The **Grade distribution** for this course is shown below.
           return `${label}\n${value}%`;
         }
       },
+      tooltip: {
+        enabled: false
+      },
       legend: {
         display: false
       }
@@ -85,7 +88,7 @@ The **Grade distribution** for this course is shown below.
     data: {
       labels: ['GR', 'Labs', 'Homework'],
       datasets: [{
-        data: [22.5, 40, 37.5],
+        data: [24.2, 38.6, 37.2],
         backgroundColor: ['#1f77b4', '#ff7f0e', '#2ca02c']
       }]
     },
@@ -125,6 +128,7 @@ The **Grade distribution** for this course is shown below.
   });
 </script>
 ```
+
 
 <br>
 
