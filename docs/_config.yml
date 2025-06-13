@@ -9,7 +9,7 @@ copyright: '2022' # Copyright year to be placed in the footer
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: auto
+  execute_notebooks: force
   exclude_patterns          : []    # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
 
 
@@ -46,7 +46,8 @@ sphinx:
     numfig_secnum_depth: 0
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     nb_custom_formats:
-      .md: ["myst_nb", {}]
+      .md:
+        reader: myst_nb
       
   extra_extensions:   # A list of extra extensions to load by Sphinx.
     - sphinxcontrib.mermaid  
