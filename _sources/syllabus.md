@@ -44,41 +44,6 @@ The grade weights are as follows:
 print("Hello from Jupyter Book!")
 ```
 
-
-```{code-cell} python
-:tags: [hide-input]
-import matplotlib.pyplot as plt
-
-# Data and colors
-labels_prog = ['GR', 'Labs', 'Homework']
-sizes_prog = [22.5, 40, 37.5]
-colors_prog = ['#1f77b4', '#ff7f0e', '#2ca02c']
-
-labels_final = ['GRs', 'Labs', 'Homework', 'Final Project']
-sizes_final = [18, 32, 25, 25]
-colors_final = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
-
-# Create both charts
-fig, axes = plt.subplots(2, 1, figsize=(6, 10))
-
-# Prog chart
-axes[0].pie(sizes_prog, labels=labels_prog, colors=colors_prog, autopct='%1.1f%%', startangle=90)
-axes[0].set_title('Prog Grade Breakdown')
-
-# Final chart
-axes[1].pie(sizes_final, labels=labels_final, colors=colors_final, autopct='%1.1f%%', startangle=90)
-axes[1].set_title('Final Grade Breakdown')
-
-plt.tight_layout()
-plt.show()
-```
-
-
-
-
-
-
-
 <br>
 
 Electrical and Computer Engineering courses are contract graded using the following 100 point scale.
