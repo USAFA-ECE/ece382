@@ -44,33 +44,30 @@ The grade weights are as follows:
 :tags: [hide-input]
 import matplotlib.pyplot as plt
 
-# Set up colors
-colors_prog = ['#1f77b4', '#ff7f0e', '#2ca02c']
-colors_final = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
-
-# Prog chart data
+# Data and colors
 labels_prog = ['GR', 'Labs', 'Homework']
-sizes_prog = [24.2, 38.6, 37.2]
+sizes_prog = [22.5, 40, 37.5]
+colors_prog = ['#1f77b4', '#ff7f0e', '#2ca02c']
 
-# Final chart data
 labels_final = ['GRs', 'Labs', 'Homework', 'Final Project']
 sizes_final = [18, 32, 25, 25]
+colors_final = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
 
-# Create figure and axes
-fig, axs = plt.subplots(1, 2, figsize=(10, 5))
+# Create both charts
+fig, axes = plt.subplots(2, 1, figsize=(6, 10))
 
 # Prog chart
-axs[0].pie(sizes_prog, labels=labels_prog, colors=colors_prog, autopct='%1.1f%%', startangle=90)
-axs[0].set_title('Prog Grade Breakdown')
+axes[0].pie(sizes_prog, labels=labels_prog, colors=colors_prog, autopct='%1.1f%%', startangle=90)
+axes[0].set_title('Prog Grade Breakdown')
 
 # Final chart
-axs[1].pie(sizes_final, labels=labels_final, colors=colors_final, autopct='%1.1f%%', startangle=90)
-axs[1].set_title('Final Grade Breakdown')
+axes[1].pie(sizes_final, labels=labels_final, colors=colors_final, autopct='%1.1f%%', startangle=90)
+axes[1].set_title('Final Grade Breakdown')
 
 plt.tight_layout()
 plt.show()
-
 ```
+
 
 
 
