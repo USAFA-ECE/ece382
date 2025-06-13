@@ -41,6 +41,11 @@ The **Grade distribution** for this course is shown below.
 The grade weights are as follows:
 
 ```{code-cell} python
+print("Hello from Jupyter Book!")
+```
+
+
+```{code-cell} python
 :tags: [hide-input]
 import matplotlib.pyplot as plt
 
