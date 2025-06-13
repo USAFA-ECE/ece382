@@ -40,17 +40,39 @@ The **Grade distribution** for this course is shown below.
 
 The grade weights are as follows:
 
-```{mermaid}
-%%{init: {"theme": "default", "themeVariables": {
-  "pie1": "#1f77b4",
-  "pie2": "#ff7f0e",
-  "pie3": "#2ca02c"
-}}}%%
-pie title Prog
-    "GR" : 22.5
-    "Labs" : 40
-    "Homework" : 37.5
+```{code-cell} python
+:tags: [hide-input]
+import matplotlib.pyplot as plt
+
+# Set up colors
+colors_prog = ['#1f77b4', '#ff7f0e', '#2ca02c']
+colors_final = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
+
+# Prog chart data
+labels_prog = ['GR', 'Labs', 'Homework']
+sizes_prog = [24.2, 38.6, 37.2]
+
+# Final chart data
+labels_final = ['GRs', 'Labs', 'Homework', 'Final Project']
+sizes_final = [18, 32, 25, 25]
+
+# Create figure and axes
+fig, axs = plt.subplots(1, 2, figsize=(10, 5))
+
+# Prog chart
+axs[0].pie(sizes_prog, labels=labels_prog, colors=colors_prog, autopct='%1.1f%%', startangle=90)
+axs[0].set_title('Prog Grade Breakdown')
+
+# Final chart
+axs[1].pie(sizes_final, labels=labels_final, colors=colors_final, autopct='%1.1f%%', startangle=90)
+axs[1].set_title('Final Grade Breakdown')
+
+plt.tight_layout()
+plt.show()
+
 ```
+
+
 
 
 

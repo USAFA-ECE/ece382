@@ -62,14 +62,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
-    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-    <script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
-window.addEventListener("load", () => mermaid.run());
-</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'syllabus';</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -493,17 +485,7 @@ document.write(`
 </table>
 <a class="reference internal image-reference" href="_images/GradeDistribution.png"><img alt="_images/GradeDistribution.png" class="align-center" src="_images/GradeDistribution.png" style="width: 720px;" /></a>
 <p>The grade weights are as follows:</p>
-<pre  class="mermaid">
-        %%{init: {&quot;theme&quot;: &quot;default&quot;, &quot;themeVariables&quot;: {
-  &quot;pie1&quot;: &quot;#1f77b4&quot;,
-  &quot;pie2&quot;: &quot;#ff7f0e&quot;,
-  &quot;pie3&quot;: &quot;#2ca02c&quot;
-}}}%%
-pie title Prog
-    &quot;GR&quot; : 22.5
-    &quot;Labs&quot; : 40
-    &quot;Homework&quot; : 37.5
-    </pre><br>
+<br>
 <p>Electrical and Computer Engineering courses are contract graded using the following 100 point scale.
 <br></p>
 <table class="table">
