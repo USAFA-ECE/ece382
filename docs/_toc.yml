@@ -6,7 +6,7 @@ root: intro
 parts:
   - caption: Course Info
     chapters:
-    - file: syllabus.md
+    - file: syllabus
     - file: schedule.md
     - file: assembly.md
     - file: c_programming.md
