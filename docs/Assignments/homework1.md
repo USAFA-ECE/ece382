@@ -86,12 +86,21 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 
 ### Install Git
 
+#### Option 1: Self-Service Client
+
+- You can install Git for Windows using the Self-Service Client from 10 CS.
+
+#### Option 2: Install Git Manually
+
 - Browse to  <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a> to download `64-bit Git for Windows setup`
-- Install Git with the default settings. Git is already installed on Mac. 
+- Install Git with the default settings. Git is already installed on Mac.
+
+### Setup Your Workspace 🚩This needs work
+
 - Create a folder named `workspace` under your home folder, e.g., C:\Users\stanley.baek\workspace. 
 - Right-click the `workspace` folder and select `Git Bash Here` as shown below.   
-- From your repository in Bitbucket, click Clone and copy the command that begins with _git clone_ by clicking on the copy button as shown below.  
-- Paste it within the Bash terminal (middle-click, right-click > Paste, or `Shift+Ins` to paste) and add a space followed by a **_period_** as shown below. The **_period_** at the end means that the destination is the **_current folder_**. Hit Enter.
+- From your repository in GitHub, click Clone and copy the HTTS URL.
+- Go to the Bash terminal and type `git clone ` and then paste the repository URL you just copied (middle-click, right-click > Paste, or `Shift+Ins` to paste).  Hit Enter.
 - If it asks for a password, enter the app password you saved in the previous step.
 - Notice that you have `(master)` at the end of the folder name. 
 
