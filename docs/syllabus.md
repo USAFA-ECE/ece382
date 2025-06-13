@@ -44,26 +44,14 @@ The grade weights are as follows:
 %%{init: {"theme": "default", "themeVariables": {
   "pie1": "#1f77b4",
   "pie2": "#ff7f0e",
-  "pie3": "#2ca02c",
-  "background": "transparent"
-}}%%
+  "pie3": "#2ca02c"
+}}}%%
 pie title Prog
-    "GR" : 24.2
-    "Labs" : 38.6
-    "Homework" : 37.2
+    "GR" : 22.5
+    "Labs" : 40
+    "Homework" : 37.5
+```
 
-%%{init: {"theme": "default", "themeVariables": {
-  "pie1": "#1f77b4",
-  "pie2": "#ff7f0e",
-  "pie3": "#2ca02c",
-  "pie4": "#d62728",
-  "background": "transparent"
-}}%%
-pie title Final
-    "GRs" : 18
-    "Labs" : 32
-    "Homework" : 25
-    "Final Project" : 25
 
 
 
