@@ -33,13 +33,6 @@ The **Grade distribution** for this course is shown below.
 |     Total                 |     100%    |     Total              |     100%    |
 
 
-```{image} ./figures/GradeDistribution.png
-:width: 720
-:align: center
-```
-
-The grade weights are as follows:
-
 ```{raw} html
 <style>
   .chart-container {
@@ -69,36 +62,47 @@ The grade weights are as follows:
 <script>
   Chart.register(ChartDataLabels);
 
-  const progChart = new Chart(document.getElementById('progChart'), {
+  const commonOptions = {
+    plugins: {
+      datalabels: {
+        color: '#ffffff',
+        font: {
+          weight: 'bold'
+        },
+        formatter: (value, ctx) => {
+          let label = ctx.chart.data.labels[ctx.dataIndex];
+          return `${label}\n${value}%`;
+        }
+      },
+      legend: {
+        display: false
+      }
+    }
+  };
+
+  new Chart(document.getElementById('progChart'), {
     type: 'pie',
     data: {
       labels: ['GR', 'Labs', 'Homework'],
       datasets: [{
-        data: [24.2, 38.6, 37.2],
+        data: [22.5, 40, 37.5],
         backgroundColor: ['#1f77b4', '#ff7f0e', '#2ca02c']
       }]
     },
     options: {
+      ...commonOptions,
       plugins: {
+        ...commonOptions.plugins,
         title: {
           display: true,
-          text: 'Prog Grade Breakdown'
-        },
-        datalabels: {
-          color: '#000',
-          formatter: (value, ctx) => {
-            let label = ctx.chart.data.labels[ctx.dataIndex];
-            return `${label}\n${value}%`;
-          }
-        },
-        legend: {
-          display: false
+          text: 'Prog Grade Breakdown',
+          color: '#ffffff'
         }
       }
     }
   });
 
-  const finalChart = new Chart(document.getElementById('finalChart'), {
+  new Chart(document.getElementById('finalChart'), {
     type: 'pie',
     data: {
       labels: ['GRs', 'Labs', 'Homework', 'Final Project'],
@@ -108,27 +112,19 @@ The grade weights are as follows:
       }]
     },
     options: {
+      ...commonOptions,
       plugins: {
+        ...commonOptions.plugins,
         title: {
           display: true,
-          text: 'Final Grade Breakdown'
-        },
-        datalabels: {
-          color: '#000',
-          formatter: (value, ctx) => {
-            let label = ctx.chart.data.labels[ctx.dataIndex];
-            return `${label}\n${value}%`;
-          }
-        },
-        legend: {
-          display: false
+          text: 'Final Grade Breakdown',
+          color: '#ffffff'
         }
       }
     }
   });
 </script>
 ```
-
 
 <br>
 
