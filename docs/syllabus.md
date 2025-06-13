@@ -41,11 +41,64 @@ The **Grade distribution** for this course is shown below.
 The grade weights are as follows:
 
 ```{raw} html
-<canvas id="gradeChart" width="400" height="400"></canvas>
+<style>
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+  canvas {
+    max-width: 300px;
+    max-height: 300px;
+  }
+</style>
+
+<div class="chart-container">
+  <div>
+    <canvas id="progChart"></canvas>
+  </div>
+  <div>
+    <canvas id="finalChart"></canvas>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 <script>
-  const ctx = document.getElementById('gradeChart');
-  new Chart(ctx, {
+  Chart.register(ChartDataLabels);
+
+  const progChart = new Chart(document.getElementById('progChart'), {
+    type: 'pie',
+    data: {
+      labels: ['GR', 'Labs', 'Homework'],
+      datasets: [{
+        data: [24.2, 38.6, 37.2],
+        backgroundColor: ['#1f77b4', '#ff7f0e', '#2ca02c']
+      }]
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Prog Grade Breakdown'
+        },
+        datalabels: {
+          color: '#000',
+          formatter: (value, ctx) => {
+            let label = ctx.chart.data.labels[ctx.dataIndex];
+            return `${label}\n${value}%`;
+          }
+        },
+        legend: {
+          display: false
+        }
+      }
+    }
+  });
+
+  const finalChart = new Chart(document.getElementById('finalChart'), {
     type: 'pie',
     data: {
       labels: ['GRs', 'Labs', 'Homework', 'Final Project'],
@@ -59,12 +112,23 @@ The grade weights are as follows:
         title: {
           display: true,
           text: 'Final Grade Breakdown'
+        },
+        datalabels: {
+          color: '#000',
+          formatter: (value, ctx) => {
+            let label = ctx.chart.data.labels[ctx.dataIndex];
+            return `${label}\n${value}%`;
+          }
+        },
+        legend: {
+          display: false
         }
       }
     }
   });
 </script>
 ```
+
 
 <br>
 
