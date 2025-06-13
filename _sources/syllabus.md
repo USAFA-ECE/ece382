@@ -40,59 +40,24 @@ The **Grade distribution** for this course is shown below.
 
 The grade weights are as follows:
 
-```{raw} html
-<style>
-  /* Responsive Mermaid chart container */
-  .dual-mermaid {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    padding: 1rem;
-  }
-
-  /* Automatically adjust based on Jupyter Book color scheme */
-  html[data-theme="light"] .dual-mermaid .mermaid-init {
-    background-color: white !important;
-  }
-
-  html[data-theme="dark"] .dual-mermaid .mermaid-init {
-    background-color: #1e1e1e !important;
-  }
-</style>
-
-<div class="dual-mermaid">
-  <div style="flex: 1;">
-    <pre class="mermaid mermaid-init">
+```{mermaid}
 %%{init: {"theme": "default", "themeVariables": {
-  "background": "transparent",
-  "pie1": "#1f77b4",  /* GR / GRs */
-  "pie2": "#ff7f0e",  /* Labs */
-  "pie3": "#2ca02c",  /* Homework */
-  "pie4": "#d62728"   /* Final Project */
+  "pie1": "#1f77b4",
+  "pie2": "#ff7f0e",
+  "pie3": "#2ca02c",
+  "pie4": "#d62728",
+  "background": "transparent"
 }}}%%
 pie title Prog
     "GR" : 22.5
     "Labs" : 40
     "Homework" : 37.5
-    </pre>
-  </div>
-  <div style="flex: 1;">
-    <pre class="mermaid mermaid-init">
-%%{init: {"theme": "default", "themeVariables": {
-  "background": "transparent",
-  "pie1": "#1f77b4",
-  "pie2": "#ff7f0e",
-  "pie3": "#d62728",
-  "pie4": "#2ca02c"
-}}}%%
+
 pie title Final
     "GRs" : 18
     "Labs" : 32
     "Homework" : 25
     "Final Project" : 25
-    </pre>
-  </div>
-</div>
 ```
 
 

@@ -62,6 +62,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'syllabus';</script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -485,58 +493,25 @@ document.write(`
 </table>
 <a class="reference internal image-reference" href="_images/GradeDistribution.png"><img alt="_images/GradeDistribution.png" class="align-center" src="_images/GradeDistribution.png" style="width: 720px;" /></a>
 <p>The grade weights are as follows:</p>
-<style>
-  /* Responsive Mermaid chart container */
-  .dual-mermaid {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    padding: 1rem;
-  }
-
-  /* Automatically adjust based on Jupyter Book color scheme */
-  html[data-theme="light"] .dual-mermaid .mermaid-init {
-    background-color: white !important;
-  }
-
-  html[data-theme="dark"] .dual-mermaid .mermaid-init {
-    background-color: #1e1e1e !important;
-  }
-</style>
-
-<div class="dual-mermaid">
-  <div style="flex: 1;">
-    <pre class="mermaid mermaid-init">
-%%{init: {"theme": "default", "themeVariables": {
-  "background": "transparent",
-  "pie1": "#1f77b4",  /* GR / GRs */
-  "pie2": "#ff7f0e",  /* Labs */
-  "pie3": "#2ca02c",  /* Homework */
-  "pie4": "#d62728"   /* Final Project */
+<pre  class="mermaid">
+        %%{init: {&quot;theme&quot;: &quot;default&quot;, &quot;themeVariables&quot;: {
+  &quot;pie1&quot;: &quot;#1f77b4&quot;,
+  &quot;pie2&quot;: &quot;#ff7f0e&quot;,
+  &quot;pie3&quot;: &quot;#2ca02c&quot;,
+  &quot;pie4&quot;: &quot;#d62728&quot;,
+  &quot;background&quot;: &quot;transparent&quot;
 }}}%%
 pie title Prog
-    "GR" : 22.5
-    "Labs" : 40
-    "Homework" : 37.5
-    </pre>
-  </div>
-  <div style="flex: 1;">
-    <pre class="mermaid mermaid-init">
-%%{init: {"theme": "default", "themeVariables": {
-  "background": "transparent",
-  "pie1": "#1f77b4",
-  "pie2": "#ff7f0e",
-  "pie3": "#d62728",
-  "pie4": "#2ca02c"
-}}}%%
+    &quot;GR&quot; : 22.5
+    &quot;Labs&quot; : 40
+    &quot;Homework&quot; : 37.5
+
 pie title Final
-    "GRs" : 18
-    "Labs" : 32
-    "Homework" : 25
-    "Final Project" : 25
-    </pre>
-  </div>
-</div><br>
+    &quot;GRs&quot; : 18
+    &quot;Labs&quot; : 32
+    &quot;Homework&quot; : 25
+    &quot;Final Project&quot; : 25
+    </pre><br>
 <p>Electrical and Computer Engineering courses are contract graded using the following 100 point scale.
 <br></p>
 <table class="table">
