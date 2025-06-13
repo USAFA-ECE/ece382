@@ -37,6 +37,24 @@ The **Grade distribution** for this course is shown below.
 :width: 720
 :align: center
 ```
+
+The grade weights are as follows:
+
+```{mermaid}
+pie title Prog Grade Weighting
+    "GRs" : 24.2
+    "Labs" : 38.6
+    "Homework" : 37.2
+```
+
+```{mermaid}
+pie title Final Grade Weighting
+    "GRs" : 18
+    "Labs" : 32
+    "Homework" : 25
+    "Final Project" : 25
+```
+
 <br>
 
 Electrical and Computer Engineering courses are contract graded using the following 100 point scale.
