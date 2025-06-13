@@ -45,6 +45,9 @@ sphinx:
   config:
     numfig_secnum_depth: 0
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    nb_custom_formats:
+      .md:
+        - myst_nb   
   extra_extensions:   # A list of extra extensions to load by Sphinx.
     - sphinxcontrib.mermaid  
 #   - sphinx_inline_tabs
