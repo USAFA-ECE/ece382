@@ -1,12 +1,3 @@
----
-jupyter:
-  jupytext:
-    formats: ipynb,md
-  kernelspec:
-    name: python3
-    display_name: Python 3
----
-
 # 🚩 Syllabus
 
 ## Course Goals
@@ -49,8 +40,30 @@ The **Grade distribution** for this course is shown below.
 
 The grade weights are as follows:
 
-```{code-cell} python
-print("Hello from Jupyter Book!")
+```{raw} html
+<canvas id="gradeChart" width="400" height="400"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('gradeChart');
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['GRs', 'Labs', 'Homework', 'Final Project'],
+      datasets: [{
+        data: [18, 32, 25, 25],
+        backgroundColor: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
+      }]
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Final Grade Breakdown'
+        }
+      }
+    }
+  });
+</script>
 ```
 
 <br>

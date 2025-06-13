@@ -485,7 +485,29 @@ document.write(`
 </table>
 <a class="reference internal image-reference" href="_images/GradeDistribution.png"><img alt="_images/GradeDistribution.png" class="align-center" src="_images/GradeDistribution.png" style="width: 720px;" /></a>
 <p>The grade weights are as follows:</p>
-<br>
+<canvas id="gradeChart" width="400" height="400"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('gradeChart');
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['GRs', 'Labs', 'Homework', 'Final Project'],
+      datasets: [{
+        data: [18, 32, 25, 25],
+        backgroundColor: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
+      }]
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Final Grade Breakdown'
+        }
+      }
+    }
+  });
+</script><br>
 <p>Electrical and Computer Engineering courses are contract graded using the following 100 point scale.
 <br></p>
 <table class="table">
