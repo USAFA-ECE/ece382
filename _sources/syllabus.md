@@ -1,3 +1,12 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,md
+  kernelspec:
+    name: python3
+    display_name: Python 3
+---
+
 # 🚩 Syllabus
 
 ## Course Goals
