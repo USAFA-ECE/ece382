@@ -1,8 +1,9 @@
 # ECE382 Embedded Computer Systems I
 
 ## 👨‍🏫 Instructors
-- ![trimble](https://img.shields.io/badge/LtCol%20James%20Trimble-2E46D-red)
-- ![wyche](https://img.shields.io/badge/LtCol%20Jason%20Wyche-2F10-yellow)
+- ![trimble](https://img.shields.io/badge/LtCol%20James%20Trimble-2E46D-blue)
+- ![york](https://img.shields.io/badge/Dr.%20George%20York-2E42-silver)
+- ![wyche](https://img.shields.io/badge/LtCol%20Jason%20Wyche-2F10-silver)
 
 <!--
 - [![baek](https://img.shields.io/badge/Dr.%20Stan%20Baek-2E38-yellow)](https://stanbaek.github.io)
