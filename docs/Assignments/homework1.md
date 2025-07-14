@@ -34,10 +34,11 @@ The GIF animations provided on this page are intended to complement the main res
 
 ### Add Your Instructor
 
-- Click `Settings` followed by `Collaborators` and then `Add people` to invite your instructor, Lt Col Trimble or Lt Col Wyche. The instructors' GitHub email addresses are as follows:    
+- Click `Settings` followed by `Collaborators` and then `Add people` to invite your instructor, Lt Col Trimble, Dr. York, or Lt Col Wyche. The instructors' GitHub email addresses are as follows:    
     - LtCol Trimble: ![trimble](https://img.shields.io/badge/james.trimble@afacademy.af.edu-blue)
-    - LtCol Wyche: ![wyche](https://img.shields.io/badge/jason.wyche@afacademy.af.edu-DADCE0)
-
+    - Dr. York: ![york](https://img.shields.io/badge/george.york@afacademy.af.edu-silver)
+    - LtCol Wyche: ![wyche](https://img.shields.io/badge/jason.wyche@afacademy.af.edu-silver)
+    
     <!--
     - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
     - Dr. York: ![york](https://img.shields.io/badge/george.york@usafa.edu-green)
