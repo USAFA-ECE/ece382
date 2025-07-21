@@ -156,13 +156,14 @@ All communication and course material will be provided through a course and sect
 **Optional:**
 Embedded Systems: Introduction to the MSP432 Microcontroller (Vol 1), Johnathan W. Valvano, First Edition, 2019. ISBN: 978-1512185676.
 
-## Collaboration Policy
+## Collaboration & AI Policy
 
 Unless specifically directed otherwise, the collaboration policy for this course is:
 
 - For all assignments in this course, unless otherwise noted on the assignment, you may collaborate with any other cadets currently enrolled in ECE 382. We expect all graded work to be in your own work. Copying another person’s work, with or without documentation, will result in NO academic credit. Furthermore, copying without attribution is dishonorable and will be dealt with as an honor code violation.
 - GRs are individual efforts. No collaboration is allowed while taking these exams. All electronic devices (phones, smartwatches, computers, tablets, etc.) must be placed out of sight for the duration of the event. If any electronic device is seen during the event, the student will receive a zero for that effort. 
-- Authorized resources include any material from the ECE 382 course site and online sources regarding C programming syntax only. This does not include any solutions or solution stubs for challenges similar to those asked in any assignments. 
+- Authorized resources include any material from the ECE 382 course site and online sources regarding C programming syntax only. This does not include any solutions or solution stubs for challenges similar to those asked in any assignments.
+- AI usage is limited to Level 3.  Level 3 is defined as "Use of GenAI as a feedback tool on student-generated work. Cadets create their own work independently, then may use GenAI as a tool to get feedback about their draft, such as suggestions for improvement, clarification, alignment with the assignment instructions, or editing tips. Cadets are expected to make their own revisions based on this feedback; the submitted work should not include GenAI-generated text. This use of GenAI should be clearly communicated in their documentation statements."  This means you must write your own code but can ask an AI model for clarification, conceptual questions, and debugging help.  You should not have the AI model write the solution for you and should put language in your prompt that asks the AI to not write the code for you.  You must provide your instructor with a transcript of your conversation.
 
 ## Documentation Requirements
 
