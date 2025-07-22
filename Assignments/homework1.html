@@ -455,7 +455,6 @@ document.write(`
 </ul>
   <!--
   - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
-  - Dr. York: ![york](https://img.shields.io/badge/george.york@usafa.edu-green)
   - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
   -->
 </li>
@@ -510,33 +509,30 @@ document.write(`
 <h3>Setup Your Workspace 🚩This needs work<a class="headerlink" href="#setup-your-workspace-this-needs-work" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Create a folder named <code class="docutils literal notranslate"><span class="pre">workspace</span></code> under your home folder, e.g., C:\Users\stanley.baek\workspace.</p></li>
-<li><p>Right-click the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">Bash</span> <span class="pre">Here</span></code> as shown below.</p></li>
-<li><p>From your repository in GitHub, click Clone and copy the HTTS URL.</p></li>
-<li><p>Go to the Bash terminal and type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> </code> and then paste the repository URL you just copied (middle-click, right-click &gt; Paste, or <code class="docutils literal notranslate"><span class="pre">Shift+Ins</span></code> to paste).  Hit Enter.</p></li>
-<li><p>If it asks for a password, enter the app password you saved in the previous step.</p></li>
-<li><p>Notice that you have <code class="docutils literal notranslate"><span class="pre">(master)</span></code> at the end of the folder name.</p></li>
+<li><p>Right-click the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">in</span> <span class="pre">Terminal</span></code> for PowerShell or <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">Bash</span> <span class="pre">Here</span></code> for Bash as shown below.</p></li>
+<li><p>From your repository in GitHub, click Clone and copy the HTTPS URL.</p></li>
+<li><p>Go to the terminal (e.g. Bash or PowerShell) and type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> </code> and then paste the repository URL you just copied (middle or right-click, right-click &gt; Paste, or <code class="docutils literal notranslate"><span class="pre">Shift+Ins</span></code> to paste).  Hit Enter.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_GitClone.gif"><img alt="../_images/HW1_GitClone.gif" class="align-center" src="../_images/HW1_GitClone.gif" style="width: 720px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_GitClone.gif"><img alt="../_images/HW1_GitClone.gif" class="shadow align-center" src="../_images/HW1_GitClone.gif" style="width: 720px;" /></a>
 <br>
 <ul class="simple">
 <li><p>The figure below shows an example of a local <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder on your computer.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_Workspace.png"><img alt="../_images/HW1_Workspace.png" class="align-center" src="../_images/HW1_Workspace.png" style="width: 580px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_Workspace.png"><img alt="../_images/HW1_Workspace.png" class="shadow align-center" src="../_images/HW1_Workspace.png" style="width: 580px;" /></a>
 <br>
 <ul class="simple">
-<li><p>Go back to Git Bash. If you have already closed it, right-click on an empty space inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">Bash</span> <span class="pre">Here</span></code>.</p></li>
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.  It will return two lines showing that <code class="docutils literal notranslate"><span class="pre">origin</span></code> is your remote repository at <a class="reference external" href="http://bitbucket.org">bitbucket.org</a> for both fetch and push.</p></li>
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">upstream</span> <span class="pre">https://stanbaek2&#64;bitbucket.org/stanbaek2/ece382_wksp.git</span></code> (or copy &amp; paste) and hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.  It will now return four lines showing that <code class="docutils literal notranslate"><span class="pre">upstream</span></code>
-is the original instructor’s repository that you forked from.</p></li>
+<li><p>Go back to the terminal. If you have already closed it, right-click on an empty space inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">in</span> <span class="pre">Terminal</span></code> or <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">Bash</span> <span class="pre">Here</span></code>.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.  It will return two lines showing that <code class="docutils literal notranslate"><span class="pre">origin</span></code> is your remote repository at <a class="reference external" href="http://github.com">github.com</a> for both fetch and push.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">upstream</span> <span class="pre">https://github.com/USAFA-ECE/ece382_wksp.git</span></code> (or copy &amp; paste) and hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.  It will now return four lines showing that <code class="docutils literal notranslate"><span class="pre">upstream</span></code> is the original instructor’s repository that you forked from.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_GitAddUpstream.gif"><img alt="../_images/HW1_GitAddUpstream.gif" class="align-center" src="../_images/HW1_GitAddUpstream.gif" style="width: 640px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_GitAddUpstream.gif"><img alt="../_images/HW1_GitAddUpstream.gif" class="shadow align-center" src="../_images/HW1_GitAddUpstream.gif" style="width: 640px;" /></a>
 <br>
 <ul class="simple">
 <li><p>Whenever there are any updates on the original code, you will be asked to run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">upstream</span></code> to update your local files.</p></li>
-<li><p>Your default push and pull repository is <code class="docutils literal notranslate"><span class="pre">origin</span></code>, which is your Bitbucket repository.</p></li>
+<li><p>Your default push and pull repository is <code class="docutils literal notranslate"><span class="pre">origin</span></code>, which is your GitHub repository.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_FetchUpstream.png"><img alt="../_images/HW1_FetchUpstream.png" class="align-center" src="../_images/HW1_FetchUpstream.png" style="width: 320px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_FetchUpstream.png"><img alt="../_images/HW1_FetchUpstream.png" class="shadow align-center" src="../_images/HW1_FetchUpstream.png" style="width: 320px;" /></a>
 <center>
 Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-is-the-difference-between-origin-and-upstream-on-github/9257901#9257901" target="_blank">Stakeoverflow</a>
 </center>
@@ -559,7 +555,7 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 <li><p>Click Next until installation begins.</p></li>
 <li><p>Click Finish and your installation should proceed to completion.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_CCS_Setup.gif"><img alt="../_images/HW1_CCS_Setup.gif" class="align-center" src="../_images/HW1_CCS_Setup.gif" style="width: 760px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_CCS_Setup.gif"><img alt="../_images/HW1_CCS_Setup.gif" class="shadow align-center" src="../_images/HW1_CCS_Setup.gif" style="width: 760px;" /></a>
 <br>
 </section>
 <section id="import-project-files">
@@ -576,21 +572,21 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 <li><p>CCS should discover many projects inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder.  Click <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">All</span></code> (<strong>DO NOT</strong> check <code class="docutils literal notranslate"><span class="pre">Automatically</span> <span class="pre">import...</span></code> or <code class="docutils literal notranslate"><span class="pre">Copy</span> <span class="pre">projects...</span></code> options). This will have CCS reference the project from the original location and preserve the original directory structure required to build. Click <code class="docutils literal notranslate"><span class="pre">Finish</span></code>.</p></li>
 <li><p>In <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Explorer</span></code>, expand <code class="docutils literal notranslate"><span class="pre">HW01_Git</span></code> and double click <code class="docutils literal notranslate"><span class="pre">test.txt</span></code> to open. Edit the file and save. You can simply add “My name is …” as shown below.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_CCS_Config.gif"><img alt="../_images/HW1_CCS_Config.gif" class="align-center" src="../_images/HW1_CCS_Config.gif" style="width: 598.0px; height: 466.5px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_CCS_Config.gif"><img alt="../_images/HW1_CCS_Config.gif" class="shadow align-center" src="../_images/HW1_CCS_Config.gif" style="width: 598.0px; height: 466.5px;" /></a>
 <br>
 </section>
 <section id="push-your-code">
 <h3>Push Your Code.<a class="headerlink" href="#push-your-code" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Go back to Git Bash. If you have already closed it, right-click on an empty space inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">Bash</span> <span class="pre">Here</span></code>.</p></li>
+<li><p>Go back to the terminal. If you have already closed it, right-click on an empty space inside the <code class="docutils literal notranslate"><span class="pre">workspace</span></code> folder and select <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">in</span> <span class="pre">Terminal</span></code> or <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">Bash</span> <span class="pre">Here</span></code>.</p></li>
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-A</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-all</span></code> and hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Homework</span> <span class="pre">1&quot;</span></code> and hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> as shown below.</p></li>
 <li><p>You can run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to check the current status of your local repository.</p></li>
 <li><p>Enter your username and password if prompted.</p></li>
-<li><p>Refresh your Bitbucket repository and ensure your push has been made through.</p></li>
+<li><p>Refresh your GitHub repository and ensure your push has been made through.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_GitPush.gif"><img alt="../_images/HW1_GitPush.gif" class="align-center" src="../_images/HW1_GitPush.gif" style="width: 540px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_GitPush.gif"><img alt="../_images/HW1_GitPush.gif" class="shadow align-center" src="../_images/HW1_GitPush.gif" style="width: 540px;" /></a>
 <br>
 <ul class="simple">
 <li><p>In the future you will repeat these three steps when committing your changes:</p>
@@ -607,7 +603,11 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>CCS comes with built-in GIT, and it can be opened from CCS menu &gt; View &gt; Other &gt; Git &gt; Git Staging. You can commit and push at the same time. There are also many third-party graphic user interface (GUI) clients. Check out <a class="reference external" href="https://git-scm.com/downloads/guis">https://git-scm.com/downloads/guis</a>.</p>
+<p>CCS comes with built-in Git, and it can be opened from CCS menu &gt; View &gt; Other &gt; Git &gt; Git Staging. You can commit and push at the same time. There are also many third-party graphic user interface (GUI) clients. Check out <a class="reference external" href="https://git-scm.com/downloads/guis">https://git-scm.com/downloads/guis</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Scott Chacon was one of the founders of GitHub and has a great talk with some Git Tips and Tricks.  <a class="reference external" href="https://www.youtube.com/watch?v=aolI_Rz0ZqY">https://www.youtube.com/watch?v=aolI_Rz0ZqY</a></p>
 </div>
 </section>
 <section id="unhide-file-extensions">
@@ -620,7 +620,7 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 <li><p>Uncheck <code class="docutils literal notranslate"><span class="pre">Hide</span> <span class="pre">extensions</span> <span class="pre">for</span> <span class="pre">known</span> <span class="pre">file</span> <span class="pre">types</span></code>. You can also change some of the Windows default settings shown in the animation.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">OK</span></code>.  Now you can see file extensions.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_ShowFileExtensions.gif"><img alt="../_images/HW1_ShowFileExtensions.gif" class="align-center" src="../_images/HW1_ShowFileExtensions.gif" style="width: 720px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_ShowFileExtensions.gif"><img alt="../_images/HW1_ShowFileExtensions.gif" class="shadow align-center" src="../_images/HW1_ShowFileExtensions.gif" style="width: 720px;" /></a>
 <br> 
 </section>
 <section id="convert-tabs-to-spaces">
@@ -631,7 +631,7 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 <li><p>Check <code class="docutils literal notranslate"><span class="pre">Insert</span> <span class="pre">spaces</span> <span class="pre">for</span> <span class="pre">tabs</span></code> and <code class="docutils literal notranslate"><span class="pre">Remove</span> <span class="pre">multiple</span> <span class="pre">spaces</span> <span class="pre">on</span> <span class="pre">backspace/delete</span></code> as shown below.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">and</span> <span class="pre">Close</span></code>.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_Tabs2Spaces.png"><img alt="../_images/HW1_Tabs2Spaces.png" class="align-center" src="../_images/HW1_Tabs2Spaces.png" style="width: 560px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_Tabs2Spaces.png"><img alt="../_images/HW1_Tabs2Spaces.png" class="shadow align-center" src="../_images/HW1_Tabs2Spaces.png" style="width: 560px;" /></a>
 <br>
 </section>
 <section id="hardware-diagnostics-tool">
@@ -642,13 +642,13 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 <li><p>While you are running the tool, take a picture of your robot. Your picture must show one of the tests on the LCD as shown below. Ensure you have a small AF symbol on each test screen.</p></li>
 <li><p>Submit the picture on Gradescope.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_HardwareDiagnostics.jpg"><img alt="../_images/HW1_HardwareDiagnostics.jpg" class="align-center" src="../_images/HW1_HardwareDiagnostics.jpg" style="width: 640px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_HardwareDiagnostics.jpg"><img alt="../_images/HW1_HardwareDiagnostics.jpg" class="shadow align-center" src="../_images/HW1_HardwareDiagnostics.jpg" style="width: 640px;" /></a>
 <br>
 </section>
 </section>
 <section id="deliverables">
 <h2>🚚 Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
-<p>Take screenshots of the following and submit them via Gradescope.  Use <code class="docutils literal notranslate"><span class="pre">Snip</span> <span class="pre">&amp;</span> <span class="pre">Sketch</span></code> (Win+Shift+S) on Windows 10/11 or Shift+CMD+4 on MacOS to take a screenshot. Save it in <code class="docutils literal notranslate"><span class="pre">png</span></code> or <code class="docutils literal notranslate"><span class="pre">jpg</span></code>.</p>
+<p>Take screenshots of the following and submit them via Gradescope.  Use <code class="docutils literal notranslate"><span class="pre">Snip</span> <span class="pre">&amp;</span> <span class="pre">Sketch</span></code> (Shift+Win+S) on Windows 10/11 or Shift+CMD+4 on MacOS to take a screenshot. Save it in <code class="docutils literal notranslate"><span class="pre">png</span></code> or <code class="docutils literal notranslate"><span class="pre">jpg</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Do NOT take pictures of your computer screen using your phone because (i) it can result in sampling aliasing, as explained in ECE215/ECE315, (ii) it will require more steps compared to a simple screen capture, and (iii) the resulting image will always be blurrier than a direct screen capture.</p>
@@ -656,12 +656,12 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 <ul class="simple">
 <li><p><strong>[5 Points]</strong> Provide a screenshot of your Bitbucket repository as shown below</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_Deliverable1.png"><img alt="../_images/HW1_Deliverable1.png" class="align-center" src="../_images/HW1_Deliverable1.png" style="width: 740px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_Deliverable1.png"><img alt="../_images/HW1_Deliverable1.png" class="shadow align-center" src="../_images/HW1_Deliverable1.png" style="width: 740px;" /></a>
 <br>
 <ul class="simple">
 <li><p><strong>[5 Points]</strong> Go to Windows Settings &gt; Apps.  Click on Code Composer Studio and take a screenshot as shown below.  For Mac users, it is in the Applications folder.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/HW1_Deliverable2.png"><img alt="../_images/HW1_Deliverable2.png" class="align-center" src="../_images/HW1_Deliverable2.png" style="width: 480px;" /></a>
+<a class="shadow reference internal image-reference" href="../_images/HW1_Deliverable2.png"><img alt="../_images/HW1_Deliverable2.png" class="shadow align-center" src="../_images/HW1_Deliverable2.png" style="width: 480px;" /></a>
 <br>
 <ul class="simple">
 <li><p><strong>[6 Points]</strong> While you are running the hardware diagnostics tool, take a picture of your robot and submit it on Gradescope.</p></li>

@@ -41,7 +41,6 @@ The GIF animations provided on this page are intended to complement the main res
     
     <!--
     - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
-    - Dr. York: ![york](https://img.shields.io/badge/george.york@usafa.edu-green)
     - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
     -->
 
@@ -99,15 +98,14 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 ### Setup Your Workspace 🚩This needs work
 
 - Create a folder named `workspace` under your home folder, e.g., C:\Users\stanley.baek\workspace. 
-- Right-click the `workspace` folder and select `Git Bash Here` as shown below.   
-- From your repository in GitHub, click Clone and copy the HTTS URL.
-- Go to the Bash terminal and type `git clone ` and then paste the repository URL you just copied (middle-click, right-click > Paste, or `Shift+Ins` to paste).  Hit Enter.
-- If it asks for a password, enter the app password you saved in the previous step.
-- Notice that you have `(master)` at the end of the folder name. 
+- Right-click the `workspace` folder and select `Open in Terminal` for PowerShell or `Git Bash Here` for Bash as shown below.   
+- From your repository in GitHub, click Clone and copy the HTTPS URL.
+- Go to the terminal (e.g. Bash or PowerShell) and type `git clone ` and then paste the repository URL you just copied (middle or right-click, right-click > Paste, or `Shift+Ins` to paste).  Hit Enter.
 
 ```{image} ./figures/HW1_GitClone.gif
 :width: 720
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -116,28 +114,30 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 ```{image} ./figures/HW1_Workspace.png
 :width: 580
 :align: center
+:class: shadow
 ```
 
 <br>
 
-- Go back to Git Bash. If you have already closed it, right-click on an empty space inside the `workspace` folder and select `Git Bash Here`.
-- Type `git remote -v`.  It will return two lines showing that `origin` is your remote repository at bitbucket.org for both fetch and push. 
-- Type `git remote add upstream https://stanbaek2@bitbucket.org/stanbaek2/ece382_wksp.git` (or copy & paste) and hit `Enter`.
-- Type `git remote -v`.  It will now return four lines showing that `upstream`
-is the original instructor's repository that you forked from.
+- Go back to the terminal. If you have already closed it, right-click on an empty space inside the `workspace` folder and select `Open in Terminal` or `Git Bash Here`.
+- Type `git remote -v`.  It will return two lines showing that `origin` is your remote repository at github.com for both fetch and push. 
+- Type `git remote add upstream https://github.com/USAFA-ECE/ece382_wksp.git` (or copy & paste) and hit `Enter`.
+- Type `git remote -v`.  It will now return four lines showing that `upstream` is the original instructor's repository that you forked from.
 
 ```{image} ./figures/HW1_GitAddUpstream.gif
 :width: 640
 :align: center
+:class: shadow
 ```
 <br>
 
 - Whenever there are any updates on the original code, you will be asked to run `git fetch upstream` to update your local files.  
-- Your default push and pull repository is `origin`, which is your Bitbucket repository. 
+- Your default push and pull repository is `origin`, which is your GitHub repository. 
 
 ```{image} ./figures/HW1_FetchUpstream.png
 :width: 320
 :align: center
+:class: shadow
 ```
 <center>
 Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-is-the-difference-between-origin-and-upstream-on-github/9257901#9257901" target="_blank">Stakeoverflow</a>
@@ -161,6 +161,7 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 ```{image} ./figures/HW1_CCS_Setup.gif
 :width: 760
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -180,22 +181,24 @@ The following steps are critical. If you make a mistake, it may take hours to fi
 ```{image} ./figures/HW1_CCS_Config.gif
 :scale: 50%
 :align: center
+:class: shadow
 ```
 <br>
 
 ### Push Your Code.
 
-- Go back to Git Bash. If you have already closed it, right-click on an empty space inside the `workspace` folder and select `Git Bash Here`.
+- Go back to the terminal. If you have already closed it, right-click on an empty space inside the `workspace` folder and select `Open in Terminal` or `Git Bash Here`.
 - Type `git add -A` or `git add -all` and hit `Enter`.
 - Type `git commit -m "Homework 1"` and hit `Enter`.
 - Type `git push` as shown below.
 - You can run `git status` to check the current status of your local repository.
 - Enter your username and password if prompted.
-- Refresh your Bitbucket repository and ensure your push has been made through. 
+- Refresh your GitHub repository and ensure your push has been made through. 
 
 ```{image} ./figures/HW1_GitPush.gif
 :width: 540
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -209,7 +212,11 @@ It is your responsibility to check your files have been successfully pushed to y
 ```
 
 ```{tip}
-CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other > Git > Git Staging. You can commit and push at the same time. There are also many third-party graphic user interface (GUI) clients. Check out https://git-scm.com/downloads/guis.
+CCS comes with built-in Git, and it can be opened from CCS menu > View > Other > Git > Git Staging. You can commit and push at the same time. There are also many third-party graphic user interface (GUI) clients. Check out https://git-scm.com/downloads/guis.
+```
+
+```{tip}
+Scott Chacon was one of the founders of GitHub and has a great talk with some Git Tips and Tricks.  https://www.youtube.com/watch?v=aolI_Rz0ZqY
 ```
 
 ### Unhide File Extensions
@@ -224,6 +231,7 @@ CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other >
 ```{image} ./figures/HW1_ShowFileExtensions.gif
 :width: 720
 :align: center
+:class: shadow
 ```
 <br> 
 
@@ -238,6 +246,7 @@ CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other >
 ```{image} ./figures/HW1_Tabs2Spaces.png
 :width: 560
 :align: center
+:class: shadow
 ```
 
 <br>
@@ -252,12 +261,13 @@ CCS comes with built-in GIT, and it can be opened from CCS menu > View > Other >
 ```{image} ./figures/HW1_HardwareDiagnostics.jpg
 :width: 640
 :align: center
+:class: shadow
 ```
 <br>
 
 ## 🚚 Deliverables
 
-Take screenshots of the following and submit them via Gradescope.  Use `Snip & Sketch` (Win+Shift+S) on Windows 10/11 or Shift+CMD+4 on MacOS to take a screenshot. Save it in `png` or `jpg`.  
+Take screenshots of the following and submit them via Gradescope.  Use `Snip & Sketch` (Shift+Win+S) on Windows 10/11 or Shift+CMD+4 on MacOS to take a screenshot. Save it in `png` or `jpg`.  
 
 ```{warning}
 Do NOT take pictures of your computer screen using your phone because (i) it can result in sampling aliasing, as explained in ECE215/ECE315, (ii) it will require more steps compared to a simple screen capture, and (iii) the resulting image will always be blurrier than a direct screen capture.
@@ -268,6 +278,7 @@ Do NOT take pictures of your computer screen using your phone because (i) it can
 ```{image} ./figures/HW1_Deliverable1.png
 :width: 740
 :align: center
+:class: shadow
 ```
 
 <br>
@@ -277,6 +288,7 @@ Do NOT take pictures of your computer screen using your phone because (i) it can
 ```{image} ./figures/HW1_Deliverable2.png
 :width: 480
 :align: center
+:class: shadow
 ```
 
 <br>
