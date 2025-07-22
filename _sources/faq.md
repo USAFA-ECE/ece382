@@ -24,6 +24,7 @@ If you earn 250/250 for the final project, the contribution of your final projec
 ```{image} ./figures/BoardDisconnected.jpg
 :scale: 100%
 :align: center
+:class: shadow
 ```
 <br> 
 
@@ -35,6 +36,7 @@ This error simply means that your MSP432 board is not connected correctly to you
 ```{image} ./figures/UnresolvedSymbol.png
 :width: 360
 :align: center
+:class: shadow
 ```
 <br> 
 
@@ -49,6 +51,7 @@ Use autocompletion to avoid such problems:  CCS Autocompletion in the FAQ.
 ```{image} ./figures/LoadProgramError.png
 :width: 360
 :align: center
+:class: shadow
 ```
 <br> 
 
@@ -57,6 +60,7 @@ The binary file (*.out) does not exist because you probably had a compile error 
 ```{image} ./figures/CompileError.png
 :width: 360
 :align: center
+:class: shadow
 ```
 <br> 
 
@@ -80,6 +84,7 @@ Yes, it is, and please use it extensively.  You can easily avoid compile errors.
 ```{image} ./figures/AutoCompletion_1.png
 :scale: 100%
 :align: center
+:class: shadow
 ```
 <br>
 - Choose one and hit Enter. Then, it will show you the declaration of the function you have chosen.
@@ -87,6 +92,7 @@ Yes, it is, and please use it extensively.  You can easily avoid compile errors.
 ```{image} ./figures/AutoCompletion_2.png
 :scale: 100%
 :align: center
+:class: shadow
 ```
 <br>
 - You can also use it for both functions and variables. It is particularly useful for registers.
@@ -94,6 +100,7 @@ Yes, it is, and please use it extensively.  You can easily avoid compile errors.
 ```{image} ./figures/AutoCompletion_3.png
 :scale: 100%
 :align: center
+:class: shadow
 ```
 
 ### _How to add a source file to a CCS project?_
@@ -103,6 +110,7 @@ Yes, it is, and please use it extensively.  You can easily avoid compile errors.
 ```{image} ./figures/AddFileToProject1.png
 :width: 340
 :align: center
+:class: shadow
 ```
 
 <br>
@@ -110,6 +118,7 @@ Yes, it is, and please use it extensively.  You can easily avoid compile errors.
 ```{image} ./figures/AddFileToProject2.png
 :width: 420
 :align: center
+:class: shadow
 ```
 
 ### _How can I rename a variable/function name in the entire project without finding them?_
@@ -121,6 +130,7 @@ Right-click on a variable and explore Refactor > Rename (or Alt + Shift +R).  En
 ```{image} ./figures/Refactoring.png
 :scale: 100%
 :align: center
+:class: shadow
 ```
 <br>
 It will find all instances of the variable/function and change them in the **entire** project. 
@@ -134,6 +144,7 @@ If you have an error message similar to the figure below, it is probably due to 
 ```{image} ./figures/pdf_copy_error.png
 :width: 460
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -145,6 +156,7 @@ In the menu bar, go to Window > Preferences > Terminal and change the buffer lin
 ```{image} ./figures/TerminalBuffer.png
 :scale: 100%
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -173,6 +185,7 @@ There are two switches on your robot as shown below. **Keep the slide switch in 
 ```{image} ./figures/RSLK_Switches.png
 :width: 640
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -199,6 +212,7 @@ You need six 1.2V rechargeable AA batteries to run this tool. Do not use 1.5V al
 ```{image} ./figures/HardwareDiagnostics.gif
 :width: 720
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -213,6 +227,7 @@ You need six 1.2V rechargeable AA batteries to run this tool. Do not use 1.5V al
 ```{image} ./figures/LCDTest.gif
 :width: 360
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -226,6 +241,7 @@ You need six 1.2V rechargeable AA batteries to run this tool. Do not use 1.5V al
 ```{image} ./figures/ReflectanceTest.gif
 :width: 360
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -236,6 +252,7 @@ You need six 1.2V rechargeable AA batteries to run this tool. Do not use 1.5V al
 ```{image} ./figures/BumpTest.gif
 :width: 360
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -250,6 +267,7 @@ You need six 1.2V rechargeable AA batteries to run this tool. Do not use 1.5V al
 ```{image} ./figures/MotorTest.gif
 :width: 360
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -262,6 +280,7 @@ You need six 1.2V rechargeable AA batteries to run this tool. Do not use 1.5V al
 ```{image} ./figures/DistanceSensorTest.gif
 :width: 360
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -277,6 +296,7 @@ Before you mount your LCD on the robot, you want to test the connection between 
 ```{image} ./figures/Nokia5110_BackSide.png
 :width: 600px
 :align: center
+:class: shadow
 ```
 
 <br>
@@ -284,6 +304,7 @@ Before you mount your LCD on the robot, you want to test the connection between 
 ```{image} ./figures/Nokia5110_Connection.png
 :scale: 60%
 :align: center
+:class: shadow
 ```
 <br>
 
@@ -329,6 +350,7 @@ Before you mount your LCD on the robot, you want to test the connection between 
 ```{image} ./figures/MountingLCD.png
 :scale: 50%
 :align: center
+:class: shadow
 ```
 
 <br>
