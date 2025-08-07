@@ -32,25 +32,6 @@ The GIF animations provided on this page are intended to complement the main res
 ```
 <br><br>
 
-### Add Your Instructor
-
-- Click `Settings` followed by `Collaborators` and then `Add people` to invite your instructor, Lt Col Trimble, Dr. York, or Lt Col Wyche. The instructors' GitHub email addresses are as follows:    
-    - LtCol Trimble: ![trimble](https://img.shields.io/badge/james.trimble@afacademy.af.edu-blue)
-    - Dr. York: ![york](https://img.shields.io/badge/george.pollard.york@gmail.com-silver)
-    - LtCol Wyche: ![wyche](https://img.shields.io/badge/jason.wyche@afacademy.af.edu-silver)
-    
-    <!--
-    - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
-    - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
-    -->
-
-```{image} ./figures/HW1_GitHubCollaborators.gif
-:width: 520
-:align: center
-:class: shadow
-```
-<br><br>
-
 ### Make the Repository Private
 
 - We'll now detach this fork from the original repository and make it private.
@@ -84,6 +65,25 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 ```
 <br><br>
 
+### Add Your Instructor
+
+- Click `Settings` followed by `Collaborators` and then `Add people` to invite your instructor, Lt Col Trimble, Dr. York, or Lt Col Wyche. The instructors' GitHub email addresses are as follows:    
+    - LtCol Trimble: ![trimble](https://img.shields.io/badge/james.trimble@afacademy.af.edu-blue)
+    - Dr. York: ![york](https://img.shields.io/badge/george.pollard.york@gmail.com-silver)
+    - LtCol Wyche: ![wyche](https://img.shields.io/badge/jason.wyche@afacademy.af.edu-silver)
+    
+    <!--
+    - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
+    - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
+    -->
+
+```{image} ./figures/HW1_GitHubCollaborators.gif
+:width: 520
+:align: center
+:class: shadow
+```
+<br><br>
+
 ### Install Git
 
 #### Option 1: Self-Service Client
@@ -95,10 +95,10 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 - Browse to  <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a> to download `64-bit Git for Windows setup`
 - Install Git with the default settings. Git is already installed on Mac.
 
-### Setup Your Workspace 🚩This needs work
+### Setup Your Workspace
 
 - Create a folder named `workspace` under your home folder, e.g., C:\Users\stanley.baek\workspace. 
-- Right-click the `workspace` folder and select `Open in Terminal` for PowerShell or `Git Bash Here` for Bash as shown below.   
+- Right-click the `workspace` folder and select `Open in Terminal` for PowerShell or `Git Bash Here` for Bash as shown below.   You may need to go to "Show more options" first after you right-click.
 - From your repository in GitHub, click Clone and copy the HTTPS URL.
 - Go to the terminal (e.g. Bash or PowerShell) and type `git clone ` and then paste the repository URL you just copied (middle or right-click, right-click > Paste, or `Shift+Ins` to paste).  Hit Enter.
 
@@ -140,7 +140,7 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 :class: shadow
 ```
 <center>
-Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-is-the-difference-between-origin-and-upstream-on-github/9257901#9257901" target="_blank">Stakeoverflow</a>
+Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-is-the-difference-between-origin-and-upstream-on-github/9257901#9257901" target="_blank">Stackoverflow</a>
 </center>
 
 <br>
@@ -153,7 +153,7 @@ Image is sourced from <a href="https://stackoverflow.com/questions/9257533/what-
 - Run the installer by double-clicking the `ccs_setup_12.x.x.xxxxx.exe` executable.
 - Begin the installation process, by default it will ask you to install under the `C:\ti` folder, which is recommended.
 - Select `Custom Installation` (Recommended)
-- Select the processor support for `SimpleLink MSP432 MCUs`.
+- Select the processor support for `SimpleLink MSP432 MCUs` and click Next.
 - Ensure the default Install debug probe is selected and leave the rest unselected.
 - Click Next until installation begins.
 - Click Finish and your installation should proceed to completion.
@@ -208,7 +208,7 @@ The following steps are critical. If you make a mistake, it may take hours to fi
     - git push
 
 ```{attention} 
-It is your responsibility to check your files have been successfully pushed to your Bitbucket repository. Always visit your Bitbucket repository after you push your assignments to the repository.
+It is your responsibility to check your files have been successfully pushed to your GitHub repository. Always visit your GitHub repository after you push your assignments to the repository.
 ```
 
 ```{tip}
@@ -254,7 +254,7 @@ Scott Chacon was one of the founders of GitHub and has a great talk with some Gi
 ### Hardware Diagnostics Tool
 
 - Click 🙋 FAQ on the left sidebar of this website. If the sidebar is hidden, click the hamburger button (the triple bars ☰). 
-- Go to _How to run the hardware diagnostics tool for hardware issues on my robot?_ section and complete the hardware diagnotics.
+- Go to _Troubleshooting Hardware Issues: Using the Hardware Diagnostic Tool_ section and complete the hardware diagnotics.
 - While you are running the tool, take a picture of your robot. Your picture must show one of the tests on the LCD as shown below. Ensure you have a small AF symbol on each test screen.
 - Submit the picture on Gradescope.
 
@@ -267,13 +267,16 @@ Scott Chacon was one of the founders of GitHub and has a great talk with some Gi
 
 ## 🚚 Deliverables
 
-Take screenshots of the following and submit them via Gradescope.  Use `Snip & Sketch` (Shift+Win+S) on Windows 10/11 or Shift+CMD+4 on MacOS to take a screenshot. Save it in `png` or `jpg`.  
+Submit the screenshots and answer the additional questions in Gradescope.  Use `Snip & Sketch` (Shift+Win+S) on Windows 10/11 or Shift+CMD+4 on MacOS to take a screenshot. Save it in `png` or `jpg`.  
 
 ```{warning}
 Do NOT take pictures of your computer screen using your phone because (i) it can result in sampling aliasing, as explained in ECE215/ECE315, (ii) it will require more steps compared to a simple screen capture, and (iii) the resulting image will always be blurrier than a direct screen capture.
 ```
+- **[0.5 Points]** Reading assignment
 
-- **[5 Points]** Provide a screenshot of your Bitbucket repository as shown below
+- **[2 Points]** Skills Review
+
+- **[4 Points]** Provide a screenshot of your GitHub repository as shown below
 
 ```{image} ./figures/HW1_Deliverable1.png
 :width: 740
@@ -293,7 +296,9 @@ Do NOT take pictures of your computer screen using your phone because (i) it can
 
 <br>
 
-- **[6 Points]** While you are running the hardware diagnostics tool, take a picture of your robot and submit it on Gradescope.
+- **[5 Points]** While you are running the hardware diagnostics tool, take a picture of your robot and submit it on Gradescope.
+
+- **[0.5 Points]** Time Log in Gradescope.
 
 <br>
 
