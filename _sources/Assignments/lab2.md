@@ -5,7 +5,6 @@
 - Students should be able to find values stored in registers and memory space using the CCS debugging tools.
 - Students should be able to debug assembly code using debugging techniques like single stepping, breakpoints, and watch windows.
 
-- 
 ```{note}
 Design is where science and art break even.
 ```
@@ -88,3 +87,7 @@ $\sqrt{29583}$.  _Change the number format to Decimal before taking the screensh
 
 ### Deliverable 3
 - **[1.5 Points]** Briefly explain why your answer keeps changing between two values.
+
+### Deliverable 4
+- **[0.5 Points]** Time log.
+
