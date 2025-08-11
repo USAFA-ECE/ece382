@@ -245,7 +245,7 @@ Make extensive use of visual aids, such as a maze picture, flowcharts, and diagr
     - **The presentation will be halted at the 7-minute mark, and credit will not be given for parts not discussed.**  Therefore, **practice!**
     - Emphasize the importance of professional timing in a presentation, considering its impact on the audience and subsequent speakers.
 1. **Submission**:
-    - Submit your `MS PowerPoint pptx` file to your instructor **NLT L34 0700**. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.
+    - Submit your `MS PowerPoint pptx` file to your instructor **NLT L35 0700**. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.
     - Additionally, export your PowerPoint file to a **pdf** file and submit it on Gradescope by L34 0700. **Be sure to select questions and pages to indicate where your responses are located. Failure to do so will result in point deductions.** Refer to the instruction gif inside the Final Report section for guidance. 
     - **_No grace days_** can be used for the PowerPoint slides.
 
