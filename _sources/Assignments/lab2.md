@@ -13,6 +13,10 @@ Design is where science and art break even.
 ## 📜 Synopsis
 In this lab, you will write an Assembly program that finds the integer square root. The equivalent C program is provided in `Lab02_SqrtMain.c` in the `Lab02_SqaureRoot` project.
 
+```{note}
+The algorithm used in this lab is Newton's Method.  For an explanation on how Newton's Method works and how we can use it to find the square root, check out [this video](https://youtu.be/q0DyLZyStcg).
+```
+
 ## 💻 Procedure
 
 ### Setup
