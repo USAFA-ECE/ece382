@@ -13,9 +13,9 @@ This schedule is subject to change as appropriate.
 | 4      | Lec 3: Memory                                    | 3.2.2, 3.3.2-3, 3.3.9| [Lab2](Assignments/lab2.md)           (20)|
 | 5      | [Lab 3: Memory](Assignments/lab3.md)             |                      | [HW3](Assignments/homework3.md)       (19)|
 | 6      | Lec 4: Subroutines                               | 3.3.7-8, 3.4         | [Lab3](Assignments/lab3.md)           (20)|
-| 7      | [Lab 4: Subroutines](Assignments/lab4.md)        |                      | [HW4](Assignments/homework4.md)       (19)|
+| 7      | [Lab 4: Subroutines](Assignments/lab4.md)        |                      |                                           |
 | 8      | Lec 5: Software Design                           | 4.1-4.2.4, 4.3       | [Lab4](Assignments/lab4.md)           (30)|
-| 9      | [Lab 5: Software Design](Assignments/lab5.md)    |                      | HW5                                   (19)|
+| 9      | [Lab 5: Software Design](Assignments/lab5.md)    |                      | [HW4](Assignments/homework4.md)  (19) & 5 (19)|
 | 10     | Lec 8: Interfacing IO                            | 6.1-6.3, 8.1-8.4     | [Lab5](Assignments/lab5.md)           (25)|
 | 11     | [Lab 8: Interfacing IO](Assignments/lab8.md)     |                      | HW8                                   (19)|
 | 12     | Lec 10: Multithreading                           | 9.4, 10.1-10.3       | [Lab8](Assignments/lab8.md)           (20)|
