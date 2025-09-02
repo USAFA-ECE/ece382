@@ -18,6 +18,20 @@ Your final homework grade will be calculated in the same way. The bonus points e
 There are also bonus points in the final project, which can be used towards the final grade.
 If you earn 250/250 for the final project, the contribution of your final project to the final grade will be 25% because the final project is worth 25% of the final grade.  If you earn 260/250 for the final project, the contribution of your final project towards the final grade will be 26.0% - you can change your final letter grade.  Note that you are eligible for the final project bonus points only if you complete all the lab demos.
 
+### _How do I submit feedback on bugs or errors?_
+
+We greatly appreciate feedback which improves the quality of the course materials.  If you find a mistake or have an idea for an improvement, open an issue on GitHub.  
+
+For labs, homeworks, and anything on the course website, go to the corresponding page on the course website and mouse over the GitHub icon then click Open Issue.
+
+```{image} ./figures/GitHub_OpenIssue.gif
+:scale: 100%
+:align: center
+:class: shadow
+```
+
+For issues with the instructor provided code, go to the [ece382_wksp repository on GitHub](https://github.com/USAFA-ECE/ece382_wksp) and open the issue there.
+
 ### _What is the XDS110 USB Debug Probe error shown below?_
  
 
