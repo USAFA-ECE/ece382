@@ -88,6 +88,7 @@ Do not use the alligator clip to clamp the ground pin. If the alligator clip tou
 
 We will now utilize Moku:Go Oscilloscope to observe the signal sent over P1.0 to determine if the LED is blinking at a rate of 1 Hz. 
 
+- The Moku Software can be downloaded [here](https://liquidinstruments.com/products/download/#scrollto-download).
 - Run `Program8_2()` to  test `LED_Oscillate` you implemented in Homework 8. 
 - Your Moku:Go will turn on automatically when connected to power.  Connect the magnetic power supply to the magnetic power adapter.  To turn off Moku:Go, unplug the power source.
 - The LED on Moku:Go is off when the power is disconnected. While Moku:Go is booting, the LED is orange. When Moku:Go is ready, the LED becomes green. 
