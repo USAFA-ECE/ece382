@@ -122,7 +122,7 @@ It is crucial to emphasize that data-driven analyses are fundamental in engineer
 1. Ensure that the first column of the data represents time in **10-millisecond intervals**; "1" signifies 10 ms, and "2" signifies 20 ms.
 1. Label your axes with appropriate units, e.g., `time (seconds)` or `time (ms)`. Convert the time data from 10 ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). _**Note that 10 ms is not a standard unit of time.**_ Therefore, it is essential to convert the time data into seconds (sec) or milliseconds (ms), and you should be familiar with the process of converting from 10 ms to seconds (or ms).
 1. Represent the duty cycle in `percentage` rather than `permille` since `permille` is not a standard unit.
-1. Express the speed in rpm, radians per second (RPM).
+1. Express the speed in rpm, rotations per minute (RPM).
 1. Examples of incorrectly labeled plots include, but are not limited to, the following.
 
     ```{image} ./figures/Lab16_plot_duty_incorrect.png
