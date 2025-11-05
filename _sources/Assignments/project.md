@@ -54,21 +54,21 @@ If there are any discrepancies in the project description or grading specificati
 
 ### Timeline
 
-1. L34 0700: Design Presentation slides (Gradescope and Instructors)
-    - Submit your `MS PowerPoint pptx` file to your instructor NLT L34 0700. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.
-    - Additionally, submit the PDF version of your presentation file on Gradescope no later than L34 0700. 
+1. L33 0700: Design Presentation slides (Gradescope and Instructors)
+    - Submit your `MS PowerPoint pptx` file to your instructor NLT L33 0700. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.
+    - Additionally, submit the PDF version of your presentation file on Gradescope no later than L33 0700. 
     - **_No grace days_** can be used for the PowerPoint slides.
-1. L34/35: Design Presentations
+1. L33: Design Presentations
 1. L39 0700: Level 1 Demo Due   
-    - Early turkey **[5 Bonus Points]**: Complete Level 1 by L37 (Tue 26 Nov) 2359.
+    - Early turkey **[5 Bonus Points]**: Complete Level 1 by Lesson M38 (Tue 25 Nov) 2359 (i.e. before departing for Thanksgiving break).
     - No grace days can be used for early turkey demo. 
     - Late Demos: You can use grace days, but all products must be submitted NLT T40 2359 (by the Dean's policy). 
 1. L39 during your section: Level 2 live demo.  
     - A live demo during L39 is mandatory. 
-    - Ensure your robot’s robustness for a live demo within 3 minutes. 
+    - Ensure your robot’s robustness for a live demo within 3 minutes (2 minute & 1 minute rounds). 
     - In the event of a live demo failure, you may use a video demo submitted by L39 2359, but deductions of 5 points will be applied.
 1. T40 2359: Final report & Code
-    - No grace days can be used. All products must be submitted by midnight on T40. 
+    - No grace days can be used. All products must be submitted by midnight on T40.
 
 ### Requirements for all levels
 
@@ -156,7 +156,7 @@ Use the tachometers and bump sensors to navigate the maze and return home.  Imag
     - Deduction of 2 points if the robot reaches home but does not come to a complete stop.
     - Deduction of 3 points if the robot makes a 90-degree turn toward the home area at the T-joint but reaches only any point between the T-joint and Home.
     - Deduction of 5 points if the robot reaches any point between the third turn and the T-joint.
-1. **[5 Bonus Points]** Upon successfully reaching home, your robot now knows its way back to the starting position. Make your robot autonomously turn around and return to the starting position.  <span style="color:blue"> While your robot may touch the side walls during its return, it is not permitted to use bump sensors to make 90-degree turns. (Updated on 21 Nov)
+1. **[5 Bonus Points]** Upon successfully reaching home, your robot now knows its way back to the starting position. Make your robot autonomously turn around and return to the starting position.  <span style="color:blue"> While your robot may touch the side walls during its return, it is not permitted to use bump sensors to make 90-degree turns.
  </span>
 
     ```{image} ./figures/Proj_Maze.jpg
@@ -245,8 +245,8 @@ Make extensive use of visual aids, such as a maze picture, flowcharts, and diagr
     - **The presentation will be halted at the 7-minute mark, and credit will not be given for parts not discussed.**  Therefore, **practice!**
     - Emphasize the importance of professional timing in a presentation, considering its impact on the audience and subsequent speakers.
 1. **Submission**:
-    - Submit your `MS PowerPoint pptx` file to your instructor **NLT L35 0700**. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.
-    - Additionally, export your PowerPoint file to a **pdf** file and submit it on Gradescope by L34 0700. **Be sure to select questions and pages to indicate where your responses are located. Failure to do so will result in point deductions.** Refer to the instruction gif inside the Final Report section for guidance. 
+    - Submit your `MS PowerPoint pptx` file to your instructor **NLT L33 0700**. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.
+    - Additionally, export your PowerPoint file to a **pdf** file and submit it on Gradescope by L33 0700. **Be sure to select questions and pages to indicate where your responses are located. Failure to do so will result in point deductions.** Refer to the instruction gif inside the Final Report section for guidance. 
     - **_No grace days_** can be used for the PowerPoint slides.
 
 
