@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Two‑Wheel Robot Simulator</title>
+  <style>
+    :root{ --bg:#0f172a; --panel:#111827; --muted:#1f2937; --text:#e5e7eb; --sub:#94a3b8; --accent:#22d3ee; --accent-2:#a78bfa; --danger:#f43f5e; --ok:#34d399; --warn:#f59e0b; }
+    html,body{height:100%;}
+    body{margin:0;background:linear-gradient(180deg,#0b1223,#0f172a 30%,#0b1223);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+    .app{display:grid;grid-template-columns: minmax(280px, 42%) 1fr; grid-template-rows: 100svh; gap:10px; padding:10px; box-sizing:border-box;}
+    .panel{background:linear-gradient(180deg,var(--panel),#0d1325); border:1px solid #1f2937; border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35);}    
+    .header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #1f2937;background:linear-gradient(180deg,#0f172a,#0b1223)}
+    .header h1{font-size:16px;margin:0;font-weight:600;letter-spacing:.3px}
+    .badge{font-size:11px;color:#0b1223;background:var(--accent);border-radius:999px;padding:3px 8px;font-weight:700;letter-spacing:.4px}
+
+    /* Editor */
+    .editor-wrap{display:flex;flex-direction:column;height:calc(100% - 44px)}
+    .toolbar{display:flex;gap:8px;padding:10px;border-bottom:1px solid #1f2937;background:#0b1223;flex-wrap:wrap}
+    .toolbar button,.simbar button{background:#0f172a;border:1px solid #243041;color:var(--text);padding:8px 10px;border-radius:10px;cursor:pointer;font-weight:600}
+    .toolbar button:hover,.simbar button:hover{border-color:#3c4b63}
+    .toolbar .primary{background:linear-gradient(180deg,#1b2a45,#0e1a2f);border-color:#2b3a55}
+    .toolbar .save{background:linear-gradient(180deg,#153b35,#0d2b27);border-color:#13584b;color:#c7fff1}
+    .toolbar .reset{background:linear-gradient(180deg,#3b1220,#220a13);border-color:#5c1b2b;color:#ffd9e0}
+    .editor{flex:1;display:grid;grid-template-rows:auto 1fr;}
+    .editor label{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#0b1223;border-bottom:1px solid #1f2937;color:var(--sub);font-size:12px}
+    textarea#code{width:100%;height:100%;resize:none;background:#050914;color:#d1e4ff;border:none;padding:14px;line-height:1.45; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:13px; outline:none}
+    .hint{padding:10px 14px;border-top:1px dashed #213047;color:#9fb3d9;background:#071023;font-size:12px}
+    .hint code{background:#0c172f;padding:2px 6px;border-radius:6px}
+
+    /* Simulation */
+    .sim-wrap{display:grid;grid-template-rows:auto 1fr auto; height:calc(100% - 44px)}
+    .simbar{display:flex;gap:8px;padding:10px;border-bottom:1px solid #1f2937;background:#0b1223;align-items:center;flex-wrap:wrap}
+    .simbar .group{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .simbar .sep{width:1px;height:28px;background:#1f2937;margin:0 6px}
+    .simbar input[type="range"]{accent-color:var(--accent);}
+    .sim-canvas{position:relative}
+    canvas#world{width:100%;height:100%;display:block;background:radial-gradient(1200px 800px at 20% 0%, rgba(34,211,238,.08), transparent 50%), linear-gradient(180deg,#0a0f1e,#030711); cursor:crosshair}
+    .status{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:8px 12px;border-top:1px solid #1f2937;background:#0b1223;color:#9fb3d9;font-size:12px}
+    .status .metrics{display:flex;gap:14px;flex-wrap:wrap}
+    .pill{padding:4px 8px;border:1px solid #203046;border-radius:999px;background:#0a1427;color:#b8d1ff;font-weight:600;font-size:11px}
+
+    .hud{position:absolute; inset:0; pointer-events:none}
+    .tooltip{position:absolute; transform:translate(-50%, -120%); background:#0e1a2f; color:#cde1ff; padding:6px 8px; border:1px solid #253047; border-radius:8px; font-size:11px; white-space:nowrap}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Editor Panel -->
+    <section class="panel" id="editor-panel">
+      <div class="header">
+        <h1>Controller Code</h1>
+        <span class="badge">User‑Editable</span>
+      </div>
+      <div class="editor-wrap">
+        <div class="toolbar">
+          <button class="primary" id="apply">▶ Apply Controller</button>
+          <button class="save" id="save">💾 Save</button>
+          <button class="reset" id="load">↩ Load Saved</button>
+        </div>
+        <div class="editor">
+          <label>Write a function named <code>controller</code> with signature <code>({ distC, distL, distR, bumps }) ⇒ { left:{duty,dir}, right:{duty,dir} }</code></label>
+          <textarea id="code" spellcheck="false"></textarea>
+        </div>
+        <div class="hint">
+          <strong>Inputs</strong>: <code>distC</code>, <code>distL</code>, <code>distR</code> (pixels, up to 500), <code>bumps</code> = [L30, L20, L10, R10, R20, R30].<br>
+          <strong>Return</strong>:
+          <code>{ left:{ duty:0..100, dir:1|-1 }, right:{ duty:0..100, dir:1|-1 } }</code>.
+          Example: <code>return { left:{duty:50,dir:1}, right:{duty:50,dir:1} };</code>
+        </div>
+      </div>
+    </section>
+
+     <!-- Simulation Panel -->
+    <section class="panel" id="sim-panel">
+      <div class="header">
+        <h1>Two‑Wheel Robot Simulation</h1>
+        <span class="badge">Play • Pause • Step • Build</span>
+      </div>
+      <div class="sim-wrap">
+        <div class="simbar">
+          <div class="group">
+            <button id="play">▶ Play</button>
+            <button id="pause">⏸ Pause</button>
+            <button id="step">⏭ Step</button>
+            <button id="resetBot">🔄 Reset Robot</button>
+          </div>
+          <span class="sep"></span>
+          <div class="group">
+            <button id="addWall">🧱 Add Wall</button>
+            <button id="deleteWall">🗑 Delete Selected</button>
+            <button id="clearWalls">🧹 Clear All Walls</button>
+            <label>Speed <input id="speed" type="range" min="0.2" max="3" step="0.1" value="1"/></label>
+          </div>
+          <span class="sep"></span>
+          <div class="group">
+            <button id="saveWorld">💾 Save World</button>
+            <button id="loadWorld">📥 Load World</button>
+            <button id="exportWorld">⬇️ Export JSON</button>
+            <button id="importWorld">⬆️ Import JSON</button>
+            <input type="file" id="importFile" accept="application/json" style="display:none" />
+          </div>
+          <span class="sep"></span>
+          <div class="group">
+            <label><input type="checkbox" id="toggleCrumbs" checked /> Show breadcrumbs</label>
+            <button id="clearCrumbs">🧽 Clear breadcrumbs</button>
+          </div>
+          <span class="sep"></span>
+          <div class="group" style="color:#9fb3d9;font-size:12px">Tip: Drag the robot to reposition. Click a wall to select; drag to move; drag near an edge to resize; <b>R</b>/<b>Shift+R</b> rotate; <b>Del</b> remove.</div>
+        </div>
+
+        <div class="sim-canvas">
+          <canvas id="world"></canvas>
+          <div class="hud" id="hud"></div>
+        </div>
+
+        <div class="status">
+          <div class="metrics">
+            <div class="pill" id="m_pose">Pose: —</div>
+            <div class="pill" id="m_sensors">Sensors: —</div>
+            <div class="pill" id="m_bumps">Bumps: —</div>
+            <div class="pill" id="m_state">State: Paused</div>
+          </div>
+          <div class="pill">Walls: <span id="m_walls">0</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+  (function(){
+    const TAU = Math.PI * 2;
+    function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+    function rot2(x,y,ang){ const c=Math.cos(ang), s=Math.sin(ang); return {x:x*c - y*s, y:x*s + y*c}; }
+
+    function rayRectIntersect(rayO, rayDir, rect){
+      const c = Math.cos(-rect.a), s = Math.sin(-rect.a);
+      const rox = (rayO.x - rect.x), roy = (rayO.y - rect.y);
+      const rlx = rox*c - roy*s, rly = rox*s + roy*c;
+      const rdx = rayDir.dx*c - rayDir.dy*s, rdy = rayDir.dx*s + rayDir.dy*c;
+      const hx = rect.w/2, hy = rect.h/2;
+      const inv = (v)=> (Math.abs(v) < 1e-6 ? 1e6 : 1/v);
+      const t1 = (-hx - rlx) * inv(rdx);
+      const t2 = ( hx - rlx) * inv(rdx);
+      const t3 = (-hy - rly) * inv(rdy);
+      const t4 = ( hy - rly) * inv(rdy);
+      const tmin = Math.max(Math.min(t1,t2), Math.min(t3,t4));
+      const tmax = Math.min(Math.max(t1,t2), Math.max(t3,t4));
+      if(tmax < 0 || tmin > tmax) return null;
+      const t = tmin >= 0 ? tmin : tmax; if(t < 0) return null; return { t };
+    }
+
+    function circleRectOverlap(cx, cy, cr, rect){
+      const dx = cx - rect.x, dy = cy - rect.y;
+      const c = Math.cos(-rect.a), s = Math.sin(-rect.a);
+      const lx = dx*c - dy*s, ly = dx*s + dy*c;
+      const qx = clamp(lx, -rect.w/2, rect.w/2);
+      const qy = clamp(ly, -rect.h/2, rect.h/2);
+      const ddx = lx - qx, ddy = ly - qy;
+      return (ddx*ddx + ddy*ddy) <= cr*cr;
+    }
+
+    const canvas = document.getElementById('world');
+    const hud = document.getElementById('hud');
+    const ctx = canvas.getContext('2d');
+
+    const world = {
+      W: 1200, H: 700,
+      walls: [],
+      addWall(x,y,w=120,h=20,a=0){ this.walls.push({id:crypto.randomUUID(), x,y,w,h,a}); ui.updateWallCount(); },
+      removeWall(id){ this.walls = this.walls.filter(w=>w.id!==id); ui.updateWallCount(); },
+      clear(){ this.walls = []; ui.updateWallCount(); draw(); },
+      findWallAt(x,y){
+        for(let i=this.walls.length-1;i>=0;i--){
+          const w = this.walls[i];
+          const dx=x-w.x, dy=y-w.y; const c=Math.cos(-w.a), s=Math.sin(-w.a);
+          const lx=dx*c - dy*s, ly=dx*s + dy*c;
+          if(Math.abs(lx) <= w.w/2 && Math.abs(ly) <= w.h/2) return w;
+        }
+        return null;
+      }
+    };
+
+    function resizeCanvas(){
+      const dpr = Math.max(1, window.devicePixelRatio||1);
+      const r = document.querySelector('.sim-canvas').getBoundingClientRect();
+      canvas.width = r.width * dpr; canvas.height = r.height * dpr;
+      canvas.style.width = r.width+'px'; canvas.style.height = r.height+'px';
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      draw();
+    }
+    window.addEventListener('resize', resizeCanvas);
+
+    const robot = {
+      x: 300, y: 350, th: 0, r: 20, L: 44,
+      maxDuty: 100, maxSpeed: 140,
+      left: { duty: 0, dir: 1 },
+      right:{ duty: 0, dir: 1 },
+      sensors: { range: 500, distC: 500, distL: 500, distR: 500, bumps:[false,false,false,false,false,false] },
+      reset(){ this.x=300; this.y=350; this.th=0; this.left={duty:0,dir:1}; this.right={duty:0,dir:1}; breadcrumbs.length=0; },
+    };
+
+    let userController = function defaultController({distC, distL, distR, bumps}){
+      const near = 80;
+      if(bumps.some(b=>b) || distC < near){
+        if(distL > distR) return {left:{duty:50,dir:1}, right:{duty:20,dir:-1}};
+        else return {left:{duty:20,dir:-1}, right:{duty:50,dir:1}};
+      }
+      if(distL < 140) return {left:{duty:40,dir:1}, right:{duty:60,dir:1}};
+      if(distR < 140) return {left:{duty:60,dir:1}, right:{duty:40,dir:1}};
+      return {left:{duty:50,dir:1}, right:{duty:50,dir:1}};
+    };
+
+    // Breadcrumbs
+    const breadcrumbs = []; // {x,y}
+    const BREAD_MAX = 5000;
+    const BREAD_MIN_DIST = 2; // only drop when moved this much
+
+    const ui = {
+      playing:false, speed:1,
+      selWall:null, dragging:false, dragOff:{x:0,y:0}, placing:false,
+      draggingRobot:false, robotOff:{x:0,y:0},
+      resizing:false, resizeMode:null,
+      showCrumbs:true,
+      setStateText(){ document.getElementById('m_state').textContent = 'State: ' + (this.playing?'Playing':'Paused'); },
+      updateWallCount(){ document.getElementById('m_walls').textContent = world.walls.length; },
+    };
+
+    function maybeDropBreadcrumb(prevX, prevY){
+      const d = Math.hypot(robot.x - prevX, robot.y - prevY);
+      if(breadcrumbs.length===0 || d >= BREAD_MIN_DIST){
+        breadcrumbs.push({x:robot.x, y:robot.y});
+        if(breadcrumbs.length > BREAD_MAX) breadcrumbs.shift();
+      }
+    }
+
+    let last = performance.now();
+    function step(dt){
+      sense();
+      let cmd;
+      try { cmd = userController({
+        distC: robot.sensors.distC,
+        distL: robot.sensors.distL,
+        distR: robot.sensors.distR,
+        bumps: robot.sensors.bumps.slice(),
+      }); } catch(e){ console.error(e); }
+      if(cmd && cmd.left && cmd.right){
+        robot.left.duty = clamp(cmd.left.duty|0,0,100);
+        robot.left.dir = cmd.left.dir===-1?-1:1;
+        robot.right.duty = clamp(cmd.right.duty|0,0,100);
+        robot.right.dir = cmd.right.dir===-1?-1:1;
+      }
+      const prevX = robot.x, prevY = robot.y;
+      const vL = robot.left.dir * (robot.left.duty/robot.maxDuty) * robot.maxSpeed;
+      const vR = robot.right.dir * (robot.right.duty/robot.maxDuty) * robot.maxSpeed;
+      const v = (vR+vL)/2; const omega = (vR - vL) / robot.L;
+      const dx = v * Math.cos(robot.th) * dt; const dy = v * Math.sin(robot.th) * dt; const dth = omega * dt;
+      const nx = robot.x + dx; const ny = robot.y + dy; const nth = robot.th + dth;
+      let collided = false; for(const w of world.walls){ if(circleRectOverlap(nx,ny,robot.r,w)){ collided = true; break; } }
+      if(!collided){ robot.x = nx; robot.y = ny; robot.th = (nth+TAU)%TAU; }
+      maybeDropBreadcrumb(prevX, prevY);
+      draw();
+    }
+
+    function loop(ts){
+      const now = ts; const dt = Math.min(0.05, (now - last)/1000) * ui.speed; last = now;
+      if(ui.playing) step(dt);
+      requestAnimationFrame(loop);
+    }
+
+    function sense(){
+      const angs = [0, 30*Math.PI/180, -30*Math.PI/180];
+      const rays = angs.map(a=> ({dx:Math.cos(robot.th+a), dy:Math.sin(robot.th+a)}));
+      const maxR = robot.sensors.range;
+      const ds = rays.map(ray => {
+        let nearest = maxR;
+        for(const w of world.walls){
+          const hit = rayRectIntersect({x:robot.x, y:robot.y}, ray, w);
+          if(hit && hit.t < nearest) nearest = hit.t;
+        }
+        return nearest;
+      });
+      robot.sensors.distC = ds[0]; robot.sensors.distL = ds[1]; robot.sensors.distR = ds[2];
+      // bump order: [L30, L20, L10, R10, R20, R30]
+      const bumpAngles = [30,20,10,-10,-20,-30].map(d=>d*Math.PI/180);
+      const bumpNear = robot.r + 6;
+      const bumps = [];
+      for(const ba of bumpAngles){
+        const ray = {dx:Math.cos(robot.th+ba), dy:Math.sin(robot.th+ba)};
+        let hitNear = false;
+        for(const w of world.walls){
+          const hit = rayRectIntersect({x:robot.x+ray.dx*robot.r, y:robot.y+ray.dy*robot.r}, ray, w);
+          if(hit && hit.t <= bumpNear){ hitNear = true; break; }
+        }
+        bumps.push(hitNear);
+      }
+      robot.sensors.bumps = bumps;
+      document.getElementById('m_pose').textContent = `Pose: x=${robot.x.toFixed(1)}, y=${robot.y.toFixed(1)}, th=${(robot.th*180/Math.PI).toFixed(0)}°`;
+      document.getElementById('m_sensors').textContent = `Sensors C/L/R: ${robot.sensors.distC|0}/${robot.sensors.distL|0}/${robot.sensors.distR|0}`;
+      document.getElementById('m_bumps').textContent = `Bumps: ${robot.sensors.bumps.map(b=>b?1:0).join('')}`;
+    }
+
+    function draw(){
+      const W = canvas.width / (window.devicePixelRatio||1);
+      const H = canvas.height / (window.devicePixelRatio||1);
+      ctx.clearRect(0,0,W,H);
+
+      // breadcrumbs under everything
+      if(ui.showCrumbs && breadcrumbs.length>1){
+        ctx.save();
+        ctx.globalAlpha = 0.8;
+        ctx.lineWidth = 1.5; ctx.strokeStyle = '#64748b';
+        ctx.beginPath(); ctx.moveTo(breadcrumbs[0].x, breadcrumbs[0].y);
+        for(let i=1;i<breadcrumbs.length;i++){ ctx.lineTo(breadcrumbs[i].x, breadcrumbs[i].y); }
+        ctx.stroke();
+        // periodic dots
+        ctx.fillStyle = '#94a3b8';
+        for(let i=0;i<breadcrumbs.length;i+=20){ ctx.beginPath(); ctx.arc(breadcrumbs[i].x, breadcrumbs[i].y, 2.5, 0, TAU); ctx.fill(); }
+        ctx.restore();
+      }
+
+      // grid
+      ctx.save(); ctx.globalAlpha = .15; const grid=40; ctx.beginPath();
+      for(let x=grid; x<W; x+=grid){ ctx.moveTo(x,0); ctx.lineTo(x,H); }
+      for(let y=grid; y<H; y+=grid){ ctx.moveTo(0,y); ctx.lineTo(W,y); }
+      ctx.strokeStyle = '#1e293b'; ctx.stroke(); ctx.restore();
+
+      for(const w of world.walls){ drawWall(w); }
+      drawRobot();
+
+      hud.innerHTML = '';
+      if(ui.selWall){
+        const tip = document.createElement('div');
+        tip.className = 'tooltip'; tip.style.left = (ui.selWall.x)+'px'; tip.style.top = (ui.selWall.y - ui.selWall.h/2 - 16)+'px';
+        tip.textContent = `x:${ui.selWall.x|0} y:${ui.selWall.y|0} a:${(ui.selWall.a*180/Math.PI|0)}° w:${ui.selWall.w|0} h:${ui.selWall.h|0}`;
+        hud.appendChild(tip);
+      }
+    }
+
+    function drawWall(w){
+      ctx.save(); ctx.translate(w.x, w.y); ctx.rotate(w.a);
+      ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillRect(-w.w/2+4, -w.h/2+6, w.w, w.h);
+      const grad = ctx.createLinearGradient(-w.w/2,0,w.w/2,0);
+      grad.addColorStop(0,'#0b1b35'); grad.addColorStop(1,'#102544');
+      ctx.fillStyle = grad; ctx.strokeStyle = '#2b3f5f'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.rect(-w.w/2, -w.h/2, w.w, w.h); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#22d3ee'; ctx.globalAlpha = .6; ctx.fillRect(-2,-2,4,4);
+      if(ui.selWall && ui.selWall.id===w.id){
+        ctx.globalAlpha = 1; ctx.strokeStyle = '#a78bfa'; ctx.setLineDash([8,6]); ctx.lineWidth = 2; ctx.strokeRect(-w.w/2-4, -w.h/2-4, w.w+8, w.h+8);
+        ctx.setLineDash([]); ctx.fillStyle = '#a78bfa'; const hs = 6;
+        ctx.fillRect(-w.w/2-hs,-hs, hs*2, hs*2); // left
+        ctx.fillRect(w.w/2-hs,-hs, hs*2, hs*2);  // right
+        ctx.fillRect(-hs,-w.h/2-hs, hs*2, hs*2); // top
+        ctx.fillRect(-hs,w.h/2-hs, hs*2, hs*2);  // bottom
+      }
+      ctx.restore();
+    }
+
+    function drawRobot(){
+      ctx.save(); ctx.translate(robot.x, robot.y); ctx.rotate(robot.th);
+      ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.beginPath(); ctx.arc(6,8, robot.r+3, 0, TAU); ctx.fill();
+      const grad = ctx.createRadialGradient(0,0,6,0,0, robot.r+6);
+      grad.addColorStop(0,'#20314d'); grad.addColorStop(1,'#0d1627');
+      ctx.fillStyle = grad; ctx.strokeStyle = '#375582'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(0,0, robot.r, 0, TAU); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = '#22d3ee'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(robot.r+8, 0); ctx.stroke();
+      ctx.fillStyle = '#0b1220'; ctx.fillRect(-robot.r, -robot.L/2-4, 12, robot.L+8);
+      ctx.fillRect(robot.r-12, -robot.L/2-4, 12, robot.L+8);
+      const rays = [0, 30*Math.PI/180, -30*Math.PI/180];
+      const dists = [robot.sensors.distC, robot.sensors.distL, robot.sensors.distR];
+      for(let i=0;i<3;i++){
+        const a = rays[i]; const d = dists[i];
+        ctx.strokeStyle = i===0? '#34d399' : '#f59e0b'; ctx.lineWidth = 2; ctx.globalAlpha = .9;
+        ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(Math.cos(a)*d, Math.sin(a)*d); ctx.stroke();
+      }
+      const bumpAngles = [30,20,10,-10,-20,-30].map(x=>x*Math.PI/180);
+      for(let i=0;i<bumpAngles.length;i++){
+        ctx.save(); ctx.rotate(bumpAngles[i]);
+        ctx.fillStyle = robot.sensors.bumps[i] ? '#f43f5e' : '#334155';
+        ctx.beginPath(); ctx.arc(robot.r+4,0,3,0,TAU); ctx.fill(); ctx.restore();
+      }
+      ctx.restore();
+    }
+
+    // --- Interaction ---
+    const simArea = document.querySelector('.sim-canvas');
+
+    function toLocal(w, px, py){ const dx=px-w.x, dy=py-w.y; const c=Math.cos(-w.a), s=Math.sin(-w.a); return {x: dx*c - dy*s, y: dx*s + dy*c}; }
+    function localToWorld(w, lx, ly){ const c=Math.cos(w.a), s=Math.sin(w.a); return {x: w.x + (lx*c - ly*s), y: w.y + (lx*s + ly*c)}; }
+
+    function hitResizeHandle(w, px, py){
+      const p = toLocal(w, px, py); const tol = 10;
+      const nearLeft = Math.abs(p.x + w.w/2) <= tol && Math.abs(p.y) <= w.h/2+tol;
+      const nearRight= Math.abs(p.x - w.w/2) <= tol && Math.abs(p.y) <= w.h/2+tol;
+      const nearTop  = Math.abs(p.y + w.h/2) <= tol && Math.abs(p.x) <= w.w/2+tol;
+      const nearBot  = Math.abs(p.y - w.h/2) <= tol && Math.abs(p.x) <= w.w/2+tol;
+      if(nearLeft) return 'x-'; if(nearRight) return 'x+'; if(nearTop) return 'y-'; if(nearBot) return 'y+'; return null;
+    }
+
+    simArea.addEventListener('mousedown', (e)=>{
+      const p = pointer(e);
+      const dx = p.x - robot.x, dy = p.y - robot.y;
+      if(Math.hypot(dx,dy) <= robot.r+8){ ui.draggingRobot = true; ui.robotOff = {x:dx, y:dy}; ui.selWall=null; draw(); return; }
+      if(ui.placing){ world.addWall(p.x,p.y,120,20,0); ui.selWall = world.walls[world.walls.length-1]; ui.placing=false; draw(); return; }
+      const hit = world.findWallAt(p.x,p.y);
+      if(hit){
+        const handle = hitResizeHandle(hit, p.x, p.y);
+        if(handle){ ui.selWall = hit; ui.resizing = true; ui.resizeMode = {wall:hit, side:handle}; draw(); return; }
+        ui.selWall = hit; ui.dragging = true; const loc = toLocal(hit,p.x,p.y); ui.dragOff = {x:loc.x, y:loc.y}; draw();
+      } else { ui.selWall = null; draw(); }
+    });
+
+    window.addEventListener('mousemove', (e)=>{
+      const p = pointer(e);
+      if(ui.draggingRobot){ robot.x = p.x - ui.robotOff.x; robot.y = p.y - ui.robotOff.y; draw(); return; }
+      if(ui.resizing && ui.resizeMode){ resizeWallAtPointer(ui.resizeMode.wall, ui.resizeMode.side, p.x, p.y); draw(); return; }
+      if(ui.dragging && ui.selWall){
+        const w = ui.selWall; const loc = {x: ui.dragOff.x, y: ui.dragOff.y};
+        const worldP = localToWorld(w, loc.x, loc.y);
+        const dx = p.x - worldP.x, dy = p.y - worldP.y;
+        w.x += dx; w.y += dy; draw(); return;
+      }
+      const hit = world.findWallAt(p.x,p.y);
+      if(hit){
+        const h = hitResizeHandle(hit, p.x, p.y);
+        if(h==='x-'||h==='x+') canvas.style.cursor = 'ew-resize';
+        else if(h==='y-'||h==='y+') canvas.style.cursor = 'ns-resize';
+        else canvas.style.cursor = 'move';
+      } else if(Math.hypot(p.x-robot.x,p.y-robot.y) <= robot.r+8){ canvas.style.cursor='grab'; }
+      else { canvas.style.cursor='crosshair'; }
+    });
+
+    window.addEventListener('mouseup', ()=>{ if(ui.draggingRobot){ breadcrumbs.push({x:robot.x,y:robot.y}); } ui.dragging=false; ui.resizing=false; ui.draggingRobot=false; });
+
+    window.addEventListener('keydown', (e)=>{
+      if(e.key==='Escape'){ ui.dragging=false; ui.resizing=false; ui.draggingRobot=false; }
+      if(!ui.selWall) return;
+      if(e.key==='Delete'){ world.removeWall(ui.selWall.id); ui.selWall=null; draw(); }
+      if(e.key==='r' || e.key==='R'){ ui.selWall.a += (e.shiftKey?-1:1) * (5*Math.PI/180); draw(); }
+    });
+
+    function resizeWallAtPointer(w, side, px, py){
+      const p = toLocal(w, px, py);
+      const minW=20, minH=20;
+      if(side==='x+' || side==='x-'){
+        const sign = side==='x+'? 1 : -1;
+        const oldHalf = w.w/2; const newHalf = Math.max(minW/2, Math.abs(p.x));
+        const delta = (newHalf - oldHalf) * sign;
+        w.w = newHalf*2;
+        const shift = delta/2; const d = rot2(shift,0,w.a); w.x += d.x; w.y += d.y;
+      } else if(side==='y+' || side==='y-'){
+        const sign = side==='y+'? 1 : -1;
+        const oldHalf = w.h/2; const newHalf = Math.max(minH/2, Math.abs(p.y));
+        const delta = (newHalf - oldHalf) * sign;
+        w.h = newHalf*2;
+        const d = rot2(0, delta/2, w.a); w.x += d.x; w.y += d.y;
+      }
+    }
+
+    function pointer(e){
+      const r = canvas.getBoundingClientRect();
+      const x = (e.clientX - r.left) * (canvas.width/r.width) / (window.devicePixelRatio||1);
+      const y = (e.clientY - r.top)  * (canvas.height/r.height) / (window.devicePixelRatio||1);
+      return {x,y};
+    }
+
+    // Controls
+    document.getElementById('play').addEventListener('click', ()=>{ ui.playing=true; ui.setStateText(); });
+    document.getElementById('pause').addEventListener('click', ()=>{ ui.playing=false; ui.setStateText(); });
+    document.getElementById('step').addEventListener('click', ()=>{ step(1/60); });
+    document.getElementById('resetBot').addEventListener('click', ()=>{ robot.reset(); draw(); });
+    document.getElementById('addWall').addEventListener('click', ()=>{ ui.placing = true; });
+    document.getElementById('deleteWall').addEventListener('click', ()=>{ if(ui.selWall){ world.removeWall(ui.selWall.id); ui.selWall=null; draw(); }});
+    document.getElementById('clearWalls').addEventListener('click', ()=>{ world.clear(); ui.selWall=null; });
+    document.getElementById('speed').addEventListener('input', (e)=>{ ui.speed = parseFloat(e.target.value); });
+
+    // Breadcrumb controls
+    document.getElementById('toggleCrumbs').addEventListener('change', (e)=>{ ui.showCrumbs = e.target.checked; draw(); });
+    document.getElementById('clearCrumbs').addEventListener('click', ()=>{ breadcrumbs.length=0; draw(); });
+
+    // Save / Load / Export / Import world (walls + robot)
+    const WORLDK = 'twowheel.world.v1';
+    function serializeWorld(){ return { robot:{x:robot.x,y:robot.y,th:robot.th}, walls: world.walls, breadcrumbs }; }
+    function loadData(data){
+      if(data.robot){ robot.x=data.robot.x; robot.y=data.robot.y; robot.th=data.robot.th||0; }
+      if(Array.isArray(data.walls)){ world.walls = data.walls.map(w=>({id:w.id||crypto.randomUUID(), x:w.x,y:w.y,w:w.w,h:w.h,a:w.a||0})); ui.updateWallCount(); }
+      if(Array.isArray(data.breadcrumbs)){ breadcrumbs.length=0; breadcrumbs.push(...data.breadcrumbs); }
+      ui.selWall=null; draw();
+    }
+    document.getElementById('saveWorld').addEventListener('click', ()=>{
+      localStorage.setItem(WORLDK, JSON.stringify(serializeWorld()));
+      flash('World saved.');
+    });
+    document.getElementById('loadWorld').addEventListener('click', ()=>{
+      const raw = localStorage.getItem(WORLDK); if(!raw){ flash('No saved world.'); return; }
+      try{ loadData(JSON.parse(raw)); flash('World loaded.'); }catch(e){ alert('Failed to load world: '+e.message); }
+    });
+    document.getElementById('exportWorld').addEventListener('click', ()=>{
+      const blob = new Blob([JSON.stringify(serializeWorld(), null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const ts = new Date();
+      const pad=n=>String(n).padStart(2,'0');
+      const name = `robot_world_${ts.getFullYear()}${pad(ts.getMonth()+1)}${pad(ts.getDate())}_${pad(ts.getHours())}${pad(ts.getMinutes())}${pad(ts.getSeconds())}.json`;
+      a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+      flash('World exported.');
+    });
+    document.getElementById('importWorld').addEventListener('click', ()=>{ document.getElementById('importFile').click(); });
+    document.getElementById('importFile').addEventListener('change', (e)=>{
+      const file = e.target.files && e.target.files[0]; if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => { try{ const data = JSON.parse(reader.result); loadData(data); flash('World imported.'); } catch(err){ alert('Import failed: '+err.message); } };
+      reader.readAsText(file); e.target.value = '';
+    });
+
+    // Editor
+    const codeEl = document.getElementById('code');
+    const defaultCode = `// Your controller gets 
+// distC, distL, distR (pixels) and bumps [L30, L20, L10, R10, R20, R30]
+// Return commands for each wheel: {left:{duty,dir}, right:{duty,dir}} with dir = 1 | -1
+function controller({ distC, distL, distR, bumps }){
+  const tooClose = 70;
+  if(bumps.some(b=>b)){
+    if(distL > distR) return { left:{duty:60,dir:-1}, right:{duty:30,dir:1} };
+    else return { left:{duty:30,dir:1}, right:{duty:60,dir:-1} };
+  }
+  if(distC < tooClose){
+    if(distL > distR) return { left:{duty:55,dir:1}, right:{duty:20,dir:-1} };
+    else return { left:{duty:20,dir:-1}, right:{duty:55,dir:1} };
+  }
+  if(distL < 120) return { left:{duty:45,dir:1}, right:{duty:60,dir:1} };
+  if(distR < 120) return { left:{duty:60,dir:1}, right:{duty:45,dir:1} };
+  return { left:{duty:55,dir:1}, right:{duty:55,dir:1} };
+}
+`;
+    const SAVEK = 'twowheel.controller.v1';
+    codeEl.value = localStorage.getItem(SAVEK) || defaultCode;
+
+    function applyController(){
+      const src = codeEl.value;
+      try{
+        const fn = new Function(`${src}; return controller;`)();
+        if(typeof fn !== 'function') throw new Error('No function named "controller" found.');
+        const test = fn({distC:300,distL:300,distR:300,bumps:[false,false,false,false,false,false]});
+        if(!test || !('left' in test) || !('right' in test)) throw new Error('Controller must return {left:{...}, right:{...}}');
+        userController = fn; flash('Controller applied successfully.');
+      }catch(err){ console.error(err); alert('Controller error: '+ err.message); }
+    }
+
+    document.getElementById('apply').addEventListener('click', applyController);
+    document.getElementById('save').addEventListener('click', ()=>{ localStorage.setItem(SAVEK, codeEl.value); flash('Saved to browser storage.'); });
+    document.getElementById('load').addEventListener('click', ()=>{ const v = localStorage.getItem(SAVEK); if(v){ codeEl.value = v; flash('Loaded from browser storage.'); } else flash('No saved controller found.'); });
+
+    function flash(text){
+      const n = document.createElement('div');
+      n.textContent = text; n.style.position='fixed'; n.style.right='16px'; n.style.bottom='16px'; n.style.background='#10223e'; n.style.border='1px solid #2b3f5f'; n.style.padding='10px 12px'; n.style.borderRadius='10px'; n.style.boxShadow='0 10px 25px rgba(0,0,0,.35)'; n.style.zIndex=9999;
+      document.body.appendChild(n); setTimeout(()=>{n.remove();}, 1600);
+    }
+
+    // Start
+    resizeCanvas(); ui.setStateText(); sense(); breadcrumbs.push({x:robot.x,y:robot.y}); draw(); requestAnimationFrame((t)=>{ last=t; loop(t); });
+  })();
+  </script>
+</body>
+</html>
