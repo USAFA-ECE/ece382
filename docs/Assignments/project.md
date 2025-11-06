@@ -200,7 +200,7 @@ Explore the maze using the distance sensors.
 1. Your robot should display alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.
 1. Your robot can operate at any speed.
 1. No bump switches are allowed to use.
-1. You should use `Classifier` to determine road intersections.
+1. You must use `Classifier` to determine road intersections.
 1. **Assume your robot has prior knowledge of the maze layout.**
 1. **[5 Bonus Points]** Arrive at the goal within 11.0 seconds.
 1. A live demo during L39 is mandatory. Ensure your robot is robustness enough for a live demo within 3 minutes (2 minutes for the first round and 1 minute for the second round). Note that during the 3-minute live demo, there will be no pauses for replacing batteries or reflashing the code - Don't waste your time on these. Once the clock starts, it never stops.
