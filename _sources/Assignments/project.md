@@ -345,7 +345,7 @@ Unlike other assignments, any points earned above the total project points (250)
 - **[IP Points]** Extra points for the best paper in class!
 
 ### Deliverable 4: [0 Points] Return your robot
-- Return your robot in person to the instructors or Mr. Hall by <span style="color:blue"> Wed 11 Dec 1500.</span>
+- Return your robot in person to the instructors or Mr. Hall by <span style="color:blue"> Wed 10 Dec 1500.</span>
 - Ensure there are no loose parts, and tighten all screws before returning your robot.
 - **[-20 Points]** Up to 20 points may be deducted for loose parts or not returning the robot in person on time. 
 
