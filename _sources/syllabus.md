@@ -145,7 +145,7 @@ Electrical and Computer Engineering courses are contract graded using the follow
 You must complete all minimum functionalities on labs in order to complete the course.  Even if an assignment is so late that no credit will be received, the assignment must be completed to the satisfaction of the instructor to prevent a grade of “Incomplete.”
 
 ## Primary Communication and Control (C2)
-All communication and course material will be provided through a course and section Team. Additionally, videos will be uploaded to a YouTube channel for your convenience. Lastly, Bitbucket will be used for cadets to provide their source code for laboratories.
+All communication and course material will be provided through a course and section Team. Additionally, videos will be uploaded to a YouTube channel for your convenience. Lastly, GitHub will be used for cadets to provide their source code for laboratories.
 
 ## Textbooks
 **Required:**
