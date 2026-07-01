@@ -1,14 +1,12 @@
 # ECE382 Embedded Computer Systems I
 
 ## 👨‍🏫 Instructors
-- ![trimble](https://img.shields.io/badge/LtCol%20James%20Trimble-2E46D-blue)
-- ![york](https://img.shields.io/badge/Dr.%20George%20York-2E42-silver)
-- ![wyche](https://img.shields.io/badge/LtCol%20Jason%20Wyche-2F10-silver)
+- ![wyche](https://img.shields.io/badge/LtCol%20Jason%20Wyche-2F10-blue)
+- ![january](https://img.shields.io/badge/Capt%20Donnelle%20January-2E46B-silver)
 
 <!--
 - [![baek](https://img.shields.io/badge/Dr.%20Stan%20Baek-2E38-yellow)](https://stanbaek.github.io)
 - ![york](https://img.shields.io/badge/Dr.%20George%20York-2E44-green)
-- ![yabrough](https://img.shields.io/badge/Capt%20Brian%20Yabrough-2E46C-blue)
 -->
 
 ## 📝 Course information
@@ -21,20 +19,20 @@
 ## 📡 Communication and Control (C2)
 - All communication and announcement 📣 will be provided through MS Teams
 - All lecture 📓 materials will be provided through MS Teams.
-- Laboratory 🔬 work will be posted in this course web.
-- All assignments must be submitted in [Gradescope](https://www.gradecope.com)
+- Laboratory 🔬 work will be posted on this course website.
+- All assignments must be submitted in [Gradescope](https://www.gradescope.com)
 - [GitHub](https://github.com) will be used for students to provide their source code 📄 for homework and laboratory assignments.
 
 
 ## ⏰ Late Policy:  
 **If problems arise with graded assignments, see your instructor in advance**
 
-- The cutoff for **on-time submission is 23:59 🕖** on the due date. 
-- Late days are counted in 24-hour periods. Submitting between 23:59:01 on the due date and 23:59:00 the next day is one day late, and so on.
+- The cutoff for **on-time submission is 0700 🕖** on the due date. 
+- Late days are counted in 24-hour periods. Submitting between 07:00:01 on the due date and 07:00:00 the next day is one day late, and so on.
 - You are given **5 grace days (self-granted extensions)** which you can use to give yourself extra time without penalty. No more than **2 grace days** (calendar days) can used for each assignment.
 - Instructor-granted extensions are only considered after all grace days are used and only given in exceptional situations. Computer problems such as hard-drive reimaging are **not** considered as exceptional situations and you must use grace days.
-- Late work handed in when you have run out of grace is 💥 **penalized at a rate of up to 10% per day**.
-- Every assignment has a hard deadline; **5 calendar days** past the original due date. 
+- Late work handed in when you have run out of grace is 💥 **penalized 20% for the first day late and 15% per day late thereafter**.
+- Every assignment has a hard deadline; **4 calendar days** past the original due date. 
 - Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published. No late submissions (penalty or not) will be accepted for the assignments right before GRs.
 
 ## 📄 Documentation Requirements
@@ -45,7 +43,7 @@
 - Each documentation statement must be specific enough that it explicitly describes what assistance was provided, how it was used in completing the assignment, and who provided the assistance.
 - If no help was received on this assignment, the documentation statement must state “None.”
 - If you checked answers with anyone, you must document with whom on which problems. You must document whether you made any changes or not.  If you did make changes, you must document the problems you changed and the reasons why.
-- Vague documentation statements will result in a 5% deduction on the assignment.
+- Vague documentation statements will result in a **5% deduction on the assignment**.
 
 ### Sample Documentation 
 Consider the following examples when writing your own detailed documentation statements:
@@ -77,7 +75,7 @@ Consider the following examples when writing your own detailed documentation sta
 - Work $\color{red}{\text{early}}$ and ask for EI
 - Get the Labs and HW's done on time! If you don't know how, get EI. 
 - Start labs $\color{red}{\text{early}}$. Get help $\color{red}{\text{early}}$. $\color{red}{\text{Early}}$. $\color{red}{\text{Early}}$. $\color{red}{\text{Early}}$.
-- $\color{blue}{\text{Don't even think about starting any assignments the night before... you will regret your decision every time.}}$
+- $\color{blue}{\text{Don't even think about starting any assignments the night before...you will regret your decision.}}$
 - Start $\color{red}{\text{early}}$ and ask questions. 
 - Look to the textbook first for questions on code and try to start the labs the night they are assigned so that if you have a question it can be answered the next day, where as if you start the night before its due you are largely on your own.
 - Start $\color{red}{\text{early}}$ on every assignment. Set a personal due date at least 2 days before the actual due date to prevent needing to pull all-nighters when stuff doesn't go right.
