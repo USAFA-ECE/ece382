@@ -200,8 +200,8 @@ Consider the following examples when writing your own detailed documentation sta
 
 Schedule EI with an instructor if you are having difficulty with the course material.  You must have read the assignment and attempted the homework before requesting EI.  Note:  You are responsible for material if you miss class, so get notes from someone in your section.  For example, you miss the lesson where the instructor announces a quiz for the next lesson or the instructor assigns homework due next lesson.  Even though you missed the lesson, you are still responsible for the quiz, homework, or any other assignments made.  It is in your best interest to check with your classmates after an absence.  After you’ve read the assignment, attempted the homework, and checked with your classmates, you may then schedule EI if you have difficulty with the material—not to make up a class you missed.
 
-## CAS Policy  
-For CAS notification, email your instructor prior to your absence and include the lesson number, the date, and the reason (descriptive reason—don’t just send a CAS code or SCA number) as soon as possible, preferably before the absence occurs.  It is your responsibility to check your SCA to see if instructor permission is required.  If it is, you must make the request prior to your absence.  If you miss class, you are responsible for all material (e.g. assignments, notes, announcements, handouts, etc.) covered in class.  Please check with another cadet in your section to find out what you missed.  
+## SCA Policy  
+For SCA notification, email your instructor prior to your absence and include the lesson number, the date, and the reason (descriptive reason—don’t just send a SCA code or SCA number) as soon as possible, preferably before the absence occurs.  It is your responsibility to check your SCA to see if instructor permission is required.  If it is, you must make the request prior to your absence.  If you miss class, you are responsible for all material (e.g. assignments, notes, announcements, handouts, etc.) covered in class.  Please check with another cadet in your section to find out what you missed.  
 
 When a cadet is absent on the day that an assignment is due, or on the date of a quiz or GR, the cadet is responsible for meeting the following standards: 
 - Scheduled Absence: If a cadet will miss any graded event due to a scheduled absence such as an SCA, sport team trip, or scheduled lasik surgery, the cadet is expected to complete all work BEFORE the absence.  
@@ -230,9 +230,14 @@ GRs are open-book exams. Cadets may bring in the following items
 
 Testable material includes any concepts from the labs, lectures, exercises, homework, and assigned readings.  Not all testable concepts will necessarily be covered in class (e.g., readings).
 
-For missed GRs, the following policies are outlined in USAFA FOI 537-3:
-- Scheduled Absence - If you know that you will be unable to take the GR during the scheduled GR period, you are required to inform your instructor as soon as possible before the GR and to schedule a make-up exam.
-- Unscheduled Absence - If you miss the GR for reasons beyond your control (e.g. hospitalization, emergency leave, delayed field trip return, etc.), you must contact DFEC (x3190) within two working days to schedule a makeup.  Exceptions can only be granted by the Department Head.
+For missed GRs, the following policies apply:
+- **Scheduled Absence:** If you know that you will be unable to take the GR during the scheduled GR period, you are required to inform your instructor as soon as possible before the GR and to schedule a make-up exam. The default make-up date/time will be the first DF Time period following the original exam date.
+- **Unscheduled Absence:** If you miss the GR for reasons beyond your control (e.g. hospitalization, emergency leave, delayed field trip return, etc.), you must contact the course director within two working days to schedule a makeup. The default make-up date/time will be the first DF Time period following the original exam date.
+- **Unexcused Absence (or Late):** As per *USAFA FOI 36-173, Academic Practices and Procedures*:
+  - Cadets missing an examination due to an unexcused absence will receive a mandatory academic penalty of 25%.
+  - Cadets arriving more than 15 minutes late (1 hour for final exams) are considered absent and will be scheduled to take the GR/Final Exam during the designated make-up date/time. They will receive a 25% academic penalty.
+  - Cadets arriving less than 15 minutes late (1 hour for final exams) will immediately begin the exam and finish with the rest of the class. No academic penalty will be incurred.
+
 
 ## Laboratories
 Labs are held in 2E48, but may include a prelab assignment that must be done before coming to class.  The labs tend to be very hardware/software intensive and will probably require debugging to isolate and fix problems.  In-class time is your primary chance to get active help for these problems so the more you prepare outside of class, the more successful you’ll be.  The 53 minutes go by extremely fast - don’t waste them!
