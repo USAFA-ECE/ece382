@@ -40,11 +40,12 @@ This schedule is subject to change as appropriate.
 | 31     | [Lab 17: Control Systems](Assignments/lab17.md)  |                      |                                           |
 | 32     | [Robot Maze](Assignments/project.md)             |                      | [Lab17](Assignments/lab17.md)         (35)|
 | 33     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)               |
-| 34     | GR 2                                             |                      |                                       (90)|
-| 35     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
+| 34     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
+| 35     | GR 2                                             |                      |                                       (90)|
 | 36     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 | 37     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 |        | Thanksgiving break                               |                      |                                           |
 | 38     | [Robot Maze](Assignments/project.md)             |                      |                                           |
-| 39     | Race                                             |                      | Demo                                 (100)|
-| 40     | Final Report                                     |                      | Final Report (L40 23:59)             (100)|
+| 39     | [Robot Maze](Assignments/project.md)             |
+| 40     | Race                                             |                      | Demo                                 (100)|
+| 41     | Final Report                                     |                      | Final Report (L40 23:59)             (100)|
