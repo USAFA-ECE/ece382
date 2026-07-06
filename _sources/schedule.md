@@ -3,7 +3,7 @@
 ```{note}
 This schedule is subject to change as appropriate.
 ```
-**Last Updated: 14 October 2025**
+**Last Updated: 6 July 2026**
 
 | Lesson |                           Topic                  |   Reading (Valvano)  |     Due: 0700 (Points)                    |
 |:------:|--------------------------------------------------|:--------------------:|:-----------------------------------------:|

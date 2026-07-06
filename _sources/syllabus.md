@@ -216,7 +216,7 @@ All work is due as shown on Gradescope. If problems arise with graded assignment
 - Instructor-granted extensions are only considered after all grace days are used and only given in exceptional situations. Computer problems such as hard-drive reimaging are not considered as exceptional situations and you must use grace days.
 - Late work handed in when you have run out of grace is discounted up to 20% for the first day late and up to 15% per day late thereafter.
 - Every assignment has a hard deadline; 4 calendar days past the original due date. 
-- Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published. No late submissions (penalty or not) will be accepted for the assignments right before GRs.
+- **Late submissions (penalty or not) are not accepted after the hard deadline or after the solution to the assignment is published**. No late submissions (penalty or not) will be accepted for the assignments right before GRs.
 
 
 ## Assignments
