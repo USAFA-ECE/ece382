@@ -21,7 +21,7 @@ In this lab you will design, develop, and test a window intruder detector alarm 
 <br>
 
 Our window intruder detector alarm system is equipped with three inputs and one output. The inputs consist of three switches that are implemented with **positive logic**. The rightmost bump switch, which is called _Activate_, serves as the arm/disarm control. 
-The two left bump switches connected to P4.7 and P4.6 are two window sensors, which are named _Window1_ and _Window2_ respectively. When _Activate_ is pressed or true, the security system is activated. When _Activate_ is not pressed or false, the system is deactivated, meaning the alarm will be _OFF_ regardless of the state of the window sensors. The window is in a secure position when the window sensor is pressed or true. It is unsafe if either window sensor is not pressed. The output consists of an LED called _Alarm_ that is implemented in positive logic. The LED flashes at 1 Hz (on for 50 ms, off for 50 ms) to signify the unsafe condition when either Window1 or Window2 detects an intruder based on the truth table below. 
+The two left bump switches connected to P4.7 and P4.6 are two window sensors, which are named _Window1_ and _Window2_ respectively. When _Activate_ is pressed or true, the security system is activated. When _Activate_ is not pressed or false, the system is deactivated, meaning the alarm will be _OFF_ regardless of the state of the window sensors. The window is in a secure position when the window sensor is pressed or true. It is unsafe if either window sensor is not pressed. The output consists of an LED called _Alarm_ that is implemented in positive logic. The LED flashes at 1 Hz (on for 500 ms, off for 500 ms) to signify the unsafe condition when either Window1 or Window2 detects an intruder based on the truth table below. 
 
 ```{image} ./figures/Lab08_TruthTable.png
 :width: 460
@@ -104,7 +104,6 @@ We will now utilize Moku:Go Oscilloscope to observe the signal sent over P1.0 to
 :scale: 80%
 :align: center
 ```
-
 <br>
 
 - To get the frequency of your signal to be 1 Hz (period = 1 sec), you need to adjust your `DELAY` in `LEDs.asm`. No trial and error is needed for this. You can easily find the correct value of `DELAY` using a simple ratio.
@@ -113,12 +112,13 @@ We will now utilize Moku:Go Oscilloscope to observe the signal sent over P1.0 to
 
 ### Implement alarm algorithm in Program8_3()
 
-Implement the alarm algorithm by using `Program8_3()` within `Lab08_LED_Switchesmain.c`, as discribed in the Synopsis and shown in the block diagram below.
+Implement the alarm algorithm by using `Program8_3()` within `Lab08_LED_Switchesmain.c`, as described in the Synopsis and shown in the block diagram below.
 
-    ```{image} ./figures/Lab08_FlowChart.png
-    :width: 380
-    :align: center
-    ```
+```{image} ./figures/Lab08_FlowChart.png
+:width: 380
+:align: center
+```
+
 1. The system should start with the LED off.
 1. Wait for 100 ms.
 1. Check the three bump switches: if the `Activate` switch is pressed and one or both of the `Window1` and `Window2` switches are not pressed, toggle the LED; otherwise, keep the LED off.

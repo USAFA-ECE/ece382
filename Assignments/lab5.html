@@ -503,11 +503,11 @@ document.write(`
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You may have noticed that <code class="docutils literal notranslate"><span class="pre">Nokia5110.c</span></code> is also located inside the <code class="docutils literal notranslate"><span class="pre">inc</span></code> project. The file is physically located inside the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder and the one insde the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project is a <strong>link</strong> to the file in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.  We need a link, not a copy, of the file because we need the file across multiple projects.  If you have a copy of the file, you have to re-copy the file to every project everytime you modify it.</p>
+<p>You may have noticed that <code class="docutils literal notranslate"><span class="pre">Nokia5110.c</span></code> is also located inside the <code class="docutils literal notranslate"><span class="pre">inc</span></code> project. The file is physically located inside the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder and the one insde the <code class="docutils literal notranslate"><span class="pre">Lab05_SoftwareDesign</span></code> project is a <strong>link</strong> to the file in the <code class="docutils literal notranslate"><span class="pre">inc</span></code> folder.  We need a link, not a copy, of the file because we need the file across multiple projects.  If you have a copy of the file, you have to re-copy the file to every project every time you modify it.</p>
 </div>
 <ul class="simple">
 <li><p>Find the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutString</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Nokia5110.c</span></code>.</p></li>
-<li><p>The input arguemnt, <code class="docutils literal notranslate"><span class="pre">ptr</span></code>, of the fucntion is a pointer to a string, i.e., <code class="docutils literal notranslate"><span class="pre">ptr</span></code> is the address of the first character of the string.  A string in C is an array of characters with the Null character (ASCII value 0) at the end. A string in C can be initialized in many different ways. For example,</p></li>
+<li><p>The input argument, <code class="docutils literal notranslate"><span class="pre">ptr</span></code>, of the function is a pointer to a string, i.e., <code class="docutils literal notranslate"><span class="pre">ptr</span></code> is the address of the first character of the string.  A string in C is an array of characters with the Null character (ASCII value 0) at the end. A string in C can be initialized in many different ways. For example,</p></li>
 </ul>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ECE382&quot;</span><span class="p">;</span><span class="w">    </span><span class="c1">// C compilers will append Null (\0) at the end. </span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ECE382&quot;</span><span class="p">;</span><span class="w">     </span><span class="c1">// C compilers will append Null (\0) at the end.</span>
@@ -538,7 +538,7 @@ document.write(`
 </section>
 <section id="write-the-nokia5110-outudec-and-nokia5110-outsdec-functions">
 <h3>Write the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions<a class="headerlink" href="#write-the-nokia5110-outudec-and-nokia5110-outsdec-functions" title="Permalink to this heading">#</a></h3>
-<p>Let’s implemente two functions for the entire integer types: one for unsigned integers and another for signed integers.</p>
+<p>Let’s implement two functions for the entire integer types: one for unsigned integers and another for signed integers.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Ensure you understand the test programs. You may be asked to write such programs in GRs.</p>
@@ -556,7 +556,7 @@ document.write(`
 <ul class="simple">
 <li><p>Now, implement <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> that first calls the <code class="docutils literal notranslate"><span class="pre">Nokia_Num2String</span></code> function.</p></li>
 <li><p>Remember <code class="docutils literal notranslate"><span class="pre">Nokia_Num2String</span></code> returns <code class="docutils literal notranslate"><span class="pre">count</span></code>, the number of digits in the string.</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">count</span></code> and <code class="docutils literal notranslate"><span class="pre">min_length</span></code> to determine the length of the string to print on the LCD to print spaces to the LCD. Remember that <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutU16Dec</span></code> prints <strong>right-justified digits</strong>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">count</span></code> and <code class="docutils literal notranslate"><span class="pre">min_length</span></code> to determine the length of the string to print on the LCD to print spaces to the LCD. Remember that <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> prints <strong>right-justified digits</strong>.</p></li>
 <li><p>Then print the string inside StrNum in the reverse order.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code> to test this function.</p></li>
 <li><p>Then, implement <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code>, which is very similar to <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code>.  The only difference is that you need to add a negative sign (‘-’) or a space (’ ‘) in front of the integer.</p></li>
@@ -603,8 +603,7 @@ document.write(`
 <section id="deliverable-2">
 <h3>Deliverable 2<a class="headerlink" href="#deliverable-2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[7 Points]</strong> Complete the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions and test them with <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code>. Demo <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code> printing signed/unsigned integers on the LCD.<br />
-Demo Program5_4 printing signed/unsigned integers on the LCD.</p></li>
+<li><p><strong>[7 Points]</strong> Complete the <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutUDec</span></code> and <code class="docutils literal notranslate"><span class="pre">Nokia5110_OutSDec</span></code> functions and test them with <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code>. Demo <code class="docutils literal notranslate"><span class="pre">Program5_3</span></code> printing signed/unsigned integers on the LCD.</p></li>
 </ul>
 </section>
 <section id="deliverable-3">

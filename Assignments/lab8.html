@@ -427,7 +427,7 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/Lab08_BlockDiagram.png"><img alt="../_images/Lab08_BlockDiagram.png" class="align-center" src="../_images/Lab08_BlockDiagram.png" style="width: 380px;" /></a>
 <br>
 <p>Our window intruder detector alarm system is equipped with three inputs and one output. The inputs consist of three switches that are implemented with <strong>positive logic</strong>. The rightmost bump switch, which is called <em>Activate</em>, serves as the arm/disarm control.
-The two left bump switches connected to P4.7 and P4.6 are two window sensors, which are named <em>Window1</em> and <em>Window2</em> respectively. When <em>Activate</em> is pressed or true, the security system is activated. When <em>Activate</em> is not pressed or false, the system is deactivated, meaning the alarm will be <em>OFF</em> regardless of the state of the window sensors. The window is in a secure position when the window sensor is pressed or true. It is unsafe if either window sensor is not pressed. The output consists of an LED called <em>Alarm</em> that is implemented in positive logic. The LED flashes at 1 Hz (on for 50 ms, off for 50 ms) to signify the unsafe condition when either Window1 or Window2 detects an intruder based on the truth table below.</p>
+The two left bump switches connected to P4.7 and P4.6 are two window sensors, which are named <em>Window1</em> and <em>Window2</em> respectively. When <em>Activate</em> is pressed or true, the security system is activated. When <em>Activate</em> is not pressed or false, the system is deactivated, meaning the alarm will be <em>OFF</em> regardless of the state of the window sensors. The window is in a secure position when the window sensor is pressed or true. It is unsafe if either window sensor is not pressed. The output consists of an LED called <em>Alarm</em> that is implemented in positive logic. The LED flashes at 1 Hz (on for 500 ms, off for 500 ms) to signify the unsafe condition when either Window1 or Window2 detects an intruder based on the truth table below.</p>
 <a class="reference internal image-reference" href="../_images/Lab08_TruthTable.png"><img alt="../_images/Lab08_TruthTable.png" class="align-center" src="../_images/Lab08_TruthTable.png" style="width: 460px;" /></a>
 <br>
 </section>
@@ -510,13 +510,8 @@ The two left bump switches connected to P4.7 and P4.6 are two window sensors, wh
 </section>
 <section id="implement-alarm-algorithm-in-program8-3">
 <h3>Implement alarm algorithm in Program8_3()<a class="headerlink" href="#implement-alarm-algorithm-in-program8-3" title="Permalink to this heading">#</a></h3>
-<p>Implement the alarm algorithm by using <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code> within <code class="docutils literal notranslate"><span class="pre">Lab08_LED_Switchesmain.c</span></code>, as discribed in the Synopsis and shown in the block diagram below.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```{image} ./figures/Lab08_FlowChart.png
-:width: 380
-:align: center
-```
-</pre></div>
-</div>
+<p>Implement the alarm algorithm by using <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code> within <code class="docutils literal notranslate"><span class="pre">Lab08_LED_Switchesmain.c</span></code>, as described in the Synopsis and shown in the block diagram below.</p>
+<a class="reference internal image-reference" href="../_images/Lab08_FlowChart.png"><img alt="../_images/Lab08_FlowChart.png" class="align-center" src="../_images/Lab08_FlowChart.png" style="width: 380px;" /></a>
 <ol class="arabic simple">
 <li><p>The system should start with the LED off.</p></li>
 <li><p>Wait for 100 ms.</p></li>
