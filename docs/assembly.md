@@ -126,12 +126,12 @@ The `LDR` instructions copy values from memory into registers.
 
 Examples:
 ```asm
-    LDR  R3, [R2]      ; Load 32-bit from address in R2 to R8 
-    LDRB R3, [R2]      ; Load 8-bit from address in R2 to R8 
-    LDR  R3, [R2, R1]  ; Load 32-bit from address in R2 + R1 to R8 
-    LDR  R3, [R2, #5]  ; Load 32-bit from address in R2 + 5 to R8 
-    LDR  R3, [R2], #5  ; Load 32-bit from address in R2 to R8, then R2 = R2 + 5
-    LDR  R3, [R2, #5]! ; R2 = R2 + 5, then load 32-bit from address in R2 to R8
+    LDR  R3, [R2]      ; Load 32-bit from address in R2 to R3 
+    LDRB R3, [R2]      ; Load 8-bit from address in R2 to R3 
+    LDR  R3, [R2, R1]  ; Load 32-bit from address in R2 + R1 to R3 
+    LDR  R3, [R2, #5]  ; Load 32-bit from address in R2 + 5 to R3 
+    LDR  R3, [R2], #5  ; Load 32-bit from address in R2 to R3, then R2 = R2 + 5
+    LDR  R3, [R2, #5]! ; R2 = R2 + 5, then load 32-bit from address in R2 to R3
     LDR  R3, Pi        ; R3 = 314159
 
 Pi  .word 314159       ; Pi is the address of the constant 314159.

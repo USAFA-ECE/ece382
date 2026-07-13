@@ -105,11 +105,11 @@ It is crucial to read and comprehend the documentation in header files. Typicall
 - Open `Nokia5110.c` in the `Lab05_SoftwareDesign` project.
 
 ```{note}
-You may have noticed that `Nokia5110.c` is also located inside the `inc` project. The file is physically located inside the `inc` folder and the one insde the `Lab05_SoftwareDesign` project is a **link** to the file in the `inc` folder.  We need a link, not a copy, of the file because we need the file across multiple projects.  If you have a copy of the file, you have to re-copy the file to every project everytime you modify it.
+You may have noticed that `Nokia5110.c` is also located inside the `inc` project. The file is physically located inside the `inc` folder and the one insde the `Lab05_SoftwareDesign` project is a **link** to the file in the `inc` folder.  We need a link, not a copy, of the file because we need the file across multiple projects.  If you have a copy of the file, you have to re-copy the file to every project every time you modify it.
 ```
 
 - Find the `Nokia5110_OutString` function inside `Nokia5110.c`.
-- The input arguemnt, `ptr`, of the fucntion is a pointer to a string, i.e., `ptr` is the address of the first character of the string.  A string in C is an array of characters with the Null character (ASCII value 0) at the end. A string in C can be initialized in many different ways. For example,
+- The input argument, `ptr`, of the function is a pointer to a string, i.e., `ptr` is the address of the first character of the string.  A string in C is an array of characters with the Null character (ASCII value 0) at the end. A string in C can be initialized in many different ways. For example,
 
 ```C
 char str[] = "ECE382";    // C compilers will append Null (\0) at the end. 
@@ -146,7 +146,7 @@ Ensure you understand how to use the `Nokia5110_SetCursor2`.  You will be using 
 
 ### Write the `Nokia5110_OutUDec` and `Nokia5110_OutSDec` functions
 
-Let's implemente two functions for the entire integer types: one for unsigned integers and another for signed integers.  
+Let's implement two functions for the entire integer types: one for unsigned integers and another for signed integers.  
 
 ```{important}
 Ensure you understand the test programs. You may be asked to write such programs in GRs.
@@ -163,7 +163,7 @@ Notice that `Nokia_Num2String` is a **static function** as it has the **static**
 
 - Now, implement `Nokia5110_OutUDec` that first calls the `Nokia_Num2String` function.
 - Remember `Nokia_Num2String` returns `count`, the number of digits in the string.
-- Use `count` and `min_length` to determine the length of the string to print on the LCD to print spaces to the LCD. Remember that `Nokia5110_OutU16Dec` prints **right-justified digits**.
+- Use `count` and `min_length` to determine the length of the string to print on the LCD to print spaces to the LCD. Remember that `Nokia5110_OutUDec` prints **right-justified digits**.
 - Then print the string inside StrNum in the reverse order.
 - Use `Program5_3` to test this function.
 - Then, implement `Nokia5110_OutSDec`, which is very similar to `Nokia5110_OutUDec`.  The only difference is that you need to add a negative sign ('-') or a space (' ') in front of the integer.
@@ -206,8 +206,7 @@ Your code **must be compilable**.  If your code throws any compile errors, you w
 
 
 ### Deliverable 2 
-- **[7 Points]** Complete the `Nokia5110_OutUDec` and `Nokia5110_OutSDec` functions and test them with `Program5_3`. Demo `Program5_3` printing signed/unsigned integers on the LCD.  
-Demo Program5_4 printing signed/unsigned integers on the LCD.
+- **[7 Points]** Complete the `Nokia5110_OutUDec` and `Nokia5110_OutSDec` functions and test them with `Program5_3`. Demo `Program5_3` printing signed/unsigned integers on the LCD.
 
 
 ### Deliverable 3 

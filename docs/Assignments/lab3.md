@@ -115,7 +115,7 @@ int y = 7.0/2;   // y is 3, floating division (3.5) followed by type casting w/ 
 
 
 ### Deliverable 2
-- **[7.5 pts]** Complete `LaLab03_Prime.asm` and add a comment to every line of your code. Push your code to your repository. **It is your responsibility to check your files have been successfully pushed to your Bitbucket repository.**
+- **[7.5 pts]** Complete `Lab03_Prime.asm` and add a comment to every line of your code. Push your code to your repository. **It is your responsibility to check your files have been successfully pushed to your Bitbucket repository.**
 
 ```{warning}
 Your code must be **compilable**.  If your code throws any compile errors, you will get **a grade of 0** for Deliverable 2.

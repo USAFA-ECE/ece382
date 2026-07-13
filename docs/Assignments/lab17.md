@@ -87,7 +87,7 @@ Control systems are a rich, complex field within engineering, spanning electrica
     ```
     <br>
 
-    - The x-axis is off by at least an order of magnitude. The whees cannot react at the speed shown in the plot. 
+    - The x-axis is off by at least an order of magnitude. The wheels cannot react at the speed shown in the plot. 
 
     ```{image} ./figures/Lab17_BadPlotExample3.png
     :width: 420
