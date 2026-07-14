@@ -87,7 +87,7 @@ You should see something similar to the figure below. If you hover over the numb
 
 ```{figure} ./figures/Lab03_PrimeResultMemory.png
 ---
-width: 380
+width: 600
 align: center
 name: 8bit_encoding
 ---
@@ -98,7 +98,7 @@ Memory Browser with 8-Bit Signed Int encoding style.
 
 ```{figure} ./figures/Lab03_PrimeResultMemoryBad.png
 ---
-width: 380
+width: 600
 align: center
 name: 32bit_encoding
 ---
