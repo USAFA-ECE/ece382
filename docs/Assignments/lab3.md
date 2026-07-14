@@ -10,15 +10,15 @@ Always code as if the guy who ends up maintaining your code will be a violent ps
 
 
 ```{tip}
-**START EARLY!** You need to write only 10 - 15 lines of assembly code, but it may take **much longer** than you expect. Start early and seek EI if needed!
+**START EARLY!** You only need to write 10 - 15 lines of assembly code, but it may take **much longer** than you expect. Start early and seek EI if needed!
 ```
 
 ## 📜 Synopsis
 In this lab, you will write an Assembly program determining whether given integers are prime or composite.  A prime number is a positive integer that is divisible by only 1 and itself.  The equivalent C program is provided in `Lab03_PrimeMain.c` in the `Lab03_PrimeNumbers` project.
 
-The array of numbers to test is {1, 2, 7, 10, 15, 62, 97, 282, 408, 467, 967, 6687, 25913, 25481, 118061, 0}. The number 0 at the end of the array is to indicate the end of array.  The result array should be {0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, x}, where 1 denotes `prime`, 0 denotes `composite`, and x denotes `don't care`.
+The array of numbers to test is {1, 2, 7, 10, 15, 62, 97, 282, 408, 467, 967, 6687, 25913, 25481, 118061, 0}. The number 0 at the end of the array is to indicate the end of array.  The result array should be {-1, 1, 1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, 1, x}, where 1 denotes `prime`, -1 denotes `composite`, and x denotes `don't care`.
 
-An integer $n$ is not divisible by a number $m$ if $n/2 < m < n$.  For example, 15 is not divisible by any number between 7.5 and 15, i.e., 15 is not divisible by 8, 9, ... , or 14.  So, you don't have to check if 15 is divisible by these numbers.  That's why we have
+An integer $n$ is not divisible by a number $m$ if $n/2 < m < n$.  For example, 15 is not divisible by any number between 7.5 and 15 (i.e. 15 is not divisible by 8, 9, ... , or 14).  So, you don't have to check if 15 is divisible by these numbers.  That's why the following `for` loop in `Lab03_PrimeMain.c` only goes checks to see if a number $n$ is divisible by 2, 3, 4, ... , or $m$ (with $m = n/2$) :
 ```C
 for (int i = 2; i <= m; i++)  //  m is  n/2
 ```
@@ -34,7 +34,14 @@ for (int i = 2; i <= m; i++)  //  m is  n/2
 
 ### Run main.c
 
-Open `Lab03_PrimeMain.c` in the `Lab03_PrimeNumbers` project and carefully read the code. If you click on `Resume` (F8) followed by `Suspend` (Alt+F8), it will stop at `while(1);`.  Observe the values of the `Res` array in the `Expressions` tab. You may need to click on `>` next to `Res` to expand the array into individual variables. Take a screenshot of the contents of `Res` after execution of the code.
+- Right-click on `Lab03_PrimeMain.c` in the `Lab03_PrimeNumbers` project and ensure `Exclude from Build` **IS NOT** checked.
+- Right-click on `Lab03_Prime.asm` in the `Lab03_PrimeNumbers` project and ensure `Exclude from Build` **IS** checked. 
+- Open `Lab03_PrimeMain.c` and carefully read the code.
+- Click the `Debug` icon on the main toolbar.
+- Click on the `Resume` icon (F8) followed by the `Suspend` icon (Alt+F8). The program will stop at `while(1);`
+- Observe the values of the `Res` array in the `Expressions` tab. You may need to click on `>` next to `Res` to expand the array into individual variables. *Note: If the `Res` array is not visible on the `Expressions` tab, click `Add new expression` and type `Res` into the text box.*
+- Take a screenshot of the contents of `Res` after execution of the code. *Note: The contents of the `Res` array should match the values shown in the results array in the [Synopsis](#-synopsis) section*
+- Press the `Terminate` icon to leave `Debug` mode.
 
 ```{warning}
 Please take a screenshot of the region of interest and ensure that it is legible. If your instructor has trouble reading it, you might not get full credit.
@@ -51,7 +58,8 @@ You will receive a grade of **-10 points** if you submit a picture of a computer
 Before you start writing code, carefully read both `Lab03_PrimeMain.c` and `Lab03_Prime.asm` and the comments in them.
 ```
 
-- Exclude `Lab03_PrimeMain.c` from Build and include `Lab03_Prime.asm`.
+- Right-click on `Lab03_PrimeMain.c` in the `Lab03_PrimeNumbers` project and ensure `Exclude from Build` **is** checked.
+- Right-click on `Lab03_Prime.asm` in the `Lab03_PrimeNumbers` project and ensure `Exclude from Build` **IS NOT** checked.
 
 
 **Modulo**
@@ -67,8 +75,15 @@ CMP  R0, R9     ; n == int(n/i) * i ?,  n is divisible by i if R0 == R9.
 **Add your code to `Lab03_Prime.asm`**
 
 - Use `Lab03_PrimeMain.c` as a reference to complete the assembly code. Please read all the comments before writing any code. 
-- It is important to **comment your code**. You must add a comment to every line for this assignment. 
-- You can search the `Memory Browser` by variable name or memory address, such as the contents of `ResAddr` after execution of the code.  You need to change the encoding style (number format) to **8-Bit Hex - TI Style** as shown below. If you click on Resume (F8 or green arrow) followed by Suspend (Alt+F8), it will stop at `Stall B Stall`. Then, you can browse the memory.
+- It is important to **comment your code**. You must add a comment to every line for this assignment.
+- Once your assembly code is complete, click the `Debug` icon.
+- Click on the `Resume` icon (F8 or green arrow) followed by the `Suspend` icon (Alt+F8 or yellow pause icon). The program will stop at `Stall B Stall`.
+- Search for the contents of `Result` array using the `Memory Browser`. You will need to do the following:
+   - Type `ResAddr` into the `Memory Browser` search bar to show the contents of `ResAddr` (which is the address to the `Result` array).
+   - Type the address saved in `ResAddr` into the `Memory Browser` search bar (e.g. 0x2000000A).
+   - Change the encoding style (number format) to **8-bit Signed Int** using the drop-down box
+
+You should see something similar to the figure below. If you hover over the numbers in the `Memory Browser`, you will see the memory address for that specific 8-bit value. Start at first address for the `Result` array (e.g. 0x2000000A) and verify the contents of the array match the values shown in the results array in the [Synopsis](#-synopsis) section.
 
 ```{figure} ./figures/Lab03_PrimeResultMemory.png
 ---
@@ -76,7 +91,7 @@ width: 380
 align: center
 name: 8bit_encoding
 ---
-Memory Browser with 8-Bit Hex encoding style.
+Memory Browser with 8-Bit Signed Int encoding style.
 ```
 
 - If you select a wrong encoding style as shown below, you will not be able to correctly read the values inside `Result`.  
@@ -87,7 +102,7 @@ width: 380
 align: center
 name: 32bit_encoding
 ---
-Memory Browser with 32-Bit Hex encoding style.
+Memory Browser with Character encoding style.
 ```
 
 ```{tip}
@@ -115,7 +130,7 @@ int y = 7.0/2;   // y is 3, floating division (3.5) followed by type casting w/ 
 
 
 ### Deliverable 2
-- **[7.5 pts]** Complete `Lab03_Prime.asm` and add a comment to every line of your code. Push your code to your repository. **It is your responsibility to check your files have been successfully pushed to your Bitbucket repository.**
+- **[7.5 pts]** Complete `Lab03_Prime.asm` and add a comment to every line of your code. Push your code to your repository. **It is your responsibility to check your files have been successfully pushed to your GitHub repository.**
 
 ```{warning}
 Your code must be **compilable**.  If your code throws any compile errors, you will get **a grade of 0** for Deliverable 2.
@@ -126,6 +141,6 @@ Your code must be **compilable**.  If your code throws any compile errors, you w
 - **[4 pts]** Provide screenshots showing the **addresses** of `Result` and `Nums`, stored in RAM/ROM (use the Memory Browser and the pointers you created).
 
 ### Deliverable 4
-- **[4 pts]** Provide a screenshot showing the **contents** of `Result`, stored in memory after execution of the code (use the Memory Browser and change the format to **8-Bit Hex - TI Style**).
+- **[4 pts]** Provide a screenshot showing the **contents** of `Result`, stored in memory after execution of the code (use the Memory Browser and change the format to **8-Bit Signed Int**).
 
 - **[-10 pts]** Take pictures of your screen with a mobile device or digital camera and submit them on Gradescope. Yes, I am serious...
