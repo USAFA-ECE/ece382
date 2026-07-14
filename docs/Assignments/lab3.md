@@ -58,7 +58,7 @@ You will receive a grade of **-10 points** if you submit a picture of a computer
 Before you start writing code, carefully read both `Lab03_PrimeMain.c` and `Lab03_Prime.asm` and the comments in them.
 ```
 
-- Right-click on `Lab03_PrimeMain.c` in the `Lab03_PrimeNumbers` project and ensure `Exclude from Build` **is** checked.
+- Right-click on `Lab03_PrimeMain.c` in the `Lab03_PrimeNumbers` project and ensure `Exclude from Build` **IS** checked.
 - Right-click on `Lab03_Prime.asm` in the `Lab03_PrimeNumbers` project and ensure `Exclude from Build` **IS NOT** checked.
 
 
@@ -76,6 +76,9 @@ CMP  R0, R9     ; n == int(n/i) * i ?,  n is divisible by i if R0 == R9.
 
 - Use `Lab03_PrimeMain.c` as a reference to complete the assembly code. Please read all the comments before writing any code. 
 - It is important to **comment your code**. You must add a comment to every line for this assignment.
+
+**Verify contents of `Result` array**
+
 - Once your assembly code is complete, click the `Debug` icon.
 - Click on the `Resume` icon (F8 or green arrow) followed by the `Suspend` icon (Alt+F8 or yellow pause icon). The program will stop at `Stall B Stall`.
 - Search for the contents of `Result` array using the `Memory Browser`. You will need to do the following:
