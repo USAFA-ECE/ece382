@@ -68,11 +68,11 @@ If you’re not sure whether your code complies with the AAPCS, you can check th
 ### Write the `Encrypt` subroutine
 
 - Open `Lab04_Granger.asm` in the `Lab04_Cryptography` project.
-- Ensure the `main` function at line 58 in `Lab04_Granger.asm` is **not commented** out. Otherwise, uncomment it by deleting the semicolon(`;`) at the beginning of the line;
+- Ensure the `main` function at line 63 in `Lab04_Granger.asm` is **not commented** out. Otherwise, uncomment it by deleting the semicolon(`;`) at the beginning of the line;
 ``` ASM
 ;main:    .asmfunc
 ```
-- Ensure the `main` function at line 58 in `Lab04_Potter.asm` is **commented** out. Otherwise, comment it out by adding the semicolon(`;`) at the beginning of the line;
+- Ensure the `main` function at line 59 in `Lab04_Potter.asm` is **commented** out. Otherwise, comment it out by adding the semicolon(`;`) at the beginning of the line;
 - Read `Lab04_Granger.asm` carefully.  You need to understand the code before writing code in `cryptography.asm`.
 - Open `cryptography.asm`. and read the comments carefully.  
 
