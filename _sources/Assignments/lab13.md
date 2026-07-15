@@ -13,15 +13,40 @@ Make it work, make it right, make it fast. – Kent Beck
 
 ## 📜 Synopsis
 
-This lab aims to write software that can adjust the applied power to the two motors. You will create PWM outputs on the P2.6 and P2.7 pins connected to the EN pins of the two TI DRV8838 motor drivers. The period of both PWM outputs should be fixed at 20 ms (50 Hz). However, the software should be able to independently set the duty cycle of the EN pin to each motor from 0 to 999 (0 to 99.9%). At 50 Hz, the motor will not respond to individual highs and lows; instead, the motors will respond to the average level. More specifically, the delivered power will be:
+### Lab Overview: Motor Power Control
+
+This lab aims to write software that independently adjusts the power delivered to two DC motors. You will generate Pulse Width Modulation (PWM) outputs on pins P2.6 and P2.7, which connect to the Enable (EN) pins of two TI DRV8838 motor drivers.
+
+- PWM Period: Fixed at 20 ms (50 Hz).
+- Motor Response: At 50 Hz, the motors will not respond to individual high/low digital pulses. Instead, they respond to the average voltage level. The delivered power ($P$) is defined by:
 
 $$
 P = VI \frac{d}{100}
 $$
-where $V$ is the voltage, $I$ is the current, and $d \in [0, 99.9]$ is the duty cycle in percent (%).
 
-Duty cycles are typically expressed as a percentage of `ON` time, which is a real number between 0.0% and 100.0%. However, in microcontrollers, it is preferable to avoid floating point numbers and their computations. Therefore, we will use a 16-bit integer between 0 and 1,000 to represent a duty cycle between 0.0% and 100.0%. We will use the unit permille, which means one out of every one thousand (mille). Another advantage of using permille is that we can express 1,000 different values using a 16-bit integer, whereas we can only have 100 different integer values if we use a percentage. 
+Where $V$ is voltage, $I$ is current, and $d$ is the duty cycle percentage ($d \in [0.0, 100.0]$).
 
+### Representing the Duty Cycle: Fixed-Point Scaling
+
+In embedded systems, representing the duty cycle as a standard percentage (like $45.5\%$) poses a challenge:
+
+- **The Problem:** Microcontrollers often lack floating-point units (FPUs). Additionally, doing math with floating-point numbers (e.g., float duty = 45.5) is computationally expensive and slow.
+- **The Fixed-Point Solution:** To keep our calculations fast and efficient, we must use integers. However, if we restricted ourselves to integer percentages ($0%$ to $100%$), we would only have 101 discrete speed settings.
+- **The Scaling Hack:** To get decimal-level precision using only integers, we multiply our percentage values by 10. This shifts the decimal point out of the way.
+     - Instead of writing 45.5% (which requires a float), we write 455 (an integer).
+     - Instead of a maximum value of 100%, our maximum integer value becomes 1000.
+  
+    This "parts per thousand" representation is formally known as *permille*.
+
+If using a standard 16-bit integer (from 0 to 1,000) to represent the duty cycle:
+
+- An integer value of 0 represents a 0.0% duty cycle.
+- An integer value of 500 represents a 50.0% duty cycle.
+- An integer value of 1000 represents a 100.0% duty cycle.
+
+```{note}
+For this lab, your code should cap the maximum safe output at 99.9% to prevent constant "on" states, so your integer range will span from 0 to 999.
+```
 
 ## 💻 Procedure
 
@@ -33,7 +58,7 @@ Before proceeding, review the solution for `TimerA1_Init` posted on Gradescope t
 1. Open `TimerA1.h` and `TimerA1.c` and read them thoroughly.
 1. Carefully examine `Program13_1` to understand (i) how `TimerA1` is initialized and (ii) how the semaphore is employed to coordinate between the foreground and background threads. 
 1. Write the `TimerA1_Stop()` and `TA1_0_IRQHandler()` functions, as discussed in Lecture 13 and referenced in Valvano's textbook. 
-1. Demonstrate `Program13_1` as shown in the video below. Ensure that the red LED blins at 5 Hz, the blue LED blinks at 2.5 Hz, and the LCD updates the elapsed time at a rate of 5 Hz. Your demo should also show the timer interrupt being enabled by pressing a switch and disabled by pressing a bump sensor. 
+1. Demonstrate `Program13_1` as shown in the video below. Ensure that the red LED blinks at 5 Hz, the blue LED blinks at 2.5 Hz, and the LCD updates the elapsed time at a rate of 5 Hz. Your demo should also show the timer interrupt being enabled by pressing a switch and disabled by pressing a bump sensor. 
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ySVa26xwUzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -57,7 +82,7 @@ We want to enable interrupt service routines to execute a range of user-defined 
 1. Keep in mind that the duty cycles passed into `PWM_DutyRight` and `PWM_DutyLeft` are in _permille_.  The code handles the conversion to the Timer period, so you don't need to perform this calculation when calling these functions in Motor.c. 
 1. Read `Motor.h` and `Motor.c` thoroughly.
 1. Implement the functions in `PWM.c` to generate two PWM outputs controlling the robot's wheels. Both PWM signals operate at 50 Hz (20 ms). 
-1. Demo `Program13_2` as shown in the video below. Use motor functions defined in `Motor.c` to maneuver the robot and ensure you run at least one iteration in the while loop. 
+1. Demo `Program13_2` as shown in the video below. Use motor functions defined in `Motor.c` to maneuver the robot and ensure you run **at least two iterations** in the while loop. 
 
     <center>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/qjLGzcN1ncY?si=OrHY9CHkix2kSkfF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -69,7 +94,7 @@ We want to enable interrupt service routines to execute a range of user-defined 
 ### Write functions in Lab13_Timersmain.c
 
 1. Write `Program13_3()`.
-1. Combine the `PWM` and `Timer_A1` periodic interrupt functionality into one software system that controls the robot like `Program 13.2`, but uses the periodic interrupt to track the time elapsed.
+1. Combine the `PWM` and `Timer_A1` periodic interrupt functionality into one software system that controls the robot like `Program 13_2`, but uses the periodic interrupt to track the time elapsed.
 1. While the Timer interrupt runs in the background, the foreground thread will display the motor functions on the LCD.
 1. As shown in the component block diagram below, `PWM.c` is not directly accessible to `Program13_3`; It is encapsulated in `Motor.c`.  `Program13_3` will only use the functions in Motor.c to control the motors.
 
@@ -100,7 +125,8 @@ Your demo should also show the timer interrupt being enabled by pressing a switc
 
 
 ### Deliverable 3 
-- **[7 Points]**  Demo `Program13_2` as shown in the video below. Use motor functions defined in `Motor.c` to maneuver the robot and ensure you run **at least two iterations** in the while loop. During the demo, explain what you are demonstrating. 
+- **[7 Points]**  Demo `Program13_3()`. Use PWM to move the robot like Program13_2, but use TimerA1 to periodically track the time elapsed. You must run **at least two iterations** in the while loop. During the demo, explain what you are demonstrating.
+ 
 
 ### Deliverable 4 
 - **[9.5 Points]**  Push your code to your repository using git. Write comments in your code.

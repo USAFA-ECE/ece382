@@ -384,7 +384,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-overview-motor-power-control">Lab Overview: Motor Power Control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representing-the-duty-cycle-fixed-point-scaling">Representing the Duty Cycle: Fixed-Point Scaling</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-timer-functions-in-timera1-c">Write Timer functions in <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code>.</a></li>
@@ -426,13 +430,44 @@ document.write(`
 </section>
 <section id="synopsis">
 <h2>📜 Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">#</a></h2>
-<p>This lab aims to write software that can adjust the applied power to the two motors. You will create PWM outputs on the P2.6 and P2.7 pins connected to the EN pins of the two TI DRV8838 motor drivers. The period of both PWM outputs should be fixed at 20 ms (50 Hz). However, the software should be able to independently set the duty cycle of the EN pin to each motor from 0 to 999 (0 to 99.9%). At 50 Hz, the motor will not respond to individual highs and lows; instead, the motors will respond to the average level. More specifically, the delivered power will be:</p>
+<section id="lab-overview-motor-power-control">
+<h3>Lab Overview: Motor Power Control<a class="headerlink" href="#lab-overview-motor-power-control" title="Permalink to this heading">#</a></h3>
+<p>This lab aims to write software that independently adjusts the power delivered to two DC motors. You will generate Pulse Width Modulation (PWM) outputs on pins P2.6 and P2.7, which connect to the Enable (EN) pins of two TI DRV8838 motor drivers.</p>
+<ul class="simple">
+<li><p>PWM Period: Fixed at 20 ms (50 Hz).</p></li>
+<li><p>Motor Response: At 50 Hz, the motors will not respond to individual high/low digital pulses. Instead, they respond to the average voltage level. The delivered power (<span class="math notranslate nohighlight">\(P\)</span>) is defined by:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[
 P = VI \frac{d}{100}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(V\)</span> is the voltage, <span class="math notranslate nohighlight">\(I\)</span> is the current, and <span class="math notranslate nohighlight">\(d \in [0, 99.9]\)</span> is the duty cycle in percent (%).</p>
-<p>Duty cycles are typically expressed as a percentage of <code class="docutils literal notranslate"><span class="pre">ON</span></code> time, which is a real number between 0.0% and 100.0%. However, in microcontrollers, it is preferable to avoid floating point numbers and their computations. Therefore, we will use a 16-bit integer between 0 and 1,000 to represent a duty cycle between 0.0% and 100.0%. We will use the unit permille, which means one out of every one thousand (mille). Another advantage of using permille is that we can express 1,000 different values using a 16-bit integer, whereas we can only have 100 different integer values if we use a percentage.</p>
+<p>Where <span class="math notranslate nohighlight">\(V\)</span> is voltage, <span class="math notranslate nohighlight">\(I\)</span> is current, and <span class="math notranslate nohighlight">\(d\)</span> is the duty cycle percentage (<span class="math notranslate nohighlight">\(d \in [0.0, 100.0]\)</span>).</p>
+</section>
+<section id="representing-the-duty-cycle-fixed-point-scaling">
+<h3>Representing the Duty Cycle: Fixed-Point Scaling<a class="headerlink" href="#representing-the-duty-cycle-fixed-point-scaling" title="Permalink to this heading">#</a></h3>
+<p>In embedded systems, representing the duty cycle as a standard percentage (like <span class="math notranslate nohighlight">\(45.5\%\)</span>) poses a challenge:</p>
+<ul>
+<li><p><strong>The Problem:</strong> Microcontrollers often lack floating-point units (FPUs). Additionally, doing math with floating-point numbers (e.g., float duty = 45.5) is computationally expensive and slow.</p></li>
+<li><p><strong>The Fixed-Point Solution:</strong> To keep our calculations fast and efficient, we must use integers. However, if we restricted ourselves to integer percentages (<span class="math notranslate nohighlight">\(0%\)</span> to <span class="math notranslate nohighlight">\(100%\)</span>), we would only have 101 discrete speed settings.</p></li>
+<li><p><strong>The Scaling Hack:</strong> To get decimal-level precision using only integers, we multiply our percentage values by 10. This shifts the decimal point out of the way.</p>
+<ul class="simple">
+<li><p>Instead of writing 45.5% (which requires a float), we write 455 (an integer).</p></li>
+<li><p>Instead of a maximum value of 100%, our maximum integer value becomes 1000.</p></li>
+</ul>
+<p>This “parts per thousand” representation is formally known as <em>permille</em>.</p>
+</li>
+</ul>
+<p>If using a standard 16-bit integer (from 0 to 1,000) to represent the duty cycle:</p>
+<ul class="simple">
+<li><p>An integer value of 0 represents a 0.0% duty cycle.</p></li>
+<li><p>An integer value of 500 represents a 50.0% duty cycle.</p></li>
+<li><p>An integer value of 1000 represents a 100.0% duty cycle.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this lab, your code should cap the maximum safe output at 99.9% to prevent constant “on” states, so your integer range will span from 0 to 999.</p>
+</div>
+</section>
 </section>
 <section id="procedure">
 <h2>💻 Procedure<a class="headerlink" href="#procedure" title="Permalink to this heading">#</a></h2>
@@ -446,7 +481,7 @@ P = VI \frac{d}{100}
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">TimerA1.h</span></code> and <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code> and read them thoroughly.</p></li>
 <li><p>Carefully examine <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> to understand (i) how <code class="docutils literal notranslate"><span class="pre">TimerA1</span></code> is initialized and (ii) how the semaphore is employed to coordinate between the foreground and background threads.</p></li>
 <li><p>Write the <code class="docutils literal notranslate"><span class="pre">TimerA1_Stop()</span></code> and <code class="docutils literal notranslate"><span class="pre">TA1_0_IRQHandler()</span></code> functions, as discussed in Lecture 13 and referenced in Valvano’s textbook.</p></li>
-<li><p>Demonstrate <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> as shown in the video below. Ensure that the red LED blins at 5 Hz, the blue LED blinks at 2.5 Hz, and the LCD updates the elapsed time at a rate of 5 Hz. Your demo should also show the timer interrupt being enabled by pressing a switch and disabled by pressing a bump sensor.</p></li>
+<li><p>Demonstrate <code class="docutils literal notranslate"><span class="pre">Program13_1</span></code> as shown in the video below. Ensure that the red LED blinks at 5 Hz, the blue LED blinks at 2.5 Hz, and the LCD updates the elapsed time at a rate of 5 Hz. Your demo should also show the timer interrupt being enabled by pressing a switch and disabled by pressing a bump sensor.</p></li>
 </ol>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ySVa26xwUzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -468,7 +503,7 @@ Video Credit: C24 Chanon Mallanoo
 <li><p>Keep in mind that the duty cycles passed into <code class="docutils literal notranslate"><span class="pre">PWM_DutyRight</span></code> and <code class="docutils literal notranslate"><span class="pre">PWM_DutyLeft</span></code> are in <em>permille</em>.  The code handles the conversion to the Timer period, so you don’t need to perform this calculation when calling these functions in Motor.c.</p></li>
 <li><p>Read <code class="docutils literal notranslate"><span class="pre">Motor.h</span></code> and <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> thoroughly.</p></li>
 <li><p>Implement the functions in <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> to generate two PWM outputs controlling the robot’s wheels. Both PWM signals operate at 50 Hz (20 ms).</p></li>
-<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code> as shown in the video below. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to maneuver the robot and ensure you run at least one iteration in the while loop.</p>
+<li><p>Demo <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code> as shown in the video below. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to maneuver the robot and ensure you run <strong>at least two iterations</strong> in the while loop.</p>
  <center>
  <iframe width="560" height="315" src="https://www.youtube.com/embed/qjLGzcN1ncY?si=OrHY9CHkix2kSkfF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
  <br>
@@ -482,7 +517,7 @@ Video Credit: C24 Chanon Mallanoo
 <h3>Write functions in Lab13_Timersmain.c<a class="headerlink" href="#write-functions-in-lab13-timersmain-c" title="Permalink to this heading">#</a></h3>
 <ol class="arabic">
 <li><p>Write <code class="docutils literal notranslate"><span class="pre">Program13_3()</span></code>.</p></li>
-<li><p>Combine the <code class="docutils literal notranslate"><span class="pre">PWM</span></code> and <code class="docutils literal notranslate"><span class="pre">Timer_A1</span></code> periodic interrupt functionality into one software system that controls the robot like <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">13.2</span></code>, but uses the periodic interrupt to track the time elapsed.</p></li>
+<li><p>Combine the <code class="docutils literal notranslate"><span class="pre">PWM</span></code> and <code class="docutils literal notranslate"><span class="pre">Timer_A1</span></code> periodic interrupt functionality into one software system that controls the robot like <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">13_2</span></code>, but uses the periodic interrupt to track the time elapsed.</p></li>
 <li><p>While the Timer interrupt runs in the background, the foreground thread will display the motor functions on the LCD.</p></li>
 <li><p>As shown in the component block diagram below, <code class="docutils literal notranslate"><span class="pre">PWM.c</span></code> is not directly accessible to <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code>; It is encapsulated in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code>.  <code class="docutils literal notranslate"><span class="pre">Program13_3</span></code> will only use the functions in Motor.c to control the motors.</p>
 <a class="reference internal image-reference" href="../_images/Lab13_ComponentBlockDiagram.png"><img alt="../_images/Lab13_ComponentBlockDiagram.png" class="align-center" src="../_images/Lab13_ComponentBlockDiagram.png" style="width: 460px;" /></a>
@@ -517,7 +552,7 @@ Your demo should also show the timer interrupt being enabled by pressing a switc
 <section id="deliverable-3">
 <h3>Deliverable 3<a class="headerlink" href="#deliverable-3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_2</span></code> as shown in the video below. Use motor functions defined in <code class="docutils literal notranslate"><span class="pre">Motor.c</span></code> to maneuver the robot and ensure you run <strong>at least two iterations</strong> in the while loop. During the demo, explain what you are demonstrating.</p></li>
+<li><p><strong>[7 Points]</strong>  Demo <code class="docutils literal notranslate"><span class="pre">Program13_3()</span></code>. Use PWM to move the robot like Program13_2, but use TimerA1 to periodically track the time elapsed. You must run <strong>at least two iterations</strong> in the while loop. During the demo, explain what you are demonstrating.</p></li>
 </ul>
 </section>
 <section id="deliverable-4">
@@ -598,7 +633,11 @@ Your demo should also show the timer interrupt being enabled by pressing a switc
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">📌 Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synopsis">📜 Synopsis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-overview-motor-power-control">Lab Overview: Motor Power Control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representing-the-duty-cycle-fixed-point-scaling">Representing the Duty Cycle: Fixed-Point Scaling</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">💻 Procedure</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-timer-functions-in-timera1-c">Write Timer functions in <code class="docutils literal notranslate"><span class="pre">TimerA1.c</span></code>.</a></li>
