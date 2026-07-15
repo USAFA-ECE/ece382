@@ -79,7 +79,7 @@ If you’re not sure whether your code complies with the AAPCS, you can check th
     // Program3();
     // Program4();
 ```
-- Please read carefully `power1` and `power2` functions. While not required, you can step through the code to understand what each line does.
+- Carefully read `power1` and `power2` functions. While not required, you can step through the code to understand what each line does.
 - Comment out lines 92-93 and uncomment lines 94-95. They should look like the following.
 ```C
     // Program1();
