@@ -72,7 +72,7 @@ If you’re not sure whether your code complies with the AAPCS, you can check th
 ### Execute `Power.asm`.
 
 - Open `PowerMain.c` in the the `Example05_Power` project.
-- Uncomment lines 88-89 if they are commented out and ensure lines 90-91 are commented out. They should look like the following.
+- Uncomment lines 92-93 if they are commented out and ensure lines 94-95 are commented out. They should look like the following.
 ```C
     Program1();
     Program2();
@@ -80,7 +80,7 @@ If you’re not sure whether your code complies with the AAPCS, you can check th
     // Program4();
 ```
 - Please read carefully `power1` and `power2` functions. While not required, you can step through the code to understand what each line does.
-- Comment out lines 88-89 and uncomment lines 90-91. They should look like the following.
+- Comment out lines 92-93 and uncomment lines 94-95. They should look like the following.
 ```C
     // Program1();
     // Program2();
