@@ -21,7 +21,7 @@ This schedule is subject to change as appropriate.
 | 12     | Lec 10: Multithreading                           | 9.4, 10.1-10.3       | [Lab8](Assignments/lab8.md)           (20)|
 | 13     | [Lab 10: Multithreading](Assignments/lab10.md)   |                      | HW10                                  (19)|
 | 14     | Lec 11: Serial Communication                     | 11.2-11.3, 11.5-11.6 | [Lab10](Assignments/lab10.md)         (20)|
-| 15     | [Lab 11: Serial Comm](Assignments/lab11.md)      |                      | HW11                                  (19)|
+| 15     | [Lab 11: Serial Communication](Assignments/lab11.md)      |                      | HW11                                  (19)|
 | 16     | Lec 13: Timers & Motors                          | 13.1-13.3            | [Lab11](Assignments/lab11.md)         (25)|
 | 17     | GR 1                                             |                      |                                       (100)|
 | 18     | Lec 13: Timers & Motors                          | 12.1, 12.5, 13.3     | HW13A                                 (16)|
