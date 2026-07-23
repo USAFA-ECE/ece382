@@ -23,7 +23,7 @@ This schedule is subject to change as appropriate.
 | 14     | Lec 11: Serial Communication                     | 11.2-11.3, 11.5-11.6 | [Lab10](Assignments/lab10.md)         (20)|
 | 15     | [Lab 11: Serial Comm](Assignments/lab11.md)      |                      | HW11                                  (19)|
 | 16     | Lec 13: Timers & Motors                          | 13.1-13.3            | [Lab11](Assignments/lab11.md)         (25)|
-| 17     | GR 1                                             |                      |                                       (102)|
+| 17     | GR 1                                             |                      |                                       (100)|
 | 18     | Lec 13: Timers & Motors                          | 12.1, 12.5, 13.3     | HW13A                                 (16)|
 | 19     | [Lab 13: Timers & Motors](Assignments/lab13.md)  |                      | HW13B                                 (13)|
 | 20     | [Lab 13: Timers & Motors](Assignments/lab13.md)  |                      |                                           |
@@ -32,20 +32,20 @@ This schedule is subject to change as appropriate.
 | 23     | Lec 15: ADC (Distance   Sensors)                 | 15.3, 15.5, 15.8     | [Lab14](Assignments/lab14.md)         (20)|
 | 24     | [Lab 15: ADC](Assignments/lab15.md)              |                      | HW15                                  (18)|
 | 25     | [Lab 15: ADC](Assignments/lab15.md)              |                      |                                           |
-| 26     | Lec 16: Tachometer & FSM                         | 16.1-16.3            | [Lab15](Assignments/lab15.md)         (35)|
-| 27     | [Lab 16: Tachometer & FSM](Assignments/lab16.md) |                      | HW16                                  (18)|
+| 26     | Lec 16: Tachometer & FSM                         | 16.1-16.3            | [Lab15](Assignments/lab15.md)         (37)|
+| 27     | [Lab 16: Tachometer & FSM](Assignments/lab16.md) |                      | HW16                                  (17)|
 | 28     | [Lab 16: Tachometer & FSM](Assignments/lab16.md) |                      |                                           |
 | 29     | Lec 17: Control Systems                          | 17.1-17.5            | [Lab16](Assignments/lab16.md)         (35)|
 | 30     | [Lab 17: Control Systems](Assignments/lab17.md)  |                      | HW17                                  (18)|
 | 31     | [Lab 17: Control Systems](Assignments/lab17.md)  |                      |                                           |
 | 32     | [Robot Maze](Assignments/project.md)             |                      | [Lab17](Assignments/lab17.md)         (35)|
-| 33     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)               |
+| 33     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
 | 34     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
-| 35     | GR 2                                             |                      |                                       (90)|
+| 35     | GR 2                                             |                      |                                       (100)|
 | 36     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 | 37     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 |        | Thanksgiving break                               |                      |                                           |
 | 38     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 | 39     | [Robot Maze](Assignments/project.md)             |
 | 40     | Race                                             |                      | Demo                                 (100)|
-| 41     | Final Report                                     |                      | Final Report (L40 23:59)             (100)|
+| 41     | Final Report                                     |                      | Final Report (L41 23:59)             (100)|
