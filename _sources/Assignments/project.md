@@ -225,12 +225,13 @@ Make extensive use of visual aids, such as a maze picture, flowcharts, and diagr
     - Discuss the project requirements.
 1. **[25 Points]** Design:
     - This section accounts for 50% of the presentation grade.
-    - Discuss the details of your design. For example,
+    - Discuss the details of your design. For example:
+        - Discuss the design of your controller
+        - Include a clearly legible finite state machine.
+        - Specify the timers you plan to use, their intended purposes, and operating frequencies.
         - How to make turn decisions at intersections.
         - How to keep track of the robot's coordinates.
         - How to handle misclassifications.
-        - Specify the timers you plan to use, their intended purposes, and operating frequencies.
-        - Include a clearly legible finite state machine.
     - Outline the data you intend to collect for experimental analysis and explain your data collection method.
 1. **[15 Points]** Debugging and testing:
     - Provide detailed information on debugging and testing methods. Explain how your methods enhance debugging and testing efficiency.
