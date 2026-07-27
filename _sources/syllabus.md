@@ -25,9 +25,9 @@ The **Grade distribution** for this course is shown below.
 
 |     Prog                  |             |     Final              |             |
 |---------------------------|-------------|------------------------|-------------|
-|     GRs                   |     22.9%   |     GRs                |     18%     |
-|     Labs                  |     35.9%   |     Labs               |     32%     |
-|   Homework                |     41.2%   |     Homework           |     25%     |
+|     GRs                   |     20%   |     GRs                |     25%     |
+|     Labs                  |     50%   |     Labs               |     30%     |
+|   Homework                |     30%   |     Homework           |     20%     |
 |                           |             |     Final Project      |     25%     |
 |                           |             |                        |             |
 |     Total                 |     100%    |     Total              |     100%    |
@@ -88,7 +88,7 @@ The **Grade distribution** for this course is shown below.
     data: {
       labels: ['GR', 'Labs', 'Homework'],
       datasets: [{
-        data: [22.9, 35.9, 41.2],
+        data: [20, 50, 30],
         backgroundColor: ['#1f77b4', '#ff7f0e', '#2ca02c']
       }]
     },
@@ -110,7 +110,7 @@ The **Grade distribution** for this course is shown below.
     data: {
       labels: ['GRs', 'Labs', 'Homework', 'Final Project'],
       datasets: [{
-        data: [18, 32, 25, 25],
+        data: [25, 30, 20, 25],
         backgroundColor: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
       }]
     },
