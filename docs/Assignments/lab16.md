@@ -171,7 +171,8 @@ This part is the foundation of Deliverable 1 of the final project.
 1. If **Bump5** is triggered, make a 60° right turn, then move forward. 
 1. If **Bump6** is triggered, make a 30° right turn, then move forward. 
 1. If no bump switch is triggered while in the **Forward** state, move forward for 700 mm and then stop. 
-1. Ignore any bump triggers in states other than **Forward**, 
+1. Ignore any bump triggers in states other than **Forward**.
+1. Complete `LCDOut3` to display the current state and motor distance on the LCD. 
 1. Demo `Program16_3` to showcase the finite state machine by running your robot on the floor. 
 
 <br>
