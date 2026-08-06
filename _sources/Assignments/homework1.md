@@ -68,13 +68,12 @@ Please name your repository as ECE382_LastName_FirstName. This will help instruc
 ### Add Your Instructor
 
 - Click `Settings` followed by `Collaborators` and then `Add people` to invite your instructor, Lt Col Trimble, Dr. York, or Lt Col Wyche. The instructors' GitHub email addresses are as follows:    
-    - LtCol Trimble: ![trimble](https://img.shields.io/badge/james.trimble@afacademy.af.edu-blue)
-    - Dr. York: ![york](https://img.shields.io/badge/george.pollard.york@gmail.com-silver)
-    - LtCol Wyche: ![wyche](https://img.shields.io/badge/jason.wyche@afacademy.af.edu-silver)
-    
+    - Lt Col Jason Wyche: ![wyche](https://img.shields.io/badge/jason.wyche@afacademy.af.edu-blue)
+    - Capt Donnelle January: ![january](https://img.shields.io/badge/djanuary1997@gmail.com-silver)
+
     <!--
+    - Dr. York: ![york](https://img.shields.io/badge/george.pollard.york@gmail.com-silver)
     - Dr. Baek: ![baek](https://img.shields.io/badge/stanley.baek@afacademy.af.edu-red)  
-    - Capt Yarbrough: ![yarbrough](https://img.shields.io/badge/bcynmelk@yahoo.com-blue)
     -->
 
 ```{image} ./figures/HW1_GitHubCollaborators.gif
