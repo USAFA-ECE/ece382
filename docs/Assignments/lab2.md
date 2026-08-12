@@ -43,7 +43,8 @@ The algorithm used in this lab is Newton's Method.  For an explanation on how Ne
 The yellow arrows are for stepping through the **C** code and the green arrows are for the **Assembly** code.
 ```
 
-- If you click on `Resume` (F8) followed by `Suspend` (Alt+F8), it will stop at `while(1);`.  Observe the variables. 
+- If you click on `Resume` (F8) followed by `Suspend` (Alt+F8), it will stop at `while(1);`.  Observe the variables.
+- Terminate the debugger (click on the **red square**).
 
 ### Complete `Lab02_Sqrt.asm`
 
