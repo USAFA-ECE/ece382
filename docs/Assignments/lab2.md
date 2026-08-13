@@ -11,7 +11,7 @@ Design is where science and art break even.
 
 
 ## 📜 Synopsis
-In this lab, you will write an Assembly program that finds the integer square root. The equivalent C program is provided in `Lab02_SqrtMain.c` in the `Lab02_SqaureRoot` project.
+In this lab, you will write an Assembly program that finds the integer square root. The equivalent C program is provided in `Lab02_SqrtMain.c` in the `Lab02_SquareRoot` project.
 
 ```{note}
 The algorithm used in this lab is Newton's Method.  For an explanation on how Newton's Method works and how we can use it to find the square root, check out [this video](https://youtu.be/q0DyLZyStcg).
@@ -23,7 +23,7 @@ The algorithm used in this lab is Newton's Method.  For an explanation on how Ne
 - Connect the LaunchPad to your computer via the provided USB cable.
 - Open Code Composer Studio (CCS) and select your workspace.
 - Ensure your Project Explorer is open on the left of the CCS screen. Otherwise, select View > Project Explorer.
-- Open the `Lab02_SqaureRoot` project by double-clicking it.
+- Open the `Lab02_SquareRoot` project by double-clicking it.
 
 
 ### Run Lab02_SqrtMain.c
