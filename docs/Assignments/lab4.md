@@ -100,9 +100,9 @@ Q: How would it be possible to return a multi-byte message into a single registe
 A: It is not possible. You should load, XOR, and store one byte at a time.
 <br>
 
-Q: I am struggling with the CMP statement in decrypt after I call the XOR_bytes. I do not know what comparing the R0 returned from XOR_bytes to the null character does.
+Q: I am struggling with the CMP statement in decrypt after I call the XOR_bytes. I do not know what comparing the R0 returned from XOR_bytes to the EOM character does.
 <br>
-A: The null character is the last character of the message, and that is why you're comparing each char to it. It is to check if that's the end of the message, like a terminating char. Also, you want to compare the decrpyted byte to the null character so you can tell when to leave the loop.
+A: The EOM character is the last character of the message, and that is why you're comparing each char to it. It is to check if that's the end of the message, like a terminating char. Also, you want to compare the decrpyted byte to the EOM character so you can tell when to leave the loop.
 <br>
 
 Q: Is there an easy way to check if the encrypted message is correct?
@@ -124,8 +124,7 @@ Do **NOT** implement your own "xor".  You **must** use the provided `XOR_bytes` 
 - Then, you need to check if the **decrypted** message byte is EOM.  
 - If the **decrypted** message byte is EOM, then you are done. Otherwise, retrieve the next byte of the message to decrypt and repeat.  
 
-- After execution of `Lab04_Granger.asm` provide the following screenshots.
-    * The addresses of each of the variables stored in RAM and ROM (use the Memory Browser and the pointers you created. You can search the Memory Browser by variable name or memory address).
+- Execute `Lab04_Granger.asm` and provide the following screenshots.
     * The contents of `enc_msg`. Use Memory Browser and change the encoding style to **32-bit Hex**.
     * The contents of `dec_msg`. Use Memory Browser and change the encoding style to the **correct** format so that everyone can readily verify that the code works correctly.
 
