@@ -496,7 +496,7 @@ document.write(`
 <p>Do <strong>NOT</strong> implement your own “xor”.  You <strong>must</strong> use the provided <code class="docutils literal notranslate"><span class="pre">XOR_bytes</span></code> function. It is declared at line 42, <code class="docutils literal notranslate"><span class="pre">.global</span> <span class="pre">XOR_bytes</span></code> and defined inside <code class="docutils literal notranslate"><span class="pre">xor_bytes.obj</span></code>, which is already complied. So, the actual implementation is hidden, and you cannot tell what registers are being used inside the function. All you know is it takes two arguments (say x and y) and returns the exclusive-or of x and y.  The <code class="docutils literal notranslate"><span class="pre">XOR_bytes</span></code> function complies with the AAPCS.</p>
 </div>
 <ul class="simple">
-<li><p>After you xor two bytes, store the encrypted message byte to the memory.</p></li>
+<li><p>After you xor (i.e encrypt) the character with the key, store the encrypted message byte to the memory.</p></li>
 <li><p>Then, you need to check if the <strong>unencrypted</strong> message byte is the end of message (EOM), which is ‘#’.  If you loaded the message byte into R0-R3, it may have been corrupted after calling the <code class="docutils literal notranslate"><span class="pre">XOR_bytes</span></code> function because “functions can modify R0-R3, and R12 freely.”  But you have to use R0-R3 to pass arguments. How can you preserve the message byte?</p></li>
 <li><p>If the <strong>unencrypted</strong> message byte is ‘#’, then you are done. Otherwise, retrieve the next byte of the message to encrypt and repeat.</p></li>
 </ul>
@@ -531,7 +531,7 @@ A: If so, it is not encryption. 😆  Encrypted messages will not be readable ch
 <p>Do <strong>NOT</strong> implement your own “xor”.  You <strong>must</strong> use the provided <code class="docutils literal notranslate"><span class="pre">XOR_bytes</span></code> function.</p>
 </div>
 <ul class="simple">
-<li><p>After you xor two bytes, store the decrypted message byte to the memory.</p></li>
+<li><p>After you xor (i.e encrypt) the character with the key, store the decrypted message byte to the memory.</p></li>
 <li><p>Then, you need to check if the <strong>decrypted</strong> message byte is EOM.</p></li>
 <li><p>If the <strong>decrypted</strong> message byte is EOM, then you are done. Otherwise, retrieve the next byte of the message to decrypt and repeat.</p></li>
 <li><p>Execute <code class="docutils literal notranslate"><span class="pre">Lab04_Granger.asm</span></code> and provide the following screenshots.</p>

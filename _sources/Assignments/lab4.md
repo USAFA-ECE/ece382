@@ -85,7 +85,7 @@ If you’re not sure whether your code complies with the AAPCS, you can check th
 Do **NOT** implement your own "xor".  You **must** use the provided `XOR_bytes` function. It is declared at line 42, `.global XOR_bytes` and defined inside `xor_bytes.obj`, which is already complied. So, the actual implementation is hidden, and you cannot tell what registers are being used inside the function. All you know is it takes two arguments (say x and y) and returns the exclusive-or of x and y.  The `XOR_bytes` function complies with the AAPCS.
 ```
 
-- After you xor two bytes, store the encrypted message byte to the memory.
+- After you xor (i.e encrypt) the character with the key, store the encrypted message byte to the memory.
 - Then, you need to check if the **unencrypted** message byte is the end of message (EOM), which is '#'.  If you loaded the message byte into R0-R3, it may have been corrupted after calling the `XOR_bytes` function because "functions can modify R0-R3, and R12 freely."  But you have to use R0-R3 to pass arguments. How can you preserve the message byte?
 - If the **unencrypted** message byte is '#', then you are done. Otherwise, retrieve the next byte of the message to encrypt and repeat.  
 
@@ -120,7 +120,7 @@ A: If so, it is not encryption. 😆  Encrypted messages will not be readable ch
 Do **NOT** implement your own "xor".  You **must** use the provided `XOR_bytes` function.
 ```
 
-- After you xor two bytes, store the decrypted message byte to the memory.
+- After you xor (i.e encrypt) the character with the key, store the decrypted message byte to the memory.
 - Then, you need to check if the **decrypted** message byte is EOM.  
 - If the **decrypted** message byte is EOM, then you are done. Otherwise, retrieve the next byte of the message to decrypt and repeat.  
 
