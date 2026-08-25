@@ -155,7 +155,7 @@ spell    .word 0xEBFEF6CB, 0xAEE1FAED, 0xFCFAEFDE, 0xE3FBE0E1, 0x0000ADAF
 ;main:    .asmfunc
 ```
 - Ensure the `main` function at line 58 in `Lab04_Granger.asm` is **commented** out. Otherwise, comment it by adding a semicolon(`;`) at the beginning of the line;
-- Replace the `key` value at line 48 with the secret key. Please do not write "the number of staircases at Hogwarts" verbatim. You can ask Siri, Google, or ChatGPT.  It should be a 1-byte number. You don't need to convert it to hex. You can enter a decimal number.
+- Replace the `key` value at line 49 with the secret key. Please do not write "the number of staircases at Hogwarts" verbatim. You can ask Siri, Google, or ChatGPT.  It should be a 1-byte number. You don't need to convert it to hex. You can enter a decimal number.
 - Execute `Lab04_Potter.asm` to decrypt the spell and provide the screenshot of your Memory Browser showing the decrypted message. You must select the **correct** encoding style showing the spell. 
 
 ```{image} ./figures/Lab04_ExpectoPatronum.gif
