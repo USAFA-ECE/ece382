@@ -164,7 +164,7 @@ Notice that `Nokia_Num2String` is a **static function** as it has the **static**
 - Now, implement `Nokia5110_OutUDec` that first calls the `Nokia_Num2String` function.
 - Remember `Nokia_Num2String` returns `count`, the number of digits in the string.
 - Use `count` and `min_length` to determine the length of the string to print on the LCD to print spaces to the LCD. Remember that `Nokia5110_OutUDec` prints **right-justified digits**.
-- Then print the string inside StrNum in the reverse order.
+- Then print the string inside `Buffer` in the reverse order.
 - Use `Program5_3` to test this function.
 - Then, implement `Nokia5110_OutSDec`, which is very similar to `Nokia5110_OutUDec`.  The only difference is that you need to add a negative sign ('-') or a space (' ') in front of the integer.
 
