@@ -493,7 +493,7 @@ The two left bump switches connected to P4.7 and P4.6 are two window sensors, wh
 <li><p>Your Moku:Go will turn on automatically when connected to power.  Connect the magnetic power supply to the magnetic power adapter.  To turn off Moku:Go, unplug the power source.</p></li>
 <li><p>The LED on Moku:Go is off when the power is disconnected. While Moku:Go is booting, the LED is orange. When Moku:Go is ready, the LED becomes green.</p></li>
 <li><p>Connect the Moku:Go to your computer via a USB-C cable.</p></li>
-<li><p>Once you have connected your Moku:Go to your computer, you can start using your device with the Moku:Go App. Launch the Moku:Go App on your computer. The Moku:Go device connected by USB will appear on the <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">your</span> <span class="pre">device</span></code> page as shown below.</p></li>
+<li><p>Once you have connected your Moku:Go to your computer, you can start using your device with the Moku App. Launch the Moku App on your computer. The Moku:Go device connected by USB will appear on the <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">your</span> <span class="pre">device</span></code> page as shown below.</p></li>
 <li><p>Double click your Moku:Go tile to start using your device. The default name of your Moku:Go is <code class="docutils literal notranslate"><span class="pre">Moku-######</span></code>, where <code class="docutils literal notranslate"><span class="pre">######</span></code> is the 6-digit serial number printed on the bottom of the device.</p></li>
 <li><p>On the <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">your</span> <span class="pre">instrument</span></code> menu, double click Oscilloscope.</p></li>
 <li><p>Change the voltage level and time span by scrolling your mouse up or down as shown below. The time span should be at least 4 seconds or you need to have at least 5 periods (repeating signals) on your window.</p></li>
@@ -510,14 +510,14 @@ The two left bump switches connected to P4.7 and P4.6 are two window sensors, wh
 </section>
 <section id="implement-alarm-algorithm-in-program8-3">
 <h3>Implement alarm algorithm in Program8_3()<a class="headerlink" href="#implement-alarm-algorithm-in-program8-3" title="Permalink to this heading">#</a></h3>
-<p>Implement the alarm algorithm by using <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code> within <code class="docutils literal notranslate"><span class="pre">Lab08_LED_Switchesmain.c</span></code>, as described in the Synopsis and shown in the block diagram below.</p>
+<p>Complete <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code> within <code class="docutils literal notranslate"><span class="pre">Lab08_InterfacingIOmain.c</span></code>. You will implement the alarm algorithm described in the Synopsis and shown in the block diagram below.</p>
 <a class="reference internal image-reference" href="../_images/Lab08_FlowChart.png"><img alt="../_images/Lab08_FlowChart.png" class="align-center" src="../_images/Lab08_FlowChart.png" style="width: 380px;" /></a>
 <ol class="arabic simple">
 <li><p>The system should start with the LED off.</p></li>
 <li><p>Wait for 100 ms.</p></li>
 <li><p>Check the three bump switches: if the <code class="docutils literal notranslate"><span class="pre">Activate</span></code> switch is pressed and one or both of the <code class="docutils literal notranslate"><span class="pre">Window1</span></code> and <code class="docutils literal notranslate"><span class="pre">Window2</span></code> switches are not pressed, toggle the LED; otherwise, keep the LED off.</p></li>
 <li><p>You must use the functions you have implemted in <code class="docutils literal notranslate"><span class="pre">LED.asm</span></code>.</p></li>
-<li><p>Avoid using hard-coded vaules for bit masking. Instead, use <code class="docutils literal notranslate"><span class="pre">BUMP1</span></code> through <code class="docutils literal notranslate"><span class="pre">BUMP6</span></code> defined in <code class="docutils literal notranslate"><span class="pre">bump.h</span></code>.</p></li>
+<li><p>Avoid using hard-coded values for bit masking. Instead, use <code class="docutils literal notranslate"><span class="pre">BUMP1</span></code> through <code class="docutils literal notranslate"><span class="pre">BUMP6</span></code> defined in <code class="docutils literal notranslate"><span class="pre">bump.h</span></code>.</p></li>
 <li><p>Demo the functionality of <code class="docutils literal notranslate"><span class="pre">Program8_3()</span></code></p></li>
 </ol>
 <br>

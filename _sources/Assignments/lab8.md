@@ -93,7 +93,7 @@ We will now utilize Moku:Go Oscilloscope to observe the signal sent over P1.0 to
 - Your Moku:Go will turn on automatically when connected to power.  Connect the magnetic power supply to the magnetic power adapter.  To turn off Moku:Go, unplug the power source.
 - The LED on Moku:Go is off when the power is disconnected. While Moku:Go is booting, the LED is orange. When Moku:Go is ready, the LED becomes green. 
 - Connect the Moku:Go to your computer via a USB-C cable.
-- Once you have connected your Moku:Go to your computer, you can start using your device with the Moku:Go App. Launch the Moku:Go App on your computer. The Moku:Go device connected by USB will appear on the `Select your device` page as shown below.
+- Once you have connected your Moku:Go to your computer, you can start using your device with the Moku App. Launch the Moku App on your computer. The Moku:Go device connected by USB will appear on the `Select your device` page as shown below.
 - Double click your Moku:Go tile to start using your device. The default name of your Moku:Go is `Moku-######`, where `######` is the 6-digit serial number printed on the bottom of the device.
 - On the `Select your instrument` menu, double click Oscilloscope.
 - Change the voltage level and time span by scrolling your mouse up or down as shown below. The time span should be at least 4 seconds or you need to have at least 5 periods (repeating signals) on your window.
@@ -112,7 +112,7 @@ We will now utilize Moku:Go Oscilloscope to observe the signal sent over P1.0 to
 
 ### Implement alarm algorithm in Program8_3()
 
-Implement the alarm algorithm by using `Program8_3()` within `Lab08_LED_Switchesmain.c`, as described in the Synopsis and shown in the block diagram below.
+Complete `Program8_3()` within `Lab08_InterfacingIOmain.c`. You will implement the alarm algorithm described in the Synopsis and shown in the block diagram below.
 
 ```{image} ./figures/Lab08_FlowChart.png
 :width: 380
@@ -123,7 +123,7 @@ Implement the alarm algorithm by using `Program8_3()` within `Lab08_LED_Switches
 1. Wait for 100 ms.
 1. Check the three bump switches: if the `Activate` switch is pressed and one or both of the `Window1` and `Window2` switches are not pressed, toggle the LED; otherwise, keep the LED off.
 1. You must use the functions you have implemted in `LED.asm`.
-1. Avoid using hard-coded vaules for bit masking. Instead, use `BUMP1` through `BUMP6` defined in `bump.h`.
+1. Avoid using hard-coded values for bit masking. Instead, use `BUMP1` through `BUMP6` defined in `bump.h`.
 1. Demo the functionality of `Program8_3()`
 
 <br>
