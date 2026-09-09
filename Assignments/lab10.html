@@ -433,8 +433,6 @@ document.write(`
 <li><p>Open Code Composer Studio (CCS) and select your workspace.</p></li>
 <li><p>Ensure your Project Explorer is open on the left of the CCS screen. Otherwise, select View &gt; Project Explorer.</p></li>
 <li><p>Open the <code class="docutils literal notranslate"><span class="pre">Lab10_Multithreading</span></code> project by double-clicking it.</p></li>
-<li><p>Open Code Composer Studio (CCS) and select your workspace.</p></li>
-<li><p>Ensure your Project Explorer is open on the left of the CCS screen.</p></li>
 </ul>
 <!--
 ### Copy object files
@@ -463,7 +461,8 @@ document.write(`
 <li><p>In <code class="docutils literal notranslate"><span class="pre">Program10_1</span></code>, there is only one thread (which is the foreground thread) that flashes the RGB LED.</p></li>
 <li><p>In <code class="docutils literal notranslate"><span class="pre">Program10_2</span></code>, you will flash the RGB LED red and blue in the background thread.</p></li>
 <li><p>Read <code class="docutils literal notranslate"><span class="pre">Program10_2</span></code> and find <code class="docutils literal notranslate"><span class="pre">DisableInterrupts()</span></code> and <code class="docutils literal notranslate"><span class="pre">EnableInterrupts()</span></code> inside <code class="docutils literal notranslate"><span class="pre">Program10_2</span></code>. What do they do?</p></li>
-<li><p>In <code class="docutils literal notranslate"><span class="pre">Program10_2</span></code>, we use TimerA2 to execute the <code class="docutils literal notranslate"><span class="pre">Flash</span></code> function periodically. We will learn about Timers in Lecture 13. All we need to know in Lab10 is that the <code class="docutils literal notranslate"><span class="pre">Flash</span></code> function will be executed every millisecond by the <em>interrupt handler</em>.</p>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">Program10_2</span></code>, we use TimerA2 to execute the <code class="docutils literal notranslate"><span class="pre">Flash</span></code> function periodically. We will learn about Timers in Lecture 13. All we need to know in Lab10 is that the <code class="docutils literal notranslate"><span class="pre">Flash</span></code> function will be executed every millisecond by the <em>interrupt handler</em>.</p></li>
+<li><p>Complete the <code class="docutils literal notranslate"><span class="pre">Flash</span></code> function definition.</p>
 <ul>
 <li><p>Do not use a loop (while-loop or for-loop) inside the <code class="docutils literal notranslate"><span class="pre">Flash</span></code> function.  Use <code class="docutils literal notranslate"><span class="pre">Time_1ms</span></code> to keep the LED light red for 5 ms and blue for 5 ms.</p></li>
 <li><p>Remember that the function is executed every 1 ms, and you need to use <code class="docutils literal notranslate"><span class="pre">Time_1ms</span></code> to keep track of the time elapsed.</p></li>
@@ -498,14 +497,14 @@ Video Credit: C24 Chanon Mallanoo
 <li><p>Examining the Foreground Thread</p>
 <ul>
 <li><p>Start by thoroughly reviewing the <code class="docutils literal notranslate"><span class="pre">incrementer.asm</span></code> code.</p></li>
-<li><p>Ensure that the <code class="docutils literal notranslate"><span class="pre">Enable_Interrupt()</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> is commented out. Uncomment the line <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> inside the for-loop to run the Increment function exclusively in the foreground.</p></li>
+<li><p>Ensure that the <code class="docutils literal notranslate"><span class="pre">Enable_Interrupts()</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> is commented out. Uncomment the line <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> inside the for-loop to run the Increment function exclusively in the foreground.</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> and take note of the <code class="docutils literal notranslate"><span class="pre">count</span></code> value displayed on the LCD.</p></li>
 <li><p>Does the displayed value match your expectations? If not, explain.</p></li>
 </ul>
 </li>
 <li><p>Examining the Background Thread</p>
 <ul>
-<li><p>Ensure that the <code class="docutils literal notranslate"><span class="pre">Enable_Interrupt()</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> is uncommented, and the line <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> inside the for-loop is commented out to execute the <code class="docutils literal notranslate"><span class="pre">Increment</span></code> function exclusively in the background.</p></li>
+<li><p>Ensure that the <code class="docutils literal notranslate"><span class="pre">Enable_Interrupts()</span></code> function inside <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> is uncommented, and the line <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> inside the for-loop is commented out to execute the <code class="docutils literal notranslate"><span class="pre">Increment</span></code> function exclusively in the background.</p></li>
 <li><p>Keep in mind that the background thread operates through <code class="docutils literal notranslate"><span class="pre">TimerA2</span></code>, and the Increment function is invoked every 1 ms.</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> and record the <code class="docutils literal notranslate"><span class="pre">count</span></code> value displayed on the LCD.</p></li>
 <li><p>Does the displayed value align with your expectations? If not, provide an explanation on Gradescope.</p></li>
@@ -513,7 +512,7 @@ Video Credit: C24 Chanon Mallanoo
 </li>
 <li><p>Examining Multithreading</p>
 <ul>
-<li><p>Make sure both <code class="docutils literal notranslate"><span class="pre">Enable_Interrupt()</span></code> and <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> are uncommented to enable concurrent execution of the <code class="docutils literal notranslate"><span class="pre">Increment</span></code> function in both foreground and background threads.</p></li>
+<li><p>Make sure both <code class="docutils literal notranslate"><span class="pre">Enable_Interrupts()</span></code> and <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">Increment();</span></code> are uncommented to enable concurrent execution of the <code class="docutils literal notranslate"><span class="pre">Increment</span></code> function in both foreground and background threads.</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">Program10_3</span></code> and document the <code class="docutils literal notranslate"><span class="pre">count</span></code> value displayed on the LCD.</p></li>
 <li><p>Does the displayed value match your expectations? If not, explain.</p></li>
 </ul>
