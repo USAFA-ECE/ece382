@@ -23,8 +23,7 @@ In the next step, you will investigate _causal dependency_ (or race condition) t
 - Open Code Composer Studio (CCS) and select your workspace.
 - Ensure your Project Explorer is open on the left of the CCS screen. Otherwise, select View > Project Explorer.
 - Open the `Lab10_Multithreading` project by double-clicking it.
-- Open Code Composer Studio (CCS) and select your workspace.
-- Ensure your Project Explorer is open on the left of the CCS screen.
+
 
 <!--
 ### Copy object files
@@ -52,7 +51,8 @@ In the next step, you will investigate _causal dependency_ (or race condition) t
 - In `Program10_1`, there is only one thread (which is the foreground thread) that flashes the RGB LED. 
 - In `Program10_2`, you will flash the RGB LED red and blue in the background thread.
 - Read `Program10_2` and find `DisableInterrupts()` and `EnableInterrupts()` inside `Program10_2`. What do they do?  
-- In `Program10_2`, we use TimerA2 to execute the `Flash` function periodically. We will learn about Timers in Lecture 13. All we need to know in Lab10 is that the `Flash` function will be executed every millisecond by the _interrupt handler_.   
+- In `Program10_2`, we use TimerA2 to execute the `Flash` function periodically. We will learn about Timers in Lecture 13. All we need to know in Lab10 is that the `Flash` function will be executed every millisecond by the _interrupt handler_.
+- Complete the `Flash` function definition.   
     - Do not use a loop (while-loop or for-loop) inside the `Flash` function.  Use `Time_1ms` to keep the LED light red for 5 ms and blue for 5 ms. 
     - Remember that the function is executed every 1 ms, and you need to use `Time_1ms` to keep track of the time elapsed.
     - Every time the ISR (`Flash` function) is executed, increment `Time_1ms`.
@@ -83,18 +83,18 @@ Video Credit: C24 Chanon Mallanoo
 
 - Examining the Foreground Thread
     - Start by thoroughly reviewing the `incrementer.asm` code.
-    - Ensure that the `Enable_Interrupt()` function inside `Program10_3` is commented out. Uncomment the line `count = Increment();` inside the for-loop to run the Increment function exclusively in the foreground.
+    - Ensure that the `Enable_Interrupts()` function inside `Program10_3` is commented out. Uncomment the line `count = Increment();` inside the for-loop to run the Increment function exclusively in the foreground.
     - Run `Program10_3` and take note of the `count` value displayed on the LCD.
     - Does the displayed value match your expectations? If not, explain.
 
 - Examining the Background Thread
-    - Ensure that the `Enable_Interrupt()` function inside `Program10_3` is uncommented, and the line `count = Increment();` inside the for-loop is commented out to execute the `Increment` function exclusively in the background.
+    - Ensure that the `Enable_Interrupts()` function inside `Program10_3` is uncommented, and the line `count = Increment();` inside the for-loop is commented out to execute the `Increment` function exclusively in the background.
     - Keep in mind that the background thread operates through `TimerA2`, and the Increment function is invoked every 1 ms.
     - Run `Program10_3` and record the `count` value displayed on the LCD.
     - Does the displayed value align with your expectations? If not, provide an explanation on Gradescope.
 
 - Examining Multithreading
-    - Make sure both `Enable_Interrupt()` and `count = Increment();` are uncommented to enable concurrent execution of the `Increment` function in both foreground and background threads.
+    - Make sure both `Enable_Interrupts()` and `count = Increment();` are uncommented to enable concurrent execution of the `Increment` function in both foreground and background threads.
     - Run `Program10_3` and document the `count` value displayed on the LCD.
     - Does the displayed value match your expectations? If not, explain.
 
