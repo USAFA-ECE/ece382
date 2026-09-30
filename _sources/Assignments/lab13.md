@@ -58,7 +58,7 @@ Before proceeding, review the solution for `TimerA1_Init` posted on Gradescope t
 1. Open `TimerA1.h` and `TimerA1.c` and read them thoroughly.
 1. Carefully examine `Program13_1` to understand (i) how `TimerA1` is initialized and (ii) how the semaphore is employed to coordinate between the foreground and background threads. 
 1. Write the `TimerA1_Stop()` and `TA1_0_IRQHandler()` functions, as discussed in Lecture 13 and referenced in Valvano's textbook. 
-1. Demonstrate `Program13_1` as shown in the video below. Ensure that the red LED blinks at 5 Hz, the blue LED blinks at 2.5 Hz, and the LCD updates the elapsed time at a rate of 5 Hz. Your demo should also show the timer interrupt being enabled by pressing a switch and disabled by pressing a bump sensor. 
+1. Demonstrate `Program13_1` as shown in the video below. Ensure that the red LED blinks at 10 Hz, the blue LED blinks at 5 Hz, and the LCD updates the elapsed time at a rate of 5 Hz. Your demo should also show the timer interrupt being enabled by pressing a switch and disabled by pressing a bump sensor. 
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ySVa26xwUzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
