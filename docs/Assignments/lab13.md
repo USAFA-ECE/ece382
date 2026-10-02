@@ -117,7 +117,7 @@ We want to enable interrupt service routines to execute a range of user-defined 
 ## 🚚 Deliverables
 
 ### Deliverable 1 
-- **[6 Points]**  Demo `Program13_1()`. Use `TimerA1` to blink the red LED at 5 Hz while the blue LED blinks at 2.5 Hz and the LCD updates the elapsed time at 5 Hz. 
+- **[6 Points]**  Demo `Program13_1()`. Use `TimerA1` to blink the red LED at 10 Hz while the blue LED blinks at 5 Hz and the LCD updates the elapsed time at 5 Hz. 
 Your demo should also show the timer interrupt being enabled by pressing a switch and disabled by pressing a bump sensor. During the demo, explain what you are demonstrating. 
 
 ### Deliverable 2 
