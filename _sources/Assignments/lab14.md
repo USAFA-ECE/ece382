@@ -22,6 +22,7 @@ In previous labs, we assigned high priority to periodic interrupts to ensure rea
 - **This is part of Homework 14** 
 - Complete the implementation of `BumpInt_Init()` and `PORT4_IRQHandler()` within the `BumpInt.c` file. Refer to the instructions provided within `BumpInt.c` for guidance on how to accomplish these tasks.
 - After completion, copy and paste the code into Gradescope to submit your Homework 14.
+- Complete the implementation of `BumpInt_Read()`. This is the same code as was previously used for `Bump_Read()` in Lab 8. You can simply copy/paste the code from Lab 8 into `BumpInt_Read()`.
 
 Before proceeding with the following sections, review the solutions for `BumpInt_Init()` and `PORT4_IRQHandler()` available on Gradescope. This will help ensure the correctness of your code. In case the solutions are not accessible on Gradescope, go through your code with your instructor.
 
