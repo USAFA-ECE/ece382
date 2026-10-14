@@ -26,9 +26,6 @@ The figure below illustrates the relationship between the output voltage of the 
 ```
 <br>
 
-We will develop a function that converts raw ADC samples into distance measured from the wall. Let $n$ be a 14-bit sample from the ADC (0 to 16383), and $d$ be the distance in mm from the sensor to the wall. Then the distance in mm from the sensor to the wall is given by
-
-
 In this lab, we will create a function to convert raw ADC samples into distances measured from a wall. Let's use some variables to represent our measurements:
 - $n$ represents a 14-bit sample from the ADC, ranging from 0 to 16383.
 - $d$ represents the distance in millimeters from the sensor to the wall.

@@ -437,7 +437,6 @@ document.write(`
 <p>The figure below illustrates the relationship between the output voltage of the IR sensor and the distance to the wall. It’s important to note that the sensor’s behavior is non-monotonic. For instance, if the sensor records a value of 2 V, it could correspond to either 30 mm or 120 mm. During the final project, the primary concern is to keep the robot at a safe distance from the wall, so we assume that the sensor distance is always greater than 70 mm. Additionally, given the nature of the maze navigation in the final project, we are not concerned with distances beyond 800 mm.</p>
 <a class="reference internal image-reference" href="../_images/Lab15_SensorResponse.png"><img alt="../_images/Lab15_SensorResponse.png" class="align-center" src="../_images/Lab15_SensorResponse.png" style="width: 560px;" /></a>
 <br>
-<p>We will develop a function that converts raw ADC samples into distance measured from the wall. Let <span class="math notranslate nohighlight">\(n\)</span> be a 14-bit sample from the ADC (0 to 16383), and <span class="math notranslate nohighlight">\(d\)</span> be the distance in mm from the sensor to the wall. Then the distance in mm from the sensor to the wall is given by</p>
 <p>In this lab, we will create a function to convert raw ADC samples into distances measured from a wall. Let’s use some variables to represent our measurements:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(n\)</span> represents a 14-bit sample from the ADC, ranging from 0 to 16383.</p></li>
