@@ -124,10 +124,13 @@ It is crucial to emphasize that data-driven analyses are fundamental in engineer
 1. Represent the duty cycle in `percentage` rather than `permille` since `permille` is not a standard unit.
 1. Express the speed in rpm, rotations per minute (RPM).
 1. Examples of incorrectly labeled plots include, but are not limited to, the following:
-
+    
+    ```{image} ./figures/Lab16_plot_duty_incorrect.png
+    :width: 360
+    :align: center
+    ```
+    
     <figure align="center">
-        <img src="./figures/Lab16_plot_duty_incorrect.png"
-        width="360">
         <figcaption>The y-axis in this plot is incorrect; it lacks units, and the correct standard unit for the duty cycle is percent.</figcaption>
     </figure>
     <br>
