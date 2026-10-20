@@ -128,18 +128,18 @@ It is crucial to emphasize that data-driven analyses are fundamental in engineer
     ```{image} ./figures/Lab16_plot_duty_incorrect.png
     :width: 360
     :align: center
+
+    The y-axis in this plot is incorrect; it lacks units, and the correct standard unit for the duty cycle is percent.
     ```
-    
-    <figure align="center">
-        <figcaption>The y-axis in this plot is incorrect; it lacks units, and the correct standard unit for the duty cycle is percent.</figcaption>
-    </figure>
     <br>
 
-    <figure align="center">
-        <img src="./figures/Lab16_plot_time_incorrect.png"
-        width="360">
-        <figcaption>The y-axis is incorrect; it lacks units. The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering. You will be very likely to receive no credit for such a plot as it clearly demonstrates a fundamental misunderstanding of what the data represents. It's akin to claiming that the power efficiency in your analysis is 120% or -5% — an obvious and critical error.</figcaption>
-    </figure>
+    ```{image} ./figures/Lab16_plot_time_incorrect.png
+    :width: 360
+    :align: center
+    
+    The y-axis is incorrect; it lacks units. The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering. You will be very likely to receive no credit for such a plot as it clearly demonstrates a fundamental misunderstanding of what the data represents. It's akin to claiming that the power efficiency in your analysis is 120% or -5% — an obvious and critical error.
+    ```
+    <br>
 
 1. Submit the following plots on Gradescope.
     - Distances vs. time
