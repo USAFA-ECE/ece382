@@ -123,22 +123,20 @@ It is crucial to emphasize that data-driven analyses are fundamental in engineer
 1. Label your axes with appropriate units, e.g., `time (seconds)` or `time (ms)`. Convert the time data from 10 ms to seconds or milliseconds. You have to use standard units, such as seconds (sec), milliseconds (ms), and microseconds (us). _**Note that 10 ms is not a standard unit of time.**_ Therefore, it is essential to convert the time data into seconds (sec) or milliseconds (ms), and you should be familiar with the process of converting from 10 ms to seconds (or ms).
 1. Represent the duty cycle in `percentage` rather than `permille` since `permille` is not a standard unit.
 1. Express the speed in rpm, rotations per minute (RPM).
-1. Examples of incorrectly labeled plots include, but are not limited to, the following.
+1. Examples of incorrectly labeled plots include, but are not limited to, the following:
 
-    ```{image} ./figures/Lab16_plot_duty_incorrect.png
-    :width: 360
-    :align: center
-    ```
+    <figure align="center">
+        <img src="./figures/Lab16_plot_duty_incorrect.png"
+        width="360">
+        <figcaption>The y-axis in this plot is incorrect; it lacks units, and the correct standard unit for the duty cycle is percent.</figcaption>
+    </figure>
     <br>
 
-1. The y-axis in this plot is incorrect; it lacks units, and the correct standard unit for the duty cycle is percent.
-
-    ```{image} ./figures/Lab16_plot_time_incorrect.png
-    :width: 360
-    :align: center
-    ```
-    <br>
-1. The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering. You will be very likely to receive no credit for such a plot as it clearly demonstrates a fundamental misunderstanding of what the data represents. It's akin to claiming that the power efficiency in your analysis is 120% or -5% — an obvious and critical error.
+    <figure align="center">
+        <img src="./figures/Lab16_plot_time_incorrect.png"
+        width="360">
+        <figcaption>The y-axis is incorrect; it lacks units. The x-axis in this plot is incorrect; it should span from 0 to 5 seconds. Additionally, the entire transition cannot be completed within just 50 milliseconds. This suggests that the plot was not carefully reviewed before submission, which is unacceptable in the field of engineering. You will be very likely to receive no credit for such a plot as it clearly demonstrates a fundamental misunderstanding of what the data represents. It's akin to claiming that the power efficiency in your analysis is 120% or -5% — an obvious and critical error.</figcaption>
+    </figure>
 
 1. Submit the following plots on Gradescope.
     - Distances vs. time
