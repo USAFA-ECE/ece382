@@ -46,7 +46,7 @@ Control systems are a rich, complex field within engineering, spanning electrica
 
 1. Experimentally determine the best $K_p$ and $K_i$ to achieve a stable system.
 1. Adjust $K_p$ and $K_i$, which are defined at the beginning of `Program17_1.c`.  You can also fine-tune these values in real-time using the bump switches.
-1. Note that the average PWM introduced on Lecture 17, Slide 14 is designed for the wall-following robot and should not be used here, as it may reduce the controller robustness.
+1. Note that the average PWM introduced on Lecture 17, Slide 12 is designed for the wall-following robot and should not be used here, as it may reduce the controller robustness.
 1. Record the $K_p$ and $K_i$ values and report them in the following section.
 1. Demonstrate the functionality of `Program17_1()` with a proportional-integral controller that maintains wheel speeds of 50 rpm and 100 rpm despite external disturbance. **Be sure to apply the disturbance only after the desired speed has settled.** To test the disturbance rejection, apply light friction to the wheels as shown in the video below. 
 
