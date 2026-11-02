@@ -73,29 +73,34 @@ Control systems are a rich, complex field within engineering, spanning electrica
 
 1. Examples of plots that may not receive full credit include, but are not limited to, the following.
 
-    ```{image} ./figures/Lab17_BadPlotExample1.png
+    ```{figure} ./figures/Lab17_BadPlotExample1.png
     :width: 420
     :align: center
+
+    The above plot has no step response.  The initial motor speeds must be 0.
     ```
     <br>
 
-    - The above plot has no step response.  The initial motor speeds must be 0. 
+     
 
-    ```{image} ./figures/Lab17_BadPlotExample2.png
+    ```{figure} ./figures/Lab17_BadPlotExample2.png
     :width: 420
     :align: center
+
+    The x-axis is off by at least an order of magnitude. The wheels cannot react at the speed shown in the plot.
     ```
     <br>
 
-    - The x-axis is off by at least an order of magnitude. The wheels cannot react at the speed shown in the plot. 
+     
 
-    ```{image} ./figures/Lab17_BadPlotExample3.png
+    ```{figure} ./figures/Lab17_BadPlotExample3.png
     :width: 420
     :align: center
+
+    The x-axis unit should be in seconds (s) or milliseconds (ms), not 10 ms or 20 ms. The standard time units in engineering are s, ms, us, ns, and so on.
     ```
     <br>
 
-    - The x-axis unit should be in seconds (s) or milliseconds (ms), not 10 ms or 20 ms. The standard time units in engineering are s, ms, us, ns, and so on.
 
 ### Implement a Wall-Following controller in `Program17_3`
 
