@@ -39,9 +39,9 @@ This schedule is subject to change as appropriate.
 | 30     | [Lab 17: Control Systems](Assignments/lab17.md)  |                      | HW17                                  (18)|
 | 31     | [Lab 17: Control Systems](Assignments/lab17.md)  |                      |                                           |
 | 32     | [Robot Maze](Assignments/project.md)             |                      | [Lab17](Assignments/lab17.md)         (35)|
-| 33     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
+| 33     | GR2                                              |                      | (100)                 |
 | 34     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
-| 35     | GR 2                                             |                      |                                       (100)|
+| 35     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
 | 36     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 | 37     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 |        | Thanksgiving break                               |                      |                                           |
