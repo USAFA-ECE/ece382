@@ -19,11 +19,11 @@ First, solve the problem. Then, write the code.
 The final project serves as an integration of prior modules, culminating in the development of a comprehensive system designed to address a complex task. This project aligns with the concept of embedded systems, characterized by a computer embedded within a machine to perform a dedicated operation. Students will leverage and apply nearly all the modules covered throughout the course in the construction of this integrated system.
 
 Challenge Levels:
-- Level 1: Maze exploration. 
-- Level 2: Wall Following.
+- Level 1: Maze Exploration 
+- Level 2: Wall Following
 
 ```{important}
-If there are any discrepancies in the project description or grading specifications, the order of precedence is as follows: (1) Teams messages from instructors, (2) the Course Web, (3) Gradescope, and finally, (4) the project overview slides. Whenever there are any changes, the Course Web will be updated immediately with the new information, and any outdated descriptions will be crossed out
+If there are any discrepancies in the project description or grading specifications, the order of precedence is as follows: (1) Teams messages from instructors, (2) the Course Website, (3) Gradescope, and finally, (4) the project overview slides. Whenever there are any changes, the Course Web will be updated immediately with the new information, and any outdated descriptions will be crossed out.
 ```
 
 ## 🎮 Final Project Gamesmanship
@@ -46,7 +46,7 @@ If there are any discrepancies in the project description or grading specificati
     - You are strongly recommended to practice your talk. Students who gave very short presentations to avoid exceeding the time limit often did not discuss enough details and lost even more points. So, practice! Even experienced engineers practice for their conference presentations.
 
 1. Report
-    - Throughly Read the template and **do not miss anything in the template**.
+    - Thoroughly read the template and **do not miss anything in the template**.
     - Use figures and tables to support your analysis and results.
     - While in-person demos are accepted, ensure submission of video demos aligned with the plots in your report.
 
@@ -54,21 +54,21 @@ If there are any discrepancies in the project description or grading specificati
 
 ### Timeline
 
-1. L33 0700: Design Presentation slides (Gradescope and Instructors)
-    - Submit your `MS PowerPoint pptx` file to your instructor NLT L33 0700. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.
-    - Additionally, submit the PDF version of your presentation file on Gradescope no later than L33 0700. 
+1. L34 0700: Design Presentation slides (Gradescope and Instructors)
+    - Submit your `MS PowerPoint pptx` file to your instructor NLT L34 0700. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a .pptx file and not any other format unless your instructor has approved it.
+    - Additionally, submit the PDF version of your presentation file on Gradescope no later than L34 0700. 
     - **_No grace days_** can be used for the PowerPoint slides.
-1. L33: Design Presentations
-1. L39 0700: Level 1 Demo Due   
-    - Early turkey **[5 Bonus Points]**: Complete Level 1 by Lesson M38 (Tue 25 Nov) 2359 (i.e. before departing for Thanksgiving break).
+1. L34/35: Design Presentations
+1. L40 0700: Level 1 Demo Due   
+    - Early turkey **[5 Bonus Points]**: Complete Level 1 by Lesson T37 (Tue 24 Nov) 2359 (i.e. before departing for Thanksgiving break).
     - No grace days can be used for early turkey demo. 
-    - Late Demos: You can use grace days, but all products must be submitted NLT T40 2359 (by the Dean's policy). 
-1. L39 during your section: Level 2 live demo.  
-    - A live demo during L39 is mandatory. 
+    - Late Demos: You can use grace days, but all products must be submitted NLT T41 2359. 
+1. L40 during your section: Level 2 live demo.  
+    - A live demo during L40 is mandatory. 
     - Ensure your robot’s robustness for a live demo within 3 minutes (2 minute & 1 minute rounds). 
-    - In the event of a live demo failure, you may use a video demo submitted by L39 2359, but deductions of 5 points will be applied.
-1. T40 2359: Final report & Code
-    - No grace days can be used. All products must be submitted by midnight on T40.
+    - In the event of a live demo failure, you may use a video demo submitted by T41 2359, but deductions of 5 points will be applied.
+1. T41 2359: Final report & Code
+    - No grace days can be used. All products must be submitted by midnight on T41.
 
 ### Requirements for all levels
 
@@ -132,7 +132,7 @@ _**We have been reinforcing these coding practices throughout the semester, but 
 Use the tachometers and bump sensors to navigate the maze and return home.  Imagine you are in uncharted territory with a compass and a GPS receiver, tasked with reaching a designated coordinate.
 
 **Requirements:**
-1. Implement your code in the `Level1.c` file within the `FinalProject` project. Avoid implementing your final project in the Lab 17 files. Instructors will review the code inside the `FinalProject` folder. 
+1. Implement your code in the `Level1.c` file within the `FinalProject` project. Do not implement your final project in the Lab 17 files. Instructors will review the code inside the `FinalProject` folder. 
 1. Utilize the tachometers and bump switches for maze navigation; however, the use of IR distance sensors is strictly prohibited.
 1. The designated `Home` is identified by the three white lines, and the `home area` is marked by the orange line. 
 1. If both wheels are touching or inside the orange line, the robot is considered to be in the home area. 
@@ -147,8 +147,6 @@ Use the tachometers and bump sensors to navigate the maze and return home.  Imag
     :align: center
     ```
     <br>
-
-1. <span style="color:blue"> While the blue maze is slightly easier, you may use either maze for Level 2. (Updated on 22 Nov) </span>
 
 1. Include a plot illustrating the x- and y-coordinates of your robot's movement over time in the final report. It is a common and effective way to visually represent the movement or trajectory of a robot. This can provide valuable insights into the robot's behavior and performance. Additionally, submit a video demo corresponding to this plot.This combination of a visual representation and a practical demonstration will provide a comprehensive overview of the robot's behavior and performance, enhancing the clarity and impact of your findings. Ensure that the plot is appropriately labeled with all necessary information for interpretation.
 
@@ -194,7 +192,7 @@ Explore the maze using the distance sensors.
 
 **Requirements:**
 
-1. Implement your code in `Level2`. Avoid implementing your final project in the Lab 17 files.  
+1. Implement your code in the `Level2.c` file within the `FinalProject` project. Do not implement your final project in the Lab 17 files. Instructors will review the code inside the `FinalProject` folder.  
 1. Your robot must effectively explore the maze using distance sensors.
 1. Ensure that your robot reaches the goal and halts before colliding with the wall.
 1. Your robot should display alternating flashes of red and blue LEDs, with each color lasting 0.5 seconds.
@@ -202,10 +200,10 @@ Explore the maze using the distance sensors.
 1. No bump switches are allowed to use.
 1. You must use `Classifier` to determine road intersections.
 1. **Assume your robot has prior knowledge of the maze layout.**
+1. A live demo during L40 is mandatory. Ensure your robot is robustness enough for a live demo within 3 minutes (2 minutes for the first round and 1 minute for the second round). Note that during the 3-minute live demo, there will be no pauses for replacing batteries or reflashing the code - Don't waste your time on these. Once the clock starts, it never stops.
+1. In the event of a live demo failure, you may use a video demo submitted by T41 2359, but a deduction of 5 points will be applied.
+1. <span style="color:blue"> The official maze for Level 2 is the gray maze and the live demo must be performed in it.</span>
 1. **[5 Bonus Points]** Arrive at the goal within 11.0 seconds.
-1. A live demo during L39 is mandatory. Ensure your robot is robustness enough for a live demo within 3 minutes (2 minutes for the first round and 1 minute for the second round). Note that during the 3-minute live demo, there will be no pauses for replacing batteries or reflashing the code - Don't waste your time on these. Once the clock starts, it never stops.
-1. In the event of a live demo failure, you may use a video demo submitted before your section on L39, but deductions of 5 points will be applied.
-1. <span style="color:blue"> The official maze for Level 2 is the gray maze and the live demo must be performed in it. (Updated on 22 Nov) </span>
 
     <center>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/2m8tce8ZYoI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -246,9 +244,11 @@ Make extensive use of visual aids, such as a maze picture, flowcharts, and diagr
     - **The presentation will be halted at the 7-minute mark, and credit will not be given for parts not discussed.**  Therefore, **practice!**
     - Emphasize the importance of professional timing in a presentation, considering its impact on the audience and subsequent speakers.
 1. **Submission**:
-    - Submit your `MS PowerPoint pptx` file to your instructor **NLT L33 0700**. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a pptx file and not a Keynote file unless your instructor has approved it.
-    - Additionally, export your PowerPoint file to a **pdf** file and submit it on Gradescope by L33 0700. **Be sure to select questions and pages to indicate where your responses are located. Failure to do so will result in point deductions.** Refer to the instruction gif inside the Final Report section for guidance. 
+    - Submit your `MS PowerPoint pptx` file to your instructor **NLT L34 0700**. Your slides will be played on your instructor's PC for smooth transitions between speakers. Make sure to send a pptx file and not any other format unless your instructor has approved it.
+    - Additionally, export your PowerPoint file to a **pdf** file and submit it on Gradescope by L34 0700. **Be sure to select questions and pages to indicate where your responses are located. Failure to do so will result in point deductions.** Refer to the instruction gif inside the Final Report section for guidance. 
     - **_No grace days_** can be used for the PowerPoint slides.
+    - Presentation order will be random. Failure to present when called will be considered late.
+    - Failure to present in class by L35 will result in **ZERO** credit.
 
 
     ```{attention}
@@ -313,8 +313,8 @@ Unlike other assignments, any points earned above the total project points (250)
 - **[15 Points]** Debugging and testing
 - **[5 Points]** Questions
 
-### Deliverable 2: [100 points + $\alpha$] Demo and Code
-- **[15 Bonus Points]**: 
+### Deliverable 2: [100 points + $\alpha$] Demos and Code
+- **Bonus Points**: 
     - **[5 Points]** Early turkey
     - **[10 Points]** 5 points for each level
     - **[5-15 points]** Final Race
@@ -323,9 +323,9 @@ Unlike other assignments, any points earned above the total project points (250)
     - **[-10 Points]:** 5 points per level deducted for delays or loops in ISR.
     - **[-10 Points]:** 5 points per level deducted for controller code in main instead of ISR.
     - **[-10 Points]:** Up to 5 points per level deducted for bad coding practices (e.g., poor comments, hard-coded numbers).
-    - Uncompilable code results in a grade of 0 for the level. 
+    - Uncompilable code results in a grade of **0 points** for the level. 
 - 🏇 **Final Race**
-    - L39 during your section. We will measure completion time for the Level 2 demo.  
+    - L40 during your section. We will measure completion time for the Level 2 demo.  
     - Same requirements as Level 2 apply: reach the goal and stop before hitting the wall.
     - You will have two rounds: 2 minutes for the first round and 1 minute for the second round.
     - A run is considered valid as long as it starts within the given timeframe.
@@ -346,7 +346,7 @@ Unlike other assignments, any points earned above the total project points (250)
 - **[IP Points]** Extra points for the best paper in class!
 
 ### Deliverable 4: [0 Points] Return your robot
-- Return your robot in person to the instructors or Mr. Hall by <span style="color:blue"> Wed 10 Dec 1500.</span>
+- Return your robot in person to the instructors or Mr. Hall by <span style="color:blue"> Friday 11 Dec 1500.</span>
 - Ensure there are no loose parts, and tighten all screws before returning your robot.
 - **[-20 Points]** Up to 20 points may be deducted for loose parts or not returning the robot in person on time. 
 

@@ -40,12 +40,12 @@ This schedule is subject to change as appropriate.
 | 31     | [Lab 17: Control Systems](Assignments/lab17.md)  |                      |                                           |
 | 32     | [Robot Maze](Assignments/project.md)             |                      | [Lab17](Assignments/lab17.md)         (35)|
 | 33     | GR2                                              |                      | (100)                 |
-| 34     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
-| 35     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (5 min)           (50)|
+| 34     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (6 min)           (50)|
+| 35     | [Robot Maze](Assignments/project.md)             |                      | Design Presentation (6 min)           (50)|
 | 36     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 | 37     | [Robot Maze](Assignments/project.md)             |                      |                                           |
 |        | Thanksgiving break                               |                      |                                           |
 | 38     | [Robot Maze](Assignments/project.md)             |                      |                                           |
-| 39     | [Robot Maze](Assignments/project.md)             |
-| 40     | Race                                             |                      | Demo                                 (100)|
-| 41     | Final Report                                     |                      | Final Report (L41 23:59)             (100)|
+| 39     | [Robot Maze](Assignments/project.md)             |                      |
+| 40     | Race                                             |                      | Level 1 and Level 2 Demos                                 (100)|
+| 41     | Final Report                                     |                      | Final Report (T41 23:59)             (100)|
